@@ -1,21 +1,19 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
 * LICENSE file in the root directory of this source tree.
 */
 
-
 'use strict';
 
 var Fx = require('../../components/fx');
-var Axes = require('../../plots/cartesian/axes');
 var BADNUM = require('../../constants/numerical').BADNUM;
 
 var getTraceColor = require('../scatter/get_trace_color');
+var fillText = require('../../lib').fillText;
 var attributes = require('./attributes');
-
 
 module.exports = function hoverPoints(pointData, xval, yval) {
     var cd = pointData.cd;
@@ -64,46 +62,48 @@ module.exports = function hoverPoints(pointData, xval, yval) {
     pointData.lon = lonlat[0];
     pointData.lat = lonlat[1];
 
+    var fullLayout = {};
+    fullLayout[trace.geo] = {_subplot: geo};
+    var labels = trace._module.formatLabels(di, trace, fullLayout);
+    pointData.lonLabel = labels.lonLabel;
+    pointData.latLabel = labels.latLabel;
+
     pointData.color = getTraceColor(trace, di);
-    pointData.extraText = getExtraText(trace, di, geo.mockAxis);
+    pointData.extraText = getExtraText(trace, di, pointData, cd[0].t.labels);
+    pointData.hovertemplate = trace.hovertemplate;
 
     return [pointData];
 };
 
-function getExtraText(trace, pt, axis) {
-    var hoverinfo = trace.hoverinfo;
+function getExtraText(trace, pt, pointData, labels) {
+    if(trace.hovertemplate) return;
 
-    var parts = (hoverinfo === 'all') ?
+    var hoverinfo = pt.hi || trace.hoverinfo;
+
+    var parts = hoverinfo === 'all' ?
         attributes.hoverinfo.flags :
         hoverinfo.split('+');
 
-    var hasLocation = parts.indexOf('location') !== -1 && Array.isArray(trace.locations),
-        hasLon = (parts.indexOf('lon') !== -1),
-        hasLat = (parts.indexOf('lat') !== -1),
-        hasText = (parts.indexOf('text') !== -1);
-
+    var hasLocation = parts.indexOf('location') !== -1 && Array.isArray(trace.locations);
+    var hasLon = (parts.indexOf('lon') !== -1);
+    var hasLat = (parts.indexOf('lat') !== -1);
+    var hasText = (parts.indexOf('text') !== -1);
     var text = [];
 
-    function format(val) {
-        return Axes.tickText(axis, axis.c2l(val), 'hover').text + '\u00B0';
-    }
+    function format(val) { return val + '\u00B0'; }
 
-    if(hasLocation) text.push(pt.loc);
-    else if(hasLon && hasLat) {
-        text.push('(' + format(pt.lonlat[0]) + ', ' + format(pt.lonlat[1]) + ')');
+    if(hasLocation) {
+        text.push(pt.loc);
+    } else if(hasLon && hasLat) {
+        text.push('(' + format(pointData.lonLabel) + ', ' + format(pointData.latLabel) + ')');
+    } else if(hasLon) {
+        text.push(labels.lon + format(pointData.lonLabel));
+    } else if(hasLat) {
+        text.push(labels.lat + format(pointData.latLabel));
     }
-    else if(hasLon) text.push('lon: ' + format(pt.lonlat[0]));
-    else if(hasLat) text.push('lat: ' + format(pt.lonlat[1]));
 
     if(hasText) {
-        var tx;
-
-        if(pt.htx) tx = pt.htx;
-        else if(trace.hovertext) tx = trace.hovertext;
-        else if(pt.tx) tx = pt.tx;
-        else if(trace.text) tx = trace.text;
-
-        if(!Array.isArray(tx)) text.push(tx);
+        fillText(pt, trace, text);
     }
 
     return text.join('<br>');

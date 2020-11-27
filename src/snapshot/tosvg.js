@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -97,11 +97,10 @@ module.exports = function toSVG(gd, format, scale) {
             // but in a static plot it's useless and it can confuse batik
             // we've tried to standardize on display:none but make sure we still
             // catch visibility:hidden if it ever arises
-            if(txt.style('visibility') === 'hidden' || txt.style('display') === 'none') {
+            if(this.style.visibility === 'hidden' || this.style.display === 'none') {
                 txt.remove();
                 return;
-            }
-            else {
+            } else {
                 // clear other visibility/display values to default
                 // to not potentially confuse non-browser SVG implementations
                 txt.style({visibility: null, display: null});
@@ -110,22 +109,35 @@ module.exports = function toSVG(gd, format, scale) {
             // Font family styles break things because of quotation marks,
             // so we must remove them *after* the SVG DOM has been serialized
             // to a string (browsers convert singles back)
-            var ff = txt.style('font-family');
+            var ff = this.style.fontFamily;
             if(ff && ff.indexOf('"') !== -1) {
                 txt.style('font-family', ff.replace(DOUBLEQUOTE_REGEX, DUMMY_SUB));
             }
         });
 
-    svg.selectAll('.point,.scatterpts').each(function() {
-        var pt = d3.select(this);
-        var fill = pt.style('fill');
 
-        // similar to font family styles above,
-        // we must remove " after the SVG DOM has been serialized
-        if(fill && fill.indexOf('url(') !== -1) {
-            pt.style('fill', fill.replace(DOUBLEQUOTE_REGEX, DUMMY_SUB));
+    if(fullLayout._gradientUrlQueryParts) {
+        var queryParts = [];
+        for(var k in fullLayout._gradientUrlQueryParts) queryParts.push(k);
+
+        if(queryParts.length) {
+            svg.selectAll(queryParts.join(',')).each(function() {
+                var pt = d3.select(this);
+
+                // similar to font family styles above,
+                // we must remove " after the SVG DOM has been serialized
+                var fill = this.style.fill;
+                if(fill && fill.indexOf('url(') !== -1) {
+                    pt.style('fill', fill.replace(DOUBLEQUOTE_REGEX, DUMMY_SUB));
+                }
+
+                var stroke = this.style.stroke;
+                if(stroke && stroke.indexOf('url(') !== -1) {
+                    pt.style('stroke', stroke.replace(DOUBLEQUOTE_REGEX, DUMMY_SUB));
+                }
+            });
         }
-    });
+    }
 
     if(format === 'pdf' || format === 'eps') {
         // these formats make the extra line MathJax adds around symbols look super thick in some cases
@@ -165,7 +177,7 @@ module.exports = function toSVG(gd, format, scale) {
         // url in svg are single quoted
         //   since we changed double to single
         //   we'll need to change these to double-quoted
-        s = s.replace(/(\('#)([^']*)('\))/gi, '(\"$2\")');
+        s = s.replace(/(\('#)([^']*)('\))/gi, '(\"#$2\")');
         // font names with spaces will be escaped single-quoted
         //   we'll need to change these to double-quoted
         s = s.replace(/(\\')/gi, '\"');

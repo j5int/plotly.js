@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -47,21 +47,21 @@ function equalPts(pt1, pt2, xtol, ytol) {
 
 // distance in index units - uses the 3rd and 4th items in points
 function ptDist(pt1, pt2) {
-    var dx = pt1[2] - pt2[2],
-        dy = pt1[3] - pt2[3];
+    var dx = pt1[2] - pt2[2];
+    var dy = pt1[3] - pt2[3];
     return Math.sqrt(dx * dx + dy * dy);
 }
 
 function makePath(pi, loc, edgeflag, xtol, ytol) {
-    var startLocStr = loc.join(',');
-    var locStr = startLocStr;
+    var locStr = loc.join(',');
     var mi = pi.crossings[locStr];
-    var marchStep = startStep(mi, edgeflag, loc);
+    var marchStep = getStartStep(mi, edgeflag, loc);
     // start by going backward a half step and finding the crossing point
     var pts = [getInterpPx(pi, loc, [-marchStep[0], -marchStep[1]])];
-    var startStepStr = marchStep.join(',');
     var m = pi.z.length;
     var n = pi.z[0].length;
+    var startLoc = loc.slice();
+    var startStep = marchStep.slice();
     var cnt;
 
     // now follow the path
@@ -69,8 +69,7 @@ function makePath(pi, loc, edgeflag, xtol, ytol) {
         if(mi > 20) {
             mi = constants.CHOOSESADDLE[mi][(marchStep[0] || marchStep[1]) < 0 ? 0 : 1];
             pi.crossings[locStr] = constants.SADDLEREMAINDER[mi];
-        }
-        else {
+        } else {
             delete pi.crossings[locStr];
         }
 
@@ -84,14 +83,16 @@ function makePath(pi, loc, edgeflag, xtol, ytol) {
         pts.push(getInterpPx(pi, loc, marchStep));
         loc[0] += marchStep[0];
         loc[1] += marchStep[1];
+        locStr = loc.join(',');
 
         // don't include the same point multiple times
         if(equalPts(pts[pts.length - 1], pts[pts.length - 2], xtol, ytol)) pts.pop();
-        locStr = loc.join(',');
 
         var atEdge = (marchStep[0] && (loc[0] < 0 || loc[0] > n - 2)) ||
-                (marchStep[1] && (loc[1] < 0 || loc[1] > m - 2)),
-            closedLoop = (locStr === startLocStr) && (marchStep.join(',') === startStepStr);
+                (marchStep[1] && (loc[1] < 0 || loc[1] > m - 2));
+
+        var closedLoop = loc[0] === startLoc[0] && loc[1] === startLoc[1] &&
+                marchStep[0] === startStep[0] && marchStep[1] === startStep[1];
 
         // have we completed a loop, or reached an edge?
         if((closedLoop) || (edgeflag && atEdge)) break;
@@ -102,18 +103,13 @@ function makePath(pi, loc, edgeflag, xtol, ytol) {
     if(cnt === 10000) {
         Lib.log('Infinite loop in contour?');
     }
-    var closedpath = equalPts(pts[0], pts[pts.length - 1], xtol, ytol),
-        totaldist = 0,
-        distThresholdFactor = 0.2 * pi.smoothing,
-        alldists = [],
-        cropstart = 0,
-        distgroup,
-        cnt2,
-        cnt3,
-        newpt,
-        ptcnt,
-        ptavg,
-        thisdist;
+    var closedpath = equalPts(pts[0], pts[pts.length - 1], xtol, ytol);
+    var totaldist = 0;
+    var distThresholdFactor = 0.2 * pi.smoothing;
+    var alldists = [];
+    var cropstart = 0;
+    var distgroup, cnt2, cnt3, newpt, ptcnt, ptavg, thisdist,
+        i, j, edgepathi, edgepathj;
 
     /*
      * Check for points that are too close together (<1/5 the average dist
@@ -139,8 +135,7 @@ function makePath(pi, loc, edgeflag, xtol, ytol) {
             for(cnt2 = cnt - 1; cnt2 >= cropstart; cnt2--) {
                 if(distgroup + alldists[cnt2] < distThreshold) {
                     distgroup += alldists[cnt2];
-                }
-                else break;
+                } else break;
             }
 
             // closed path with close points wrapping around the boundary?
@@ -148,8 +143,7 @@ function makePath(pi, loc, edgeflag, xtol, ytol) {
                 for(cnt3 = 0; cnt3 < cnt2; cnt3++) {
                     if(distgroup + alldists[cnt3] < distThreshold) {
                         distgroup += alldists[cnt3];
-                    }
-                    else break;
+                    } else break;
                 }
             }
             ptcnt = cnt - cnt2 + cnt3 + 1;
@@ -189,50 +183,52 @@ function makePath(pi, loc, edgeflag, xtol, ytol) {
     else if(closedpath) {
         pts.pop();
         pi.paths.push(pts);
-    }
-    else {
+    } else {
         if(!edgeflag) {
             Lib.log('Unclosed interior contour?',
-                pi.level, startLocStr, pts.join('L'));
+                pi.level, startLoc.join(','), pts.join('L'));
         }
 
         // edge path - does it start where an existing edge path ends, or vice versa?
         var merged = false;
-        pi.edgepaths.forEach(function(edgepath, edgei) {
-            if(!merged && equalPts(edgepath[0], pts[pts.length - 1], xtol, ytol)) {
+        for(i = 0; i < pi.edgepaths.length; i++) {
+            edgepathi = pi.edgepaths[i];
+            if(!merged && equalPts(edgepathi[0], pts[pts.length - 1], xtol, ytol)) {
                 pts.pop();
                 merged = true;
 
                 // now does it ALSO meet the end of another (or the same) path?
                 var doublemerged = false;
-                pi.edgepaths.forEach(function(edgepath2, edgei2) {
-                    if(!doublemerged && equalPts(
-                            edgepath2[edgepath2.length - 1], pts[0], xtol, ytol)) {
+                for(j = 0; j < pi.edgepaths.length; j++) {
+                    edgepathj = pi.edgepaths[j];
+                    if(equalPts(edgepathj[edgepathj.length - 1], pts[0], xtol, ytol)) {
                         doublemerged = true;
-                        pts.splice(0, 1);
-                        pi.edgepaths.splice(edgei, 1);
-                        if(edgei2 === edgei) {
+                        pts.shift();
+                        pi.edgepaths.splice(i, 1);
+                        if(j === i) {
                             // the path is now closed
-                            pi.paths.push(pts.concat(edgepath2));
+                            pi.paths.push(pts.concat(edgepathj));
+                        } else {
+                            if(j > i) j--;
+                            pi.edgepaths[j] = edgepathj.concat(pts, edgepathi);
                         }
-                        else {
-                            pi.edgepaths[edgei2] =
-                                pi.edgepaths[edgei2].concat(pts, edgepath2);
-                        }
+                        break;
                     }
-                });
+                }
                 if(!doublemerged) {
-                    pi.edgepaths[edgei] = pts.concat(edgepath);
+                    pi.edgepaths[i] = pts.concat(edgepathi);
                 }
             }
-        });
-        pi.edgepaths.forEach(function(edgepath, edgei) {
-            if(!merged && equalPts(edgepath[edgepath.length - 1], pts[0], xtol, ytol)) {
-                pts.splice(0, 1);
-                pi.edgepaths[edgei] = edgepath.concat(pts);
+        }
+        for(i = 0; i < pi.edgepaths.length; i++) {
+            if(merged) break;
+            edgepathi = pi.edgepaths[i];
+            if(equalPts(edgepathi[edgepathi.length - 1], pts[0], xtol, ytol)) {
+                pts.shift();
+                pi.edgepaths[i] = edgepathi.concat(pts);
                 merged = true;
             }
-        });
+        }
 
         if(!merged) pi.edgepaths.push(pts);
     }
@@ -240,21 +236,19 @@ function makePath(pi, loc, edgeflag, xtol, ytol) {
 
 // special function to get the marching step of the
 // first point in the path (leading to loc)
-function startStep(mi, edgeflag, loc) {
-    var dx = 0,
-        dy = 0;
+function getStartStep(mi, edgeflag, loc) {
+    var dx = 0;
+    var dy = 0;
     if(mi > 20 && edgeflag) {
         // these saddles start at +/- x
         if(mi === 208 || mi === 1114) {
             // if we're starting at the left side, we must be going right
             dx = loc[0] === 0 ? 1 : -1;
-        }
-        else {
+        } else {
             // if we're starting at the bottom, we must be going up
             dy = loc[1] === 0 ? 1 : -1;
         }
-    }
-    else if(constants.BOTTOMSTART.indexOf(mi) !== -1) dy = 1;
+    } else if(constants.BOTTOMSTART.indexOf(mi) !== -1) dy = 1;
     else if(constants.LEFTSTART.indexOf(mi) !== -1) dx = 1;
     else if(constants.TOPSTART.indexOf(mi) !== -1) dy = -1;
     else dx = -1;
@@ -277,11 +271,11 @@ function startStep(mi, edgeflag, loc) {
  *   points into a path, because those routines require length-2 points.
  */
 function getInterpPx(pi, loc, step) {
-    var locx = loc[0] + Math.max(step[0], 0),
-        locy = loc[1] + Math.max(step[1], 0),
-        zxy = pi.z[locy][locx],
-        xa = pi.xaxis,
-        ya = pi.yaxis;
+    var locx = loc[0] + Math.max(step[0], 0);
+    var locy = loc[1] + Math.max(step[1], 0);
+    var zxy = pi.z[locy][locx];
+    var xa = pi.xaxis;
+    var ya = pi.yaxis;
 
     if(step[1]) {
         var dx = (pi.level - zxy) / (pi.z[locy][locx + 1] - zxy);
@@ -289,8 +283,7 @@ function getInterpPx(pi, loc, step) {
         return [xa.c2p((1 - dx) * pi.x[locx] + dx * pi.x[locx + 1], true),
             ya.c2p(pi.y[locy], true),
             locx + dx, locy];
-    }
-    else {
+    } else {
         var dy = (pi.level - zxy) / (pi.z[locy + 1][locx] - zxy);
         return [xa.c2p(pi.x[locx], true),
             ya.c2p((1 - dy) * pi.y[locy] + dy * pi.y[locy + 1], true),

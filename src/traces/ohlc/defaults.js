@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -11,22 +11,21 @@
 
 var Lib = require('../../lib');
 var handleOHLC = require('./ohlc_defaults');
-var handleDirectionDefaults = require('./direction_defaults');
+var handlePeriodDefaults = require('../scatter/period_defaults');
 var attributes = require('./attributes');
-var helpers = require('./helpers');
 
 module.exports = function supplyDefaults(traceIn, traceOut, defaultColor, layout) {
-    helpers.pushDummyTransformOpts(traceIn, traceOut);
-
     function coerce(attr, dflt) {
         return Lib.coerce(traceIn, traceOut, attributes, attr, dflt);
     }
 
     var len = handleOHLC(traceIn, traceOut, coerce, layout);
-    if(len === 0) {
+    if(!len) {
         traceOut.visible = false;
         return;
     }
+
+    handlePeriodDefaults(traceIn, traceOut, layout, coerce, {x: true});
 
     coerce('line.width');
     coerce('line.dash');
@@ -35,12 +34,13 @@ module.exports = function supplyDefaults(traceIn, traceOut, defaultColor, layout
     handleDirection(traceIn, traceOut, coerce, 'decreasing');
 
     coerce('text');
+    coerce('hovertext');
     coerce('tickwidth');
+
+    layout._requestRangeslider[traceOut.xaxis] = true;
 };
 
 function handleDirection(traceIn, traceOut, coerce, direction) {
-    handleDirectionDefaults(traceIn, traceOut, coerce, direction);
-
     coerce(direction + '.line.color');
     coerce(direction + '.line.width', traceOut.line.width);
     coerce(direction + '.line.dash', traceOut.line.dash);

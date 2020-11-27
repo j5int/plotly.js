@@ -5,13 +5,19 @@ var Lib = require('@src/lib');
 var d3 = require('d3');
 var createGraphDiv = require('../assets/create_graph_div');
 var destroyGraphDiv = require('../assets/destroy_graph_div');
-var fail = require('../assets/fail_test');
+var failTest = require('../assets/fail_test');
 var mouseEvent = require('../assets/mouse_event');
+var supplyAllDefaults = require('../assets/supply_defaults');
 
 describe('Test sort transform defaults:', function() {
     function _supply(trace, layout) {
         layout = layout || {};
-        return Plots.supplyTraceDefaults(trace, 0, layout);
+        Lib.extendDeep(layout, {
+            _subplots: {cartesian: ['xy'], xaxis: ['x'], yaxis: ['y']},
+            _modules: [],
+            _basePlotModules: []
+        });
+        return Plots.supplyTraceDefaults(trace, {type: trace.type || 'scatter'}, 0, layout);
     }
 
     it('should coerce all attributes', function() {
@@ -52,12 +58,12 @@ describe('Test sort transform defaults:', function() {
 
 describe('Test sort transform calc:', function() {
     var base = {
-        x: [-2, -1, -2, 0, 1, 3, 1],
-        y: [1, 2, 3, 1, 2, 3, 1],
-        ids: ['n0', 'n1', 'n2', 'z', 'p1', 'p2', 'p3'],
+        x: [-2, -1, -2, 0, 1, 3, null, 1],
+        y: [1, 2, 3, 1, 2, 3, 4, 1],
+        ids: ['n0', 'n1', 'n2', 'z', 'p1', 'p2', 'n3', 'p3'],
         marker: {
-            color: [0.1, 0.2, 0.3, 0.1, 0.2, 0.3, 0.4],
-            size: [10, 20, 5, 1, 6, 0, 10]
+            color: [0.1, 0.2, 0.3, 0.1, 0.2, 0.3, 0.4, 0.4],
+            size: [10, 20, 5, 1, 6, 0, 3, 10]
         },
         transforms: [{ type: 'sort' }]
     };
@@ -76,20 +82,34 @@ describe('Test sort transform calc:', function() {
             layout: layout || {}
         };
 
-        Plots.supplyDefaults(gd);
+        supplyAllDefaults(gd);
         Plots.doCalcdata(gd);
 
         return gd.calcdata.map(calcDatatoTrace);
     }
 
     it('should sort all array attributes (ascending case)', function() {
-        var out = _transform([extend({})]);
+        var out = _transform([extend({
+            transforms: [{
+                order: 'ascending'
+            }]
+        })]);
 
-        expect(out[0].x).toEqual([-2, -2, -1, 0, 1, 1, 3]);
-        expect(out[0].y).toEqual([1, 3, 2, 1, 2, 1, 3]);
-        expect(out[0].ids).toEqual(['n0', 'n2', 'n1', 'z', 'p1', 'p3', 'p2']);
-        expect(out[0].marker.color).toEqual([0.1, 0.3, 0.2, 0.1, 0.2, 0.4, 0.3]);
-        expect(out[0].marker.size).toEqual([10, 5, 20, 1, 6, 10, 0]);
+        expect(out[0].x).toEqual([-2, -2, -1, 0, 1, 1, 3, null]);
+        expect(out[0].y).toEqual([1, 3, 2, 1, 2, 1, 3, 4]);
+        expect(out[0].ids).toEqual(['n0', 'n2', 'n1', 'z', 'p1', 'p3', 'p2', 'n3']);
+        expect(out[0].marker.color).toEqual([0.1, 0.3, 0.2, 0.1, 0.2, 0.4, 0.3, 0.4]);
+        expect(out[0].marker.size).toEqual([10, 5, 20, 1, 6, 10, 0, 3]);
+        expect(out[0].transforms[0]._indexToPoints).toEqual({
+            0: [0],
+            1: [2],
+            2: [1],
+            3: [3],
+            4: [4],
+            5: [7],
+            6: [5],
+            7: [6],
+        });
     });
 
     it('should sort all array attributes (descending case)', function() {
@@ -99,11 +119,21 @@ describe('Test sort transform calc:', function() {
             }]
         })]);
 
-        expect(out[0].x).toEqual([3, 1, 1, 0, -1, -2, -2]);
-        expect(out[0].y).toEqual([3, 2, 1, 1, 2, 1, 3]);
-        expect(out[0].ids).toEqual(['p2', 'p1', 'p3', 'z', 'n1', 'n0', 'n2']);
-        expect(out[0].marker.color).toEqual([0.3, 0.2, 0.4, 0.1, 0.2, 0.1, 0.3]);
-        expect(out[0].marker.size).toEqual([0, 6, 10, 1, 20, 10, 5]);
+        expect(out[0].x).toEqual([3, 1, 1, 0, -1, -2, -2, null]);
+        expect(out[0].y).toEqual([3, 2, 1, 1, 2, 1, 3, 4]);
+        expect(out[0].ids).toEqual(['p2', 'p1', 'p3', 'z', 'n1', 'n0', 'n2', 'n3']);
+        expect(out[0].marker.color).toEqual([0.3, 0.2, 0.4, 0.1, 0.2, 0.1, 0.3, 0.4]);
+        expect(out[0].marker.size).toEqual([0, 6, 10, 1, 20, 10, 5, 3]);
+        expect(out[0].transforms[0]._indexToPoints).toEqual({
+            0: [5],
+            1: [4],
+            2: [7],
+            3: [3],
+            4: [1],
+            5: [0],
+            6: [2],
+            7: [6]
+        });
     });
 
     it('should sort via nested targets', function() {
@@ -114,11 +144,21 @@ describe('Test sort transform calc:', function() {
             }]
         })]);
 
-        expect(out[0].x).toEqual([-1, -2, 1, 1, -2, 0, 3]);
-        expect(out[0].y).toEqual([2, 1, 1, 2, 3, 1, 3]);
-        expect(out[0].ids).toEqual(['n1', 'n0', 'p3', 'p1', 'n2', 'z', 'p2']);
-        expect(out[0].marker.color).toEqual([0.2, 0.1, 0.4, 0.2, 0.3, 0.1, 0.3]);
-        expect(out[0].marker.size).toEqual([20, 10, 10, 6, 5, 1, 0]);
+        expect(out[0].x).toEqual([-1, -2, 1, 1, -2, null, 0, 3]);
+        expect(out[0].y).toEqual([2, 1, 1, 2, 3, 4, 1, 3]);
+        expect(out[0].ids).toEqual(['n1', 'n0', 'p3', 'p1', 'n2', 'n3', 'z', 'p2']);
+        expect(out[0].marker.color).toEqual([0.2, 0.1, 0.4, 0.2, 0.3, 0.4, 0.1, 0.3]);
+        expect(out[0].marker.size).toEqual([20, 10, 10, 6, 5, 3, 1, 0]);
+        expect(out[0].transforms[0]._indexToPoints).toEqual({
+            0: [1],
+            1: [0],
+            2: [7],
+            3: [4],
+            4: [2],
+            5: [6],
+            6: [3],
+            7: [5],
+        });
     });
 
     it('should sort via dates targets', function() {
@@ -142,25 +182,25 @@ describe('Test sort transform calc:', function() {
 
         var out = _transform([trace]);
 
-        expect(out[0].x).toEqual(['F', 'D', 'C', 'E', 'A', 'G', 'B']);
-        expect(out[0].y).toEqual([3, 1, 3, 2, 1, 1, 2]);
-        expect(out[0].ids).toEqual(['p2', 'z', 'n2', 'p1', 'n0', 'p3', 'n1']);
-        expect(out[0].marker.size).toEqual([0, 1, 5, 6, 10, 10, 20]);
-        expect(out[0].marker.color).toEqual([0.3, 0.1, 0.3, 0.2, 0.1, 0.4, 0.2]);
+        expect(out[0].x).toEqual(['F', 'D', 'G', 'C', 'E', 'A', 'H', 'B']);
+        expect(out[0].y).toEqual([3, 1, 4, 3, 2, 1, 1, 2]);
+        expect(out[0].ids).toEqual(['p2', 'z', 'n3', 'n2', 'p1', 'n0', 'p3', 'n1']);
+        expect(out[0].marker.size).toEqual([0, 1, 3, 5, 6, 10, 10, 20]);
+        expect(out[0].marker.color).toEqual([0.3, 0.1, 0.4, 0.3, 0.2, 0.1, 0.4, 0.2]);
     });
 
     it('should sort via custom targets', function() {
         var out = _transform([extend({
             transforms: [{
-                target: [10, 20, 30, 10, 20, 30, 0]
+                target: [10, 20, 30, 10, 20, 30, null, 0]
             }]
         })]);
 
-        expect(out[0].x).toEqual([1, -2, 0, -1, 1, -2, 3]);
-        expect(out[0].y).toEqual([1, 1, 1, 2, 2, 3, 3]);
-        expect(out[0].ids).toEqual(['p3', 'n0', 'z', 'n1', 'p1', 'n2', 'p2']);
-        expect(out[0].marker.color).toEqual([0.4, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3]);
-        expect(out[0].marker.size).toEqual([10, 10, 1, 20, 6, 5, 0]);
+        expect(out[0].x).toEqual([1, -2, 0, -1, 1, -2, 3, null]);
+        expect(out[0].y).toEqual([1, 1, 1, 2, 2, 3, 3, 4]);
+        expect(out[0].ids).toEqual(['p3', 'n0', 'z', 'n1', 'p1', 'n2', 'p2', 'n3']);
+        expect(out[0].marker.color).toEqual([0.4, 0.1, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4]);
+        expect(out[0].marker.size).toEqual([10, 10, 1, 20, 6, 5, 0, 3]);
     });
 
     it('should truncate transformed arrays to target array length (short target case)', function() {
@@ -181,12 +221,14 @@ describe('Test sort transform calc:', function() {
         expect(out[0].ids).toEqual(['n1', 'n0']);
         expect(out[0].marker.color).toEqual([0.2, 0.1]);
         expect(out[0].marker.size).toEqual([20, 10]);
+        expect(out[0]._length).toBe(2);
 
         expect(out[1].x).toEqual([-2, -1]);
         expect(out[1].y).toEqual([1, 2]);
         expect(out[1].ids).toEqual(['n0', 'n1']);
         expect(out[1].marker.color).toEqual([0.1, 0.2]);
         expect(out[1].marker.size).toEqual([10, 20]);
+        expect(out[1]._length).toBe(2);
     });
 
     it('should truncate transformed arrays to target array length (long target case)', function() {
@@ -202,17 +244,19 @@ describe('Test sort transform calc:', function() {
             transforms: [{ target: 'text' }]
         })]);
 
-        expect(out[0].x).toEqual([1, undefined, -2, 3, undefined, -1, 1, undefined, -2, 0, undefined]);
-        expect(out[0].y).toEqual([1, undefined, 3, 3, undefined, 2, 2, undefined, 1, 1, undefined]);
-        expect(out[0].ids).toEqual(['p3', undefined, 'n2', 'p2', undefined, 'n1', 'p1', undefined, 'n0', 'z', undefined]);
-        expect(out[0].marker.color).toEqual([0.4, undefined, 0.3, 0.3, undefined, 0.2, 0.2, undefined, 0.1, 0.1, undefined]);
-        expect(out[0].marker.size).toEqual([10, undefined, 5, 0, undefined, 20, 6, undefined, 10, 1, undefined]);
+        expect(out[0].x).toEqual([null, -2, 3, -1, 1, -2, 0, 1]);
+        expect(out[0].y).toEqual([4, 3, 3, 2, 2, 1, 1, 1]);
+        expect(out[0].ids).toEqual(['n3', 'n2', 'p2', 'n1', 'p1', 'n0', 'z', 'p3']);
+        expect(out[0].marker.color).toEqual([0.4, 0.3, 0.3, 0.2, 0.2, 0.1, 0.1, 0.4]);
+        expect(out[0].marker.size).toEqual([3, 5, 0, 20, 6, 10, 1, 10]);
+        expect(out[0]._length).toBe(8);
 
-        expect(out[1].x).toEqual([-2, -1, -2, 0, 1, 3, 1, undefined, undefined]);
-        expect(out[1].y).toEqual([1, 2, 3, 1, 2, 3, 1, undefined, undefined]);
-        expect(out[1].ids).toEqual(['n0', 'n1', 'n2', 'z', 'p1', 'p2', 'p3', undefined, undefined]);
-        expect(out[1].marker.color).toEqual([0.1, 0.2, 0.3, 0.1, 0.2, 0.3, 0.4, undefined, undefined]);
-        expect(out[1].marker.size).toEqual([10, 20, 5, 1, 6, 0, 10, undefined, undefined]);
+        expect(out[1].x).toEqual([-2, -1, -2, 0, 1, 3, null, 1]);
+        expect(out[1].y).toEqual([1, 2, 3, 1, 2, 3, 4, 1]);
+        expect(out[1].ids).toEqual(['n0', 'n1', 'n2', 'z', 'p1', 'p2', 'n3', 'p3']);
+        expect(out[1].marker.color).toEqual([0.1, 0.2, 0.3, 0.1, 0.2, 0.3, 0.4, 0.4]);
+        expect(out[1].marker.size).toEqual([10, 20, 5, 1, 6, 0, 3, 10]);
+        expect(out[1]._length).toBe(8);
     });
 });
 
@@ -254,7 +298,7 @@ describe('Test sort transform interactions:', function() {
         .then(function() {
             _assertFirst('M10,0A10,10 0 1');
         })
-        .catch(fail)
+        .catch(failTest)
         .then(done);
     });
 
@@ -346,7 +390,7 @@ describe('Test sort transform interactions:', function() {
         .then(function(eventData) {
             assertPt(eventData, 1, 1, 5, 'G');
         })
-        .catch(fail)
+        .catch(failTest)
         .then(done);
     });
 
@@ -383,7 +427,7 @@ describe('Test sort transform interactions:', function() {
         .then(function() {
             expect(gd._fullLayout.xaxis._categories).toEqual(['A', 'B', 'C']);
         })
-        .catch(fail)
+        .catch(failTest)
         .then(done);
     });
 });

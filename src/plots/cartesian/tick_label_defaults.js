@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -10,27 +10,46 @@
 'use strict';
 
 var Lib = require('../../lib');
+var layoutAttributes = require('./layout_attributes');
+var handleArrayContainerDefaults = require('../array_container_defaults');
 
+module.exports = function handleTickLabelDefaults(containerIn, containerOut, coerce, axType, options, config) {
+    if(!config || config.pass === 1) {
+        handlePrefixSuffix(containerIn, containerOut, coerce, axType, options);
+    }
 
-/**
- * options: inherits font, outerTicks, noHover from axes.handleAxisDefaults
- */
-module.exports = function handleTickLabelDefaults(containerIn, containerOut, coerce, axType, options) {
+    if(!config || config.pass === 2) {
+        handleOtherDefaults(containerIn, containerOut, coerce, axType, options);
+    }
+};
+
+function handlePrefixSuffix(containerIn, containerOut, coerce, axType, options) {
     var showAttrDflt = getShowAttrDflt(containerIn);
 
     var tickPrefix = coerce('tickprefix');
     if(tickPrefix) coerce('showtickprefix', showAttrDflt);
 
-    var tickSuffix = coerce('ticksuffix');
+    var tickSuffix = coerce('ticksuffix', options.tickSuffixDflt);
+    if(tickSuffix) coerce('showticksuffix', showAttrDflt);
+}
+
+function handleOtherDefaults(containerIn, containerOut, coerce, axType, options) {
+    var showAttrDflt = getShowAttrDflt(containerIn);
+
+    var tickPrefix = coerce('tickprefix');
+    if(tickPrefix) coerce('showtickprefix', showAttrDflt);
+
+    var tickSuffix = coerce('ticksuffix', options.tickSuffixDflt);
     if(tickSuffix) coerce('showticksuffix', showAttrDflt);
 
     var showTickLabels = coerce('showticklabels');
     if(showTickLabels) {
         var font = options.font || {};
+        var contColor = containerOut.color;
         // as with titlefont.color, inherit axis.color only if one was
         // explicitly provided
-        var dfltFontColor = (containerOut.color === containerIn.color) ?
-            containerOut.color : font.color;
+        var dfltFontColor = (contColor && contColor !== layoutAttributes.color.dflt) ?
+            contColor : font.color;
         Lib.coerceFont(coerce, 'tickfont', {
             family: font.family,
             size: font.size,
@@ -40,16 +59,25 @@ module.exports = function handleTickLabelDefaults(containerIn, containerOut, coe
 
         if(axType !== 'category') {
             var tickFormat = coerce('tickformat');
+
+            handleArrayContainerDefaults(containerIn, containerOut, {
+                name: 'tickformatstops',
+                inclusionAttr: 'enabled',
+                handleItemDefaults: tickformatstopDefaults
+            });
+            if(!containerOut.tickformatstops.length) {
+                delete containerOut.tickformatstops;
+            }
+
             if(!tickFormat && axType !== 'date') {
                 coerce('showexponent', showAttrDflt);
                 coerce('exponentformat');
+                coerce('minexponent');
                 coerce('separatethousands');
             }
         }
     }
-
-    if(axType !== 'category' && !options.noHover) coerce('hoverformat');
-};
+}
 
 /*
  * Attributes 'showexponent', 'showtickprefix' and 'showticksuffix'
@@ -66,17 +94,27 @@ module.exports = function handleTickLabelDefaults(containerIn, containerOut, coe
  *
  */
 function getShowAttrDflt(containerIn) {
-    var showAttrsAll = ['showexponent',
-            'showtickprefix',
-            'showticksuffix'],
-        showAttrs = showAttrsAll.filter(function(a) {
-            return containerIn[a] !== undefined;
-        }),
-        sameVal = function(a) {
-            return containerIn[a] === containerIn[showAttrs[0]];
-        };
+    var showAttrsAll = ['showexponent', 'showtickprefix', 'showticksuffix'];
+    var showAttrs = showAttrsAll.filter(function(a) {
+        return containerIn[a] !== undefined;
+    });
+    var sameVal = function(a) {
+        return containerIn[a] === containerIn[showAttrs[0]];
+    };
 
     if(showAttrs.every(sameVal) || showAttrs.length === 1) {
         return containerIn[showAttrs[0]];
+    }
+}
+
+function tickformatstopDefaults(valueIn, valueOut) {
+    function coerce(attr, dflt) {
+        return Lib.coerce(valueIn, valueOut, layoutAttributes.tickformatstops, attr, dflt);
+    }
+
+    var enabled = coerce('enabled');
+    if(enabled) {
+        coerce('dtickrange');
+        coerce('value');
     }
 }

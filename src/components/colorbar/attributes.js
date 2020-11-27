@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -166,30 +166,66 @@ module.exports = overrideAll({
     }),
     tickangle: axesAttrs.tickangle,
     tickformat: axesAttrs.tickformat,
+    tickformatstops: axesAttrs.tickformatstops,
     tickprefix: axesAttrs.tickprefix,
     showtickprefix: axesAttrs.showtickprefix,
     ticksuffix: axesAttrs.ticksuffix,
     showticksuffix: axesAttrs.showticksuffix,
     separatethousands: axesAttrs.separatethousands,
     exponentformat: axesAttrs.exponentformat,
+    minexponent: axesAttrs.minexponent,
     showexponent: axesAttrs.showexponent,
     title: {
-        valType: 'string',
-        role: 'info',
-        dflt: 'Click to enter colorscale title',
-        description: 'Sets the title of the color bar.'
+        text: {
+            valType: 'string',
+            role: 'info',
+            description: [
+                'Sets the title of the color bar.',
+                'Note that before the existence of `title.text`, the title\'s',
+                'contents used to be defined as the `title` attribute itself.',
+                'This behavior has been deprecated.'
+            ].join(' ')
+        },
+        font: fontAttrs({
+            description: [
+                'Sets this color bar\'s title font.',
+                'Note that the title\'s font used to be set',
+                'by the now deprecated `titlefont` attribute.'
+            ].join(' ')
+        }),
+        side: {
+            valType: 'enumerated',
+            values: ['right', 'top', 'bottom'],
+            role: 'style',
+            dflt: 'top',
+            description: [
+                'Determines the location of color bar\'s title',
+                'with respect to the color bar.',
+                'Note that the title\'s location used to be set',
+                'by the now deprecated `titleside` attribute.'
+            ].join(' ')
+        }
     },
-    titlefont: fontAttrs({
-        description: 'Sets this color bar\'s title font.'
-    }),
-    titleside: {
-        valType: 'enumerated',
-        values: ['right', 'top', 'bottom'],
-        role: 'style',
-        dflt: 'top',
-        description: [
-            'Determines the location of the colorbar title',
-            'with respect to the color bar.'
-        ].join(' ')
+
+    _deprecated: {
+        title: {
+            valType: 'string',
+            role: 'info',
+            description: [
+                'Deprecated in favor of color bar\'s `title.text`.',
+                'Note that value of color bar\'s `title` is no longer a simple',
+                '*string* but a set of sub-attributes.'
+            ].join(' ')
+        },
+        titlefont: fontAttrs({
+            description: 'Deprecated in favor of color bar\'s `title.font`.'
+        }),
+        titleside: {
+            valType: 'enumerated',
+            values: ['right', 'top', 'bottom'],
+            role: 'style',
+            dflt: 'top',
+            description: 'Deprecated in favor of color bar\'s `title.side`.'
+        }
     }
 }, 'colorbars', 'from-root');

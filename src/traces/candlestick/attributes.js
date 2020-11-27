@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -15,9 +15,6 @@ var boxAttrs = require('../box/attributes');
 
 function directionAttrs(lineColorDefault) {
     return {
-        name: OHLCattrs.increasing.name,
-        showlegend: OHLCattrs.increasing.showlegend,
-
         line: {
             color: extendFlat({}, boxAttrs.line.color, {dflt: lineColorDefault}),
             width: boxAttrs.line.width,
@@ -30,6 +27,10 @@ function directionAttrs(lineColorDefault) {
 }
 
 module.exports = {
+    xperiod: OHLCattrs.xperiod,
+    xperiod0: OHLCattrs.xperiod0,
+    xperiodalignment: OHLCattrs.xperiodalignment,
+
     x: OHLCattrs.x,
     open: OHLCattrs.open,
     high: OHLCattrs.high,
@@ -53,5 +54,8 @@ module.exports = {
     decreasing: directionAttrs(OHLCattrs.decreasing.line.color.dflt),
 
     text: OHLCattrs.text,
-    whiskerwidth: extendFlat({}, boxAttrs.whiskerwidth, { dflt: 0 })
+    hovertext: OHLCattrs.hovertext,
+    whiskerwidth: extendFlat({}, boxAttrs.whiskerwidth, { dflt: 0 }),
+
+    hoverlabel: OHLCattrs.hoverlabel,
 };

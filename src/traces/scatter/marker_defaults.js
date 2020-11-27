@@ -1,16 +1,15 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
 * LICENSE file in the root directory of this source tree.
 */
 
-
 'use strict';
 
 var Color = require('../../components/color');
-var hasColorscale = require('../../components/colorscale/has_colorscale');
+var hasColorscale = require('../../components/colorscale/helpers').hasColorscale;
 var colorscaleDefaults = require('../../components/colorscale/defaults');
 
 var subTypes = require('./subtypes');
@@ -19,11 +18,12 @@ var subTypes = require('./subtypes');
  * opts: object of flags to control features not all marker users support
  *   noLine: caller does not support marker lines
  *   gradient: caller supports gradients
+ *   noSelect: caller does not support selected/unselected attribute containers
  */
 module.exports = function markerDefaults(traceIn, traceOut, defaultColor, layout, coerce, opts) {
-    var isBubble = subTypes.isBubble(traceIn),
-        lineColor = (traceIn.line || {}).color,
-        defaultMLC;
+    var isBubble = subTypes.isBubble(traceIn);
+    var lineColor = (traceIn.line || {}).color;
+    var defaultMLC;
 
     opts = opts || {};
 
@@ -39,6 +39,13 @@ module.exports = function markerDefaults(traceIn, traceOut, defaultColor, layout
         colorscaleDefaults(traceIn, traceOut, layout, coerce, {prefix: 'marker.', cLetter: 'c'});
     }
 
+    if(!opts.noSelect) {
+        coerce('selected.marker.color');
+        coerce('unselected.marker.color');
+        coerce('selected.marker.size');
+        coerce('unselected.marker.size');
+    }
+
     if(!opts.noLine) {
         // if there's a line with a different color than the marker, use
         // that line color as the default marker line color
@@ -46,8 +53,7 @@ module.exports = function markerDefaults(traceIn, traceOut, defaultColor, layout
         // mostly this is for transparent markers to behave nicely
         if(lineColor && !Array.isArray(lineColor) && (traceOut.marker.color !== lineColor)) {
             defaultMLC = lineColor;
-        }
-        else if(isBubble) defaultMLC = Color.background;
+        } else if(isBubble) defaultMLC = Color.background;
         else defaultMLC = Color.defaultLine;
 
         coerce('marker.line.color', defaultMLC);

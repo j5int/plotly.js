@@ -1,16 +1,16 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
 * LICENSE file in the root directory of this source tree.
 */
 
-
 'use strict';
 
 var Axes = require('../../plots/cartesian/axes');
 var attributes = require('./attributes');
+var fillText = require('../../lib').fillText;
 
 module.exports = function hoverPoints(pointData, xval, yval) {
     var cd = pointData.cd;
@@ -46,40 +46,45 @@ module.exports = function hoverPoints(pointData, xval, yval) {
     pointData.index = pt.index;
     pointData.location = pt.loc;
     pointData.z = pt.z;
+    pointData.zLabel = Axes.tickText(geo.mockAxis, geo.mockAxis.c2l(pt.z), 'hover').text;
+    pointData.hovertemplate = pt.hovertemplate;
 
     makeHoverInfo(pointData, trace, pt, geo.mockAxis);
 
     return [pointData];
 };
 
-function makeHoverInfo(pointData, trace, pt, axis) {
-    var hoverinfo = trace.hoverinfo;
+function makeHoverInfo(pointData, trace, pt) {
+    if(trace.hovertemplate) return;
+
+    var hoverinfo = pt.hi || trace.hoverinfo;
+    var loc = String(pt.loc);
 
     var parts = (hoverinfo === 'all') ?
         attributes.hoverinfo.flags :
         hoverinfo.split('+');
 
-    var hasName = (parts.indexOf('name') !== -1),
-        hasLocation = (parts.indexOf('location') !== -1),
-        hasZ = (parts.indexOf('z') !== -1),
-        hasText = (parts.indexOf('text') !== -1),
-        hasIdAsNameLabel = !hasName && hasLocation;
+    var hasName = (parts.indexOf('name') !== -1);
+    var hasLocation = (parts.indexOf('location') !== -1);
+    var hasZ = (parts.indexOf('z') !== -1);
+    var hasText = (parts.indexOf('text') !== -1);
+    var hasIdAsNameLabel = !hasName && hasLocation;
 
     var text = [];
 
-    function formatter(val) {
-        return Axes.tickText(axis, axis.c2l(val), 'hover').text;
-    }
-
     if(hasIdAsNameLabel) {
-        pointData.nameOverride = pt.loc;
+        pointData.nameOverride = loc;
     } else {
         if(hasName) pointData.nameOverride = trace.name;
-        if(hasLocation) text.push(pt.loc);
+        if(hasLocation) text.push(loc);
     }
 
-    if(hasZ) text.push(formatter(pt.z));
-    if(hasText) text.push(pt.tx);
+    if(hasZ) {
+        text.push(pointData.zLabel);
+    }
+    if(hasText) {
+        fillText(pt, trace, text);
+    }
 
     pointData.extraText = text.join('<br>');
 }

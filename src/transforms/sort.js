@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -10,6 +10,9 @@
 
 var Lib = require('../lib');
 var Axes = require('../plots/cartesian/axes');
+var pointsAccessorFunction = require('./helpers').pointsAccessorFunction;
+
+var BADNUM = require('../constants/numerical').BADNUM;
 
 exports.moduleType = 'transform';
 
@@ -83,47 +86,50 @@ exports.calcTransform = function(gd, trace, opts) {
     if(!targetArray) return;
 
     var target = opts.target;
+
     var len = targetArray.length;
+    if(trace._length) len = Math.min(len, trace._length);
+
     var arrayAttrs = trace._arrayAttrs;
     var d2c = Axes.getDataToCoordFunc(gd, trace, target, targetArray);
-    var indices = getIndices(opts, targetArray, d2c);
+    var indices = getIndices(opts, targetArray, d2c, len);
+    var originalPointsAccessor = pointsAccessorFunction(trace.transforms, opts);
+    var indexToPoints = {};
+    var i, j;
 
-    for(var i = 0; i < arrayAttrs.length; i++) {
+    for(i = 0; i < arrayAttrs.length; i++) {
         var np = Lib.nestedProperty(trace, arrayAttrs[i]);
         var arrayOld = np.get();
         var arrayNew = new Array(len);
 
-        for(var j = 0; j < len; j++) {
+        for(j = 0; j < len; j++) {
             arrayNew[j] = arrayOld[indices[j]];
         }
 
         np.set(arrayNew);
     }
+
+    for(j = 0; j < len; j++) {
+        indexToPoints[j] = originalPointsAccessor(indices[j]);
+    }
+
+    opts._indexToPoints = indexToPoints;
+    trace._length = len;
 };
 
-function getIndices(opts, targetArray, d2c) {
-    var len = targetArray.length;
+function getIndices(opts, targetArray, d2c, len) {
+    var sortedArray = new Array(len);
     var indices = new Array(len);
+    var i;
 
-    var sortedArray = targetArray
-        .slice()
-        .sort(getSortFunc(opts, d2c));
+    for(i = 0; i < len; i++) {
+        sortedArray[i] = {v: targetArray[i], i: i};
+    }
 
-    for(var i = 0; i < len; i++) {
-        var vTarget = targetArray[i];
+    sortedArray.sort(getSortFunc(opts, d2c));
 
-        for(var j = 0; j < len; j++) {
-            var vSorted = sortedArray[j];
-
-            if(vTarget === vSorted) {
-                indices[j] = i;
-
-                // clear sortedArray item to get correct
-                // index of duplicate items (if any)
-                sortedArray[j] = null;
-                break;
-            }
-        }
+    for(i = 0; i < len; i++) {
+        indices[i] = sortedArray[i].i;
     }
 
     return indices;
@@ -132,8 +138,28 @@ function getIndices(opts, targetArray, d2c) {
 function getSortFunc(opts, d2c) {
     switch(opts.order) {
         case 'ascending':
-            return function(a, b) { return d2c(a) - d2c(b); };
+            return function(a, b) {
+                var ac = d2c(a.v);
+                var bc = d2c(b.v);
+                if(ac === BADNUM) {
+                    return 1;
+                }
+                if(bc === BADNUM) {
+                    return -1;
+                }
+                return ac - bc;
+            };
         case 'descending':
-            return function(a, b) { return d2c(b) - d2c(a); };
+            return function(a, b) {
+                var ac = d2c(a.v);
+                var bc = d2c(b.v);
+                if(ac === BADNUM) {
+                    return 1;
+                }
+                if(bc === BADNUM) {
+                    return -1;
+                }
+                return bc - ac;
+            };
     }
 }

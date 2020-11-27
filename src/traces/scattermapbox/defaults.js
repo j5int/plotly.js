@@ -1,11 +1,10 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
 * LICENSE file in the root directory of this source tree.
 */
-
 
 'use strict';
 
@@ -16,9 +15,7 @@ var handleMarkerDefaults = require('../scatter/marker_defaults');
 var handleLineDefaults = require('../scatter/line_defaults');
 var handleTextDefaults = require('../scatter/text_defaults');
 var handleFillColorDefaults = require('../scatter/fillcolor_defaults');
-
 var attributes = require('./attributes');
-
 
 module.exports = function supplyDefaults(traceIn, traceOut, defaultColor, layout) {
     function coerce(attr, dflt) {
@@ -32,8 +29,11 @@ module.exports = function supplyDefaults(traceIn, traceOut, defaultColor, layout
     }
 
     coerce('text');
+    coerce('texttemplate');
     coerce('hovertext');
+    coerce('hovertemplate');
     coerce('mode');
+    coerce('below');
 
     if(subTypes.hasLines(traceOut)) {
         handleLineDefaults(traceIn, traceOut, defaultColor, layout, coerce, {noDash: true});
@@ -43,35 +43,34 @@ module.exports = function supplyDefaults(traceIn, traceOut, defaultColor, layout
     if(subTypes.hasMarkers(traceOut)) {
         handleMarkerDefaults(traceIn, traceOut, defaultColor, layout, coerce, {noLine: true});
 
+        coerce('marker.allowoverlap');
+        coerce('marker.angle');
+
         // array marker.size and marker.color are only supported with circles
-
         var marker = traceOut.marker;
-        // we need  mock marker.line object to make legends happy
-        marker.line = {width: 0};
-
         if(marker.symbol !== 'circle') {
-            if(Array.isArray(marker.size)) marker.size = marker.size[0];
-            if(Array.isArray(marker.color)) marker.color = marker.color[0];
+            if(Lib.isArrayOrTypedArray(marker.size)) marker.size = marker.size[0];
+            if(Lib.isArrayOrTypedArray(marker.color)) marker.color = marker.color[0];
         }
     }
 
     if(subTypes.hasText(traceOut)) {
-        handleTextDefaults(traceIn, traceOut, layout, coerce);
+        handleTextDefaults(traceIn, traceOut, layout, coerce, {noSelect: true});
     }
 
     coerce('fill');
     if(traceOut.fill !== 'none') {
         handleFillColorDefaults(traceIn, traceOut, defaultColor, coerce);
     }
+
+    Lib.coerceSelectionMarkerOpacity(traceOut, coerce);
 };
 
 function handleLonLatDefaults(traceIn, traceOut, coerce) {
     var lon = coerce('lon') || [];
     var lat = coerce('lat') || [];
     var len = Math.min(lon.length, lat.length);
-
-    if(len < lon.length) traceOut.lon = lon.slice(0, len);
-    if(len < lat.length) traceOut.lat = lat.slice(0, len);
+    traceOut._length = len;
 
     return len;
 }
