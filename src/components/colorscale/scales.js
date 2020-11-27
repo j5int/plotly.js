@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -8,8 +8,9 @@
 
 'use strict';
 
+var tinycolor = require('tinycolor2');
 
-module.exports = {
+var scales = {
     'Greys': [
         [0, 'rgb(0,0,0)'], [1, 'rgb(255,255,255)']
     ],
@@ -43,7 +44,7 @@ module.exports = {
     ],
 
     // modified RdBu based on
-    // www.sandia.gov/~kmorel/documents/ColorMaps/ColorMapsExpanded.pdf
+    // http://www.kennethmoreland.com/color-maps/
     'RdBu': [
         [0, 'rgb(5,10,172)'], [0.35, 'rgb(106,137,247)'],
         [0.5, 'rgb(190,190,190)'], [0.6, 'rgb(220,170,132)'],
@@ -125,5 +126,77 @@ module.exports = {
         [0.7529411764705882, '#5ec962'], [0.8156862745098039, '#84d44b'],
         [0.8784313725490196, '#addc30'], [0.9411764705882353, '#d8e219'],
         [1, '#fde725']
+    ],
+
+    'Cividis': [
+        [0.000000, 'rgb(0,32,76)'], [0.058824, 'rgb(0,42,102)'],
+        [0.117647, 'rgb(0,52,110)'], [0.176471, 'rgb(39,63,108)'],
+        [0.235294, 'rgb(60,74,107)'], [0.294118, 'rgb(76,85,107)'],
+        [0.352941, 'rgb(91,95,109)'], [0.411765, 'rgb(104,106,112)'],
+        [0.470588, 'rgb(117,117,117)'], [0.529412, 'rgb(131,129,120)'],
+        [0.588235, 'rgb(146,140,120)'], [0.647059, 'rgb(161,152,118)'],
+        [0.705882, 'rgb(176,165,114)'], [0.764706, 'rgb(192,177,109)'],
+        [0.823529, 'rgb(209,191,102)'], [0.882353, 'rgb(225,204,92)'],
+        [0.941176, 'rgb(243,219,79)'], [1.000000, 'rgb(255,233,69)']
     ]
+};
+
+var defaultScale = scales.RdBu;
+
+function getScale(scl, dflt) {
+    if(!dflt) dflt = defaultScale;
+    if(!scl) return dflt;
+
+    function parseScale() {
+        try {
+            scl = scales[scl] || JSON.parse(scl);
+        } catch(e) {
+            scl = dflt;
+        }
+    }
+
+    if(typeof scl === 'string') {
+        parseScale();
+        // occasionally scl is double-JSON encoded...
+        if(typeof scl === 'string') parseScale();
+    }
+
+    if(!isValidScaleArray(scl)) return dflt;
+    return scl;
+}
+
+
+function isValidScaleArray(scl) {
+    var highestVal = 0;
+
+    if(!Array.isArray(scl) || scl.length < 2) return false;
+
+    if(!scl[0] || !scl[scl.length - 1]) return false;
+
+    if(+scl[0][0] !== 0 || +scl[scl.length - 1][0] !== 1) return false;
+
+    for(var i = 0; i < scl.length; i++) {
+        var si = scl[i];
+
+        if(si.length !== 2 || +si[0] < highestVal || !tinycolor(si[1]).isValid()) {
+            return false;
+        }
+
+        highestVal = +si[0];
+    }
+
+    return true;
+}
+
+function isValidScale(scl) {
+    if(scales[scl] !== undefined) return true;
+    else return isValidScaleArray(scl);
+}
+
+module.exports = {
+    scales: scales,
+    defaultScale: defaultScale,
+
+    get: getScale,
+    isValid: isValidScale
 };

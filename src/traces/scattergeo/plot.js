@@ -1,32 +1,29 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
 * LICENSE file in the root directory of this source tree.
 */
 
-
 'use strict';
 
 var d3 = require('d3');
 
-var Drawing = require('../../components/drawing');
-var Color = require('../../components/color');
-
 var Lib = require('../../lib');
-var BADNUM = require('../../constants/numerical').BADNUM;
 var getTopojsonFeatures = require('../../lib/topojson_utils').getTopojsonFeatures;
-var locationToFeature = require('../../lib/geo_location_utils').locationToFeature;
 var geoJsonUtils = require('../../lib/geojson_utils');
+var geoUtils = require('../../lib/geo_location_utils');
+var findExtremes = require('../../plots/cartesian/autorange').findExtremes;
+var BADNUM = require('../../constants/numerical').BADNUM;
+
+var calcMarkerSize = require('../scatter/calc').calcMarkerSize;
 var subTypes = require('../scatter/subtypes');
+var style = require('./style');
 
-module.exports = function plot(geo, calcData) {
-    for(var i = 0; i < calcData.length; i++) {
-        calcGeoJSON(calcData[i], geo.topojson);
-    }
-
-    function keyFunc(d) { return d[0].trace.uid; }
+function plot(gd, geo, calcData) {
+    var scatterLayer = geo.layers.frontplot.select('.scatterlayer');
+    var gTraces = Lib.makeTraceGroups(scatterLayer, calcData, 'trace scattergeo');
 
     function removeBADNUM(d, node) {
         if(d.lonlat[0] === BADNUM) {
@@ -34,20 +31,11 @@ module.exports = function plot(geo, calcData) {
         }
     }
 
-    var gTraces = geo.layers.frontplot.select('.scatterlayer')
-        .selectAll('g.trace.scattergeo')
-        .data(calcData, keyFunc);
-
-    gTraces.enter().append('g')
-        .attr('class', 'trace scattergeo');
-
-    gTraces.exit().remove();
-
     // TODO find a way to order the inner nodes on update
     gTraces.selectAll('*').remove();
 
     gTraces.each(function(calcTrace) {
-        var s = calcTrace[0].node3 = d3.select(this);
+        var s = d3.select(this);
         var trace = calcTrace[0].trace;
 
         if(subTypes.hasLines(trace) || trace.fill !== 'none') {
@@ -79,58 +67,61 @@ module.exports = function plot(geo, calcData) {
                 .append('text')
                 .each(function(calcPt) { removeBADNUM(calcPt, this); });
         }
+
+        // call style here within topojson request callback
+        style(gd, calcTrace);
     });
+}
 
-    // call style here within topojson request callback
-    style(geo);
-};
-
-function calcGeoJSON(calcTrace, topojson) {
+function calcGeoJSON(calcTrace, fullLayout) {
     var trace = calcTrace[0].trace;
+    var geoLayout = fullLayout[trace.geo];
+    var geo = geoLayout._subplot;
+    var len = trace._length;
+    var i, calcPt;
 
-    if(!Array.isArray(trace.locations)) return;
+    if(Array.isArray(trace.locations)) {
+        var locationmode = trace.locationmode;
+        var features = locationmode === 'geojson-id' ?
+            geoUtils.extractTraceFeature(calcTrace) :
+            getTopojsonFeatures(trace, geo.topojson);
 
-    var features = getTopojsonFeatures(trace, topojson);
-    var locationmode = trace.locationmode;
+        for(i = 0; i < len; i++) {
+            calcPt = calcTrace[i];
 
-    for(var i = 0; i < calcTrace.length; i++) {
-        var calcPt = calcTrace[i];
-        var feature = locationToFeature(locationmode, calcPt.loc, features);
+            var feature = locationmode === 'geojson-id' ?
+                calcPt.fOut :
+                geoUtils.locationToFeature(locationmode, calcPt.loc, features);
 
-        calcPt.lonlat = feature ? feature.properties.ct : [BADNUM, BADNUM];
+            calcPt.lonlat = feature ? feature.properties.ct : [BADNUM, BADNUM];
+        }
     }
+
+    var opts = {padded: true};
+    var lonArray;
+    var latArray;
+
+    if(geoLayout.fitbounds === 'geojson' && trace.locationmode === 'geojson-id') {
+        var bboxGeojson = geoUtils.computeBbox(geoUtils.getTraceGeojson(trace));
+        lonArray = [bboxGeojson[0], bboxGeojson[2]];
+        latArray = [bboxGeojson[1], bboxGeojson[3]];
+    } else {
+        lonArray = new Array(len);
+        latArray = new Array(len);
+        for(i = 0; i < len; i++) {
+            calcPt = calcTrace[i];
+            lonArray[i] = calcPt.lonlat[0];
+            latArray[i] = calcPt.lonlat[1];
+        }
+
+        opts.ppad = calcMarkerSize(trace, len);
+    }
+
+    trace._extremes.lon = findExtremes(geoLayout.lonaxis._ax, lonArray, opts);
+    trace._extremes.lat = findExtremes(geoLayout.lataxis._ax, latArray, opts);
 }
 
-function style(geo) {
-    var gTraces = geo.layers.frontplot.selectAll('.trace.scattergeo');
-
-    gTraces.style('opacity', function(calcTrace) {
-        return calcTrace[0].trace.opacity;
-    });
-
-    gTraces.each(function(calcTrace) {
-        var trace = calcTrace[0].trace;
-        var group = d3.select(this);
-
-        group.selectAll('path.point')
-            .call(Drawing.pointStyle, trace, geo.graphDiv);
-        group.selectAll('text')
-            .call(Drawing.textPointStyle, trace, geo.graphDiv);
-    });
-
-    // this part is incompatible with Drawing.lineGroupStyle
-    gTraces.selectAll('path.js-line')
-        .style('fill', 'none')
-        .each(function(d) {
-            var path = d3.select(this);
-            var trace = d.trace;
-            var line = trace.line || {};
-
-            path.call(Color.stroke, line.color)
-                .call(Drawing.dashLine, line.dash || '', line.width || 0);
-
-            if(trace.fill !== 'none') {
-                path.call(Color.fill, trace.fillcolor);
-            }
-        });
-}
+module.exports = {
+    calcGeoJSON: calcGeoJSON,
+    plot: plot
+};

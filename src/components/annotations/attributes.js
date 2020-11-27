@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -11,16 +11,42 @@
 var ARROWPATHS = require('./arrow_paths');
 var fontAttrs = require('../../plots/font_attributes');
 var cartesianConstants = require('../../plots/cartesian/constants');
+var templatedArray = require('../../plot_api/plot_template').templatedArray;
+var axisPlaceableObjs = require('../../constants/axis_placeable_objects');
 
+function arrowAxisRefDescription(axis) {
+    return [
+        'In order for absolute positioning of the arrow to work, *a' + axis +
+        'ref* must be exactly the same as *' + axis + 'ref*, otherwise *a' + axis +
+        'ref* will revert to *pixel* (explained next).',
+        'For relative positioning, *a' + axis + 'ref* can be set to *pixel*,',
+        'in which case the *a' + axis + '* value is specified in pixels',
+        'relative to *' + axis + '*.',
+        'Absolute positioning is useful',
+        'for trendline annotations which should continue to indicate',
+        'the correct trend when zoomed. Relative positioning is useful',
+        'for specifying the text offset for an annotated point.'
+    ].join(' ');
+}
 
-module.exports = {
-    _isLinkedToArray: 'annotation',
+function arrowCoordinateDescription(axis, lower, upper) {
+    return [
+        'Sets the', axis, 'component of the arrow tail about the arrow head.',
+        'If `a' + axis + 'ref` is `pixel`, a positive (negative)',
+        'component corresponds to an arrow pointing',
+        'from', upper, 'to', lower, '(' + lower, 'to', upper + ').',
+        'If `a' + axis + 'ref` is not `pixel` and is exactly the same as `' + axis + 'ref`,',
+        'this is an absolute value on that axis,',
+        'like `' + axis + '`, specified in the same coordinates as `' + axis + 'ref`.'
+    ].join(' ');
+}
 
+module.exports = templatedArray('annotation', {
     visible: {
         valType: 'boolean',
         role: 'info',
         dflt: true,
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Determines whether or not this annotation is visible.'
         ].join(' ')
@@ -29,7 +55,7 @@ module.exports = {
     text: {
         valType: 'string',
         role: 'info',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Sets the text associated with this annotation.',
             'Plotly uses a subset of HTML tags to do things like',
@@ -42,14 +68,14 @@ module.exports = {
         valType: 'angle',
         dflt: 0,
         role: 'style',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Sets the angle at which the `text` is drawn',
             'with respect to the horizontal.'
         ].join(' ')
     },
     font: fontAttrs({
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         colorEditType: 'arraydraw',
         description: 'Sets the annotation text font.'
     }),
@@ -58,7 +84,7 @@ module.exports = {
         min: 1,
         dflt: null,
         role: 'style',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Sets an explicit width for the text box. null (default) lets the',
             'text set the box width. Wider text will be clipped.',
@@ -70,7 +96,7 @@ module.exports = {
         min: 1,
         dflt: null,
         role: 'style',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Sets an explicit height for the text box. null (default) lets the',
             'text set the box height. Taller text will be clipped.'
@@ -93,7 +119,7 @@ module.exports = {
         editType: 'arraydraw',
         description: [
             'Sets the horizontal alignment of the `text` within the box.',
-            'Has an effect only if `text` spans more two or more lines',
+            'Has an effect only if `text` spans two or more lines',
             '(i.e. `text` contains one or more <br> HTML tags) or if an',
             'explicit width is set to override the text width.'
         ].join(' ')
@@ -131,7 +157,7 @@ module.exports = {
         min: 0,
         dflt: 1,
         role: 'style',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Sets the padding (in px) between the `text`',
             'and the enclosing border.'
@@ -142,7 +168,7 @@ module.exports = {
         min: 0,
         dflt: 1,
         role: 'style',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Sets the width (in px) of the border enclosing',
             'the annotation `text`.'
@@ -153,7 +179,7 @@ module.exports = {
         valType: 'boolean',
         dflt: true,
         role: 'style',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Determines whether or not the annotation is drawn with an arrow.',
             'If *true*, `text` is placed near the arrow\'s tail.',
@@ -173,16 +199,45 @@ module.exports = {
         dflt: 1,
         role: 'style',
         editType: 'arraydraw',
-        description: 'Sets the annotation arrow head style.'
+        description: 'Sets the end annotation arrow head style.'
+    },
+    startarrowhead: {
+        valType: 'integer',
+        min: 0,
+        max: ARROWPATHS.length,
+        dflt: 1,
+        role: 'style',
+        editType: 'arraydraw',
+        description: 'Sets the start annotation arrow head style.'
+    },
+    arrowside: {
+        valType: 'flaglist',
+        flags: ['end', 'start'],
+        extras: ['none'],
+        dflt: 'end',
+        role: 'style',
+        editType: 'arraydraw',
+        description: 'Sets the annotation arrow head position.'
     },
     arrowsize: {
         valType: 'number',
         min: 0.3,
         dflt: 1,
         role: 'style',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
-            'Sets the size of the annotation arrow head, relative to `arrowwidth`.',
+            'Sets the size of the end annotation arrow head, relative to `arrowwidth`.',
+            'A value of 1 (default) gives a head about 3x as wide as the line.'
+        ].join(' ')
+    },
+    startarrowsize: {
+        valType: 'number',
+        min: 0.3,
+        dflt: 1,
+        role: 'style',
+        editType: 'calc+arraydraw',
+        description: [
+            'Sets the size of the start annotation arrow head, relative to `arrowwidth`.',
             'A value of 1 (default) gives a head about 3x as wide as the line.'
         ].join(' ')
     },
@@ -190,7 +245,7 @@ module.exports = {
         valType: 'number',
         min: 0.1,
         role: 'style',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: 'Sets the width (in px) of annotation arrow line.'
     },
     standoff: {
@@ -198,9 +253,23 @@ module.exports = {
         min: 0,
         dflt: 0,
         role: 'style',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
-            'Sets a distance, in pixels, to move the arrowhead away from the',
+            'Sets a distance, in pixels, to move the end arrowhead away from the',
+            'position it is pointing at, for example to point at the edge of',
+            'a marker independent of zoom. Note that this shortens the arrow',
+            'from the `ax` / `ay` vector, in contrast to `xshift` / `yshift`',
+            'which moves everything by this amount.'
+        ].join(' ')
+    },
+    startstandoff: {
+        valType: 'number',
+        min: 0,
+        dflt: 0,
+        role: 'style',
+        editType: 'calc+arraydraw',
+        description: [
+            'Sets a distance, in pixels, to move the start arrowhead away from the',
             'position it is pointing at, for example to point at the edge of',
             'a marker independent of zoom. Note that this shortens the arrow',
             'from the `ax` / `ay` vector, in contrast to `xshift` / `yshift`',
@@ -210,27 +279,17 @@ module.exports = {
     ax: {
         valType: 'any',
         role: 'info',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
-            'Sets the x component of the arrow tail about the arrow head.',
-            'If `axref` is `pixel`, a positive (negative) ',
-            'component corresponds to an arrow pointing',
-            'from right to left (left to right).',
-            'If `axref` is an axis, this is an absolute value on that axis,',
-            'like `x`, NOT a relative value.'
+            arrowCoordinateDescription('x', 'left', 'right')
         ].join(' ')
     },
     ay: {
         valType: 'any',
         role: 'info',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
-            'Sets the y component of the arrow tail about the arrow head.',
-            'If `ayref` is `pixel`, a positive (negative) ',
-            'component corresponds to an arrow pointing',
-            'from bottom to top (top to bottom).',
-            'If `ayref` is an axis, this is an absolute value on that axis,',
-            'like `y`, NOT a relative value.'
+            arrowCoordinateDescription('y', 'top', 'bottom')
         ].join(' ')
     },
     axref: {
@@ -243,12 +302,10 @@ module.exports = {
         role: 'info',
         editType: 'calc',
         description: [
-            'Indicates in what terms the tail of the annotation (ax,ay) ',
-            'is specified. If `pixel`, `ax` is a relative offset in pixels ',
-            'from `x`. If set to an x axis id (e.g. *x* or *x2*), `ax` is ',
-            'specified in the same terms as that axis. This is useful ',
-            'for trendline annotations which should continue to indicate ',
-            'the correct trend when zoomed.'
+            'Indicates in what coordinates the tail of the',
+            'annotation (ax,ay) is specified.',
+            axisPlaceableObjs.axisRefDescription('ax', 'left', 'right'),
+            arrowAxisRefDescription('x')
         ].join(' ')
     },
     ayref: {
@@ -261,12 +318,10 @@ module.exports = {
         role: 'info',
         editType: 'calc',
         description: [
-            'Indicates in what terms the tail of the annotation (ax,ay) ',
-            'is specified. If `pixel`, `ay` is a relative offset in pixels ',
-            'from `y`. If set to a y axis id (e.g. *y* or *y2*), `ay` is ',
-            'specified in the same terms as that axis. This is useful ',
-            'for trendline annotations which should continue to indicate ',
-            'the correct trend when zoomed.'
+            'Indicates in what coordinates the tail of the',
+            'annotation (ax,ay) is specified.',
+            axisPlaceableObjs.axisRefDescription('ay', 'bottom', 'top'),
+            arrowAxisRefDescription('y')
         ].join(' ')
     },
     // positioning
@@ -280,17 +335,13 @@ module.exports = {
         editType: 'calc',
         description: [
             'Sets the annotation\'s x coordinate axis.',
-            'If set to an x axis id (e.g. *x* or *x2*), the `x` position',
-            'refers to an x coordinate',
-            'If set to *paper*, the `x` position refers to the distance from',
-            'the left side of the plotting area in normalized coordinates',
-            'where 0 (1) corresponds to the left (right) side.'
+            axisPlaceableObjs.axisRefDescription('x', 'left', 'right'),
         ].join(' ')
     },
     x: {
         valType: 'any',
         role: 'info',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Sets the annotation\'s x position.',
             'If the axis `type` is *log*, then you must take the',
@@ -308,7 +359,7 @@ module.exports = {
         values: ['auto', 'left', 'center', 'right'],
         dflt: 'auto',
         role: 'info',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Sets the text box\'s horizontal position anchor',
             'This anchor binds the `x` position to the *left*, *center*',
@@ -327,7 +378,7 @@ module.exports = {
         valType: 'number',
         dflt: 0,
         role: 'style',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Shifts the position of the whole annotation and arrow to the',
             'right (positive) or left (negative) by this many pixels.'
@@ -343,17 +394,13 @@ module.exports = {
         editType: 'calc',
         description: [
             'Sets the annotation\'s y coordinate axis.',
-            'If set to an y axis id (e.g. *y* or *y2*), the `y` position',
-            'refers to an y coordinate',
-            'If set to *paper*, the `y` position refers to the distance from',
-            'the bottom of the plotting area in normalized coordinates',
-            'where 0 (1) corresponds to the bottom (top).'
+            axisPlaceableObjs.axisRefDescription('y', 'bottom', 'top'),
         ].join(' ')
     },
     y: {
         valType: 'any',
         role: 'info',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Sets the annotation\'s y position.',
             'If the axis `type` is *log*, then you must take the',
@@ -371,7 +418,7 @@ module.exports = {
         values: ['auto', 'top', 'middle', 'bottom'],
         dflt: 'auto',
         role: 'info',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Sets the text box\'s vertical position anchor',
             'This anchor binds the `y` position to the *top*, *middle*',
@@ -390,7 +437,7 @@ module.exports = {
         valType: 'number',
         dflt: 0,
         role: 'style',
-        editType: 'calcIfAutorange',
+        editType: 'calc+arraydraw',
         description: [
             'Shifts the position of the whole annotation and arrow up',
             '(positive) or down (negative) by this many pixels.'
@@ -500,4 +547,4 @@ module.exports = {
             ].join(' ')
         }
     }
-};
+});

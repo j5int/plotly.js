@@ -1,10 +1,12 @@
 var Plotly = require('@lib');
 var Lib = require('@src/lib');
 
+var d3 = require('d3');
 var createGraphDiv = require('../assets/create_graph_div');
 var destroyGraphDiv = require('../assets/destroy_graph_div');
-var fail = require('../assets/fail_test');
+var failTest = require('../assets/fail_test');
 var subplotMock = require('@mocks/multiple_subplots.json');
+var pieAutoMargin = require('@mocks/pie_automargin');
 
 var FORMATS = ['png', 'jpeg', 'webp', 'svg'];
 
@@ -64,9 +66,9 @@ describe('Plotly.toImage', function() {
         Plotly.plot(gd, fig.data, fig.layout)
         .then(function(gd) {
             expect(function() { Plotly.toImage(gd, {format: 'x'}); })
-                .toThrow(new Error('Image format is not jpeg, png, svg or webp.'));
+                .toThrow(new Error('Export format is not png, jpeg, webp, svg or full-json.'));
         })
-        .catch(fail)
+        .catch(failTest)
         .then(done);
     });
 
@@ -82,7 +84,7 @@ describe('Plotly.toImage', function() {
             expect(function() { Plotly.toImage(gd, {width: 0.5}); })
                 .toThrow(new Error('Height and width should be pixel values.'));
         })
-        .catch(fail)
+        .catch(failTest)
         .then(done);
     });
 
@@ -110,7 +112,25 @@ describe('Plotly.toImage', function() {
             expect(img.height).toBe(400);
             expect(img.width).toBe(400);
         })
-        .catch(fail)
+        .catch(failTest)
+        .then(done);
+    });
+
+    it('should use width/height of graph div when width/height are set to *null*', function(done) {
+        var fig = Lib.extendDeep({}, subplotMock);
+
+        gd.style.width = '832px';
+        gd.style.height = '502px';
+
+        Plotly.plot(gd, fig.data, fig.layout).then(function() {
+            expect(gd.layout.width).toBe(undefined, 'user layout width');
+            expect(gd.layout.height).toBe(undefined, 'user layout height');
+            expect(gd._fullLayout.width).toBe(832, 'full layout width');
+            expect(gd._fullLayout.height).toBe(502, 'full layout height');
+        })
+        .then(function() { return Plotly.toImage(gd, {width: null, height: null}); })
+        .then(function(url) { return assertSize(url, 832, 502); })
+        .catch(failTest)
         .then(done);
     });
 
@@ -138,7 +158,7 @@ describe('Plotly.toImage', function() {
         .then(function(url) {
             expect(url.split('webp')[0]).toBe('data:image/');
         })
-        .catch(fail)
+        .catch(failTest)
         .then(done);
     });
 
@@ -149,7 +169,7 @@ describe('Plotly.toImage', function() {
         .then(function() { return Plotly.toImage(gd, {format: 'png', imageDataOnly: true}); })
         .then(function(d) {
             expect(d.indexOf('data:image/')).toBe(-1);
-            expect(d.length).toBeWithin(53660, 1e3, 'png image length');
+            expect(d.length).toBeWithin(52500, 7500, 'png image length');
         })
         .then(function() { return Plotly.toImage(gd, {format: 'jpeg', imageDataOnly: true}); })
         .then(function(d) {
@@ -159,14 +179,14 @@ describe('Plotly.toImage', function() {
         .then(function() { return Plotly.toImage(gd, {format: 'svg', imageDataOnly: true}); })
         .then(function(d) {
             expect(d.indexOf('data:image/')).toBe(-1);
-            expect(d.length).toBeWithin(39485, 1e3, 'svg image length');
+            expect(d.length).toBeWithin(32062, 1e3, 'svg image length');
         })
         .then(function() { return Plotly.toImage(gd, {format: 'webp', imageDataOnly: true}); })
         .then(function(d) {
             expect(d.indexOf('data:image/')).toBe(-1);
             expect(d.length).toBeWithin(15831, 1e3, 'webp image length');
         })
-        .catch(fail)
+        .catch(failTest)
         .then(done);
     });
 
@@ -179,7 +199,7 @@ describe('Plotly.toImage', function() {
             .then(function(url) { return assertSize(url, 1400, 900); })
             .then(function() { return Plotly.toImage(gd, {format: f, scale: 0.5}); })
             .then(function(url) { return assertSize(url, 350, 225); })
-            .catch(fail)
+            .catch(failTest)
             .then(done);
         });
     });
@@ -193,7 +213,7 @@ describe('Plotly.toImage', function() {
             expect(img.width).toBe(700);
             expect(img.height).toBe(450);
         })
-        .catch(fail)
+        .catch(failTest)
         .then(done);
     });
 
@@ -207,7 +227,128 @@ describe('Plotly.toImage', function() {
             expect(img.width).toBe(700);
             expect(img.height).toBe(450);
         })
-        .catch(fail)
+        .catch(failTest)
         .then(done);
+    });
+
+    it('should work on pages with <base>', function(done) {
+        var parser = new DOMParser();
+
+        var base = d3.select('body')
+            .append('base')
+            .attr('href', 'https://chart-studio.plotly.com');
+
+        Plotly.plot(gd, [{ y: [1, 2, 1] }])
+        .then(function() {
+            return Plotly.toImage(gd, {format: 'svg', imageDataOnly: true});
+        })
+        .then(function(svg) {
+            var svgDOM = parser.parseFromString(svg, 'image/svg+xml');
+            var gSubplot = svgDOM.getElementsByClassName('plot')[0];
+            var clipPath = gSubplot.getAttribute('clip-path');
+            var len = clipPath.length;
+
+            var head = clipPath.substr(0, 5);
+            var tail = clipPath.substr(len - 8, len);
+            expect(head).toBe('url(\'', 'subplot clipPath head');
+            expect(tail).toBe('xyplot\')', 'subplot clipPath tail');
+
+            var middle = clipPath.substr(4, 10);
+            expect(middle.length).toBe(10, 'subplot clipPath uid length');
+            expect(middle.indexOf('http://')).toBe(-1, 'no <base> URL in subplot clipPath!');
+            expect(middle.indexOf('https://')).toBe(-1, 'no <base> URL in subplot clipPath!');
+        })
+        .catch(failTest)
+        .then(function() {
+            base.remove();
+            done();
+        });
+    });
+
+    describe('with format `full-json`', function() {
+        var imgOpts = {format: 'full-json', imageDataOnly: true};
+        var gd;
+
+        beforeEach(function() {
+            gd = createGraphDiv();
+        });
+        afterEach(destroyGraphDiv);
+
+        it('export a graph div', function(done) {
+            Plotly.plot(gd, [{y: [1, 2, 3]}])
+            .then(function(gd) { return Plotly.toImage(gd, imgOpts);})
+            .then(function(fig) {
+                fig = JSON.parse(fig);
+                ['data', 'layout', 'config'].forEach(function(key) {
+                    expect(fig.hasOwnProperty(key)).toBeTruthy('is missing key: ' + key);
+                });
+                expect(fig.data[0].mode).toBe('lines+markers', 'contain default mode');
+                expect(fig.version).toBe(Plotly.version, 'contains Plotly version');
+            })
+            .catch(failTest)
+            .then(done);
+        });
+
+        it('export an object with data/layout/config', function(done) {
+            Plotly.toImage({data: [{y: [1, 2, 3]}]}, imgOpts)
+            .then(function(fig) {
+                fig = JSON.parse(fig);
+                ['data', 'layout', 'config'].forEach(function(key) {
+                    expect(fig.hasOwnProperty(key)).toBeTruthy('is missing key: ' + key);
+                });
+                expect(fig.data[0].mode).toBe('lines+markers', 'contain default mode');
+                expect(fig.version).toBe(Plotly.version, 'contains Plotly version');
+            })
+            .catch(failTest)
+            .then(done);
+        });
+
+        it('export computed margins', function(done) {
+            Plotly.toImage(pieAutoMargin, imgOpts)
+            .then(function(fig) {
+                fig = JSON.parse(fig);
+                var computed = fig.layout.computed;
+                expect(computed).toBeDefined('no computed');
+                expect(computed.margin).toBeDefined('no computed margin');
+                expect(computed.margin.t).toBeDefined('no top');
+                expect(computed.margin.l).toBeDefined('no left');
+                expect(computed.margin.r).toBeDefined('no right');
+                expect(computed.margin.b).toBeDefined('no bottom');
+            })
+            .catch(failTest)
+            .then(done);
+        });
+
+        it('record and export computed margins with "Too many auto-margin redraws"', function(done) {
+            Plotly.toImage({
+                data: [{
+                    x: [
+                        'a',
+                        'b',
+                        'looooooooooooooooooooooooooooooooooog',
+                        'd'
+                    ]
+                }],
+                layout: {
+                    width: 400,
+                    height: 400,
+                    paper_bgcolor: 'lightblue',
+                    xaxis: {
+                        automargin: true
+                    },
+                    yaxis: {
+                        automargin: true
+                    }
+                }
+            }, imgOpts)
+            .then(function(fig) {
+                fig = JSON.parse(fig);
+                var computed = fig.layout.computed;
+                expect(computed.margin.b).toBeGreaterThan(80);
+                expect(computed.margin.r).toBeGreaterThan(80);
+            })
+            .catch(failTest)
+            .then(done);
+        });
     });
 });

@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -9,25 +9,24 @@
 'use strict';
 
 var Lib = require('../../lib');
+var isUnifiedHover = require('./helpers').isUnifiedHover;
 var layoutAttributes = require('./layout_attributes');
+var handleHoverModeDefaults = require('./hovermode_defaults');
+var handleHoverLabelDefaults = require('./hoverlabel_defaults');
 
 module.exports = function supplyLayoutDefaults(layoutIn, layoutOut, fullData) {
     function coerce(attr, dflt) {
         return Lib.coerce(layoutIn, layoutOut, layoutAttributes, attr, dflt);
     }
 
-    coerce('dragmode');
-
-    var hovermodeDflt;
-    if(layoutOut._has('cartesian')) {
-        // flag for 'horizontal' plots:
-        // determines the state of the mode bar 'compare' hovermode button
-        layoutOut._isHoriz = isHoriz(fullData);
-        hovermodeDflt = layoutOut._isHoriz ? 'y' : 'x';
+    var hoverMode = handleHoverModeDefaults(layoutIn, layoutOut, fullData);
+    if(hoverMode) {
+        coerce('hoverdistance');
+        coerce('spikedistance', isUnifiedHover(hoverMode) ? -1 : undefined);
     }
-    else hovermodeDflt = 'closest';
 
-    coerce('hovermode', hovermodeDflt);
+    var dragMode = coerce('dragmode');
+    if(dragMode === 'select') coerce('selectdirection');
 
     // if only mapbox or geo subplots is present on graph,
     // reset 'zoom' dragmode to 'pan' until 'zoom' is implemented,
@@ -42,19 +41,6 @@ module.exports = function supplyLayoutDefaults(layoutIn, layoutOut, fullData) {
     )) {
         layoutOut.dragmode = 'pan';
     }
+
+    handleHoverLabelDefaults(layoutIn, layoutOut, coerce);
 };
-
-function isHoriz(fullData) {
-    var out = true;
-
-    for(var i = 0; i < fullData.length; i++) {
-        var trace = fullData[i];
-
-        if(trace.orientation !== 'h') {
-            out = false;
-            break;
-        }
-    }
-
-    return out;
-}

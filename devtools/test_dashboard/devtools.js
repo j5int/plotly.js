@@ -2,7 +2,7 @@
 
 /* global Plotly:false */
 
-var Fuse = require('fuse.js');
+var Fuse = require('fuse.js/dist/fuse.common.js');
 var mocks = require('../../build/test_dashboard_mocks.json');
 var credentials = require('../../build/credentials.json');
 var Lib = require('@src/lib');
@@ -160,7 +160,17 @@ setInterval(function() {
 }, 1000);
 
 // Mocks search and plotting
-var f = new Fuse(mocks, {
+var fuse = new Fuse(mocks, {
+    // isCaseSensitive: false,
+    // includeScore: false,
+    // shouldSort: true,
+    // includeMatches: false,
+    // findAllMatches: false,
+    // minMatchCharLength: 1,
+    // location: 0,
+    // threshold: 0.6,
+    // distance: 100,
+    // useExtendedSearch: false,
     keys: [{
         name: 'name',
         weight: 0.7
@@ -179,7 +189,8 @@ searchBar.addEventListener('keyup', debounce(searchMocks, 250));
 function debounce(func, wait, immediate) {
     var timeout;
     return function() {
-        var context = this, args = arguments;
+        var context = this;
+        var args = arguments;
         var later = function() {
             timeout = null;
             if(!immediate) func.apply(context, args);
@@ -192,26 +203,29 @@ function debounce(func, wait, immediate) {
 }
 
 function searchMocks(e) {
-
     // Clear results.
     while(mocksList.firstChild) {
         mocksList.removeChild(mocksList.firstChild);
     }
 
-    var results = f.search(e.target.value);
+    var results = fuse.search(e.target.value);
 
     results.forEach(function(r) {
+        var mockName = r.item.name;
         var result = document.createElement('span');
-        result.className = 'search-result';
-        result.innerText = r.name;
+        result.className = getResultClass(mockName);
+        result.innerText = mockName;
 
         result.addEventListener('click', function() {
-            var mockName = r.file.slice(0, -5);
             window.location.hash = mockName;
 
             // Clear plots and plot selected.
             Tabs.purge();
             Tabs.plotMock(mockName);
+
+            mocksList.querySelectorAll('span').forEach(function(el) {
+                el.className = getResultClass(el.innerText);
+            });
         });
 
         mocksList.appendChild(result);
@@ -222,8 +236,16 @@ function searchMocks(e) {
     });
 }
 
+function getNameFromHash() {
+    return window.location.hash.replace(/^#/, '');
+}
+
+function getResultClass(name) {
+    return 'search-result' + (getNameFromHash() === name ? ' search-result__selected' : '');
+}
+
 function plotFromHash() {
-    var initialMock = window.location.hash.replace(/^#/, '');
+    var initialMock = getNameFromHash();
 
     if(initialMock.length > 0) {
         Tabs.plotMock(initialMock);

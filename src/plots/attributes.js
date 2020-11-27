@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -16,7 +16,8 @@ module.exports = {
         role: 'info',
         values: [],     // listed dynamically
         dflt: 'scatter',
-        editType: 'calc+clearAxisTypes'
+        editType: 'calc+clearAxisTypes',
+        _noTemplating: true // we handle this at a higher level
     },
     visible: {
         valType: 'enumerated',
@@ -73,15 +74,22 @@ module.exports = {
     uid: {
         valType: 'string',
         role: 'info',
-        dflt: '',
-        editType: 'calc'
+        editType: 'plot',
+        anim: true,
+        description: [
+            'Assign an id to this trace,',
+            'Use this to provide object constancy between traces during animations',
+            'and transitions.'
+        ].join(' ')
     },
     ids: {
         valType: 'data_array',
         editType: 'calc',
+        anim: true,
         description: [
             'Assigns id labels to each datum.',
-            'These ids for object constancy of data points during animation.'
+            'These ids for object constancy of data points during animation.',
+            'Should be an array of strings, not numbers or any other type.'
         ].join(' ')
     },
     customdata: {
@@ -94,6 +102,44 @@ module.exports = {
             'DOM elements'
         ].join(' ')
     },
+    meta: {
+        valType: 'any',
+        arrayOk: true,
+        role: 'info',
+        editType: 'plot',
+        description: [
+            'Assigns extra meta information associated with this trace',
+            'that can be used in various text attributes.',
+            'Attributes such as trace `name`, graph, axis and colorbar `title.text`, annotation `text`',
+            '`rangeselector`, `updatemenues` and `sliders` `label` text',
+            'all support `meta`.',
+            'To access the trace `meta` values in an attribute in the same trace, simply use',
+            '`%{meta[i]}` where `i` is the index or key of the `meta`',
+            'item in question.',
+            'To access trace `meta` in layout attributes, use',
+            '`%{data[n[.meta[i]}` where `i` is the index or key of the `meta`',
+            'and `n` is the trace index.'
+        ].join(' ')
+    },
+
+    // N.B. these cannot be 'data_array' as they do not have the same length as
+    // other data arrays and arrayOk attributes in general
+    //
+    // Maybe add another valType:
+    // https://github.com/plotly/plotly.js/issues/1894
+    selectedpoints: {
+        valType: 'any',
+        role: 'info',
+        editType: 'calc',
+        description: [
+            'Array containing integer indices of selected points.',
+            'Has an effect only for traces that support selections.',
+            'Note that an empty array means an empty selection where the `unselected`',
+            'are turned on for all points, whereas, any other non-array values means no',
+            'selection all where the `selected` and `unselected` styles have no effect.'
+        ].join(' ')
+    },
+
     hoverinfo: {
         valType: 'flaglist',
         role: 'info',
@@ -118,7 +164,7 @@ module.exports = {
             editType: 'calc',
             description: [
                 'The stream id number links a data trace on a plot with a stream.',
-                'See https://plot.ly/settings for more details.'
+                'See https://chart-studio.plotly.com/settings for more details.'
             ].join(' ')
         },
         maxpoints: {
@@ -136,5 +182,35 @@ module.exports = {
             ].join(' ')
         },
         editType: 'calc'
+    },
+    transforms: {
+        _isLinkedToArray: 'transform',
+        editType: 'calc',
+        description: [
+            'An array of operations that manipulate the trace data,',
+            'for example filtering or sorting the data arrays.'
+        ].join(' ')
+    },
+    uirevision: {
+        valType: 'any',
+        role: 'info',
+        editType: 'none',
+        description: [
+            'Controls persistence of some user-driven changes to the trace:',
+            '`constraintrange` in `parcoords` traces, as well as some',
+            '`editable: true` modifications such as `name` and `colorbar.title`.',
+            'Defaults to `layout.uirevision`.',
+            'Note that other user-driven trace attribute changes are controlled',
+            'by `layout` attributes:',
+            '`trace.visible` is controlled by `layout.legend.uirevision`,',
+            '`selectedpoints` is controlled by `layout.selectionrevision`,',
+            'and `colorbar.(x|y)` (accessible with `config: {editable: true}`)',
+            'is controlled by `layout.editrevision`.',
+            'Trace changes are tracked by `uid`, which only falls back on trace',
+            'index if no `uid` is provided. So if your app can add/remove traces',
+            'before the end of the `data` array, such that the same trace has a',
+            'different index, you can still preserve user-driven changes if you',
+            'give each trace a `uid` that stays with it as it moves.'
+        ].join(' ')
     }
 };

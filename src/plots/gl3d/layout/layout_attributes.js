@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -10,9 +10,9 @@
 'use strict';
 
 var gl3dAxisAttrs = require('./axis_attributes');
+var domainAttrs = require('../../domain').attributes;
 var extendFlat = require('../../../lib/extend').extendFlat;
 var counterRegex = require('../../../lib').counterRegex;
-
 
 function makeCameraVector(x, y, z) {
     return {
@@ -72,39 +72,24 @@ module.exports = {
                 'of this scene.'
             ].join(' ')
         }),
+        projection: {
+            type: {
+                valType: 'enumerated',
+                role: 'info',
+                values: ['perspective', 'orthographic'],
+                dflt: 'perspective',
+                editType: 'calc',
+                description: [
+                    'Sets the projection type. The projection type could be',
+                    'either *perspective* or *orthographic*. The default is',
+                    '*perspective*.'
+                ].join(' ')
+            },
+            editType: 'calc'
+        },
         editType: 'camera'
     },
-    domain: {
-        x: {
-            valType: 'info_array',
-            role: 'info',
-            items: [
-                {valType: 'number', min: 0, max: 1, editType: 'plot'},
-                {valType: 'number', min: 0, max: 1, editType: 'plot'}
-            ],
-            dflt: [0, 1],
-            editType: 'plot',
-            description: [
-                'Sets the horizontal domain of this scene',
-                '(in plot fraction).'
-            ].join(' ')
-        },
-        y: {
-            valType: 'info_array',
-            role: 'info',
-            items: [
-                {valType: 'number', min: 0, max: 1, editType: 'plot'},
-                {valType: 'number', min: 0, max: 1, editType: 'plot'}
-            ],
-            dflt: [0, 1],
-            editType: 'plot',
-            description: [
-                'Sets the vertical domain of this scene',
-                '(in plot fraction).'
-            ].join(' ')
-        },
-        editType: 'plot'
-    },
+    domain: domainAttrs({name: 'scene', editType: 'plot'}),
     aspectmode: {
         valType: 'enumerated',
         role: 'info',
@@ -170,7 +155,6 @@ module.exports = {
         valType: 'enumerated',
         role: 'info',
         values: ['orbit', 'turntable', 'zoom', 'pan', false],
-        dflt: 'turntable',
         editType: 'plot',
         description: [
             'Determines the mode of drag interactions for this scene.'
@@ -184,6 +168,15 @@ module.exports = {
         editType: 'modebar',
         description: [
             'Determines the mode of hover interactions for this scene.'
+        ].join(' ')
+    },
+    uirevision: {
+        valType: 'any',
+        role: 'info',
+        editType: 'none',
+        description: [
+            'Controls persistence of user-driven changes in camera attributes.',
+            'Defaults to `layout.uirevision`.'
         ].join(' ')
     },
     editType: 'plot',

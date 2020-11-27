@@ -1,15 +1,15 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
 * LICENSE file in the root directory of this source tree.
 */
 
-
 'use strict';
 
 var scatterHover = require('../scatter/hover');
+var fillText = require('../../lib').fillText;
 
 module.exports = function hoverPoints(pointData, xval, yval, hovermode) {
     var scatterPointData = scatterHover(pointData, xval, yval, hovermode);
@@ -28,10 +28,10 @@ module.exports = function hoverPoints(pointData, xval, yval, hovermode) {
     // so easy and anyway we lost the information we would have needed to do
     // this inside scatterHover.
     if(newPointData.index === undefined) {
-        var yFracUp = 1 - (newPointData.y0 / pointData.ya._length),
-            xLen = pointData.xa._length,
-            xMin = xLen * yFracUp / 2,
-            xMax = xLen - xMin;
+        var yFracUp = 1 - (newPointData.y0 / pointData.ya._length);
+        var xLen = pointData.xa._length;
+        var xMin = xLen * yFracUp / 2;
+        var xMax = xLen - xMin;
         newPointData.x0 = Math.max(Math.min(newPointData.x0, xMax), xMin);
         newPointData.x1 = Math.max(Math.min(newPointData.x1, xMax), xMin);
         return scatterPointData;
@@ -46,30 +46,44 @@ module.exports = function hoverPoints(pointData, xval, yval, hovermode) {
     newPointData.yLabelVal = undefined;
     // TODO: nice formatting, and label by axis title, for a, b, and c?
 
-    var trace = newPointData.trace,
-        carpet = trace._carpet,
-        hoverinfo = trace.hoverinfo.split('+'),
-        text = [];
+    var trace = newPointData.trace;
+    var carpet = trace._carpet;
+
+    var labels = trace._module.formatLabels(cdi, trace);
+    newPointData.yLabel = labels.yLabel;
+
+    delete newPointData.text;
+    var text = [];
 
     function textPart(ax, val) {
-        text.push(((ax.labelprefix && ax.labelprefix.length > 0) ? ax.labelprefix : (ax._hovertitle + ': ')) + val.toFixed(3) + ax.labelsuffix);
+        var prefix;
+
+        if(ax.labelprefix && ax.labelprefix.length > 0) {
+            prefix = ax.labelprefix.replace(/ = $/, '');
+        } else {
+            prefix = ax._hovertitle;
+        }
+
+        text.push(prefix + ': ' + val.toFixed(3) + ax.labelsuffix);
     }
 
-    if(hoverinfo.indexOf('all') !== -1) hoverinfo = ['a', 'b'];
-    if(hoverinfo.indexOf('a') !== -1) textPart(carpet.aaxis, cdi.a);
-    if(hoverinfo.indexOf('b') !== -1) textPart(carpet.baxis, cdi.b);
 
-    var ij = carpet.ab2ij([cdi.a, cdi.b]);
-    var i0 = Math.floor(ij[0]);
-    var ti = ij[0] - i0;
+    if(!trace.hovertemplate) {
+        var hoverinfo = cdi.hi || trace.hoverinfo;
+        var parts = hoverinfo.split('+');
 
-    var j0 = Math.floor(ij[1]);
-    var tj = ij[1] - j0;
+        if(parts.indexOf('all') !== -1) parts = ['a', 'b', 'text'];
+        if(parts.indexOf('a') !== -1) textPart(carpet.aaxis, cdi.a);
+        if(parts.indexOf('b') !== -1) textPart(carpet.baxis, cdi.b);
 
-    var xy = carpet.evalxy([], i0, j0, ti, tj);
-    text.push('y: ' + xy[1].toFixed(3));
+        text.push('y: ' + newPointData.yLabel);
 
-    newPointData.extraText = text.join('<br>');
+        if(parts.indexOf('text') !== -1) {
+            fillText(cdi, trace, text);
+        }
+
+        newPointData.extraText = text.join('<br>');
+    }
 
     return scatterPointData;
 };

@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -12,9 +12,14 @@ var fontAttrs = require('../font_attributes');
 var colorAttrs = require('../../components/color/attributes');
 var dash = require('../../components/drawing/attributes').dash;
 var extendFlat = require('../../lib/extend').extendFlat;
+var templatedArray = require('../../plot_api/plot_template').templatedArray;
 
+var FORMAT_LINK = require('../../constants/docs').FORMAT_LINK;
+var DATE_FORMAT_LINK = require('../../constants/docs').DATE_FORMAT_LINK;
+var ONEDAY = require('../../constants/numerical').ONEDAY;
 var constants = require('./constants');
-
+var HOUR = constants.HOUR_PATTERN;
+var DAY_OF_WEEK = constants.WEEKDAY_PATTERN;
 
 module.exports = {
     visible: {
@@ -40,26 +45,56 @@ module.exports = {
         ].join(' ')
     },
     title: {
-        valType: 'string',
-        role: 'info',
-        editType: 'ticks',
-        description: 'Sets the title of this axis.'
+        text: {
+            valType: 'string',
+            role: 'info',
+            editType: 'ticks',
+            description: [
+                'Sets the title of this axis.',
+                'Note that before the existence of `title.text`, the title\'s',
+                'contents used to be defined as the `title` attribute itself.',
+                'This behavior has been deprecated.'
+            ].join(' ')
+        },
+        font: fontAttrs({
+            editType: 'ticks',
+            description: [
+                'Sets this axis\' title font.',
+                'Note that the title\'s font used to be customized',
+                'by the now deprecated `titlefont` attribute.'
+            ].join(' ')
+        }),
+        standoff: {
+            valType: 'number',
+            role: 'info',
+            min: 0,
+            editType: 'ticks',
+            description: [
+                'Sets the standoff distance (in px) between the axis labels and the title text',
+                'The default value is a function of the axis tick labels, the title `font.size`',
+                'and the axis `linewidth`.',
+                'Note that the axis title position is always constrained within the margins,',
+                'so the actual standoff distance is always less than the set or default value.',
+                'By setting `standoff` and turning on `automargin`, plotly.js will push the',
+                'margins to fit the axis title at given standoff distance.'
+            ].join(' ')
+        },
+        editType: 'ticks'
     },
-    titlefont: fontAttrs({
-        editType: 'ticks',
-        description: [
-            'Sets this axis\' title font.'
-        ].join(' ')
-    }),
     type: {
         valType: 'enumerated',
         // '-' means we haven't yet run autotype or couldn't find any data
         // it gets turned into linear in gd._fullLayout but not copied back
         // to gd.data like the others are.
-        values: ['-', 'linear', 'log', 'date', 'category'],
+        values: ['-', 'linear', 'log', 'date', 'category', 'multicategory'],
         dflt: '-',
         role: 'info',
         editType: 'calc',
+        // we forget when an axis has been autotyped, just writing the auto
+        // value back to the input - so it doesn't make sense to template this.
+        // Note: we do NOT prohibit this in `coerce`, so if someone enters a
+        // type in the template explicitly it will be honored as the default.
+        _noTemplating: true,
         description: [
             'Sets the axis type.',
             'By default, plotly attempts to determined the axis type',
@@ -71,8 +106,8 @@ module.exports = {
         valType: 'enumerated',
         values: [true, false, 'reversed'],
         dflt: true,
-        role: 'style',
-        editType: 'calc',
+        role: 'info',
+        editType: 'axrange',
         impliedEdits: {'range[0]': undefined, 'range[1]': undefined},
         description: [
             'Determines whether or not the range of this axis is',
@@ -85,26 +120,28 @@ module.exports = {
         valType: 'enumerated',
         values: ['normal', 'tozero', 'nonnegative'],
         dflt: 'normal',
-        role: 'style',
-        editType: 'calc',
+        role: 'info',
+        editType: 'plot',
         description: [
             'If *normal*, the range is computed in relation to the extrema',
             'of the input data.',
             'If *tozero*`, the range extends to 0,',
             'regardless of the input data',
             'If *nonnegative*, the range is non-negative,',
-            'regardless of the input data.'
+            'regardless of the input data.',
+            'Applies only to linear axes.'
         ].join(' ')
     },
     range: {
         valType: 'info_array',
         role: 'info',
         items: [
-            {valType: 'any', editType: 'plot', impliedEdits: {'^autorange': false}},
-            {valType: 'any', editType: 'plot', impliedEdits: {'^autorange': false}}
+            {valType: 'any', editType: 'axrange', impliedEdits: {'^autorange': false}, anim: true},
+            {valType: 'any', editType: 'axrange', impliedEdits: {'^autorange': false}, anim: true}
         ],
-        editType: 'plot',
+        editType: 'axrange',
         impliedEdits: {'autorange': false},
+        anim: true,
         description: [
             'Sets the range of this axis.',
             'If the axis `type` is *log*, then you must take the log of your',
@@ -137,7 +174,7 @@ module.exports = {
             constants.idRegex.y.toString()
         ],
         role: 'info',
-        editType: 'calc',
+        editType: 'plot',
         description: [
             'If set to another axis id (e.g. `x2`, `y`), the range of this axis',
             'changes together with the range of the corresponding axis',
@@ -151,7 +188,9 @@ module.exports = {
             'or the same letter (to match scales across subplots).',
             'Loops (`yaxis: {scaleanchor: *x*}, xaxis: {scaleanchor: *y*}` or longer) are redundant',
             'and the last constraint encountered will be ignored to avoid possible',
-            'inconsistent constraints via `scaleratio`.'
+            'inconsistent constraints via `scaleratio`.',
+            'Note that setting axes simultaneously in both a `scaleanchor` and a `matches` constraint',
+            'is currently forbidden.'
         ].join(' ')
     },
     scaleratio: {
@@ -159,7 +198,7 @@ module.exports = {
         min: 0,
         dflt: 1,
         role: 'info',
-        editType: 'calc',
+        editType: 'plot',
         description: [
             'If this axis is linked to another by `scaleanchor`, this determines the pixel',
             'to unit scale ratio. For example, if this value is 10, then every unit on',
@@ -173,7 +212,7 @@ module.exports = {
         values: ['range', 'domain'],
         dflt: 'range',
         role: 'info',
-        editType: 'calc',
+        editType: 'plot',
         description: [
             'If this axis needs to be compressed (either due to its own `scaleanchor` and',
             '`scaleratio` or those of the other axis), determines how that happens:',
@@ -185,7 +224,7 @@ module.exports = {
         valType: 'enumerated',
         values: ['left', 'center', 'right', 'top', 'middle', 'bottom'],
         role: 'info',
-        editType: 'calc',
+        editType: 'plot',
         description: [
             'If this axis needs to be compressed (either due to its own `scaleanchor` and',
             '`scaleratio` or those of the other axis), determines which direction we push',
@@ -193,6 +232,134 @@ module.exports = {
             'and *right* for x axes, and *top*, *middle* (default), and *bottom* for y axes.'
         ].join(' ')
     },
+    matches: {
+        valType: 'enumerated',
+        values: [
+            constants.idRegex.x.toString(),
+            constants.idRegex.y.toString()
+        ],
+        role: 'info',
+        editType: 'calc',
+        description: [
+            'If set to another axis id (e.g. `x2`, `y`), the range of this axis',
+            'will match the range of the corresponding axis in data-coordinates space.',
+            'Moreover, matching axes share auto-range values, category lists and',
+            'histogram auto-bins.',
+            'Note that setting axes simultaneously in both a `scaleanchor` and a `matches` constraint',
+            'is currently forbidden.',
+            'Moreover, note that matching axes must have the same `type`.'
+        ].join(' ')
+    },
+
+    rangebreaks: templatedArray('rangebreak', {
+        enabled: {
+            valType: 'boolean',
+            role: 'info',
+            dflt: true,
+            editType: 'calc',
+            description: [
+                'Determines whether this axis rangebreak is enabled or disabled.',
+                'Please note that `rangebreaks` only work for *date* axis type.'
+            ].join(' ')
+        },
+
+        bounds: {
+            valType: 'info_array',
+            role: 'info',
+            items: [
+                {valType: 'any', editType: 'calc'},
+                {valType: 'any', editType: 'calc'}
+            ],
+            editType: 'calc',
+            description: [
+                'Sets the lower and upper bounds of this axis rangebreak.',
+                'Can be used with `pattern`.'
+            ].join(' ')
+        },
+
+        pattern: {
+            valType: 'enumerated',
+            values: [DAY_OF_WEEK, HOUR, ''],
+            role: 'info',
+            editType: 'calc',
+            description: [
+                'Determines a pattern on the time line that generates breaks.',
+                'If *' + DAY_OF_WEEK + '* - days of the week in English e.g. \'Sunday\' or `\sun\`',
+                '(matching is case-insensitive and considers only the first three characters),',
+                'as well as Sunday-based integers between 0 and 6.',
+                'If *' + HOUR + '* - hour (24-hour clock) as decimal numbers between 0 and 24.',
+                'for more info.',
+                'Examples:',
+                '- { pattern: \'' + DAY_OF_WEEK + '\', bounds: [6, 1] }',
+                ' or simply { bounds: [\'sat\', \'mon\'] }',
+                '  breaks from Saturday to Monday (i.e. skips the weekends).',
+                '- { pattern: \'' + HOUR + '\', bounds: [17, 8] }',
+                '  breaks from 5pm to 8am (i.e. skips non-work hours).'
+            ].join(' ')
+        },
+
+        values: {
+            valType: 'info_array',
+            freeLength: true,
+            role: 'info',
+            editType: 'calc',
+            items: {
+                valType: 'any',
+                editType: 'calc'
+            },
+            description: [
+                'Sets the coordinate values corresponding to the rangebreaks.',
+                'An alternative to `bounds`.',
+                'Use `dvalue` to set the size of the values along the axis.'
+            ].join(' ')
+        },
+        dvalue: {
+            // TODO could become 'any' to add support for 'months', 'years'
+            valType: 'number',
+            role: 'info',
+            editType: 'calc',
+            min: 0,
+            dflt: ONEDAY,
+            description: [
+                'Sets the size of each `values` item.',
+                'The default is one day in milliseconds.'
+            ].join(' ')
+        },
+
+        /*
+        gap: {
+            valType: 'number',
+            min: 0,
+            dflt: 0, // for *date* axes, maybe something else for *linear*
+            editType: 'calc',
+            role: 'info',
+            description: [
+                'Sets the gap distance between the start and the end of this rangebreak.',
+                'Use with `gapmode` to set the unit of measurement.'
+            ].join(' ')
+        },
+        gapmode: {
+            valType: 'enumerated',
+            values: ['pixels', 'fraction'],
+            dflt: 'pixels',
+            editType: 'calc',
+            role: 'info',
+            description: [
+                'Determines if the `gap` value corresponds to a pixel length',
+                'or a fraction of the plot area.'
+            ].join(' ')
+        },
+        */
+
+        // To complete https://github.com/plotly/plotly.js/issues/4210
+        // we additionally need `gap` and make this work on *linear*, and
+        // possibly all other cartesian axis types. We possibly would also need
+        // some style attributes controlling the zig-zag on the corresponding
+        // axis.
+
+        editType: 'calc'
+    }),
+
     // ticks
     tickmode: {
         valType: 'enumerated',
@@ -297,6 +464,34 @@ module.exports = {
             'the axis lines.'
         ].join(' ')
     },
+    tickson: {
+        valType: 'enumerated',
+        values: ['labels', 'boundaries'],
+        role: 'info',
+        dflt: 'labels',
+        editType: 'ticks',
+        description: [
+            'Determines where ticks and grid lines are drawn with respect to their',
+            'corresponding tick labels.',
+            'Only has an effect for axes of `type` *category* or *multicategory*.',
+            'When set to *boundaries*, ticks and grid lines are drawn half a category',
+            'to the left/bottom of labels.'
+        ].join(' ')
+    },
+    ticklabelmode: {
+        valType: 'enumerated',
+        values: ['instant', 'period'],
+        dflt: 'instant',
+        role: 'info',
+        editType: 'ticks',
+        description: [
+            'Determines where tick labels are drawn with respect to their',
+            'corresponding ticks and grid lines.',
+            'Only has an effect for axes of `type` *date*',
+            'When set to *period*, tick labels are drawn in the middle of the period',
+            'between ticks.'
+        ].join(' ')
+    },
     mirror: {
         valType: 'enumerated',
         values: [true, 'ticks', false, 'all', 'allticks'],
@@ -344,6 +539,16 @@ module.exports = {
         editType: 'ticks',
         description: 'Determines whether or not the tick labels are drawn.'
     },
+    automargin: {
+        valType: 'boolean',
+        dflt: false,
+        role: 'style',
+        editType: 'ticks',
+        description: [
+            'Determines whether long tick labels automatically grow the figure',
+            'margins.'
+        ].join(' ')
+    },
     showspikes: {
         valType: 'boolean',
         dflt: false,
@@ -386,6 +591,14 @@ module.exports = {
             'If *marker*, then a marker dot is drawn on the axis the series is',
             'plotted on'
         ].join(' ')
+    },
+    spikesnap: {
+        valType: 'enumerated',
+        values: ['data', 'cursor', 'hovered data'],
+        dflt: 'data',
+        role: 'style',
+        editType: 'none',
+        description: 'Determines whether spikelines are stuck to the cursor or to the closest datapoints.'
     },
     tickfont: fontAttrs({
         editType: 'ticks',
@@ -467,6 +680,17 @@ module.exports = {
             'If *B*, 1B.'
         ].join(' ')
     },
+    minexponent: {
+        valType: 'number',
+        dflt: 3,
+        min: 0,
+        role: 'style',
+        editType: 'ticks',
+        description: [
+            'Hide SI prefix for 10^n if |n| is below this number.',
+            'This only has an effect when `tickformat` is *SI* or *B*.'
+        ].join(' ')
+    },
     separatethousands: {
         valType: 'boolean',
         dflt: false,
@@ -485,14 +709,50 @@ module.exports = {
             'Is either a function which is called with the tick value and returns the formatted value or',
             'it is the tick label formatting rule using d3 formatting mini-languages',
             'which are very similar to those in Python. For numbers, see:',
-            'https://github.com/d3/d3-format/blob/master/README.md#locale_format',
+            FORMAT_LINK,
             'And for dates see:',
-            'https://github.com/d3/d3-time-format/blob/master/README.md#locale_format',
+            DATE_FORMAT_LINK,
             'We add one item to d3\'s date formatter: *%{n}f* for fractional seconds',
             'with n digits. For example, *2016-10-13 09:15:23.456* with tickformat',
             '*%H~%M~%S.%2f* would display *09~15~23.46*'
         ].join(' ')
     },
+    tickformatstops: templatedArray('tickformatstop', {
+        enabled: {
+            valType: 'boolean',
+            role: 'info',
+            dflt: true,
+            editType: 'ticks',
+            description: [
+                'Determines whether or not this stop is used.',
+                'If `false`, this stop is ignored even within its `dtickrange`.'
+            ].join(' ')
+        },
+        dtickrange: {
+            valType: 'info_array',
+            role: 'info',
+            items: [
+                {valType: 'any', editType: 'ticks'},
+                {valType: 'any', editType: 'ticks'}
+            ],
+            editType: 'ticks',
+            description: [
+                'range [*min*, *max*], where *min*, *max* - dtick values',
+                'which describe some zoom level, it is possible to omit *min*',
+                'or *max* value by passing *null*'
+            ].join(' ')
+        },
+        value: {
+            valType: 'string',
+            dflt: '',
+            role: 'style',
+            editType: 'ticks',
+            description: [
+                'string - dtickformat for described zoom level, the same as *tickformat*'
+            ].join(' ')
+        },
+        editType: 'ticks'
+    }),
     hoverformat: {
         valType: 'any',
         dflt: '',
@@ -502,9 +762,9 @@ module.exports = {
             'Is either a function which is called with the tick value and returns the formatted value or',
             'it is the hover text formatting rule using d3 formatting mini-languages',
             'which are very similar to those in Python. For numbers, see:',
-            'https://github.com/d3/d3-format/blob/master/README.md#locale_format',
+            FORMAT_LINK,
             'And for dates see:',
-            'https://github.com/d3/d3-time-format/blob/master/README.md#locale_format',
+            DATE_FORMAT_LINK,
             'We add one item to d3\'s date formatter: *%{n}f* for fractional seconds',
             'with n digits. For example, *2016-10-13 09:15:23.456* with tickformat',
             '*%H~%M~%S.%2f* would display *09~15~23.46*'
@@ -515,7 +775,7 @@ module.exports = {
         valType: 'boolean',
         dflt: false,
         role: 'style',
-        editType: 'layoutstyle',
+        editType: 'ticks+layoutstyle',
         description: [
             'Determines whether or not a line bounding this axis is drawn.'
         ].join(' ')
@@ -583,6 +843,40 @@ module.exports = {
         editType: 'ticks',
         description: 'Sets the width (in px) of the zero line.'
     },
+
+    showdividers: {
+        valType: 'boolean',
+        dflt: true,
+        role: 'style',
+        editType: 'ticks',
+        description: [
+            'Determines whether or not a dividers are drawn',
+            'between the category levels of this axis.',
+            'Only has an effect on *multicategory* axes.'
+        ].join(' ')
+    },
+    dividercolor: {
+        valType: 'color',
+        dflt: colorAttrs.defaultLine,
+        role: 'style',
+        editType: 'ticks',
+        description: [
+            'Sets the color of the dividers',
+            'Only has an effect on *multicategory* axes.'
+        ].join(' ')
+    },
+    dividerwidth: {
+        valType: 'number',
+        dflt: 1,
+        role: 'style',
+        editType: 'ticks',
+        description: [
+            'Sets the width (in px) of the dividers',
+            'Only has an effect on *multicategory* axes.'
+        ].join(' ')
+    },
+    // TODO dividerlen: that would override "to label base" length?
+
     // positioning attributes
     // anchor: not used directly, just put here for reference
     // values are any opposite-letter axis id
@@ -625,11 +919,14 @@ module.exports = {
             constants.idRegex.y.toString()
         ],
         role: 'info',
-        editType: 'calc',
+        editType: 'plot',
         description: [
             'If set a same-letter axis id, this axis is overlaid on top of',
-            'the corresponding same-letter axis.',
-            'If *false*, this axis does not overlay any same-letter axes.'
+            'the corresponding same-letter axis, with traces and axes visible for both',
+            'axes.',
+            'If *false*, this axis does not overlay any same-letter axes.',
+            'In this case, for axes with overlapping domains only the highest-numbered',
+            'axis will be visible.'
         ].join(' ')
     },
     layer: {
@@ -651,11 +948,11 @@ module.exports = {
         valType: 'info_array',
         role: 'info',
         items: [
-            {valType: 'number', min: 0, max: 1, editType: 'calc'},
-            {valType: 'number', min: 0, max: 1, editType: 'calc'}
+            {valType: 'number', min: 0, max: 1, editType: 'plot'},
+            {valType: 'number', min: 0, max: 1, editType: 'plot'}
         ],
         dflt: [0, 1],
-        editType: 'calc',
+        editType: 'plot',
         description: [
             'Sets the domain of this axis (in plot fraction).'
         ].join(' ')
@@ -676,8 +973,13 @@ module.exports = {
     categoryorder: {
         valType: 'enumerated',
         values: [
-            'trace', 'category ascending', 'category descending', 'array'
-            /* , 'value ascending', 'value descending'*/ // value ascending / descending to be implemented later
+            'trace', 'category ascending', 'category descending', 'array',
+            'total ascending', 'total descending',
+            'min ascending', 'min descending',
+            'max ascending', 'max descending',
+            'sum ascending', 'sum descending',
+            'mean ascending', 'mean descending',
+            'median ascending', 'median descending'
         ],
         dflt: 'trace',
         role: 'info',
@@ -687,11 +989,12 @@ module.exports = {
             'By default, plotly uses *trace*, which specifies the order that is present in the data supplied.',
             'Set `categoryorder` to *category ascending* or *category descending* if order should be determined by',
             'the alphanumerical order of the category names.',
-            /* 'Set `categoryorder` to *value ascending* or *value descending* if order should be determined by the',
-            'numerical order of the values.',*/ // // value ascending / descending to be implemented later
             'Set `categoryorder` to *array* to derive the ordering from the attribute `categoryarray`. If a category',
             'is not found in the `categoryarray` array, the sorting behavior for that attribute will be identical to',
-            'the *trace* mode. The unspecified categories will follow the categories in `categoryarray`.'
+            'the *trace* mode. The unspecified categories will follow the categories in `categoryarray`.',
+            'Set `categoryorder` to *total ascending* or *total descending* if order should be determined by the',
+            'numerical order of the values.',
+            'Similarly, the order can be determined by the min, max, sum, mean or median of all the values.'
         ].join(' ')
     },
     categoryarray: {
@@ -702,6 +1005,16 @@ module.exports = {
             'Sets the order in which categories on this axis appear.',
             'Only has an effect if `categoryorder` is set to *array*.',
             'Used with `categoryorder`.'
+        ].join(' ')
+    },
+    uirevision: {
+        valType: 'any',
+        role: 'info',
+        editType: 'none',
+        description: [
+            'Controls persistence of user-driven changes in axis `range`,',
+            '`autorange`, and `title` if in `editable: true` configuration.',
+            'Defaults to `layout.uirevision`.'
         ].join(' ')
     },
     editType: 'calc',
@@ -716,6 +1029,22 @@ module.exports = {
                 'Set `tickmode` to *auto* for old `autotick` *true* behavior.',
                 'Set `tickmode` to *linear* for `autotick` *false*.'
             ].join(' ')
-        }
+        },
+        title: {
+            valType: 'string',
+            role: 'info',
+            editType: 'ticks',
+            description: [
+                'Value of `title` is no longer a simple *string* but a set of sub-attributes.',
+                'To set the axis\' title, please use `title.text` now.'
+            ].join(' ')
+        },
+        titlefont: fontAttrs({
+            editType: 'ticks',
+            description: [
+                'Former `titlefont` is now the sub-attribute `font` of `title`.',
+                'To customize title font properties, please use `title.font` now.'
+            ].join(' ')
+        })
     }
 };

@@ -7,6 +7,15 @@ describe('svg+text utils', function() {
     'use strict';
 
     describe('convertToTspans', function() {
+        var stringFromCodePoint;
+
+        beforeAll(function() {
+            stringFromCodePoint = String.fromCodePoint;
+        });
+
+        afterEach(function() {
+            String.fromCodePoint = stringFromCodePoint;
+        });
 
         function mockTextSVGElement(txt) {
             return d3.select('body')
@@ -39,8 +48,8 @@ describe('svg+text utils', function() {
 
             if(!expectedAttrs) expectedAttrs = {};
 
-            var WHITE_LIST = ['xlink:href', 'xlink:show', 'style', 'target', 'onclick'],
-                attrs = listAttributes(a.node());
+            var WHITE_LIST = ['xlink:href', 'xlink:show', 'style', 'target', 'onclick'];
+            var attrs = listAttributes(a.node());
 
             // check that no other attribute are found in anchor,
             // which can be lead to XSS attacks.
@@ -60,7 +69,6 @@ describe('svg+text utils', function() {
             expect(a.attr('style')).toBe(fullStyle, msg);
 
             expect(a.attr('onclick')).toBe(expectedAttrs.onclick || null, msg);
-
         }
 
         function listAttributes(node) {
@@ -119,22 +127,22 @@ describe('svg+text utils', function() {
 
         it('whitelists https hrefs', function() {
             var node = mockTextSVGElement(
-                '<a href="https://plot.ly">plot.ly</a>'
+                '<a href="https://chart-studio.plotly.com">plotly</a>'
             );
 
-            expect(node.text()).toEqual('plot.ly');
+            expect(node.text()).toEqual('plotly');
             assertAnchorAttrs(node);
-            assertAnchorLink(node, 'https://plot.ly');
+            assertAnchorLink(node, 'https://chart-studio.plotly.com');
         });
 
         it('whitelists mailto hrefs', function() {
             var node = mockTextSVGElement(
-                '<a href="mailto:support@plot.ly">support</a>'
+                '<a href="mailto:support@plotly.com">support</a>'
             );
 
             expect(node.text()).toEqual('support');
             assertAnchorAttrs(node);
-            assertAnchorLink(node, 'mailto:support@plot.ly');
+            assertAnchorLink(node, 'mailto:support@plotly.com');
         });
 
         it('drops XSS attacks in href', function() {
@@ -171,6 +179,16 @@ describe('svg+text utils', function() {
                 assertAnchorAttrs(node, {style: 'y'});
                 assertAnchorLink(node, 'x');
             });
+        });
+
+        it('allows encoded URIs in href', function() {
+            var node = mockTextSVGElement(
+              '<a href="https://example.com/?q=date%20%3E=%202018-01-01">click</a>'
+            );
+
+            expect(node.text()).toEqual('click');
+            assertAnchorAttrs(node);
+            assertAnchorLink(node, 'https://example.com/?q=date%20%3E=%202018-01-01');
         });
 
         it('accepts `target` with links and tries to translate it to `xlink:show`', function() {
@@ -290,16 +308,78 @@ describe('svg+text utils', function() {
                 '100 &times; 20 &plusmn; 0.5 &deg;'
             );
 
-            expect(node.text()).toEqual('100μ & < 10 > 0  100 × 20 ± 0.5 °');
+            expect(node.text()).toBe('100μ & < 10 > 0  100 × 20 ± 0.5 °');
         });
 
         it('decodes some HTML entities in text (number case)', function() {
             var node = mockTextSVGElement(
-                '100&#956; &#28; &#60; 10 &#62; 0 &#160;' +
+                '100&#956; &#38; &#60; 10 &#62; 0 &#160;' +
                 '100 &#215; 20 &#177; 0.5 &#176;'
             );
 
-            expect(node.text()).toEqual('100μ & < 10 > 0  100 × 20 ± 0.5 °');
+            expect(node.text()).toBe('100μ & < 10 > 0  100 × 20 ± 0.5 °');
+        });
+
+        it('decodes arbitrary decimal and hex number entities', function() {
+            var i = 0;
+            for(var n = 33; n < 0x10FFFF; n = Math.round(n * 1.03)) {
+                var node = mockTextSVGElement(
+                    '&#x' + n.toString(16) +
+                    '; = &#' + n.toString() +
+                    '; = &#x' + n.toString(16).toUpperCase() + ';'
+                );
+                var char = String.fromCodePoint(n);
+                expect(node.text()).toBe(char + ' = ' + char + ' = ' + char, n);
+                i++;
+            }
+            // not really necessary to assert this, but we tested  355 characters,
+            // weighted toward the low end but continuing all the way to the
+            // end of the unicode definition
+            expect(i).toBe(355);
+        });
+
+        it('decodes arbitrary decimal and hex number entities (IE case)', function() {
+            // IE does not have String.fromCodePoint
+            String.fromCodePoint = undefined;
+            expect(String.fromCodePoint).toBeUndefined();
+
+            var i = 0;
+            for(var n = 33; n < 0x10FFFF; n = Math.round(n * 1.03)) {
+                var node = mockTextSVGElement(
+                    '&#x' + n.toString(16) +
+                    '; = &#' + n.toString() +
+                    '; = &#x' + n.toString(16).toUpperCase() + ';'
+                );
+                var char = stringFromCodePoint(n);
+                expect(node.text()).toBe(char + ' = ' + char + ' = ' + char, n);
+                i++;
+            }
+            // not really necessary to assert this, but we tested  355 characters,
+            // weighted toward the low end but continuing all the way to the
+            // end of the unicode definition
+            expect(i).toBe(355);
+        });
+
+        it('does not decode entities prematurely', function() {
+            var testCases = [
+                '&lt;b>not bold</b&gt;',
+                '<b&gt;not bold</b&gt;',
+                '&lt;b>not bold&lt;/b>',
+                '<b&gt;not bold&lt;/b>',
+                '&lt;b&gt;not bold&lt;/b&gt;'
+            ];
+            testCases.forEach(function(testCase) {
+                var node = mockTextSVGElement(testCase);
+
+                expect(node.html()).toBe(
+                    '&lt;b&gt;not bold&lt;/b&gt;', testCase
+                );
+            });
+
+            var controlNode = mockTextSVGElement('<b>bold</b>');
+            expect(controlNode.html()).toBe(
+                '<tspan style="font-weight:bold">bold</tspan>'
+            );
         });
 
         it('supports superscript by itself', function() {
@@ -385,5 +465,160 @@ describe('svg+text utils', function() {
             // sub shows up as a zero-width space (u200B) on either side of the 5:
             expect(node.text()).toEqual('test\u200b5\u200bmore');
         });
+    });
+
+    describe('plainText:', function() {
+        var fn = util.plainText;
+
+        it('should strip tags except <br> by default', function() {
+            expect(fn('a<b>b</b><br><sup>tm</sup>a')).toBe('ab<br>tma');
+        });
+
+        it('should work in various cases w/o <br>', function() {
+            var sIn = 'ThisIsDATA<sup>300</sup>';
+
+            expect(fn(sIn)).toBe('ThisIsDATA300');
+            expect(fn(sIn, {len: 3})).toBe('Thi');
+            expect(fn(sIn, {len: 4})).toBe('T...');
+            expect(fn(sIn, {len: 13})).toBe('ThisIsDATA...');
+            expect(fn(sIn, {len: 16})).toBe('ThisIsDATA300');
+            expect(fn(sIn, {allowedTags: ['sup']})).toBe('ThisIsDATA<sup>300</sup>');
+            expect(fn(sIn, {len: 13, allowedTags: ['sup']})).toBe('ThisIsDATA...');
+            expect(fn(sIn, {len: 16, allowedTags: ['sup']})).toBe('ThisIsDATA<sup>300</sup>');
+        });
+
+        it('should work in various cases w/ <br>', function() {
+            var sIn = 'ThisIs<br>DATA<sup>300</sup>';
+
+            expect(fn(sIn)).toBe('ThisIs<br>DATA300');
+            expect(fn(sIn, {len: 3})).toBe('Thi');
+            expect(fn(sIn, {len: 4})).toBe('T...');
+            expect(fn(sIn, {len: 7})).toBe('ThisIs...');
+            expect(fn(sIn, {len: 8})).toBe('ThisIs...');
+            expect(fn(sIn, {len: 9})).toBe('ThisIs...');
+            expect(fn(sIn, {len: 10})).toBe('ThisIs<br>D...');
+            expect(fn(sIn, {len: 13})).toBe('ThisIs<br>DATA...');
+            expect(fn(sIn, {len: 16})).toBe('ThisIs<br>DATA300');
+            expect(fn(sIn, {allowedTags: ['sup']})).toBe('ThisIsDATA<sup>300</sup>');
+            expect(fn(sIn, {allowedTags: ['br', 'sup']})).toBe('ThisIs<br>DATA<sup>300</sup>');
+        });
+
+        it('should work in various cases w/ <b>, <i> and <em>', function() {
+            var sIn = '<i>ThisIs</i><b>DATA</b><em>300</em>';
+
+            expect(fn(sIn)).toBe('ThisIsDATA300');
+            expect(fn(sIn, {allowedTags: ['i', 'b', 'em']})).toBe('<i>ThisIs</i><b>DATA</b><em>300</em>');
+            expect(fn(sIn, {len: 10, allowedTags: ['i', 'b', 'em']})).toBe('<i>ThisIs</i>D...');
+        });
+    });
+});
+
+describe('sanitizeHTML', function() {
+    'use strict';
+
+    var stringFromCodePoint;
+
+    beforeAll(function() {
+        stringFromCodePoint = String.fromCodePoint;
+    });
+
+    afterEach(function() {
+        String.fromCodePoint = stringFromCodePoint;
+    });
+
+    function mockHTML(txt) {
+        return util.sanitizeHTML(txt);
+    }
+
+    afterEach(function() {
+        d3.selectAll('.text-tester').remove();
+    });
+
+    it('checks for XSS attack in href', function() {
+        var innerHTML = mockHTML(
+            '<a href="javascript:alert(\'attack\')">XSS</a>'
+        );
+
+        expect(innerHTML).toEqual('<a>XSS</a>');
+    });
+
+    it('checks for XSS attack in href (with plenty of white spaces)', function() {
+        var innerHTML = mockHTML(
+            '<a href =    "     javascript:alert(\'attack\')">XSS</a>'
+        );
+
+        expect(innerHTML).toEqual('<a>XSS</a>');
+    });
+
+    it('whitelists relative hrefs (interpreted as http)', function() {
+        var innerHTML = mockHTML(
+            '<a href="/mylink">mylink</a>'
+        );
+
+        expect(innerHTML).toEqual('<a href="/mylink">mylink</a>');
+    });
+
+    it('whitelists http hrefs', function() {
+        var innerHTML = mockHTML(
+            '<a href="http://bl.ocks.org/">bl.ocks.org</a>'
+        );
+
+        expect(innerHTML).toEqual('<a href="http://bl.ocks.org/">bl.ocks.org</a>');
+    });
+
+    it('whitelists https hrefs', function() {
+        var innerHTML = mockHTML(
+            '<a href="https://chart-studio.plotly.com">plotly</a>'
+        );
+
+        expect(innerHTML).toEqual('<a href="https://chart-studio.plotly.com">plotly</a>');
+    });
+
+    it('whitelists mailto hrefs', function() {
+        var innerHTML = mockHTML(
+            '<a href="mailto:support@plotly.com">support</a>'
+        );
+
+        expect(innerHTML).toEqual('<a href="mailto:support@plotly.com">support</a>');
+    });
+
+    it('drops XSS attacks in href', function() {
+        // "XSS" gets interpreted as a relative link (http)
+        var textCases = [
+            '<a href="XSS\" onmouseover="alert(1)\" style="font-size:300px">Subtitle</a>',
+            '<a href="XSS" onmouseover="alert(1)" style="font-size:300px">Subtitle</a>'
+        ];
+
+        textCases.forEach(function(textCase) {
+            var innerHTML = mockHTML(textCase);
+
+            expect(innerHTML).toEqual('<a style="font-size:300px" href="XSS">Subtitle</a>');
+        });
+    });
+
+    it('accepts href and style in <a> in any order and tosses other stuff', function() {
+        var textCases = [
+            '<a href="x" style="y">z</a>',
+            '<a href=\'x\' style="y">z</a>',
+            '<A HREF="x"StYlE=\'y\'>z</a>',
+            '<a style=\'y\'href=\'x\'>z</A>',
+            '<a \t\r\n href="x" \n\r\t style="y"  \n  \t  \r>z</a>',
+            '<a magic="true" href="x" weather="cloudy" style="y" speed="42">z</a>',
+            '<a href="x" style="y">z</a href="nope" style="for real?">',
+        ];
+
+        textCases.forEach(function(textCase) {
+            var innerHTML = mockHTML(textCase);
+
+            expect(innerHTML).toEqual('<a style="y" href="x">z</a>');
+        });
+    });
+
+    it('allows encoded URIs in href', function() {
+        var innerHTML = mockHTML(
+            '<a href="https://example.com/?q=date%20%3E=%202018-01-01">click</a>'
+        );
+
+        expect(innerHTML).toEqual('<a href="https://example.com/?q=date%20%3E=%202018-01-01">click</a>');
     });
 });

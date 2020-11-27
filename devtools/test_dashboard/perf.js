@@ -25,8 +25,7 @@ window.timeit = function(f, n, nchunk, arg) {
             for(var j = 0; j < nchunk; j++) { f(_arg); }
             t1 = performance.now();
             dt = (t1 - t0) / nchunk;
-        }
-        else {
+        } else {
             t0 = performance.now();
             f(_arg);
             t1 = performance.now();
@@ -39,10 +38,10 @@ window.timeit = function(f, n, nchunk, arg) {
 
     var first = (times[0]).toFixed(4);
     var last = (times[n - 1]).toFixed(4);
-    times.sort();
+    times.sort(function(a, b) { return a - b; });
     var min = (times[0]).toFixed(4);
     var max = (times[n - 1]).toFixed(4);
-    var median = (times[Math.ceil(n / 2)]).toFixed(4);
+    var median = (times[Math.min(Math.ceil(n / 2), n - 1)]).toFixed(4);
     var mean = (totalTime / n).toFixed(4);
     console.log((f.name || 'function') + ' timing (ms) - min: ' + min +
         '  max: ' + max +

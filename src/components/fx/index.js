@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -13,6 +13,7 @@ var Lib = require('../../lib');
 var dragElement = require('../dragelement');
 var helpers = require('./helpers');
 var layoutAttributes = require('./layout_attributes');
+var hoverModule = require('./hover');
 
 module.exports = {
     moduleType: 'component',
@@ -35,15 +36,16 @@ module.exports = {
     getDistanceFunction: helpers.getDistanceFunction,
     getClosest: helpers.getClosest,
     inbox: helpers.inbox,
+    quadrature: helpers.quadrature,
     appendArrayPointValue: helpers.appendArrayPointValue,
 
     castHoverOption: castHoverOption,
     castHoverinfo: castHoverinfo,
 
-    hover: require('./hover').hover,
+    hover: hoverModule.hover,
     unhover: dragElement.unhover,
 
-    loneHover: require('./hover').loneHover,
+    loneHover: hoverModule.loneHover,
     loneUnhover: loneUnhover,
 
     click: require('./click')

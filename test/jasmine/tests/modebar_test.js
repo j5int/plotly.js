@@ -5,10 +5,11 @@ var manageModeBar = require('@src/components/modebar/manage');
 
 var Plotly = require('@lib/index');
 var Plots = require('@src/plots/plots');
+var Registry = require('@src/registry');
 var createGraphDiv = require('../assets/create_graph_div');
 var destroyGraphDiv = require('../assets/destroy_graph_div');
 var selectButton = require('../assets/modebar_button');
-
+var failTest = require('../assets/fail_test');
 
 describe('ModeBar', function() {
     'use strict';
@@ -25,33 +26,52 @@ describe('ModeBar', function() {
         return parent;
     }
 
-    function getMockGraphInfo() {
+    function getMockModeBarTree() {
+        var el = document.createElement('div');
+        el.className = 'modebar-container';
+        return el;
+    }
+
+    function getMockGraphInfo(xaxes, yaxes) {
         return {
             _fullLayout: {
+                _uid: '6ea6a7',
                 dragmode: 'zoom',
                 _paperdiv: d3.select(getMockContainerTree()),
-                _has: Plots._hasPlotType
+                _modebardiv: d3.select(getMockModeBarTree()),
+                _has: Plots._hasPlotType,
+                _subplots: {xaxis: xaxes || [], yaxis: yaxes || []},
+                modebar: {
+                    orientation: 'h',
+                    bgcolor: 'rgba(255,255,255,0.7)',
+                    color: 'rgba(0, 31, 95, 0.3)',
+                    activecolor: 'rgba(0, 31, 95, 1)'
+                }
             },
             _fullData: [],
             _context: {
                 displaylogo: true,
+                showSendToCloud: false,
+                showEditInChartStudio: false,
                 displayModeBar: true,
                 modeBarButtonsToRemove: [],
-                modeBarButtonsToAdd: []
+                modeBarButtonsToAdd: [],
+                locale: 'en',
+                locales: {}
             }
         };
     }
 
     function countGroups(modeBar) {
-        return d3.select(modeBar.element).selectAll('div.modebar-group')[0].length;
+        return d3.select(modeBar.element).selectAll('div.modebar-group').size();
     }
 
     function countButtons(modeBar) {
-        return d3.select(modeBar.element).selectAll('a.modebar-btn')[0].length;
+        return d3.select(modeBar.element).selectAll('a.modebar-btn').size();
     }
 
     function countLogo(modeBar) {
-        return d3.select(modeBar.element).selectAll('a.plotlyjsicon')[0].length;
+        return d3.select(modeBar.element).selectAll('a.plotlyjsicon').size();
     }
 
     function checkBtnAttr(modeBar, index, attr) {
@@ -132,6 +152,143 @@ describe('ModeBar', function() {
             ]]);
             expect(checkBtnAttr(modeBar, 0, 'data-title')).toEqual('0');
         });
+
+        describe('creates a custom button', function() {
+            function getIconSvg(modeBar) {
+                if(!modeBar || !modeBar.buttonElements || !modeBar.buttonElements.length > 0) {
+                    return undefined;
+                }
+                var button = modeBar.buttonElements[0];
+                return d3.select(button).select('svg');
+            }
+
+            it('with a Plotly icon', function() {
+                var modeBar = createModeBar(getMockGraphInfo(), [[
+                    {
+                        name: 'some button',
+                        click: noop,
+                        icon: Plotly.Icons.home
+                    }
+                ]]);
+
+                var svg = getIconSvg(modeBar);
+                expect(svg).toBeDefined();
+                var path = svg.select('path');
+                expect(path.attr('d')).toBeDefined();
+                expect(path.attr('transform')).toBeDefined();
+            });
+
+            it('with a custom icon', function() {
+                var modeBar = createModeBar(getMockGraphInfo(), [[
+                    {
+                        name: 'some button',
+                        click: noop,
+                        icon: {
+                            width: 1000,
+                            height: 1000,
+                            path: 'M0,-150 L1000,-150 L500,850 L0,-150 Z',
+                            transform: 'matrix(1 0 0 -1 0 850)',
+                        }
+                    }
+                ]]);
+
+                var svg = getIconSvg(modeBar);
+                expect(svg).toBeDefined();
+                expect(svg.attr('viewBox')).toBe('0 0 1000 1000');
+                var path = svg.select('path');
+                expect(path.attr('d')).toBeDefined();
+                expect(path.attr('transform')).toEqual('matrix(1 0 0 -1 0 850)');
+            });
+
+            it('with a custom icon with no transform', function() {
+                var modeBar = createModeBar(getMockGraphInfo(), [[
+                    {
+                        name: 'some button',
+                        click: noop,
+                        icon: {
+                            width: 1000,
+                            height: 1000,
+                            path: 'M500,0 L1000,1000 L0,1000 L500,0 Z',
+                        }
+                    }
+                ]]);
+
+                var svg = getIconSvg(modeBar);
+                expect(svg).toBeDefined();
+                expect(svg.attr('viewBox')).toBe('0 0 1000 1000');
+                var path = svg.select('path');
+                expect(path.attr('d')).toBeDefined();
+                expect(path.attr('transform')).toBeNull();
+            });
+
+            it('with a custom icon created by a function', function() {
+                var modeBar = createModeBar(getMockGraphInfo(), [[
+                    {
+                        name: 'some button',
+                        click: noop,
+                        icon: function() {
+                            var xmlns = 'http://www.w3.org/2000/svg';
+                            var icon = document.createElementNS(xmlns, 'svg');
+                            icon.setAttribute('viewBox', '0 0 1000 1000');
+                            icon.setAttribute('height', '1em');
+                            icon.setAttribute('width', '1em');
+                            icon.setAttribute('class', 'custom-svg');
+                            var path = document.createElementNS(xmlns, 'path');
+                            path.setAttribute('d', 'M500,0 L1000,1000 L0,1000 L500,0 Z');
+                            icon.appendChild(path);
+                            return icon;
+                        }
+                    }
+                ]]);
+
+                var svg = getIconSvg(modeBar);
+                expect(svg).toBeDefined();
+                expect(svg.attr('viewBox')).toBe('0 0 1000 1000');
+                expect(svg.attr('class')).toBe('custom-svg');
+                var path = svg.select('path');
+                expect(path.attr('d')).toBeDefined();
+                expect(path.attr('transform')).toBeNull();
+            });
+
+            it('with a legacy icon config', function() {
+                var modeBar = createModeBar(getMockGraphInfo(), [[
+                    {
+                        name: 'some button',
+                        click: noop,
+                        icon: {
+                            width: 1000,
+                            path: 'M0,-150 L1000,-150 L500,850 L0,-150 Z',
+                            ascent: 850,
+                            descent: -150
+                        }
+                    }
+                ]]);
+
+                var svg = getIconSvg(modeBar);
+                expect(svg).toBeDefined();
+                expect(svg.attr('viewBox')).toBe('0 0 1000 1000');
+                var path = svg.select('path');
+                expect(path.attr('d')).toBeDefined();
+                expect(path.attr('transform')).toEqual('matrix(1 0 0 -1 0 850)');
+            });
+
+            it('with the spikeline icon', function() {
+                var modeBar = createModeBar(getMockGraphInfo(), [[
+                    {
+                        name: 'some button',
+                        click: noop,
+                        icon: Plotly.Icons.spikeline
+                    }
+                ]]);
+
+                var svg = getIconSvg(modeBar);
+                expect(svg).toBeDefined();
+                expect(svg.attr('viewBox')).toBe('0 0 1000 1000');
+                var path = svg.select('path');
+                expect(path.attr('d')).toBeDefined();
+                expect(path.attr('transform')).toEqual('matrix(1.5 0 0 -1.5 0 850)');
+            });
+        });
     });
 
     describe('modeBar.removeAllButtons', function() {
@@ -154,11 +311,9 @@ describe('ModeBar', function() {
     });
 
     describe('manageModeBar', function() {
-
         function getButtons(list) {
             for(var i = 0; i < list.length; i++) {
                 for(var j = 0; j < list[i].length; j++) {
-
                     // minimal button config object
                     list[i][j] = { name: list[i][j], click: noop };
                 }
@@ -173,23 +328,28 @@ describe('ModeBar', function() {
                 expectedButtonCount += group.length;
             });
 
-            expect(modeBar.hasButtons(buttons)).toBe(true, 'modeBar.hasButtons');
-            expect(countGroups(modeBar)).toEqual(expectedGroupCount, 'correct group count');
-            expect(countButtons(modeBar)).toEqual(expectedButtonCount, 'correct button count');
-            expect(countLogo(modeBar)).toEqual(1, 'correct logo count');
+            var actualButtons = modeBar.buttons.map(function(group) {
+                return group.map(function(button) { return button.name; }).join(', ');
+            }).join(' - ');
+
+            expect(modeBar.hasButtons(buttons)).toBe(true, 'modeBar.hasButtons: ' + actualButtons);
+            expect(countGroups(modeBar)).toBe(expectedGroupCount, 'correct group count');
+            expect(countButtons(modeBar)).toBe(expectedButtonCount, 'correct button count');
+            expect(countLogo(modeBar)).toBe(1, 'correct logo count');
         }
 
         it('creates mode bar (unselectable cartesian version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['zoom2d', 'pan2d'],
                 ['zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'],
                 ['toggleSpikelines', 'hoverClosestCartesian', 'hoverCompareCartesian']
             ]);
 
-            var gd = getMockGraphInfo();
+            var gd = getMockGraphInfo(['x'], ['y']);
             gd._fullLayout._basePlotModules = [{ name: 'cartesian' }];
             gd._fullLayout.xaxis = {fixedrange: false};
+            gd._fullData = [{type: 'scatter'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -197,15 +357,15 @@ describe('ModeBar', function() {
             checkButtons(modeBar, buttons, 1);
         });
 
-        it('creates mode bar (selectable cartesian version)', function() {
+        it('creates mode bar (selectable scatter version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['zoom2d', 'pan2d', 'select2d', 'lasso2d'],
                 ['zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'],
                 ['toggleSpikelines', 'hoverClosestCartesian', 'hoverCompareCartesian']
             ]);
 
-            var gd = getMockGraphInfo();
+            var gd = getMockGraphInfo(['x'], ['y']);
             gd._fullLayout._basePlotModules = [{ name: 'cartesian' }];
             gd._fullLayout.xaxis = {fixedrange: false};
             gd._fullData = [{
@@ -221,14 +381,39 @@ describe('ModeBar', function() {
             checkButtons(modeBar, buttons, 1);
         });
 
+        it('creates mode bar (selectable box version)', function() {
+            var buttons = getButtons([
+                ['toImage'],
+                ['zoom2d', 'pan2d', 'select2d', 'lasso2d'],
+                ['zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'],
+                ['toggleSpikelines', 'hoverClosestCartesian', 'hoverCompareCartesian']
+            ]);
+
+            var gd = getMockGraphInfo(['x'], ['y']);
+            gd._fullLayout._basePlotModules = [{ name: 'cartesian' }];
+            gd._fullLayout.xaxis = {fixedrange: false};
+            gd._fullData = [{
+                type: 'box',
+                visible: true,
+                boxpoints: 'all',
+                _module: {selectPoints: true}
+            }];
+
+            manageModeBar(gd);
+            var modeBar = gd._fullLayout._modeBar;
+
+            checkButtons(modeBar, buttons, 1);
+        });
+
         it('creates mode bar (cartesian fixed-axes version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['toggleSpikelines', 'hoverClosestCartesian', 'hoverCompareCartesian']
             ]);
 
             var gd = getMockGraphInfo();
             gd._fullLayout._basePlotModules = [{ name: 'cartesian' }];
+            gd._fullData = [{type: 'scatter'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -238,7 +423,7 @@ describe('ModeBar', function() {
 
         it('creates mode bar (gl3d version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['zoom3d', 'pan3d', 'orbitRotation', 'tableRotation'],
                 ['resetCameraDefault3d', 'resetCameraLastSave3d'],
                 ['hoverClosest3d']
@@ -246,6 +431,7 @@ describe('ModeBar', function() {
 
             var gd = getMockGraphInfo();
             gd._fullLayout._basePlotModules = [{ name: 'gl3d' }];
+            gd._fullData = [{type: 'scatter3d'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -255,7 +441,7 @@ describe('ModeBar', function() {
 
         it('creates mode bar (geo version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['pan2d'],
                 ['zoomInGeo', 'zoomOutGeo', 'resetGeo'],
                 ['hoverClosestGeo']
@@ -263,6 +449,7 @@ describe('ModeBar', function() {
 
             var gd = getMockGraphInfo();
             gd._fullLayout._basePlotModules = [{ name: 'geo' }];
+            gd._fullData = [{type: 'scattergeo'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -272,7 +459,7 @@ describe('ModeBar', function() {
 
         it('creates mode bar (geo + selected version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['pan2d', 'select2d', 'lasso2d'],
                 ['zoomInGeo', 'zoomOutGeo', 'resetGeo'],
                 ['hoverClosestGeo']
@@ -295,13 +482,15 @@ describe('ModeBar', function() {
 
         it('creates mode bar (mapbox version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['pan2d'],
-                ['resetViewMapbox', 'toggleHover']
+                ['zoomInMapbox', 'zoomOutMapbox', 'resetViewMapbox'],
+                ['toggleHover']
             ]);
 
             var gd = getMockGraphInfo();
             gd._fullLayout._basePlotModules = [{ name: 'mapbox' }];
+            gd._fullData = [{type: 'scattermapbox'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -311,9 +500,10 @@ describe('ModeBar', function() {
 
         it('creates mode bar (mapbox + selected version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['pan2d', 'select2d', 'lasso2d'],
-                ['resetViewMapbox', 'toggleHover']
+                ['zoomInMapbox', 'zoomOutMapbox', 'resetViewMapbox'],
+                ['toggleHover']
             ]);
 
             var gd = getMockGraphInfo();
@@ -333,15 +523,16 @@ describe('ModeBar', function() {
 
         it('creates mode bar (gl2d version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['zoom2d', 'pan2d'],
                 ['zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'],
                 ['hoverClosestGl2d']
             ]);
 
-            var gd = getMockGraphInfo();
+            var gd = getMockGraphInfo(['x'], ['y']);
             gd._fullLayout._basePlotModules = [{ name: 'gl2d' }];
             gd._fullLayout.xaxis = {fixedrange: false};
+            gd._fullData = [{type: 'scattergl'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -351,12 +542,13 @@ describe('ModeBar', function() {
 
         it('creates mode bar (pie version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['hoverClosestPie']
             ]);
 
             var gd = getMockGraphInfo();
             gd._fullLayout._basePlotModules = [{ name: 'pie' }];
+            gd._fullData = [{type: 'pie'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -366,12 +558,15 @@ describe('ModeBar', function() {
 
         it('creates mode bar (cartesian + gl3d version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
-                ['resetViews', 'toggleHover']
+                ['toImage'],
+                ['zoom3d', 'pan3d', 'orbitRotation', 'tableRotation'],
+                ['resetViews'],
+                ['toggleSpikelines', 'hoverClosestCartesian', 'hoverCompareCartesian']
             ]);
 
             var gd = getMockGraphInfo();
             gd._fullLayout._basePlotModules = [{ name: 'cartesian' }, { name: 'gl3d' }];
+            gd._fullData = [{type: 'scatter'}, {type: 'scatter3d'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -379,14 +574,42 @@ describe('ModeBar', function() {
             checkButtons(modeBar, buttons, 1);
         });
 
-        it('creates mode bar (cartesian + geo version)', function() {
+        it('creates mode bar (cartesian + geo unselectable version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
-                ['resetViews', 'toggleHover']
+                ['toImage'],
+                ['zoom2d', 'pan2d'],
+                ['zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetViews'],
+                ['toggleSpikelines', 'hoverClosestCartesian', 'hoverCompareCartesian']
             ]);
 
-            var gd = getMockGraphInfo();
+            var gd = getMockGraphInfo(['x'], ['y']);
             gd._fullLayout._basePlotModules = [{ name: 'cartesian' }, { name: 'geo' }];
+            gd._fullLayout.xaxis = {fixedrange: false};
+            gd._fullData = [{type: 'scatter'}, {type: 'scattergeo'}];
+
+            manageModeBar(gd);
+            var modeBar = gd._fullLayout._modeBar;
+
+            checkButtons(modeBar, buttons, 1);
+        });
+
+        it('creates mode bar (cartesian + geo selectable version)', function() {
+            var buttons = getButtons([
+                ['toImage'],
+                ['zoom2d', 'pan2d', 'select2d', 'lasso2d'],
+                ['zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetViews'],
+                ['toggleSpikelines', 'hoverClosestCartesian', 'hoverCompareCartesian']
+            ]);
+
+            var gd = getMockGraphInfo(['x'], ['y']);
+            gd._fullLayout._basePlotModules = [{ name: 'cartesian' }, { name: 'geo' }];
+            gd._fullLayout.xaxis = {fixedrange: false};
+            gd._fullData = [{
+                type: 'scatter',
+                visible: true,
+                mode: 'markers',
+                _module: {selectPoints: true}
+            }];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -396,13 +619,13 @@ describe('ModeBar', function() {
 
         it('creates mode bar (cartesian + pie version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['zoom2d', 'pan2d', 'select2d', 'lasso2d'],
                 ['zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'],
-                ['toggleHover']
+                ['toggleSpikelines', 'hoverClosestCartesian', 'hoverCompareCartesian']
             ]);
 
-            var gd = getMockGraphInfo();
+            var gd = getMockGraphInfo(['x'], ['y']);
             gd._fullData = [{
                 type: 'scatter',
                 visible: true,
@@ -420,12 +643,15 @@ describe('ModeBar', function() {
 
         it('creates mode bar (gl3d + geo version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
-                ['resetViews', 'toggleHover']
+                ['toImage'],
+                ['zoom3d', 'pan3d', 'orbitRotation', 'tableRotation'],
+                ['resetViews'],
+                ['toggleHover']
             ]);
 
             var gd = getMockGraphInfo();
             gd._fullLayout._basePlotModules = [{ name: 'geo' }, { name: 'gl3d' }];
+            gd._fullData = [{type: 'scattergeo'}, {type: 'scatter3d'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -435,12 +661,14 @@ describe('ModeBar', function() {
 
         it('creates mode bar (un-selectable ternary version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
-                ['zoom2d', 'pan2d']
+                ['toImage'],
+                ['zoom2d', 'pan2d'],
+                ['toggleHover']
             ]);
 
             var gd = getMockGraphInfo();
             gd._fullLayout._basePlotModules = [{ name: 'ternary' }];
+            gd._fullData = [{type: 'scatterternary'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -450,8 +678,9 @@ describe('ModeBar', function() {
 
         it('creates mode bar (selectable ternary version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
-                ['zoom2d', 'pan2d', 'select2d', 'lasso2d']
+                ['toImage'],
+                ['zoom2d', 'pan2d', 'select2d', 'lasso2d'],
+                ['toggleHover']
             ]);
 
             var gd = getMockGraphInfo();
@@ -471,13 +700,14 @@ describe('ModeBar', function() {
 
         it('creates mode bar (ternary + cartesian version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
+                ['toImage'],
                 ['zoom2d', 'pan2d'],
                 ['toggleSpikelines', 'hoverClosestCartesian', 'hoverCompareCartesian']
             ]);
 
             var gd = getMockGraphInfo();
             gd._fullLayout._basePlotModules = [{ name: 'ternary' }, { name: 'cartesian' }];
+            gd._fullData = [{type: 'scatterternary'}, {type: 'scatter'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -487,12 +717,45 @@ describe('ModeBar', function() {
 
         it('creates mode bar (ternary + gl3d version)', function() {
             var buttons = getButtons([
-                ['toImage', 'sendDataToCloud'],
-                ['resetViews', 'toggleHover']
+                ['toImage'],
+                ['zoom3d', 'pan3d', 'orbitRotation', 'tableRotation'],
+                ['resetViews'],
+                ['toggleHover']
             ]);
 
             var gd = getMockGraphInfo();
             gd._fullLayout._basePlotModules = [{ name: 'ternary' }, { name: 'gl3d' }];
+            gd._fullData = [{ type: 'scatterternary' }, { type: 'scatter3d' }];
+
+            manageModeBar(gd);
+            var modeBar = gd._fullLayout._modeBar;
+
+            checkButtons(modeBar, buttons, 1);
+        });
+
+        it('creates mode bar without hover button when all traces are noHover', function() {
+            var buttons = getButtons([
+                ['toImage']
+            ]);
+
+            var gd = getMockGraphInfo();
+            gd._fullData = [{ type: 'indicator' }];
+
+            manageModeBar(gd);
+            var modeBar = gd._fullLayout._modeBar;
+
+            checkButtons(modeBar, buttons, 1);
+        });
+
+        it('creates mode bar with hover button even in the presence of one noHover trace', function() {
+            var buttons = getButtons([
+                ['toImage'],
+                ['hoverClosestPie']
+            ]);
+
+            var gd = getMockGraphInfo();
+            gd._fullLayout._basePlotModules = [{ name: 'pie' }];
+            gd._fullData = [{ type: 'indicator' }, {type: 'pie'}];
 
             manageModeBar(gd);
             var modeBar = gd._fullLayout._modeBar;
@@ -542,11 +805,57 @@ describe('ModeBar', function() {
             expect(countLogo(gd._fullLayout._modeBar)).toEqual(0);
         });
 
+        it('displays/hides cloud link according to showSendToCloud and/or showEditInChartStudio config arg', function() {
+            var gd = getMockGraphInfo();
+            gd._fullLayout._basePlotModules = [{ name: 'pie' }];
+            gd._fullData = [{type: 'pie'}];
+            manageModeBar(gd);
+            checkButtons(gd._fullLayout._modeBar, getButtons([
+                ['toImage'],
+                ['hoverClosestPie']
+            ]), 1);
+
+            gd._context.showSendToCloud = true;
+            gd._context.showEditInChartStudio = false;
+            manageModeBar(gd);
+            checkButtons(gd._fullLayout._modeBar, getButtons([
+                ['toImage', 'sendDataToCloud'],
+                ['hoverClosestPie']
+            ]), 1);
+
+            gd._context.showSendToCloud = false;
+            gd._context.showEditInChartStudio = true;
+            manageModeBar(gd);
+            checkButtons(gd._fullLayout._modeBar, getButtons([
+                ['toImage', 'editInChartStudio'],
+                ['hoverClosestPie']
+            ]), 1);
+
+            gd._context.showSendToCloud = true;
+            gd._context.showEditInChartStudio = true;
+            manageModeBar(gd);
+            checkButtons(gd._fullLayout._modeBar, getButtons([
+                ['toImage', 'editInChartStudio'],
+                ['hoverClosestPie']
+            ]), 1);
+        });
+
+        it('always displays the logo if watermark config arg is true', function() {
+            var gd = getMockGraphInfo();
+            gd._context.displaylogo = false;
+            gd._context.displayModeBar = false;
+            gd._context.watermark = true;
+            manageModeBar(gd);
+            expect(countLogo(gd._fullLayout._modeBar)).toEqual(1);
+            expect(countButtons(gd._fullLayout._modeBar)).toEqual(1);
+        });
+
         // gives 11 buttons in 5 groups by default
         function setupGraphInfo() {
-            var gd = getMockGraphInfo();
+            var gd = getMockGraphInfo(['x'], ['y']);
             gd._fullLayout._basePlotModules = [{ name: 'cartesian' }];
             gd._fullLayout.xaxis = {fixedrange: false};
+            gd._fullData = [{type: 'scatter'}];
             return gd;
         }
 
@@ -554,10 +863,13 @@ describe('ModeBar', function() {
             var gd = setupGraphInfo();
             manageModeBar(gd);
 
+            expect(countButtons(gd._fullLayout._modeBar)).toEqual(11);
+
             gd._fullLayout._basePlotModules = [{ name: 'gl3d' }];
+            gd._fullData = [{type: 'scatter3d'}];
             manageModeBar(gd);
 
-            expect(countButtons(gd._fullLayout._modeBar)).toEqual(10);
+            expect(countButtons(gd._fullLayout._modeBar)).toEqual(9);
         });
 
         it('updates mode bar buttons if modeBarButtonsToRemove changes', function() {
@@ -565,7 +877,7 @@ describe('ModeBar', function() {
             manageModeBar(gd);
             var initialButtonCount = countButtons(gd._fullLayout._modeBar);
 
-            gd._context.modeBarButtonsToRemove = ['toImage', 'sendDataToCloud'];
+            gd._context.modeBarButtonsToRemove = ['toImage', 'zoom2d'];
             manageModeBar(gd);
 
             expect(countButtons(gd._fullLayout._modeBar))
@@ -576,8 +888,8 @@ describe('ModeBar', function() {
             var gd = setupGraphInfo();
             manageModeBar(gd);
 
-            var initialGroupCount = countGroups(gd._fullLayout._modeBar),
-                initialButtonCount = countButtons(gd._fullLayout._modeBar);
+            var initialGroupCount = countGroups(gd._fullLayout._modeBar);
+            var initialButtonCount = countButtons(gd._fullLayout._modeBar);
 
             gd._context.modeBarButtonsToAdd = [{
                 name: 'some button',
@@ -605,7 +917,7 @@ describe('ModeBar', function() {
 
             var modeBar = gd._fullLayout._modeBar;
             expect(countGroups(modeBar)).toEqual(6);
-            expect(countButtons(modeBar)).toEqual(11);
+            expect(countButtons(modeBar)).toEqual(10);
         });
 
         it('sets up buttons with modeBarButtonsToAdd and modeBarButtonToRemove (2)', function() {
@@ -625,7 +937,7 @@ describe('ModeBar', function() {
 
             var modeBar = gd._fullLayout._modeBar;
             expect(countGroups(modeBar)).toEqual(7);
-            expect(countButtons(modeBar)).toEqual(13);
+            expect(countButtons(modeBar)).toEqual(12);
         });
 
         it('sets up buttons with fully custom modeBarButtons', function() {
@@ -670,6 +982,28 @@ describe('ModeBar', function() {
             expect(function() { manageModeBar(gd); }).toThrowError();
         });
 
+        it('add pre-defined buttons as strings for drawing shapes on cartesian subplot', function() {
+            var gd = setupGraphInfo();
+            manageModeBar(gd);
+
+            var initialGroupCount = countGroups(gd._fullLayout._modeBar);
+            var initialButtonCount = countButtons(gd._fullLayout._modeBar);
+
+            gd._context.modeBarButtonsToAdd = [
+                'drawline',
+                'drawopenpath',
+                'drawclosedpath',
+                'drawcircle',
+                'drawrect',
+                'eraseshape'
+            ];
+            manageModeBar(gd);
+
+            expect(countGroups(gd._fullLayout._modeBar))
+                .toEqual(initialGroupCount + 0); // no new group - added inside the dragMode group
+            expect(countButtons(gd._fullLayout._modeBar))
+                .toEqual(initialButtonCount + 6);
+        });
     });
 
     describe('modebar on clicks', function() {
@@ -686,8 +1020,7 @@ describe('ModeBar', function() {
             if(ax.type === 'date') {
                 var truncate = function(v) { return v.substr(0, 10); };
                 expect(actual.map(truncate)).toEqual(expected.map(truncate), axName);
-            }
-            else {
+            } else {
                 expect(actual).toBeCloseToArray(expected, PRECISION, axName);
             }
         }
@@ -700,8 +1033,57 @@ describe('ModeBar', function() {
             }
         }
 
-        describe('cartesian handlers', function() {
+        describe('toImage handlers', function() {
+            beforeEach(function() {
+                spyOn(Registry, 'call').and.callFake(function() {
+                    return Promise.resolve();
+                });
+                gd = createGraphDiv();
+            });
 
+            it('should use defaults', function(done) {
+                Plotly.plot(gd, {data: [], layout: {}})
+                .then(function() {
+                    selectButton(gd._fullLayout._modeBar, 'toImage').click();
+                    expect(Registry.call)
+                        .toHaveBeenCalledWith('downloadImage', gd, {format: 'png'});
+                })
+                .catch(failTest)
+                .then(done);
+            });
+
+            it('should accept overriding defaults', function(done) {
+                Plotly.plot(gd, {data: [], layout: {}, config: {
+                    toImageButtonOptions: {
+                        format: 'svg',
+                        filename: 'x',
+                        unsupported: 'should not pass'
+                    }
+                }})
+                .then(function() {
+                    selectButton(gd._fullLayout._modeBar, 'toImage').click();
+                    expect(Registry.call)
+                        .toHaveBeenCalledWith('downloadImage', gd, {format: 'svg', filename: 'x'});
+                })
+                .catch(failTest)
+                .then(done);
+            });
+
+            it('should accept overriding defaults with null values', function(done) {
+                Plotly.plot(gd, {data: [], layout: {}, config: {
+                    toImageButtonOptions: {width: null, height: null}
+                }})
+                .then(function() {
+                    selectButton(gd._fullLayout._modeBar, 'toImage').click();
+                    expect(Registry.call)
+                        .toHaveBeenCalledWith('downloadImage', gd, {format: 'png', width: null, height: null});
+                })
+                .catch(failTest)
+                .then(done);
+            });
+        });
+
+        describe('cartesian handlers', function() {
             beforeEach(function(done) {
                 var mockData = [{
                     type: 'scatter',
@@ -752,10 +1134,10 @@ describe('ModeBar', function() {
 
             describe('buttons zoomIn2d, zoomOut2d, autoScale2d and resetScale2d', function() {
                 it('should update axis ranges', function() {
-                    var buttonZoomIn = selectButton(modeBar, 'zoomIn2d'),
-                        buttonZoomOut = selectButton(modeBar, 'zoomOut2d'),
-                        buttonAutoScale = selectButton(modeBar, 'autoScale2d'),
-                        buttonResetScale = selectButton(modeBar, 'resetScale2d');
+                    var buttonZoomIn = selectButton(modeBar, 'zoomIn2d');
+                    var buttonZoomOut = selectButton(modeBar, 'zoomOut2d');
+                    var buttonAutoScale = selectButton(modeBar, 'autoScale2d');
+                    var buttonResetScale = selectButton(modeBar, 'resetScale2d');
 
                     assertRange('xaxis', ['2016-01-01', '2016-04-01']);
                     assertRange('yaxis', [1, 3]);
@@ -791,11 +1173,11 @@ describe('ModeBar', function() {
 
             describe('buttons zoom2d, pan2d, select2d and lasso2d', function() {
                 it('should update the layout dragmode', function() {
-                    var zoom2d = selectButton(modeBar, 'zoom2d'),
-                        pan2d = selectButton(modeBar, 'pan2d'),
-                        select2d = selectButton(modeBar, 'select2d'),
-                        lasso2d = selectButton(modeBar, 'lasso2d'),
-                        buttons = [zoom2d, pan2d, select2d, lasso2d];
+                    var zoom2d = selectButton(modeBar, 'zoom2d');
+                    var pan2d = selectButton(modeBar, 'pan2d');
+                    var select2d = selectButton(modeBar, 'select2d');
+                    var lasso2d = selectButton(modeBar, 'lasso2d');
+                    var buttons = [zoom2d, pan2d, select2d, lasso2d];
 
                     expect(gd._fullLayout.dragmode).toBe('zoom');
                     assertActive(buttons, zoom2d);
@@ -819,7 +1201,6 @@ describe('ModeBar', function() {
             });
 
             describe('buttons hoverCompareCartesian and hoverClosestCartesian ', function() {
-
                 it('should update layout hovermode', function() {
                     expect(gd._fullLayout.hovermode).toBe('x');
                     assertActive(hovermodeButtons, buttonCompare);
@@ -835,14 +1216,15 @@ describe('ModeBar', function() {
             });
 
             describe('button toggleSpikelines', function() {
-                it('should update layout hovermode', function() {
+                it('should not change layout hovermode', function() {
                     expect(gd._fullLayout.hovermode).toBe('x');
                     assertActive(hovermodeButtons, buttonCompare);
 
                     buttonToggle.click();
-                    expect(gd._fullLayout.hovermode).toBe('closest');
-                    assertActive(hovermodeButtons, buttonClosest);
+                    expect(gd._fullLayout.hovermode).toBe('x');
+                    assertActive(hovermodeButtons, buttonCompare);
                 });
+
                 it('should makes spikelines visible', function() {
                     buttonToggle.click();
                     expect(gd._fullLayout._cartesianSpikesEnabled).toBe('on');
@@ -850,28 +1232,62 @@ describe('ModeBar', function() {
                     buttonToggle.click();
                     expect(gd._fullLayout._cartesianSpikesEnabled).toBe('off');
                 });
-                it('should become disabled when hovermode is switched off closest', function() {
+
+                it('should not become disabled when hovermode is switched off closest', function() {
                     buttonToggle.click();
                     expect(gd._fullLayout._cartesianSpikesEnabled).toBe('on');
 
                     buttonCompare.click();
-                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('off');
+                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('on');
                 });
-                it('should be re-enabled when hovermode is set to closest if it was previously on', function() {
+
+                it('should keep the state on changing the hovermode', function() {
                     buttonToggle.click();
                     expect(gd._fullLayout._cartesianSpikesEnabled).toBe('on');
 
                     buttonCompare.click();
+                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('on');
+
+                    buttonToggle.click();
                     expect(gd._fullLayout._cartesianSpikesEnabled).toBe('off');
 
                     buttonClosest.click();
+                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('off');
+                });
+
+                it('should work after clicking on "autoScale2d"', function() {
+                    var buttonAutoScale = selectButton(modeBar, 'autoScale2d');
+                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('off');
+
+                    buttonAutoScale.click();
+                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('off');
+
+                    buttonToggle.click();
                     expect(gd._fullLayout._cartesianSpikesEnabled).toBe('on');
+
+                    buttonToggle.click();
+                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('off');
+                });
+
+                it('should work after clicking on "resetScale2d"', function() {
+                    var buttonResetScale = selectButton(modeBar, 'resetScale2d');
+                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('off');
+
+                    buttonToggle.click();
+                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('on');
+
+                    buttonResetScale.click();
+                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('off');
+
+                    buttonToggle.click();
+                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('on');
+                    buttonToggle.click();
+                    expect(gd._fullLayout._cartesianSpikesEnabled).toBe('off');
                 });
             });
         });
 
         describe('pie handlers', function() {
-
             beforeEach(function(done) {
                 var mockData = [{
                     type: 'pie',
@@ -905,7 +1321,6 @@ describe('ModeBar', function() {
         });
 
         describe('geo handlers', function() {
-
             beforeEach(function(done) {
                 var mockData = [{
                     type: 'scattergeo',
@@ -936,11 +1351,10 @@ describe('ModeBar', function() {
                     expect(button.isActive()).toBe(true);
                 });
             });
-
         });
 
         describe('@noCI mapbox handlers', function() {
-            it('button *resetViewMapbox* should reset the mapbox view attribute to their default', function(done) {
+            it('@gl button *resetViewMapbox* should reset the mapbox view attribute to their default', function(done) {
                 var gd = createGraphDiv();
 
                 function _assert(centerLon, centerLat, zoom) {
@@ -982,6 +1396,228 @@ describe('ModeBar', function() {
                     button.isActive(false);
                 })
                 .then(done);
+            });
+        });
+
+        describe('button toggleHover', function() {
+            it('ternary case', function(done) {
+                var gd = createGraphDiv();
+
+                function _run(msg) {
+                    expect(gd._fullLayout.hovermode).toBe('closest', msg + '| pre');
+                    selectButton(gd._fullLayout._modeBar, 'toggleHover').click();
+                    expect(gd._fullLayout.hovermode).toBe(false, msg + '| after first click');
+                    selectButton(gd._fullLayout._modeBar, 'toggleHover').click();
+                    expect(gd._fullLayout.hovermode).toBe('closest', msg + '| after 2nd click');
+                }
+
+                Plotly.plot(gd, [
+                    {type: 'scatterternary', a: [1], b: [2], c: [3]}
+                ])
+                .then(function() {
+                    _run('base');
+
+                    // mock for *cartesian* bundle
+                    delete gd._fullLayout._subplots.gl3d;
+
+                    _run('cartesian bundle');
+                })
+                .catch(failTest)
+                .then(done);
+            });
+        });
+
+        describe('button resetViews', function() {
+            it('ternary + geo case ', function(done) {
+                var gd = createGraphDiv();
+
+                Plotly.plot(gd, [
+                    {type: 'scatterternary', a: [1], b: [2], c: [3]},
+                    {type: 'scattergeo', lon: [10], lat: [20]}
+                ])
+                .then(function() {
+                    selectButton(gd._fullLayout._modeBar, 'resetViews').click();
+
+                    // mock for custom geo + ternary bundle
+                    delete gd._fullLayout._subplots.gl3d;
+                    delete gd._fullLayout._subplots.mapbox;
+
+                    selectButton(gd._fullLayout._modeBar, 'resetViews').click();
+                })
+                .catch(failTest)
+                .then(done);
+            });
+        });
+    });
+
+    describe('modebar styling', function() {
+        var gd;
+        var colors = ['rgba(128, 128, 128, 0.7)', 'rgba(255, 0, 128, 0.2)'];
+        var targetBtn = 'pan2d';
+        var button, style;
+
+        beforeEach(function() {
+            gd = createGraphDiv();
+        });
+
+        afterEach(function() {
+            Plotly.purge(gd);
+            destroyGraphDiv();
+        });
+
+        function checkButtonColor(button, color) {
+            var paths = button.node.querySelector('path');
+            var style = window.getComputedStyle(paths);
+            expect(style.fill).toBe(color);
+        }
+
+        function getStyleRule() {
+            var uid = gd._fullLayout._uid;
+            var ownerNode = document.getElementById('plotly.js-style-modebar-' + uid);
+            var styleSheets = document.styleSheets;
+            for(var i = 0; i < styleSheets.length; i++) {
+                var ss = styleSheets[i];
+                if(ss.ownerNode === ownerNode) return ss;
+            }
+        }
+
+        it('create an associated style element and destroy it on purge', function(done) {
+            var styleSelector, style;
+            Plotly.plot(gd, [], {})
+            .then(function() {
+                styleSelector = 'style[id*="modebar-' + gd._fullLayout._uid + '"]';
+
+                style = document.querySelector(styleSelector);
+                expect(style).toBeTruthy();
+            })
+            .then(function() {
+                Plotly.purge(gd);
+                style = document.querySelector(styleSelector);
+                expect(style).toBeNull();
+            })
+            .then(done);
+        });
+
+        it('changes icon colors', function(done) {
+            Plotly.plot(gd, [], {modebar: { color: colors[0]}})
+            .then(function() {
+                button = selectButton(gd._fullLayout._modeBar, targetBtn);
+                checkButtonColor(button, colors[0]);
+            })
+            .then(function() { return Plotly.relayout(gd, 'modebar.color', colors[1]); })
+            .then(function() {
+                checkButtonColor(button, colors[1]);
+            })
+            .catch(failTest)
+            .then(done);
+        });
+
+        it('changes active icon colors', function(done) {
+            Plotly.plot(gd, [], {modebar: { activecolor: colors[0]}})
+            .then(function() {
+                button = selectButton(gd._fullLayout._modeBar, targetBtn);
+                button.click();
+                checkButtonColor(button, colors[0]);
+            })
+            .then(function() {Plotly.relayout(gd, 'modebar.activecolor', colors[1]);})
+            .then(function() {
+                checkButtonColor(button, colors[1]);
+            })
+            .catch(failTest)
+            .then(done);
+        });
+
+        it('changes background color (displayModeBar: hover)', function(done) {
+            Plotly.plot(gd, [], {modebar: { bgcolor: colors[0]}})
+            .then(function() {
+                style = window.getComputedStyle(gd._fullLayout._modeBar.element.querySelector('.modebar-group'));
+                expect(style.backgroundColor).toBe('rgba(0, 0, 0, 0)');
+                expect(getStyleRule().rules[3].style.backgroundColor).toBe(colors[0]);
+            })
+            .then(function() { return Plotly.relayout(gd, 'modebar.bgcolor', colors[1]); })
+            .then(function() {
+                style = window.getComputedStyle(gd._fullLayout._modeBar.element.querySelector('.modebar-group'));
+                expect(style.backgroundColor).toBe('rgba(0, 0, 0, 0)');
+                expect(getStyleRule().rules[3].style.backgroundColor).toBe(colors[1]);
+            })
+            .catch(failTest)
+            .then(done);
+        });
+
+        it('changes background color (displayModeBar: true)', function(done) {
+            Plotly.plot(gd, [], {modebar: {bgcolor: colors[0]}}, {displayModeBar: true})
+            .then(function() {
+                style = window.getComputedStyle(gd._fullLayout._modeBar.element.querySelector('.modebar-group'));
+                expect(style.backgroundColor).toBe(colors[0]);
+                expect(getStyleRule().rules[3].style.backgroundColor).toBe(colors[0]);
+            })
+            .then(function() { return Plotly.relayout(gd, 'modebar.bgcolor', colors[1]); })
+            .then(function() {
+                style = window.getComputedStyle(gd._fullLayout._modeBar.element.querySelector('.modebar-group'));
+                expect(style.backgroundColor).toBe(colors[1]);
+                expect(getStyleRule().rules[3].style.backgroundColor).toBe(colors[1]);
+            })
+            .catch(failTest)
+            .then(done);
+        });
+
+        it('changes orientation', function(done) {
+            var modeBarEl, size;
+
+            Plotly.plot(gd, [], {modebar: { orientation: 'v' }})
+            .then(function() {
+                modeBarEl = gd._fullLayout._modeBar.element;
+                size = modeBarEl.getBoundingClientRect();
+                expect(size.width < size.height).toBeTruthy();
+            })
+            .then(function() { return Plotly.relayout(gd, 'modebar.orientation', 'h'); })
+            .catch(failTest)
+            .then(function() {
+                size = modeBarEl.getBoundingClientRect();
+                expect(size.width > size.height).toBeTruthy();
+            })
+            .then(done);
+        });
+    });
+
+    describe('modebar html', function() {
+        var gd;
+        var traces = [
+            {type: 'scatter', x: [1, 2], y: [1, 2]},
+            {type: 'scatter3d', x: [1, 2], y: [1, 2], z: [1, 2]},
+            {type: 'surface', z: [[1, 2], [1, 2]]},
+            {type: 'heatmap', z: [[1, 2], [1, 2]]},
+        ];
+
+        beforeEach(function() {
+            gd = createGraphDiv();
+        });
+
+        afterEach(function() {
+            Plotly.purge(gd);
+            destroyGraphDiv();
+        });
+
+        function getModebarDiv() {
+            return document.getElementById('modebar-' + gd._fullLayout._uid);
+        }
+
+        traces.forEach(function(fromTrace) {
+            traces.forEach(function(toTrace) {
+                it('is still present when switching from ' + fromTrace.type + ' to ' + toTrace.type, function(done) {
+                    Plotly.plot(gd, [fromTrace], {})
+                    .then(function() {
+                        expect(getModebarDiv()).toBeTruthy();
+                        expect(getModebarDiv().innerHTML).toBeTruthy();
+                    })
+                    .then(Plotly.react(gd, [toTrace]))
+                    .then(function() {
+                        expect(getModebarDiv()).toBeTruthy();
+                        expect(getModebarDiv().innerHTML).toBeTruthy();
+                    })
+                    .then(done)
+                    .catch(failTest);
+                });
             });
         });
     });

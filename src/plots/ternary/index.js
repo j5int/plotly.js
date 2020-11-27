@@ -1,5 +1,5 @@
 /**
-* Copyright 2012-2017, Plotly, Inc.
+* Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 *
 * This source code is licensed under the MIT license found in the
@@ -11,33 +11,45 @@
 
 var Ternary = require('./ternary');
 
-var Plots = require('../../plots/plots');
+var getSubplotCalcData = require('../../plots/get_data').getSubplotCalcData;
 var counterRegex = require('../../lib').counterRegex;
 var TERNARY = 'ternary';
 
 exports.name = TERNARY;
 
-exports.attr = 'subplot';
+var attr = exports.attr = 'subplot';
 
 exports.idRoot = TERNARY;
 
 exports.idRegex = exports.attrRegex = counterRegex(TERNARY);
 
-exports.attributes = require('./layout/attributes');
+var attributes = exports.attributes = {};
+attributes[attr] = {
+    valType: 'subplotid',
+    role: 'info',
+    dflt: 'ternary',
+    editType: 'calc',
+    description: [
+        'Sets a reference between this trace\'s data coordinates and',
+        'a ternary subplot.',
+        'If *ternary* (the default value), the data refer to `layout.ternary`.',
+        'If *ternary2*, the data refer to `layout.ternary2`, and so on.'
+    ].join(' ')
+};
 
-exports.layoutAttributes = require('./layout/layout_attributes');
+exports.layoutAttributes = require('./layout_attributes');
 
-exports.supplyLayoutDefaults = require('./layout/defaults');
+exports.supplyLayoutDefaults = require('./layout_defaults');
 
-exports.plot = function plotTernary(gd) {
-    var fullLayout = gd._fullLayout,
-        calcData = gd.calcdata,
-        ternaryIds = Plots.getSubplotIds(fullLayout, TERNARY);
+exports.plot = function plot(gd) {
+    var fullLayout = gd._fullLayout;
+    var calcData = gd.calcdata;
+    var ternaryIds = fullLayout._subplots[TERNARY];
 
     for(var i = 0; i < ternaryIds.length; i++) {
-        var ternaryId = ternaryIds[i],
-            ternaryCalcData = Plots.getSubplotCalcData(calcData, TERNARY, ternaryId),
-            ternary = fullLayout[ternaryId]._subplot;
+        var ternaryId = ternaryIds[i];
+        var ternaryCalcData = getSubplotCalcData(calcData, TERNARY, ternaryId);
+        var ternary = fullLayout[ternaryId]._subplot;
 
         // If ternary is not instantiated, create one!
         if(!ternary) {
@@ -57,7 +69,7 @@ exports.plot = function plotTernary(gd) {
 };
 
 exports.clean = function(newFullData, newFullLayout, oldFullData, oldFullLayout) {
-    var oldTernaryKeys = Plots.getSubplotIds(oldFullLayout, TERNARY);
+    var oldTernaryKeys = oldFullLayout._subplots[TERNARY] || [];
 
     for(var i = 0; i < oldTernaryKeys.length; i++) {
         var oldTernaryKey = oldTernaryKeys[i];
@@ -67,6 +79,9 @@ exports.clean = function(newFullData, newFullLayout, oldFullData, oldFullLayout)
             oldTernary.plotContainer.remove();
             oldTernary.clipDef.remove();
             oldTernary.clipDefRelative.remove();
+            oldTernary.layers['a-title'].remove();
+            oldTernary.layers['b-title'].remove();
+            oldTernary.layers['c-title'].remove();
         }
     }
 };
