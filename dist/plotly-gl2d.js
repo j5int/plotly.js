@@ -1,5 +1,5 @@
 /**
-* plotly.js (gl2d) v1.57.1
+* plotly.js (gl2d) v1.57.1-j5int
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 * Licensed under the MIT license
@@ -72,7 +72,7 @@ for(var selector in rules) {
     Lib.addStyleRule(fullSelector, rules[selector]);
 }
 
-},{"../src/lib":461}],2:[function(_dereq_,module,exports){
+},{"../src/lib":476}],2:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -85,7 +85,7 @@ for(var selector in rules) {
 
 module.exports = _dereq_('../src/traces/contourgl');
 
-},{"../src/traces/contourgl":577}],3:[function(_dereq_,module,exports){
+},{"../src/traces/contourgl":592}],3:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -98,7 +98,7 @@ module.exports = _dereq_('../src/traces/contourgl');
 
 module.exports = _dereq_('../src/core');
 
-},{"../src/core":440}],4:[function(_dereq_,module,exports){
+},{"../src/core":455}],4:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -111,7 +111,7 @@ module.exports = _dereq_('../src/core');
 
 module.exports = _dereq_('../src/traces/heatmapgl');
 
-},{"../src/traces/heatmapgl":590}],5:[function(_dereq_,module,exports){
+},{"../src/traces/heatmapgl":605}],5:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -148,7 +148,7 @@ module.exports = Plotly;
 
 module.exports = _dereq_('../src/traces/parcoords');
 
-},{"../src/traces/parcoords":604}],7:[function(_dereq_,module,exports){
+},{"../src/traces/parcoords":619}],7:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -161,7 +161,7 @@ module.exports = _dereq_('../src/traces/parcoords');
 
 module.exports = _dereq_('../src/traces/pointcloud');
 
-},{"../src/traces/pointcloud":614}],8:[function(_dereq_,module,exports){
+},{"../src/traces/pointcloud":629}],8:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -174,7 +174,7 @@ module.exports = _dereq_('../src/traces/pointcloud');
 
 module.exports = _dereq_('../src/traces/scattergl');
 
-},{"../src/traces/scattergl":654}],9:[function(_dereq_,module,exports){
+},{"../src/traces/scattergl":669}],9:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -187,7 +187,7 @@ module.exports = _dereq_('../src/traces/scattergl');
 
 module.exports = _dereq_('../src/traces/splom');
 
-},{"../src/traces/splom":665}],10:[function(_dereq_,module,exports){
+},{"../src/traces/splom":680}],10:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = _dereq_('./quad')
@@ -545,7 +545,7 @@ function normalize (pts, bounds) {
 	return result
 }
 
-},{"array-bounds":14,"binary-search-bounds":39,"clamp":58,"defined":87,"dtype":91,"flatten-vertex-data":156,"is-obj":213,"math-log2":217,"parse-rect":230,"pick-by-alias":236}],12:[function(_dereq_,module,exports){
+},{"array-bounds":14,"binary-search-bounds":39,"clamp":57,"defined":89,"dtype":94,"flatten-vertex-data":160,"is-obj":221,"math-log2":225,"parse-rect":239,"pick-by-alias":245}],12:[function(_dereq_,module,exports){
 
 module.exports = absolutize
 
@@ -632,7 +632,7 @@ function addLineNumbers (string, start, delim) {
   }).join('\n')
 }
 
-},{"pad-left":228}],14:[function(_dereq_,module,exports){
+},{"pad-left":237}],14:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = normalize;
@@ -730,7 +730,7 @@ module.exports = function newArray(start, end) {
     return a
 }
 },{}],17:[function(_dereq_,module,exports){
-(function (global){
+(function (global){(function (){
 'use strict';
 
 var objectAssign = _dereq_('object-assign');
@@ -1238,8 +1238,8 @@ var objectKeys = Object.keys || function (obj) {
   return keys;
 };
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"object-assign":227,"util/":20}],18:[function(_dereq_,module,exports){
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"object-assign":236,"util/":20}],18:[function(_dereq_,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -1272,7 +1272,7 @@ module.exports = function isBuffer(arg) {
     && typeof arg.readUInt8 === 'function';
 }
 },{}],20:[function(_dereq_,module,exports){
-(function (process,global){
+(function (process,global){(function (){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -1860,8 +1860,8 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-}).call(this,_dereq_('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":19,"_process":250,"inherits":18}],21:[function(_dereq_,module,exports){
+}).call(this)}).call(this,_dereq_('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":19,"_process":259,"inherits":18}],21:[function(_dereq_,module,exports){
 module.exports = function _atob(str) {
   return atob(str)
 }
@@ -1994,9 +1994,7 @@ function fromByteArray (uint8) {
 
   // go through the array every three bytes, we'll deal with trailing stuff later
   for (var i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength) {
-    parts.push(encodeChunk(
-      uint8, i, (i + maxChunkLength) > len2 ? len2 : (i + maxChunkLength)
-    ))
+    parts.push(encodeChunk(uint8, i, (i + maxChunkLength) > len2 ? len2 : (i + maxChunkLength)))
   }
 
   // pad the end with zeros, but make sure to not forget the extra bytes
@@ -2183,7 +2181,7 @@ function ctzNumber(x) {
   return h + 32
 }
 
-},{"bit-twiddle":40,"double-bits":89}],31:[function(_dereq_,module,exports){
+},{"bit-twiddle":40,"double-bits":91}],31:[function(_dereq_,module,exports){
 'use strict'
 
 var BN = _dereq_('bn.js')
@@ -2213,7 +2211,7 @@ function num2bn(x) {
   }
 }
 
-},{"bn.js":42,"double-bits":89}],33:[function(_dereq_,module,exports){
+},{"bn.js":42,"double-bits":91}],33:[function(_dereq_,module,exports){
 'use strict'
 
 var num2bn = _dereq_('./num-to-bn')
@@ -2720,7 +2718,7 @@ function edt1d(f, d, v, z, n) {
     }
 }
 
-},{"clamp":58}],42:[function(_dereq_,module,exports){
+},{"clamp":57}],42:[function(_dereq_,module,exports){
 (function (module, exports) {
   'use strict';
 
@@ -5695,7 +5693,13 @@ function edt1d(f, d, v, z, n) {
     } else if (cmp > 0) {
       r.isub(this.p);
     } else {
-      r.strip();
+      if (r.strip !== undefined) {
+        // r is BN v4 instance
+        r.strip();
+      } else {
+        // r is BN v5 instance
+        r._strip();
+      }
     }
 
     return r;
@@ -6288,7 +6292,7 @@ function boxIntersectWrapper(arg0, arg1, arg2) {
       throw new Error('box-intersect: Invalid arguments')
   }
 }
-},{"./lib/intersect":45,"./lib/sweep":49,"typedarray-pool":302}],44:[function(_dereq_,module,exports){
+},{"./lib/intersect":45,"./lib/sweep":49,"typedarray-pool":317}],44:[function(_dereq_,module,exports){
 'use strict'
 
 var DIMENSION   = 'd'
@@ -6928,7 +6932,7 @@ function boxIntersectIter(
     }
   }
 }
-},{"./brute":44,"./median":46,"./partition":47,"./sweep":49,"bit-twiddle":40,"typedarray-pool":302}],46:[function(_dereq_,module,exports){
+},{"./brute":44,"./median":46,"./partition":47,"./sweep":49,"bit-twiddle":40,"typedarray-pool":317}],46:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = findMedian
@@ -7764,535 +7768,10 @@ red_loop:
     }
   }
 }
-},{"./sort":48,"bit-twiddle":40,"typedarray-pool":302}],50:[function(_dereq_,module,exports){
+},{"./sort":48,"bit-twiddle":40,"typedarray-pool":317}],50:[function(_dereq_,module,exports){
 
 },{}],51:[function(_dereq_,module,exports){
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-var objectCreate = Object.create || objectCreatePolyfill
-var objectKeys = Object.keys || objectKeysPolyfill
-var bind = Function.prototype.bind || functionBindPolyfill
-
-function EventEmitter() {
-  if (!this._events || !Object.prototype.hasOwnProperty.call(this, '_events')) {
-    this._events = objectCreate(null);
-    this._eventsCount = 0;
-  }
-
-  this._maxListeners = this._maxListeners || undefined;
-}
-module.exports = EventEmitter;
-
-// Backwards-compat with node 0.10.x
-EventEmitter.EventEmitter = EventEmitter;
-
-EventEmitter.prototype._events = undefined;
-EventEmitter.prototype._maxListeners = undefined;
-
-// By default EventEmitters will print a warning if more than 10 listeners are
-// added to it. This is a useful default which helps finding memory leaks.
-var defaultMaxListeners = 10;
-
-var hasDefineProperty;
-try {
-  var o = {};
-  if (Object.defineProperty) Object.defineProperty(o, 'x', { value: 0 });
-  hasDefineProperty = o.x === 0;
-} catch (err) { hasDefineProperty = false }
-if (hasDefineProperty) {
-  Object.defineProperty(EventEmitter, 'defaultMaxListeners', {
-    enumerable: true,
-    get: function() {
-      return defaultMaxListeners;
-    },
-    set: function(arg) {
-      // check whether the input is a positive number (whose value is zero or
-      // greater and not a NaN).
-      if (typeof arg !== 'number' || arg < 0 || arg !== arg)
-        throw new TypeError('"defaultMaxListeners" must be a positive number');
-      defaultMaxListeners = arg;
-    }
-  });
-} else {
-  EventEmitter.defaultMaxListeners = defaultMaxListeners;
-}
-
-// Obviously not all Emitters should be limited to 10. This function allows
-// that to be increased. Set to zero for unlimited.
-EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) {
-  if (typeof n !== 'number' || n < 0 || isNaN(n))
-    throw new TypeError('"n" argument must be a positive number');
-  this._maxListeners = n;
-  return this;
-};
-
-function $getMaxListeners(that) {
-  if (that._maxListeners === undefined)
-    return EventEmitter.defaultMaxListeners;
-  return that._maxListeners;
-}
-
-EventEmitter.prototype.getMaxListeners = function getMaxListeners() {
-  return $getMaxListeners(this);
-};
-
-// These standalone emit* functions are used to optimize calling of event
-// handlers for fast cases because emit() itself often has a variable number of
-// arguments and can be deoptimized because of that. These functions always have
-// the same number of arguments and thus do not get deoptimized, so the code
-// inside them can execute faster.
-function emitNone(handler, isFn, self) {
-  if (isFn)
-    handler.call(self);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self);
-  }
-}
-function emitOne(handler, isFn, self, arg1) {
-  if (isFn)
-    handler.call(self, arg1);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self, arg1);
-  }
-}
-function emitTwo(handler, isFn, self, arg1, arg2) {
-  if (isFn)
-    handler.call(self, arg1, arg2);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self, arg1, arg2);
-  }
-}
-function emitThree(handler, isFn, self, arg1, arg2, arg3) {
-  if (isFn)
-    handler.call(self, arg1, arg2, arg3);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self, arg1, arg2, arg3);
-  }
-}
-
-function emitMany(handler, isFn, self, args) {
-  if (isFn)
-    handler.apply(self, args);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].apply(self, args);
-  }
-}
-
-EventEmitter.prototype.emit = function emit(type) {
-  var er, handler, len, args, i, events;
-  var doError = (type === 'error');
-
-  events = this._events;
-  if (events)
-    doError = (doError && events.error == null);
-  else if (!doError)
-    return false;
-
-  // If there is no 'error' event listener then throw.
-  if (doError) {
-    if (arguments.length > 1)
-      er = arguments[1];
-    if (er instanceof Error) {
-      throw er; // Unhandled 'error' event
-    } else {
-      // At least give some kind of context to the user
-      var err = new Error('Unhandled "error" event. (' + er + ')');
-      err.context = er;
-      throw err;
-    }
-    return false;
-  }
-
-  handler = events[type];
-
-  if (!handler)
-    return false;
-
-  var isFn = typeof handler === 'function';
-  len = arguments.length;
-  switch (len) {
-      // fast cases
-    case 1:
-      emitNone(handler, isFn, this);
-      break;
-    case 2:
-      emitOne(handler, isFn, this, arguments[1]);
-      break;
-    case 3:
-      emitTwo(handler, isFn, this, arguments[1], arguments[2]);
-      break;
-    case 4:
-      emitThree(handler, isFn, this, arguments[1], arguments[2], arguments[3]);
-      break;
-      // slower
-    default:
-      args = new Array(len - 1);
-      for (i = 1; i < len; i++)
-        args[i - 1] = arguments[i];
-      emitMany(handler, isFn, this, args);
-  }
-
-  return true;
-};
-
-function _addListener(target, type, listener, prepend) {
-  var m;
-  var events;
-  var existing;
-
-  if (typeof listener !== 'function')
-    throw new TypeError('"listener" argument must be a function');
-
-  events = target._events;
-  if (!events) {
-    events = target._events = objectCreate(null);
-    target._eventsCount = 0;
-  } else {
-    // To avoid recursion in the case that type === "newListener"! Before
-    // adding it to the listeners, first emit "newListener".
-    if (events.newListener) {
-      target.emit('newListener', type,
-          listener.listener ? listener.listener : listener);
-
-      // Re-assign `events` because a newListener handler could have caused the
-      // this._events to be assigned to a new object
-      events = target._events;
-    }
-    existing = events[type];
-  }
-
-  if (!existing) {
-    // Optimize the case of one listener. Don't need the extra array object.
-    existing = events[type] = listener;
-    ++target._eventsCount;
-  } else {
-    if (typeof existing === 'function') {
-      // Adding the second element, need to change to array.
-      existing = events[type] =
-          prepend ? [listener, existing] : [existing, listener];
-    } else {
-      // If we've already got an array, just append.
-      if (prepend) {
-        existing.unshift(listener);
-      } else {
-        existing.push(listener);
-      }
-    }
-
-    // Check for listener leak
-    if (!existing.warned) {
-      m = $getMaxListeners(target);
-      if (m && m > 0 && existing.length > m) {
-        existing.warned = true;
-        var w = new Error('Possible EventEmitter memory leak detected. ' +
-            existing.length + ' "' + String(type) + '" listeners ' +
-            'added. Use emitter.setMaxListeners() to ' +
-            'increase limit.');
-        w.name = 'MaxListenersExceededWarning';
-        w.emitter = target;
-        w.type = type;
-        w.count = existing.length;
-        if (typeof console === 'object' && console.warn) {
-          console.warn('%s: %s', w.name, w.message);
-        }
-      }
-    }
-  }
-
-  return target;
-}
-
-EventEmitter.prototype.addListener = function addListener(type, listener) {
-  return _addListener(this, type, listener, false);
-};
-
-EventEmitter.prototype.on = EventEmitter.prototype.addListener;
-
-EventEmitter.prototype.prependListener =
-    function prependListener(type, listener) {
-      return _addListener(this, type, listener, true);
-    };
-
-function onceWrapper() {
-  if (!this.fired) {
-    this.target.removeListener(this.type, this.wrapFn);
-    this.fired = true;
-    switch (arguments.length) {
-      case 0:
-        return this.listener.call(this.target);
-      case 1:
-        return this.listener.call(this.target, arguments[0]);
-      case 2:
-        return this.listener.call(this.target, arguments[0], arguments[1]);
-      case 3:
-        return this.listener.call(this.target, arguments[0], arguments[1],
-            arguments[2]);
-      default:
-        var args = new Array(arguments.length);
-        for (var i = 0; i < args.length; ++i)
-          args[i] = arguments[i];
-        this.listener.apply(this.target, args);
-    }
-  }
-}
-
-function _onceWrap(target, type, listener) {
-  var state = { fired: false, wrapFn: undefined, target: target, type: type, listener: listener };
-  var wrapped = bind.call(onceWrapper, state);
-  wrapped.listener = listener;
-  state.wrapFn = wrapped;
-  return wrapped;
-}
-
-EventEmitter.prototype.once = function once(type, listener) {
-  if (typeof listener !== 'function')
-    throw new TypeError('"listener" argument must be a function');
-  this.on(type, _onceWrap(this, type, listener));
-  return this;
-};
-
-EventEmitter.prototype.prependOnceListener =
-    function prependOnceListener(type, listener) {
-      if (typeof listener !== 'function')
-        throw new TypeError('"listener" argument must be a function');
-      this.prependListener(type, _onceWrap(this, type, listener));
-      return this;
-    };
-
-// Emits a 'removeListener' event if and only if the listener was removed.
-EventEmitter.prototype.removeListener =
-    function removeListener(type, listener) {
-      var list, events, position, i, originalListener;
-
-      if (typeof listener !== 'function')
-        throw new TypeError('"listener" argument must be a function');
-
-      events = this._events;
-      if (!events)
-        return this;
-
-      list = events[type];
-      if (!list)
-        return this;
-
-      if (list === listener || list.listener === listener) {
-        if (--this._eventsCount === 0)
-          this._events = objectCreate(null);
-        else {
-          delete events[type];
-          if (events.removeListener)
-            this.emit('removeListener', type, list.listener || listener);
-        }
-      } else if (typeof list !== 'function') {
-        position = -1;
-
-        for (i = list.length - 1; i >= 0; i--) {
-          if (list[i] === listener || list[i].listener === listener) {
-            originalListener = list[i].listener;
-            position = i;
-            break;
-          }
-        }
-
-        if (position < 0)
-          return this;
-
-        if (position === 0)
-          list.shift();
-        else
-          spliceOne(list, position);
-
-        if (list.length === 1)
-          events[type] = list[0];
-
-        if (events.removeListener)
-          this.emit('removeListener', type, originalListener || listener);
-      }
-
-      return this;
-    };
-
-EventEmitter.prototype.removeAllListeners =
-    function removeAllListeners(type) {
-      var listeners, events, i;
-
-      events = this._events;
-      if (!events)
-        return this;
-
-      // not listening for removeListener, no need to emit
-      if (!events.removeListener) {
-        if (arguments.length === 0) {
-          this._events = objectCreate(null);
-          this._eventsCount = 0;
-        } else if (events[type]) {
-          if (--this._eventsCount === 0)
-            this._events = objectCreate(null);
-          else
-            delete events[type];
-        }
-        return this;
-      }
-
-      // emit removeListener for all listeners on all events
-      if (arguments.length === 0) {
-        var keys = objectKeys(events);
-        var key;
-        for (i = 0; i < keys.length; ++i) {
-          key = keys[i];
-          if (key === 'removeListener') continue;
-          this.removeAllListeners(key);
-        }
-        this.removeAllListeners('removeListener');
-        this._events = objectCreate(null);
-        this._eventsCount = 0;
-        return this;
-      }
-
-      listeners = events[type];
-
-      if (typeof listeners === 'function') {
-        this.removeListener(type, listeners);
-      } else if (listeners) {
-        // LIFO order
-        for (i = listeners.length - 1; i >= 0; i--) {
-          this.removeListener(type, listeners[i]);
-        }
-      }
-
-      return this;
-    };
-
-function _listeners(target, type, unwrap) {
-  var events = target._events;
-
-  if (!events)
-    return [];
-
-  var evlistener = events[type];
-  if (!evlistener)
-    return [];
-
-  if (typeof evlistener === 'function')
-    return unwrap ? [evlistener.listener || evlistener] : [evlistener];
-
-  return unwrap ? unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
-}
-
-EventEmitter.prototype.listeners = function listeners(type) {
-  return _listeners(this, type, true);
-};
-
-EventEmitter.prototype.rawListeners = function rawListeners(type) {
-  return _listeners(this, type, false);
-};
-
-EventEmitter.listenerCount = function(emitter, type) {
-  if (typeof emitter.listenerCount === 'function') {
-    return emitter.listenerCount(type);
-  } else {
-    return listenerCount.call(emitter, type);
-  }
-};
-
-EventEmitter.prototype.listenerCount = listenerCount;
-function listenerCount(type) {
-  var events = this._events;
-
-  if (events) {
-    var evlistener = events[type];
-
-    if (typeof evlistener === 'function') {
-      return 1;
-    } else if (evlistener) {
-      return evlistener.length;
-    }
-  }
-
-  return 0;
-}
-
-EventEmitter.prototype.eventNames = function eventNames() {
-  return this._eventsCount > 0 ? Reflect.ownKeys(this._events) : [];
-};
-
-// About 1.5x faster than the two-arg version of Array#splice().
-function spliceOne(list, index) {
-  for (var i = index, k = i + 1, n = list.length; k < n; i += 1, k += 1)
-    list[i] = list[k];
-  list.pop();
-}
-
-function arrayClone(arr, n) {
-  var copy = new Array(n);
-  for (var i = 0; i < n; ++i)
-    copy[i] = arr[i];
-  return copy;
-}
-
-function unwrapListeners(arr) {
-  var ret = new Array(arr.length);
-  for (var i = 0; i < ret.length; ++i) {
-    ret[i] = arr[i].listener || arr[i];
-  }
-  return ret;
-}
-
-function objectCreatePolyfill(proto) {
-  var F = function() {};
-  F.prototype = proto;
-  return new F;
-}
-function objectKeysPolyfill(obj) {
-  var keys = [];
-  for (var k in obj) if (Object.prototype.hasOwnProperty.call(obj, k)) {
-    keys.push(k);
-  }
-  return k;
-}
-function functionBindPolyfill(context) {
-  var fn = this;
-  return function () {
-    return fn.apply(context, arguments);
-  };
-}
-
-},{}],52:[function(_dereq_,module,exports){
-(function (Buffer){
+(function (Buffer){(function (){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -10071,8 +9550,8 @@ function numberIsNaN (obj) {
   return obj !== obj // eslint-disable-line no-self-compare
 }
 
-}).call(this,_dereq_("buffer").Buffer)
-},{"base64-js":22,"buffer":52,"ieee754":205}],53:[function(_dereq_,module,exports){
+}).call(this)}).call(this,_dereq_("buffer").Buffer)
+},{"base64-js":22,"buffer":51,"ieee754":213}],52:[function(_dereq_,module,exports){
 'use strict'
 
 var monotoneTriangulate = _dereq_('./lib/monotone')
@@ -10156,7 +9635,7 @@ function cdt2d(points, edges, options) {
   }
 }
 
-},{"./lib/delaunay":54,"./lib/filter":55,"./lib/monotone":56,"./lib/triangulation":57}],54:[function(_dereq_,module,exports){
+},{"./lib/delaunay":53,"./lib/filter":54,"./lib/monotone":55,"./lib/triangulation":56}],53:[function(_dereq_,module,exports){
 'use strict'
 
 var inCircle = _dereq_('robust-in-sphere')[4]
@@ -10273,7 +9752,7 @@ function delaunayRefine(points, triangulation) {
   }
 }
 
-},{"binary-search-bounds":39,"robust-in-sphere":262}],55:[function(_dereq_,module,exports){
+},{"binary-search-bounds":39,"robust-in-sphere":280}],54:[function(_dereq_,module,exports){
 'use strict'
 
 var bsearch = _dereq_('binary-search-bounds')
@@ -10455,7 +9934,7 @@ function classifyFaces(triangulation, target, infinity) {
   return result
 }
 
-},{"binary-search-bounds":39}],56:[function(_dereq_,module,exports){
+},{"binary-search-bounds":39}],55:[function(_dereq_,module,exports){
 'use strict'
 
 var bsearch = _dereq_('binary-search-bounds')
@@ -10644,7 +10123,7 @@ function monotoneTriangulate(points, edges) {
   return cells
 }
 
-},{"binary-search-bounds":39,"robust-orientation":263}],57:[function(_dereq_,module,exports){
+},{"binary-search-bounds":39,"robust-orientation":281}],56:[function(_dereq_,module,exports){
 'use strict'
 
 var bsearch = _dereq_('binary-search-bounds')
@@ -10750,7 +10229,7 @@ function createTriangulation(numVerts, edges) {
   return new Triangulation(stars, edges)
 }
 
-},{"binary-search-bounds":39}],58:[function(_dereq_,module,exports){
+},{"binary-search-bounds":39}],57:[function(_dereq_,module,exports){
 module.exports = clamp
 
 function clamp(value, min, max) {
@@ -10759,7 +10238,7 @@ function clamp(value, min, max) {
     : (value < max ? max : value > min ? min : value)
 }
 
-},{}],59:[function(_dereq_,module,exports){
+},{}],58:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = cleanPSLG
@@ -11142,7 +10621,7 @@ function cleanPSLG (points, edges, colors) {
   return modified
 }
 
-},{"./lib/rat-seg-intersect":60,"big-rat":26,"big-rat/cmp":24,"big-rat/to-float":38,"box-intersect":43,"nextafter":225,"rat-vec":253,"robust-segment-intersect":266,"union-find":303}],60:[function(_dereq_,module,exports){
+},{"./lib/rat-seg-intersect":59,"big-rat":26,"big-rat/cmp":24,"big-rat/to-float":38,"box-intersect":43,"nextafter":234,"rat-vec":262,"robust-segment-intersect":284,"union-find":318}],59:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = solveIntersection
@@ -11186,7 +10665,7 @@ function solveIntersection (a, b, c, d) {
   return r
 }
 
-},{"big-rat/div":25,"big-rat/mul":35,"big-rat/sign":36,"big-rat/sub":37,"rat-vec/add":252,"rat-vec/muls":254,"rat-vec/sub":255}],61:[function(_dereq_,module,exports){
+},{"big-rat/div":25,"big-rat/mul":35,"big-rat/sign":36,"big-rat/sub":37,"rat-vec/add":261,"rat-vec/muls":263,"rat-vec/sub":264}],60:[function(_dereq_,module,exports){
 /** @module  color-id */
 
 'use strict'
@@ -11235,7 +10714,7 @@ function fromNumber (n, normalized) {
 	return [r/255, g/255, b/255, a/255]
 }
 
-},{"clamp":58}],62:[function(_dereq_,module,exports){
+},{"clamp":57}],61:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = {
@@ -11389,7 +10868,7 @@ module.exports = {
 	"yellowgreen": [154, 205, 50]
 };
 
-},{}],63:[function(_dereq_,module,exports){
+},{}],62:[function(_dereq_,module,exports){
 /** @module  color-normalize */
 
 'use strict'
@@ -11462,8 +10941,7 @@ function isInt(color) {
 	return false
 }
 
-},{"clamp":58,"color-rgba":65,"dtype":91}],64:[function(_dereq_,module,exports){
-(function (global){
+},{"clamp":57,"color-rgba":64,"dtype":94}],63:[function(_dereq_,module,exports){
 /**
  * @module color-parse
  */
@@ -11471,8 +10949,6 @@ function isInt(color) {
 'use strict'
 
 var names = _dereq_('color-name')
-var isObject = _dereq_('is-plain-obj')
-var defined = _dereq_('defined')
 
 module.exports = parse
 
@@ -11555,7 +11031,7 @@ function parse (cstr) {
 			space = base
 			var size = base === 'cmyk' ? 4 : base === 'gray' ? 1 : 3
 			parts = m[2].trim()
-				.split(/\s*,\s*/)
+				.split(/\s*[,\/]\s*|\s+/)
 				.map(function (x, i) {
 					//<percentage>
 					if (/%$/.test(x)) {
@@ -11600,37 +11076,35 @@ function parse (cstr) {
 		parts = [cstr >>> 16, (cstr & 0x00ff00) >>> 8, cstr & 0x0000ff]
 	}
 
-	//object case - detects css cases of rgb and hsl
-	else if (isObject(cstr)) {
-		var r = defined(cstr.r, cstr.red, cstr.R, null)
+	//array-like
+	else if (Array.isArray(cstr) || cstr.length) {
+		parts = [cstr[0], cstr[1], cstr[2]]
+		space = 'rgb'
+		alpha = cstr.length === 4 ? cstr[3] : 1
+	}
 
-		if (r !== null) {
+	//object case - detects css cases of rgb and hsl
+	else if (cstr instanceof Object) {
+		if (cstr.r != null || cstr.red != null || cstr.R != null) {
 			space = 'rgb'
 			parts = [
-				r,
-				defined(cstr.g, cstr.green, cstr.G),
-				defined(cstr.b, cstr.blue, cstr.B)
+				cstr.r || cstr.red || cstr.R || 0,
+				cstr.g || cstr.green || cstr.G || 0,
+				cstr.b || cstr.blue || cstr.B || 0
 			]
 		}
 		else {
 			space = 'hsl'
 			parts = [
-				defined(cstr.h, cstr.hue, cstr.H),
-				defined(cstr.s, cstr.saturation, cstr.S),
-				defined(cstr.l, cstr.lightness, cstr.L, cstr.b, cstr.brightness)
+				cstr.h || cstr.hue || cstr.H || 0,
+				cstr.s || cstr.saturation || cstr.S || 0,
+				cstr.l || cstr.lightness || cstr.L || cstr.b || cstr.brightness
 			]
 		}
 
-		alpha = defined(cstr.a, cstr.alpha, cstr.opacity, 1)
+		alpha = cstr.a || cstr.alpha || cstr.opacity || 1
 
 		if (cstr.opacity != null) alpha /= 100
-	}
-
-	//array
-	else if (Array.isArray(cstr) || global.ArrayBuffer && ArrayBuffer.isView && ArrayBuffer.isView(cstr)) {
-		parts = [cstr[0], cstr[1], cstr[2]]
-		space = 'rgb'
-		alpha = cstr.length === 4 ? cstr[3] : 1
 	}
 
 	return {
@@ -11640,8 +11114,40 @@ function parse (cstr) {
 	}
 }
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"color-name":62,"defined":87,"is-plain-obj":214}],65:[function(_dereq_,module,exports){
+},{"color-name":61}],64:[function(_dereq_,module,exports){
+/** @module  color-rgba */
+
+'use strict'
+
+var parse = _dereq_('color-parse')
+var hsl = _dereq_('color-space/hsl')
+
+module.exports = function rgba (color) {
+	// template literals
+	if (Array.isArray(color) && color.raw) color = String.raw.apply(null, arguments)
+
+	var values, i, l
+
+	//attempt to parse non-array arguments
+	var parsed = parse(color)
+
+	if (!parsed.space) return []
+
+	values = Array(3)
+	values[0] = Math.min(Math.max(parsed.values[0], 0), 255)
+	values[1] = Math.min(Math.max(parsed.values[1], 0), 255)
+	values[2] = Math.min(Math.max(parsed.values[2], 0), 255)
+
+	if (parsed.space[0] === 'h') {
+		values = hsl.rgb(values)
+	}
+
+	values.push(Math.min(Math.max(parsed.alpha, 0), 1))
+
+	return values
+}
+
+},{"color-parse":63,"color-space/hsl":67}],65:[function(_dereq_,module,exports){
 /** @module  color-rgba */
 
 'use strict'
@@ -11672,7 +11178,9 @@ module.exports = function rgba (color) {
 	return values
 }
 
-},{"clamp":58,"color-parse":64,"color-space/hsl":66}],66:[function(_dereq_,module,exports){
+},{"clamp":57,"color-parse":66,"color-space/hsl":67}],66:[function(_dereq_,module,exports){
+arguments[4][63][0].apply(exports,arguments)
+},{"color-name":61,"dup":63}],67:[function(_dereq_,module,exports){
 /**
  * @module color-space/hsl
  */
@@ -11781,7 +11289,7 @@ rgb.hsl = function(rgb) {
 	return [h, s * 100, l * 100];
 };
 
-},{"./rgb":67}],67:[function(_dereq_,module,exports){
+},{"./rgb":68}],68:[function(_dereq_,module,exports){
 /**
  * RGB space.
  *
@@ -11797,7 +11305,7 @@ module.exports = {
 	alias: ['RGB']
 };
 
-},{}],68:[function(_dereq_,module,exports){
+},{}],69:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = compareAngle
@@ -11883,7 +11391,15 @@ function compareAngle(a, b, c, d) {
     }
   }
 }
-},{"robust-orientation":263,"robust-product":264,"robust-sum":268,"signum":269,"two-sum":290}],69:[function(_dereq_,module,exports){
+},{"robust-orientation":281,"robust-product":282,"robust-sum":286,"signum":70,"two-sum":305}],70:[function(_dereq_,module,exports){
+"use strict"
+
+module.exports = function signum(x) {
+  if(x < 0) { return -1 }
+  if(x > 0) { return 1 }
+  return 0.0
+}
+},{}],71:[function(_dereq_,module,exports){
 module.exports=[
 	"xx-small",
 	"x-small",
@@ -11896,7 +11412,7 @@ module.exports=[
 	"smaller"
 ]
 
-},{}],70:[function(_dereq_,module,exports){
+},{}],72:[function(_dereq_,module,exports){
 module.exports=[
 	"normal",
 	"condensed",
@@ -11909,14 +11425,14 @@ module.exports=[
 	"ultra-expanded"
 ]
 
-},{}],71:[function(_dereq_,module,exports){
+},{}],73:[function(_dereq_,module,exports){
 module.exports=[
 	"normal",
 	"italic",
 	"oblique"
 ]
 
-},{}],72:[function(_dereq_,module,exports){
+},{}],74:[function(_dereq_,module,exports){
 module.exports=[
 	"normal",
 	"bold",
@@ -11933,7 +11449,7 @@ module.exports=[
 	"900"
 ]
 
-},{}],73:[function(_dereq_,module,exports){
+},{}],75:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = {
@@ -11941,7 +11457,7 @@ module.exports = {
 	stringify: _dereq_('./stringify')
 }
 
-},{"./parse":75,"./stringify":76}],74:[function(_dereq_,module,exports){
+},{"./parse":77,"./stringify":78}],76:[function(_dereq_,module,exports){
 'use strict'
 
 var sizes = _dereq_('css-font-size-keywords')
@@ -11954,7 +11470,7 @@ module.exports = {
 	}
 }
 
-},{"css-font-size-keywords":69}],75:[function(_dereq_,module,exports){
+},{"css-font-size-keywords":71}],77:[function(_dereq_,module,exports){
 'use strict'
 
 var unquote = _dereq_('unquote')
@@ -12063,7 +11579,7 @@ function parseLineHeight(value) {
 	return value
 }
 
-},{"./lib/util":74,"css-font-stretch-keywords":70,"css-font-style-keywords":71,"css-font-weight-keywords":72,"css-global-keywords":77,"css-system-font-keywords":78,"string-split-by":278,"unquote":305}],76:[function(_dereq_,module,exports){
+},{"./lib/util":76,"css-font-stretch-keywords":72,"css-font-style-keywords":73,"css-font-weight-keywords":74,"css-global-keywords":79,"css-system-font-keywords":80,"string-split-by":295,"unquote":320}],78:[function(_dereq_,module,exports){
 'use strict'
 
 var pick = _dereq_('pick-by-alias')
@@ -12167,14 +11683,14 @@ function a2o (a) {
 	return o
 }
 
-},{"./lib/util":74,"css-font-stretch-keywords":70,"css-font-style-keywords":71,"css-font-weight-keywords":72,"css-global-keywords":77,"css-system-font-keywords":78,"pick-by-alias":236}],77:[function(_dereq_,module,exports){
+},{"./lib/util":76,"css-font-stretch-keywords":72,"css-font-style-keywords":73,"css-font-weight-keywords":74,"css-global-keywords":79,"css-system-font-keywords":80,"pick-by-alias":245}],79:[function(_dereq_,module,exports){
 module.exports=[
 	"inherit",
 	"initial",
 	"unset"
 ]
 
-},{}],78:[function(_dereq_,module,exports){
+},{}],80:[function(_dereq_,module,exports){
 module.exports=[
 	"caption",
 	"icon",
@@ -12184,7 +11700,7 @@ module.exports=[
 	"status-bar"
 ]
 
-},{}],79:[function(_dereq_,module,exports){
+},{}],81:[function(_dereq_,module,exports){
 "use strict"
 
 var createThunk = _dereq_("./lib/thunk.js")
@@ -12295,7 +11811,7 @@ function compileCwise(user_args) {
 
 module.exports = compileCwise
 
-},{"./lib/thunk.js":81}],80:[function(_dereq_,module,exports){
+},{"./lib/thunk.js":83}],82:[function(_dereq_,module,exports){
 "use strict"
 
 var uniq = _dereq_("uniq")
@@ -12655,7 +12171,7 @@ function generateCWiseOp(proc, typesig) {
 }
 module.exports = generateCWiseOp
 
-},{"uniq":304}],81:[function(_dereq_,module,exports){
+},{"uniq":319}],83:[function(_dereq_,module,exports){
 "use strict"
 
 // The function below is called when constructing a cwise function object, and does the following:
@@ -12743,7 +12259,7 @@ function createThunk(proc) {
 
 module.exports = createThunk
 
-},{"./compile.js":80}],82:[function(_dereq_,module,exports){
+},{"./compile.js":82}],84:[function(_dereq_,module,exports){
 "use strict";
 
 var isValue             = _dereq_("type/value/is")
@@ -12778,7 +12294,7 @@ module.exports = function (props/*, options*/) {
 	return map(props, function (desc, name) { return define(name, desc, options); });
 };
 
-},{"es5-ext/object/copy":111,"es5-ext/object/map":119,"es5-ext/object/normalize-options":120,"type/plain-function/ensure":296,"type/value/ensure":300,"type/value/is":301}],83:[function(_dereq_,module,exports){
+},{"es5-ext/object/copy":114,"es5-ext/object/map":122,"es5-ext/object/normalize-options":123,"type/plain-function/ensure":311,"type/value/ensure":315,"type/value/is":316}],85:[function(_dereq_,module,exports){
 "use strict";
 
 var isValue         = _dereq_("type/value/is")
@@ -12842,8 +12358,8 @@ d.gs = function (dscr, get, set/*, options*/) {
 	return !options ? desc : assign(normalizeOpts(options), desc);
 };
 
-},{"es5-ext/object/assign":108,"es5-ext/object/normalize-options":120,"es5-ext/string/#/contains":127,"type/plain-function/is":297,"type/value/is":301}],84:[function(_dereq_,module,exports){
-// https://d3js.org/d3-time-format/ v2.2.3 Copyright 2019 Mike Bostock
+},{"es5-ext/object/assign":111,"es5-ext/object/normalize-options":123,"es5-ext/string/#/contains":130,"type/plain-function/is":312,"type/value/is":316}],86:[function(_dereq_,module,exports){
+// https://d3js.org/d3-time-format/ v2.3.0 Copyright 2020 Mike Bostock
 (function (global, factory) {
 typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, _dereq_('d3-time')) :
 typeof define === 'function' && define.amd ? define(['exports', 'd3-time'], factory) :
@@ -12902,6 +12418,8 @@ function formatLocale(locale) {
     "d": formatDayOfMonth,
     "e": formatDayOfMonth,
     "f": formatMicroseconds,
+    "g": formatYearISO,
+    "G": formatFullYearISO,
     "H": formatHour24,
     "I": formatHour12,
     "j": formatDayOfYear,
@@ -12935,6 +12453,8 @@ function formatLocale(locale) {
     "d": formatUTCDayOfMonth,
     "e": formatUTCDayOfMonth,
     "f": formatUTCMicroseconds,
+    "g": formatUTCYearISO,
+    "G": formatUTCFullYearISO,
     "H": formatUTCHour24,
     "I": formatUTCHour12,
     "j": formatUTCDayOfYear,
@@ -12968,6 +12488,8 @@ function formatLocale(locale) {
     "d": parseDayOfMonth,
     "e": parseDayOfMonth,
     "f": parseMicroseconds,
+    "g": parseYear,
+    "G": parseFullYear,
     "H": parseHour24,
     "I": parseHour24,
     "j": parseDayOfYear,
@@ -13389,9 +12911,13 @@ function formatWeekNumberSunday(d, p) {
   return pad(d3Time.timeSunday.count(d3Time.timeYear(d) - 1, d), p, 2);
 }
 
-function formatWeekNumberISO(d, p) {
+function dISO(d) {
   var day = d.getDay();
-  d = (day >= 4 || day === 0) ? d3Time.timeThursday(d) : d3Time.timeThursday.ceil(d);
+  return (day >= 4 || day === 0) ? d3Time.timeThursday(d) : d3Time.timeThursday.ceil(d);
+}
+
+function formatWeekNumberISO(d, p) {
+  d = dISO(d);
   return pad(d3Time.timeThursday.count(d3Time.timeYear(d), d) + (d3Time.timeYear(d).getDay() === 4), p, 2);
 }
 
@@ -13407,7 +12933,18 @@ function formatYear(d, p) {
   return pad(d.getFullYear() % 100, p, 2);
 }
 
+function formatYearISO(d, p) {
+  d = dISO(d);
+  return pad(d.getFullYear() % 100, p, 2);
+}
+
 function formatFullYear(d, p) {
+  return pad(d.getFullYear() % 10000, p, 4);
+}
+
+function formatFullYearISO(d, p) {
+  var day = d.getDay();
+  d = (day >= 4 || day === 0) ? d3Time.timeThursday(d) : d3Time.timeThursday.ceil(d);
   return pad(d.getFullYear() % 10000, p, 4);
 }
 
@@ -13463,9 +13000,13 @@ function formatUTCWeekNumberSunday(d, p) {
   return pad(d3Time.utcSunday.count(d3Time.utcYear(d) - 1, d), p, 2);
 }
 
-function formatUTCWeekNumberISO(d, p) {
+function UTCdISO(d) {
   var day = d.getUTCDay();
-  d = (day >= 4 || day === 0) ? d3Time.utcThursday(d) : d3Time.utcThursday.ceil(d);
+  return (day >= 4 || day === 0) ? d3Time.utcThursday(d) : d3Time.utcThursday.ceil(d);
+}
+
+function formatUTCWeekNumberISO(d, p) {
+  d = UTCdISO(d);
   return pad(d3Time.utcThursday.count(d3Time.utcYear(d), d) + (d3Time.utcYear(d).getUTCDay() === 4), p, 2);
 }
 
@@ -13481,7 +13022,18 @@ function formatUTCYear(d, p) {
   return pad(d.getUTCFullYear() % 100, p, 2);
 }
 
+function formatUTCYearISO(d, p) {
+  d = UTCdISO(d);
+  return pad(d.getUTCFullYear() % 100, p, 2);
+}
+
 function formatUTCFullYear(d, p) {
+  return pad(d.getUTCFullYear() % 10000, p, 4);
+}
+
+function formatUTCFullYearISO(d, p) {
+  var day = d.getUTCDay();
+  d = (day >= 4 || day === 0) ? d3Time.utcThursday(d) : d3Time.utcThursday.ceil(d);
   return pad(d.getUTCFullYear() % 10000, p, 4);
 }
 
@@ -13551,7 +13103,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
 
-},{"d3-time":85}],85:[function(_dereq_,module,exports){
+},{"d3-time":87}],87:[function(_dereq_,module,exports){
 // https://d3js.org/d3-time/ v1.1.0 Copyright 2019 Mike Bostock
 (function (global, factory) {
 typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
@@ -13926,7 +13478,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
 
-},{}],86:[function(_dereq_,module,exports){
+},{}],88:[function(_dereq_,module,exports){
 !function() {
   var d3 = {
     version: "3.5.17"
@@ -23481,14 +23033,14 @@ Object.defineProperty(exports, '__esModule', { value: true });
   });
   if (typeof define === "function" && define.amd) this.d3 = d3, define(d3); else if (typeof module === "object" && module.exports) module.exports = d3; else this.d3 = d3;
 }();
-},{}],87:[function(_dereq_,module,exports){
+},{}],89:[function(_dereq_,module,exports){
 module.exports = function () {
     for (var i = 0; i < arguments.length; i++) {
         if (arguments[i] !== undefined) return arguments[i];
     }
 };
 
-},{}],88:[function(_dereq_,module,exports){
+},{}],90:[function(_dereq_,module,exports){
 'use strict'
 
 
@@ -23558,8 +23110,8 @@ function createPairs (range) {
 	return pairs
 }
 
-},{}],89:[function(_dereq_,module,exports){
-(function (Buffer){
+},{}],91:[function(_dereq_,module,exports){
+(function (Buffer){(function (){
 var hasTypedArrays = false
 if(typeof Float64Array !== "undefined") {
   var DOUBLE_VIEW = new Float64Array(1)
@@ -23661,8 +23213,8 @@ module.exports.denormalized = function(n) {
   var hi = module.exports.hi(n)
   return !(hi & 0x7ff00000)
 }
-}).call(this,_dereq_("buffer").Buffer)
-},{"buffer":52}],90:[function(_dereq_,module,exports){
+}).call(this)}).call(this,_dereq_("buffer").Buffer)
+},{"buffer":51}],92:[function(_dereq_,module,exports){
 var abs = _dereq_('abs-svg-path')
 var normalize = _dereq_('normalize-svg-path')
 
@@ -23688,7 +23240,209 @@ module.exports = function(context, segments) {
   context.closePath()
 }
 
-},{"abs-svg-path":12,"normalize-svg-path":226}],91:[function(_dereq_,module,exports){
+},{"abs-svg-path":12,"normalize-svg-path":93}],93:[function(_dereq_,module,exports){
+
+var π = Math.PI
+var _120 = radians(120)
+
+module.exports = normalize
+
+/**
+ * describe `path` in terms of cubic bézier 
+ * curves and move commands
+ *
+ * @param {Array} path
+ * @return {Array}
+ */
+
+function normalize(path){
+	// init state
+	var prev
+	var result = []
+	var bezierX = 0
+	var bezierY = 0
+	var startX = 0
+	var startY = 0
+	var quadX = null
+	var quadY = null
+	var x = 0
+	var y = 0
+
+	for (var i = 0, len = path.length; i < len; i++) {
+		var seg = path[i]
+		var command = seg[0]
+		switch (command) {
+			case 'M':
+				startX = seg[1]
+				startY = seg[2]
+				break
+			case 'A':
+				seg = arc(x, y,seg[1],seg[2],radians(seg[3]),seg[4],seg[5],seg[6],seg[7])
+				// split multi part
+				seg.unshift('C')
+				if (seg.length > 7) {
+					result.push(seg.splice(0, 7))
+					seg.unshift('C')
+				}
+				break
+			case 'S':
+				// default control point
+				var cx = x
+				var cy = y
+				if (prev == 'C' || prev == 'S') {
+					cx += cx - bezierX // reflect the previous command's control
+					cy += cy - bezierY // point relative to the current point
+				}
+				seg = ['C', cx, cy, seg[1], seg[2], seg[3], seg[4]]
+				break
+			case 'T':
+				if (prev == 'Q' || prev == 'T') {
+					quadX = x * 2 - quadX // as with 'S' reflect previous control point
+					quadY = y * 2 - quadY
+				} else {
+					quadX = x
+					quadY = y
+				}
+				seg = quadratic(x, y, quadX, quadY, seg[1], seg[2])
+				break
+			case 'Q':
+				quadX = seg[1]
+				quadY = seg[2]
+				seg = quadratic(x, y, seg[1], seg[2], seg[3], seg[4])
+				break
+			case 'L':
+				seg = line(x, y, seg[1], seg[2])
+				break
+			case 'H':
+				seg = line(x, y, seg[1], y)
+				break
+			case 'V':
+				seg = line(x, y, x, seg[1])
+				break
+			case 'Z':
+				seg = line(x, y, startX, startY)
+				break
+		}
+
+		// update state
+		prev = command
+		x = seg[seg.length - 2]
+		y = seg[seg.length - 1]
+		if (seg.length > 4) {
+			bezierX = seg[seg.length - 4]
+			bezierY = seg[seg.length - 3]
+		} else {
+			bezierX = x
+			bezierY = y
+		}
+		result.push(seg)
+	}
+
+	return result
+}
+
+function line(x1, y1, x2, y2){
+	return ['C', x1, y1, x2, y2, x2, y2]
+}
+
+function quadratic(x1, y1, cx, cy, x2, y2){
+	return [
+		'C',
+		x1/3 + (2/3) * cx,
+		y1/3 + (2/3) * cy,
+		x2/3 + (2/3) * cx,
+		y2/3 + (2/3) * cy,
+		x2,
+		y2
+	]
+}
+
+// This function is ripped from 
+// github.com/DmitryBaranovskiy/raphael/blob/4d97d4/raphael.js#L2216-L2304 
+// which references w3.org/TR/SVG11/implnote.html#ArcImplementationNotes
+// TODO: make it human readable
+
+function arc(x1, y1, rx, ry, angle, large_arc_flag, sweep_flag, x2, y2, recursive) {
+	if (!recursive) {
+		var xy = rotate(x1, y1, -angle)
+		x1 = xy.x
+		y1 = xy.y
+		xy = rotate(x2, y2, -angle)
+		x2 = xy.x
+		y2 = xy.y
+		var x = (x1 - x2) / 2
+		var y = (y1 - y2) / 2
+		var h = (x * x) / (rx * rx) + (y * y) / (ry * ry)
+		if (h > 1) {
+			h = Math.sqrt(h)
+			rx = h * rx
+			ry = h * ry
+		}
+		var rx2 = rx * rx
+		var ry2 = ry * ry
+		var k = (large_arc_flag == sweep_flag ? -1 : 1)
+			* Math.sqrt(Math.abs((rx2 * ry2 - rx2 * y * y - ry2 * x * x) / (rx2 * y * y + ry2 * x * x)))
+		if (k == Infinity) k = 1 // neutralize
+		var cx = k * rx * y / ry + (x1 + x2) / 2
+		var cy = k * -ry * x / rx + (y1 + y2) / 2
+		var f1 = Math.asin(((y1 - cy) / ry).toFixed(9))
+		var f2 = Math.asin(((y2 - cy) / ry).toFixed(9))
+
+		f1 = x1 < cx ? π - f1 : f1
+		f2 = x2 < cx ? π - f2 : f2
+		if (f1 < 0) f1 = π * 2 + f1
+		if (f2 < 0) f2 = π * 2 + f2
+		if (sweep_flag && f1 > f2) f1 = f1 - π * 2
+		if (!sweep_flag && f2 > f1) f2 = f2 - π * 2
+	} else {
+		f1 = recursive[0]
+		f2 = recursive[1]
+		cx = recursive[2]
+		cy = recursive[3]
+	}
+	// greater than 120 degrees requires multiple segments
+	if (Math.abs(f2 - f1) > _120) {
+		var f2old = f2
+		var x2old = x2
+		var y2old = y2
+		f2 = f1 + _120 * (sweep_flag && f2 > f1 ? 1 : -1)
+		x2 = cx + rx * Math.cos(f2)
+		y2 = cy + ry * Math.sin(f2)
+		var res = arc(x2, y2, rx, ry, angle, 0, sweep_flag, x2old, y2old, [f2, f2old, cx, cy])
+	}
+	var t = Math.tan((f2 - f1) / 4)
+	var hx = 4 / 3 * rx * t
+	var hy = 4 / 3 * ry * t
+	var curve = [
+		2 * x1 - (x1 + hx * Math.sin(f1)),
+		2 * y1 - (y1 - hy * Math.cos(f1)),
+		x2 + hx * Math.sin(f2),
+		y2 - hy * Math.cos(f2),
+		x2,
+		y2
+	]
+	if (recursive) return curve
+	if (res) curve = curve.concat(res)
+	for (var i = 0; i < curve.length;) {
+		var rot = rotate(curve[i], curve[i+1], angle)
+		curve[i++] = rot.x
+		curve[i++] = rot.y
+	}
+	return curve
+}
+
+function rotate(x, y, rad){
+	return {
+		x: x * Math.cos(rad) - y * Math.sin(rad),
+		y: x * Math.sin(rad) + y * Math.cos(rad)
+	}
+}
+
+function radians(degress){
+	return degress * (π / 180)
+}
+
+},{}],94:[function(_dereq_,module,exports){
 module.exports = function(dtype) {
   switch (dtype) {
     case 'int8':
@@ -23714,7 +23468,7 @@ module.exports = function(dtype) {
   }
 }
 
-},{}],92:[function(_dereq_,module,exports){
+},{}],95:[function(_dereq_,module,exports){
 "use strict"
 
 function dupe_array(count, value, i) {
@@ -23764,7 +23518,7 @@ function dupe(count, value) {
 }
 
 module.exports = dupe
-},{}],93:[function(_dereq_,module,exports){
+},{}],96:[function(_dereq_,module,exports){
 'use strict';
 
 module.exports = earcut;
@@ -24445,7 +24199,7 @@ earcut.flatten = function (data) {
     return result;
 };
 
-},{}],94:[function(_dereq_,module,exports){
+},{}],97:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = edgeToAdjacency
@@ -24479,7 +24233,7 @@ function edgeToAdjacency(edges, numVertices) {
   }
   return adj
 }
-},{"uniq":304}],95:[function(_dereq_,module,exports){
+},{"uniq":319}],98:[function(_dereq_,module,exports){
 // Inspired by Google Closure:
 // http://closure-library.googlecode.com/svn/docs/
 // closure_goog_array_array.js.html#goog.array.clear
@@ -24493,12 +24247,12 @@ module.exports = function () {
 	return this;
 };
 
-},{"../../object/valid-value":126}],96:[function(_dereq_,module,exports){
+},{"../../object/valid-value":129}],99:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = _dereq_("./is-implemented")() ? Array.from : _dereq_("./shim");
 
-},{"./is-implemented":97,"./shim":98}],97:[function(_dereq_,module,exports){
+},{"./is-implemented":100,"./shim":101}],100:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = function () {
@@ -24509,7 +24263,7 @@ module.exports = function () {
 	return Boolean(result && result !== arr && result[1] === "dwa");
 };
 
-},{}],98:[function(_dereq_,module,exports){
+},{}],101:[function(_dereq_,module,exports){
 "use strict";
 
 var iteratorSymbol = _dereq_("es6-symbol").iterator
@@ -24630,7 +24384,7 @@ module.exports = function (arrayLike/*, mapFn, thisArg*/) {
 	return arr;
 };
 
-},{"../../function/is-arguments":99,"../../function/is-function":100,"../../number/to-pos-integer":106,"../../object/is-value":115,"../../object/valid-callable":124,"../../object/valid-value":126,"../../string/is-string":130,"es6-symbol":140}],99:[function(_dereq_,module,exports){
+},{"../../function/is-arguments":102,"../../function/is-function":103,"../../number/to-pos-integer":109,"../../object/is-value":118,"../../object/valid-callable":127,"../../object/valid-value":129,"../../string/is-string":133,"es6-symbol":143}],102:[function(_dereq_,module,exports){
 "use strict";
 
 var objToString = Object.prototype.toString
@@ -24638,7 +24392,7 @@ var objToString = Object.prototype.toString
 
 module.exports = function (value) { return objToString.call(value) === id; };
 
-},{}],100:[function(_dereq_,module,exports){
+},{}],103:[function(_dereq_,module,exports){
 "use strict";
 
 var objToString = Object.prototype.toString
@@ -24648,18 +24402,18 @@ module.exports = function (value) {
 	return typeof value === "function" && isFunctionStringTag(objToString.call(value));
 };
 
-},{}],101:[function(_dereq_,module,exports){
+},{}],104:[function(_dereq_,module,exports){
 "use strict";
 
 // eslint-disable-next-line no-empty-function
 module.exports = function () {};
 
-},{}],102:[function(_dereq_,module,exports){
+},{}],105:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = _dereq_("./is-implemented")() ? Math.sign : _dereq_("./shim");
 
-},{"./is-implemented":103,"./shim":104}],103:[function(_dereq_,module,exports){
+},{"./is-implemented":106,"./shim":107}],106:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = function () {
@@ -24668,7 +24422,7 @@ module.exports = function () {
 	return sign(10) === 1 && sign(-20) === -1;
 };
 
-},{}],104:[function(_dereq_,module,exports){
+},{}],107:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = function (value) {
@@ -24677,7 +24431,7 @@ module.exports = function (value) {
 	return value > 0 ? 1 : -1;
 };
 
-},{}],105:[function(_dereq_,module,exports){
+},{}],108:[function(_dereq_,module,exports){
 "use strict";
 
 var sign  = _dereq_("../math/sign")
@@ -24691,7 +24445,7 @@ module.exports = function (value) {
 	return sign(value) * floor(abs(value));
 };
 
-},{"../math/sign":102}],106:[function(_dereq_,module,exports){
+},{"../math/sign":105}],109:[function(_dereq_,module,exports){
 "use strict";
 
 var toInteger = _dereq_("./to-integer")
@@ -24699,7 +24453,7 @@ var toInteger = _dereq_("./to-integer")
 
 module.exports = function (value) { return max(0, toInteger(value)); };
 
-},{"./to-integer":105}],107:[function(_dereq_,module,exports){
+},{"./to-integer":108}],110:[function(_dereq_,module,exports){
 // Internal method, used by iteration functions.
 // Calls a function for each key-value pair found in object
 // Optionally takes compareFn to iterate object in specific order
@@ -24731,12 +24485,12 @@ module.exports = function (method, defVal) {
 	};
 };
 
-},{"./valid-callable":124,"./valid-value":126}],108:[function(_dereq_,module,exports){
+},{"./valid-callable":127,"./valid-value":129}],111:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = _dereq_("./is-implemented")() ? Object.assign : _dereq_("./shim");
 
-},{"./is-implemented":109,"./shim":110}],109:[function(_dereq_,module,exports){
+},{"./is-implemented":112,"./shim":113}],112:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = function () {
@@ -24747,7 +24501,7 @@ module.exports = function () {
 	return obj.foo + obj.bar + obj.trzy === "razdwatrzy";
 };
 
-},{}],110:[function(_dereq_,module,exports){
+},{}],113:[function(_dereq_,module,exports){
 "use strict";
 
 var keys  = _dereq_("../keys")
@@ -24772,7 +24526,7 @@ module.exports = function (dest, src/*, …srcn*/) {
 	return dest;
 };
 
-},{"../keys":116,"../valid-value":126}],111:[function(_dereq_,module,exports){
+},{"../keys":119,"../valid-value":129}],114:[function(_dereq_,module,exports){
 "use strict";
 
 var aFrom  = _dereq_("../array/from")
@@ -24793,7 +24547,7 @@ module.exports = function (obj/*, propertyNames, options*/) {
 	return result;
 };
 
-},{"../array/from":96,"./assign":108,"./valid-value":126}],112:[function(_dereq_,module,exports){
+},{"../array/from":99,"./assign":111,"./valid-value":129}],115:[function(_dereq_,module,exports){
 // Workaround for http://code.google.com/p/v8/issues/detail?id=2804
 
 "use strict";
@@ -24838,12 +24592,12 @@ module.exports = (function () {
 	};
 })();
 
-},{"./set-prototype-of/is-implemented":122,"./set-prototype-of/shim":123}],113:[function(_dereq_,module,exports){
+},{"./set-prototype-of/is-implemented":125,"./set-prototype-of/shim":126}],116:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = _dereq_("./_iterate")("forEach");
 
-},{"./_iterate":107}],114:[function(_dereq_,module,exports){
+},{"./_iterate":110}],117:[function(_dereq_,module,exports){
 "use strict";
 
 var isValue = _dereq_("./is-value");
@@ -24852,19 +24606,19 @@ var map = { function: true, object: true };
 
 module.exports = function (value) { return (isValue(value) && map[typeof value]) || false; };
 
-},{"./is-value":115}],115:[function(_dereq_,module,exports){
+},{"./is-value":118}],118:[function(_dereq_,module,exports){
 "use strict";
 
 var _undefined = _dereq_("../function/noop")(); // Support ES3 engines
 
 module.exports = function (val) { return val !== _undefined && val !== null; };
 
-},{"../function/noop":101}],116:[function(_dereq_,module,exports){
+},{"../function/noop":104}],119:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = _dereq_("./is-implemented")() ? Object.keys : _dereq_("./shim");
 
-},{"./is-implemented":117,"./shim":118}],117:[function(_dereq_,module,exports){
+},{"./is-implemented":120,"./shim":121}],120:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = function () {
@@ -24876,7 +24630,7 @@ module.exports = function () {
 	}
 };
 
-},{}],118:[function(_dereq_,module,exports){
+},{}],121:[function(_dereq_,module,exports){
 "use strict";
 
 var isValue = _dereq_("../is-value");
@@ -24885,7 +24639,7 @@ var keys = Object.keys;
 
 module.exports = function (object) { return keys(isValue(object) ? Object(object) : object); };
 
-},{"../is-value":115}],119:[function(_dereq_,module,exports){
+},{"../is-value":118}],122:[function(_dereq_,module,exports){
 "use strict";
 
 var callable = _dereq_("./valid-callable")
@@ -24901,7 +24655,7 @@ module.exports = function (obj, cb/*, thisArg*/) {
 	return result;
 };
 
-},{"./for-each":113,"./valid-callable":124}],120:[function(_dereq_,module,exports){
+},{"./for-each":116,"./valid-callable":127}],123:[function(_dereq_,module,exports){
 "use strict";
 
 var isValue = _dereq_("./is-value");
@@ -24923,12 +24677,12 @@ module.exports = function (opts1/*, …options*/) {
 	return result;
 };
 
-},{"./is-value":115}],121:[function(_dereq_,module,exports){
+},{"./is-value":118}],124:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = _dereq_("./is-implemented")() ? Object.setPrototypeOf : _dereq_("./shim");
 
-},{"./is-implemented":122,"./shim":123}],122:[function(_dereq_,module,exports){
+},{"./is-implemented":125,"./shim":126}],125:[function(_dereq_,module,exports){
 "use strict";
 
 var create = Object.create, getPrototypeOf = Object.getPrototypeOf, plainObject = {};
@@ -24939,7 +24693,7 @@ module.exports = function (/* CustomCreate*/) {
 	return getPrototypeOf(setPrototypeOf(customCreate(null), plainObject)) === plainObject;
 };
 
-},{}],123:[function(_dereq_,module,exports){
+},{}],126:[function(_dereq_,module,exports){
 /* eslint no-proto: "off" */
 
 // Big thanks to @WebReflection for sorting this out
@@ -25022,7 +24776,7 @@ module.exports = (function (status) {
 
 _dereq_("../create");
 
-},{"../create":112,"../is-object":114,"../valid-value":126}],124:[function(_dereq_,module,exports){
+},{"../create":115,"../is-object":117,"../valid-value":129}],127:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = function (fn) {
@@ -25030,7 +24784,7 @@ module.exports = function (fn) {
 	return fn;
 };
 
-},{}],125:[function(_dereq_,module,exports){
+},{}],128:[function(_dereq_,module,exports){
 "use strict";
 
 var isObject = _dereq_("./is-object");
@@ -25040,7 +24794,7 @@ module.exports = function (value) {
 	return value;
 };
 
-},{"./is-object":114}],126:[function(_dereq_,module,exports){
+},{"./is-object":117}],129:[function(_dereq_,module,exports){
 "use strict";
 
 var isValue = _dereq_("./is-value");
@@ -25050,12 +24804,12 @@ module.exports = function (value) {
 	return value;
 };
 
-},{"./is-value":115}],127:[function(_dereq_,module,exports){
+},{"./is-value":118}],130:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = _dereq_("./is-implemented")() ? String.prototype.contains : _dereq_("./shim");
 
-},{"./is-implemented":128,"./shim":129}],128:[function(_dereq_,module,exports){
+},{"./is-implemented":131,"./shim":132}],131:[function(_dereq_,module,exports){
 "use strict";
 
 var str = "razdwatrzy";
@@ -25065,7 +24819,7 @@ module.exports = function () {
 	return str.contains("dwa") === true && str.contains("foo") === false;
 };
 
-},{}],129:[function(_dereq_,module,exports){
+},{}],132:[function(_dereq_,module,exports){
 "use strict";
 
 var indexOf = String.prototype.indexOf;
@@ -25074,7 +24828,7 @@ module.exports = function (searchString/*, position*/) {
 	return indexOf.call(this, searchString, arguments[1]) > -1;
 };
 
-},{}],130:[function(_dereq_,module,exports){
+},{}],133:[function(_dereq_,module,exports){
 "use strict";
 
 var objToString = Object.prototype.toString, id = objToString.call("");
@@ -25089,7 +24843,7 @@ module.exports = function (value) {
 	);
 };
 
-},{}],131:[function(_dereq_,module,exports){
+},{}],134:[function(_dereq_,module,exports){
 "use strict";
 
 var generated = Object.create(null), random = Math.random;
@@ -25102,7 +24856,7 @@ module.exports = function () {
 	return str;
 };
 
-},{}],132:[function(_dereq_,module,exports){
+},{}],135:[function(_dereq_,module,exports){
 "use strict";
 
 var setPrototypeOf = _dereq_("es5-ext/object/set-prototype-of")
@@ -25136,7 +24890,7 @@ ArrayIterator.prototype = Object.create(Iterator.prototype, {
 });
 defineProperty(ArrayIterator.prototype, Symbol.toStringTag, d("c", "Array Iterator"));
 
-},{"./":135,"d":83,"es5-ext/object/set-prototype-of":121,"es5-ext/string/#/contains":127,"es6-symbol":140}],133:[function(_dereq_,module,exports){
+},{"./":138,"d":85,"es5-ext/object/set-prototype-of":124,"es5-ext/string/#/contains":130,"es6-symbol":143}],136:[function(_dereq_,module,exports){
 "use strict";
 
 var isArguments = _dereq_("es5-ext/function/is-arguments")
@@ -25185,7 +24939,7 @@ module.exports = function (iterable, cb /*, thisArg*/) {
 	}
 };
 
-},{"./get":134,"es5-ext/function/is-arguments":99,"es5-ext/object/valid-callable":124,"es5-ext/string/is-string":130}],134:[function(_dereq_,module,exports){
+},{"./get":137,"es5-ext/function/is-arguments":102,"es5-ext/object/valid-callable":127,"es5-ext/string/is-string":133}],137:[function(_dereq_,module,exports){
 "use strict";
 
 var isArguments    = _dereq_("es5-ext/function/is-arguments")
@@ -25202,7 +24956,7 @@ module.exports = function (obj) {
 	return new ArrayIterator(obj);
 };
 
-},{"./array":132,"./string":137,"./valid-iterable":138,"es5-ext/function/is-arguments":99,"es5-ext/string/is-string":130,"es6-symbol":140}],135:[function(_dereq_,module,exports){
+},{"./array":135,"./string":140,"./valid-iterable":141,"es5-ext/function/is-arguments":102,"es5-ext/string/is-string":133,"es6-symbol":143}],138:[function(_dereq_,module,exports){
 "use strict";
 
 var clear    = _dereq_("es5-ext/array/#/clear")
@@ -25310,7 +25064,7 @@ defineProperty(
 	})
 );
 
-},{"d":83,"d/auto-bind":82,"es5-ext/array/#/clear":95,"es5-ext/object/assign":108,"es5-ext/object/valid-callable":124,"es5-ext/object/valid-value":126,"es6-symbol":140}],136:[function(_dereq_,module,exports){
+},{"d":85,"d/auto-bind":84,"es5-ext/array/#/clear":98,"es5-ext/object/assign":111,"es5-ext/object/valid-callable":127,"es5-ext/object/valid-value":129,"es6-symbol":143}],139:[function(_dereq_,module,exports){
 "use strict";
 
 var isArguments = _dereq_("es5-ext/function/is-arguments")
@@ -25328,7 +25082,7 @@ module.exports = function (value) {
 	return typeof value[iteratorSymbol] === "function";
 };
 
-},{"es5-ext/function/is-arguments":99,"es5-ext/object/is-value":115,"es5-ext/string/is-string":130,"es6-symbol":140}],137:[function(_dereq_,module,exports){
+},{"es5-ext/function/is-arguments":102,"es5-ext/object/is-value":118,"es5-ext/string/is-string":133,"es6-symbol":143}],140:[function(_dereq_,module,exports){
 // Thanks @mathiasbynens
 // http://mathiasbynens.be/notes/javascript-unicode#iterating-over-symbols
 
@@ -25369,7 +25123,7 @@ StringIterator.prototype = Object.create(Iterator.prototype, {
 });
 defineProperty(StringIterator.prototype, Symbol.toStringTag, d("c", "String Iterator"));
 
-},{"./":135,"d":83,"es5-ext/object/set-prototype-of":121,"es6-symbol":140}],138:[function(_dereq_,module,exports){
+},{"./":138,"d":85,"es5-ext/object/set-prototype-of":124,"es6-symbol":143}],141:[function(_dereq_,module,exports){
 "use strict";
 
 var isIterable = _dereq_("./is-iterable");
@@ -25379,8 +25133,8 @@ module.exports = function (value) {
 	return value;
 };
 
-},{"./is-iterable":136}],139:[function(_dereq_,module,exports){
-(function (process,global){
+},{"./is-iterable":139}],142:[function(_dereq_,module,exports){
+(function (process,global){(function (){
 /*!
  * @overview es6-promise - a tiny implementation of Promises/A+.
  * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
@@ -26556,15 +26310,15 @@ return Promise$1;
 
 
 
-}).call(this,_dereq_('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":250}],140:[function(_dereq_,module,exports){
+}).call(this)}).call(this,_dereq_('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"_process":259}],143:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = _dereq_("./is-implemented")()
 	? _dereq_("ext/global-this").Symbol
 	: _dereq_("./polyfill");
 
-},{"./is-implemented":141,"./polyfill":146,"ext/global-this":153}],141:[function(_dereq_,module,exports){
+},{"./is-implemented":144,"./polyfill":149,"ext/global-this":157}],144:[function(_dereq_,module,exports){
 "use strict";
 
 var global     = _dereq_("ext/global-this")
@@ -26586,7 +26340,7 @@ module.exports = function () {
 	return true;
 };
 
-},{"ext/global-this":153}],142:[function(_dereq_,module,exports){
+},{"ext/global-this":157}],145:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = function (value) {
@@ -26597,7 +26351,7 @@ module.exports = function (value) {
 	return value[value.constructor.toStringTag] === "Symbol";
 };
 
-},{}],143:[function(_dereq_,module,exports){
+},{}],146:[function(_dereq_,module,exports){
 "use strict";
 
 var d = _dereq_("d");
@@ -26628,7 +26382,7 @@ module.exports = function (desc) {
 	return name;
 };
 
-},{"d":83}],144:[function(_dereq_,module,exports){
+},{"d":85}],147:[function(_dereq_,module,exports){
 "use strict";
 
 var d            = _dereq_("d")
@@ -26664,7 +26418,7 @@ module.exports = function (SymbolPolyfill) {
 	});
 };
 
-},{"d":83,"ext/global-this":153}],145:[function(_dereq_,module,exports){
+},{"d":85,"ext/global-this":157}],148:[function(_dereq_,module,exports){
 "use strict";
 
 var d              = _dereq_("d")
@@ -26689,7 +26443,7 @@ module.exports = function (SymbolPolyfill) {
 	});
 };
 
-},{"../../../validate-symbol":147,"d":83}],146:[function(_dereq_,module,exports){
+},{"../../../validate-symbol":150,"d":85}],149:[function(_dereq_,module,exports){
 // ES2015 Symbol polyfill for environments that do not (or partially) support it
 
 "use strict";
@@ -26778,7 +26532,7 @@ defineProperty(
 	d("c", SymbolPolyfill.prototype[SymbolPolyfill.toPrimitive])
 );
 
-},{"./lib/private/generate-name":143,"./lib/private/setup/standard-symbols":144,"./lib/private/setup/symbol-registry":145,"./validate-symbol":147,"d":83,"ext/global-this":153}],147:[function(_dereq_,module,exports){
+},{"./lib/private/generate-name":146,"./lib/private/setup/standard-symbols":147,"./lib/private/setup/symbol-registry":148,"./validate-symbol":150,"d":85,"ext/global-this":157}],150:[function(_dereq_,module,exports){
 "use strict";
 
 var isSymbol = _dereq_("./is-symbol");
@@ -26788,12 +26542,12 @@ module.exports = function (value) {
 	return value;
 };
 
-},{"./is-symbol":142}],148:[function(_dereq_,module,exports){
+},{"./is-symbol":145}],151:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = _dereq_("./is-implemented")() ? WeakMap : _dereq_("./polyfill");
 
-},{"./is-implemented":149,"./polyfill":151}],149:[function(_dereq_,module,exports){
+},{"./is-implemented":152,"./polyfill":154}],152:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = function () {
@@ -26816,7 +26570,7 @@ module.exports = function () {
 	return true;
 };
 
-},{}],150:[function(_dereq_,module,exports){
+},{}],153:[function(_dereq_,module,exports){
 // Exports true if environment provides native `WeakMap` implementation, whatever that is.
 
 "use strict";
@@ -26826,7 +26580,7 @@ module.exports = (function () {
 	return Object.prototype.toString.call(new WeakMap()) === "[object WeakMap]";
 }());
 
-},{}],151:[function(_dereq_,module,exports){
+},{}],154:[function(_dereq_,module,exports){
 "use strict";
 
 var isValue           = _dereq_("es5-ext/object/is-value")
@@ -26893,7 +26647,532 @@ Object.defineProperties(WeakMapPoly.prototype, {
 });
 defineProperty(WeakMapPoly.prototype, toStringTagSymbol, d("c", "WeakMap"));
 
-},{"./is-native-implemented":150,"d":83,"es5-ext/object/is-value":115,"es5-ext/object/set-prototype-of":121,"es5-ext/object/valid-object":125,"es5-ext/object/valid-value":126,"es5-ext/string/random-uniq":131,"es6-iterator/for-of":133,"es6-iterator/get":134,"es6-symbol":140}],152:[function(_dereq_,module,exports){
+},{"./is-native-implemented":153,"d":85,"es5-ext/object/is-value":118,"es5-ext/object/set-prototype-of":124,"es5-ext/object/valid-object":128,"es5-ext/object/valid-value":129,"es5-ext/string/random-uniq":134,"es6-iterator/for-of":136,"es6-iterator/get":137,"es6-symbol":143}],155:[function(_dereq_,module,exports){
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+var objectCreate = Object.create || objectCreatePolyfill
+var objectKeys = Object.keys || objectKeysPolyfill
+var bind = Function.prototype.bind || functionBindPolyfill
+
+function EventEmitter() {
+  if (!this._events || !Object.prototype.hasOwnProperty.call(this, '_events')) {
+    this._events = objectCreate(null);
+    this._eventsCount = 0;
+  }
+
+  this._maxListeners = this._maxListeners || undefined;
+}
+module.exports = EventEmitter;
+
+// Backwards-compat with node 0.10.x
+EventEmitter.EventEmitter = EventEmitter;
+
+EventEmitter.prototype._events = undefined;
+EventEmitter.prototype._maxListeners = undefined;
+
+// By default EventEmitters will print a warning if more than 10 listeners are
+// added to it. This is a useful default which helps finding memory leaks.
+var defaultMaxListeners = 10;
+
+var hasDefineProperty;
+try {
+  var o = {};
+  if (Object.defineProperty) Object.defineProperty(o, 'x', { value: 0 });
+  hasDefineProperty = o.x === 0;
+} catch (err) { hasDefineProperty = false }
+if (hasDefineProperty) {
+  Object.defineProperty(EventEmitter, 'defaultMaxListeners', {
+    enumerable: true,
+    get: function() {
+      return defaultMaxListeners;
+    },
+    set: function(arg) {
+      // check whether the input is a positive number (whose value is zero or
+      // greater and not a NaN).
+      if (typeof arg !== 'number' || arg < 0 || arg !== arg)
+        throw new TypeError('"defaultMaxListeners" must be a positive number');
+      defaultMaxListeners = arg;
+    }
+  });
+} else {
+  EventEmitter.defaultMaxListeners = defaultMaxListeners;
+}
+
+// Obviously not all Emitters should be limited to 10. This function allows
+// that to be increased. Set to zero for unlimited.
+EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) {
+  if (typeof n !== 'number' || n < 0 || isNaN(n))
+    throw new TypeError('"n" argument must be a positive number');
+  this._maxListeners = n;
+  return this;
+};
+
+function $getMaxListeners(that) {
+  if (that._maxListeners === undefined)
+    return EventEmitter.defaultMaxListeners;
+  return that._maxListeners;
+}
+
+EventEmitter.prototype.getMaxListeners = function getMaxListeners() {
+  return $getMaxListeners(this);
+};
+
+// These standalone emit* functions are used to optimize calling of event
+// handlers for fast cases because emit() itself often has a variable number of
+// arguments and can be deoptimized because of that. These functions always have
+// the same number of arguments and thus do not get deoptimized, so the code
+// inside them can execute faster.
+function emitNone(handler, isFn, self) {
+  if (isFn)
+    handler.call(self);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self);
+  }
+}
+function emitOne(handler, isFn, self, arg1) {
+  if (isFn)
+    handler.call(self, arg1);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self, arg1);
+  }
+}
+function emitTwo(handler, isFn, self, arg1, arg2) {
+  if (isFn)
+    handler.call(self, arg1, arg2);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self, arg1, arg2);
+  }
+}
+function emitThree(handler, isFn, self, arg1, arg2, arg3) {
+  if (isFn)
+    handler.call(self, arg1, arg2, arg3);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self, arg1, arg2, arg3);
+  }
+}
+
+function emitMany(handler, isFn, self, args) {
+  if (isFn)
+    handler.apply(self, args);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].apply(self, args);
+  }
+}
+
+EventEmitter.prototype.emit = function emit(type) {
+  var er, handler, len, args, i, events;
+  var doError = (type === 'error');
+
+  events = this._events;
+  if (events)
+    doError = (doError && events.error == null);
+  else if (!doError)
+    return false;
+
+  // If there is no 'error' event listener then throw.
+  if (doError) {
+    if (arguments.length > 1)
+      er = arguments[1];
+    if (er instanceof Error) {
+      throw er; // Unhandled 'error' event
+    } else {
+      // At least give some kind of context to the user
+      var err = new Error('Unhandled "error" event. (' + er + ')');
+      err.context = er;
+      throw err;
+    }
+    return false;
+  }
+
+  handler = events[type];
+
+  if (!handler)
+    return false;
+
+  var isFn = typeof handler === 'function';
+  len = arguments.length;
+  switch (len) {
+      // fast cases
+    case 1:
+      emitNone(handler, isFn, this);
+      break;
+    case 2:
+      emitOne(handler, isFn, this, arguments[1]);
+      break;
+    case 3:
+      emitTwo(handler, isFn, this, arguments[1], arguments[2]);
+      break;
+    case 4:
+      emitThree(handler, isFn, this, arguments[1], arguments[2], arguments[3]);
+      break;
+      // slower
+    default:
+      args = new Array(len - 1);
+      for (i = 1; i < len; i++)
+        args[i - 1] = arguments[i];
+      emitMany(handler, isFn, this, args);
+  }
+
+  return true;
+};
+
+function _addListener(target, type, listener, prepend) {
+  var m;
+  var events;
+  var existing;
+
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
+
+  events = target._events;
+  if (!events) {
+    events = target._events = objectCreate(null);
+    target._eventsCount = 0;
+  } else {
+    // To avoid recursion in the case that type === "newListener"! Before
+    // adding it to the listeners, first emit "newListener".
+    if (events.newListener) {
+      target.emit('newListener', type,
+          listener.listener ? listener.listener : listener);
+
+      // Re-assign `events` because a newListener handler could have caused the
+      // this._events to be assigned to a new object
+      events = target._events;
+    }
+    existing = events[type];
+  }
+
+  if (!existing) {
+    // Optimize the case of one listener. Don't need the extra array object.
+    existing = events[type] = listener;
+    ++target._eventsCount;
+  } else {
+    if (typeof existing === 'function') {
+      // Adding the second element, need to change to array.
+      existing = events[type] =
+          prepend ? [listener, existing] : [existing, listener];
+    } else {
+      // If we've already got an array, just append.
+      if (prepend) {
+        existing.unshift(listener);
+      } else {
+        existing.push(listener);
+      }
+    }
+
+    // Check for listener leak
+    if (!existing.warned) {
+      m = $getMaxListeners(target);
+      if (m && m > 0 && existing.length > m) {
+        existing.warned = true;
+        var w = new Error('Possible EventEmitter memory leak detected. ' +
+            existing.length + ' "' + String(type) + '" listeners ' +
+            'added. Use emitter.setMaxListeners() to ' +
+            'increase limit.');
+        w.name = 'MaxListenersExceededWarning';
+        w.emitter = target;
+        w.type = type;
+        w.count = existing.length;
+        if (typeof console === 'object' && console.warn) {
+          console.warn('%s: %s', w.name, w.message);
+        }
+      }
+    }
+  }
+
+  return target;
+}
+
+EventEmitter.prototype.addListener = function addListener(type, listener) {
+  return _addListener(this, type, listener, false);
+};
+
+EventEmitter.prototype.on = EventEmitter.prototype.addListener;
+
+EventEmitter.prototype.prependListener =
+    function prependListener(type, listener) {
+      return _addListener(this, type, listener, true);
+    };
+
+function onceWrapper() {
+  if (!this.fired) {
+    this.target.removeListener(this.type, this.wrapFn);
+    this.fired = true;
+    switch (arguments.length) {
+      case 0:
+        return this.listener.call(this.target);
+      case 1:
+        return this.listener.call(this.target, arguments[0]);
+      case 2:
+        return this.listener.call(this.target, arguments[0], arguments[1]);
+      case 3:
+        return this.listener.call(this.target, arguments[0], arguments[1],
+            arguments[2]);
+      default:
+        var args = new Array(arguments.length);
+        for (var i = 0; i < args.length; ++i)
+          args[i] = arguments[i];
+        this.listener.apply(this.target, args);
+    }
+  }
+}
+
+function _onceWrap(target, type, listener) {
+  var state = { fired: false, wrapFn: undefined, target: target, type: type, listener: listener };
+  var wrapped = bind.call(onceWrapper, state);
+  wrapped.listener = listener;
+  state.wrapFn = wrapped;
+  return wrapped;
+}
+
+EventEmitter.prototype.once = function once(type, listener) {
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
+  this.on(type, _onceWrap(this, type, listener));
+  return this;
+};
+
+EventEmitter.prototype.prependOnceListener =
+    function prependOnceListener(type, listener) {
+      if (typeof listener !== 'function')
+        throw new TypeError('"listener" argument must be a function');
+      this.prependListener(type, _onceWrap(this, type, listener));
+      return this;
+    };
+
+// Emits a 'removeListener' event if and only if the listener was removed.
+EventEmitter.prototype.removeListener =
+    function removeListener(type, listener) {
+      var list, events, position, i, originalListener;
+
+      if (typeof listener !== 'function')
+        throw new TypeError('"listener" argument must be a function');
+
+      events = this._events;
+      if (!events)
+        return this;
+
+      list = events[type];
+      if (!list)
+        return this;
+
+      if (list === listener || list.listener === listener) {
+        if (--this._eventsCount === 0)
+          this._events = objectCreate(null);
+        else {
+          delete events[type];
+          if (events.removeListener)
+            this.emit('removeListener', type, list.listener || listener);
+        }
+      } else if (typeof list !== 'function') {
+        position = -1;
+
+        for (i = list.length - 1; i >= 0; i--) {
+          if (list[i] === listener || list[i].listener === listener) {
+            originalListener = list[i].listener;
+            position = i;
+            break;
+          }
+        }
+
+        if (position < 0)
+          return this;
+
+        if (position === 0)
+          list.shift();
+        else
+          spliceOne(list, position);
+
+        if (list.length === 1)
+          events[type] = list[0];
+
+        if (events.removeListener)
+          this.emit('removeListener', type, originalListener || listener);
+      }
+
+      return this;
+    };
+
+EventEmitter.prototype.removeAllListeners =
+    function removeAllListeners(type) {
+      var listeners, events, i;
+
+      events = this._events;
+      if (!events)
+        return this;
+
+      // not listening for removeListener, no need to emit
+      if (!events.removeListener) {
+        if (arguments.length === 0) {
+          this._events = objectCreate(null);
+          this._eventsCount = 0;
+        } else if (events[type]) {
+          if (--this._eventsCount === 0)
+            this._events = objectCreate(null);
+          else
+            delete events[type];
+        }
+        return this;
+      }
+
+      // emit removeListener for all listeners on all events
+      if (arguments.length === 0) {
+        var keys = objectKeys(events);
+        var key;
+        for (i = 0; i < keys.length; ++i) {
+          key = keys[i];
+          if (key === 'removeListener') continue;
+          this.removeAllListeners(key);
+        }
+        this.removeAllListeners('removeListener');
+        this._events = objectCreate(null);
+        this._eventsCount = 0;
+        return this;
+      }
+
+      listeners = events[type];
+
+      if (typeof listeners === 'function') {
+        this.removeListener(type, listeners);
+      } else if (listeners) {
+        // LIFO order
+        for (i = listeners.length - 1; i >= 0; i--) {
+          this.removeListener(type, listeners[i]);
+        }
+      }
+
+      return this;
+    };
+
+function _listeners(target, type, unwrap) {
+  var events = target._events;
+
+  if (!events)
+    return [];
+
+  var evlistener = events[type];
+  if (!evlistener)
+    return [];
+
+  if (typeof evlistener === 'function')
+    return unwrap ? [evlistener.listener || evlistener] : [evlistener];
+
+  return unwrap ? unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
+}
+
+EventEmitter.prototype.listeners = function listeners(type) {
+  return _listeners(this, type, true);
+};
+
+EventEmitter.prototype.rawListeners = function rawListeners(type) {
+  return _listeners(this, type, false);
+};
+
+EventEmitter.listenerCount = function(emitter, type) {
+  if (typeof emitter.listenerCount === 'function') {
+    return emitter.listenerCount(type);
+  } else {
+    return listenerCount.call(emitter, type);
+  }
+};
+
+EventEmitter.prototype.listenerCount = listenerCount;
+function listenerCount(type) {
+  var events = this._events;
+
+  if (events) {
+    var evlistener = events[type];
+
+    if (typeof evlistener === 'function') {
+      return 1;
+    } else if (evlistener) {
+      return evlistener.length;
+    }
+  }
+
+  return 0;
+}
+
+EventEmitter.prototype.eventNames = function eventNames() {
+  return this._eventsCount > 0 ? Reflect.ownKeys(this._events) : [];
+};
+
+// About 1.5x faster than the two-arg version of Array#splice().
+function spliceOne(list, index) {
+  for (var i = index, k = i + 1, n = list.length; k < n; i += 1, k += 1)
+    list[i] = list[k];
+  list.pop();
+}
+
+function arrayClone(arr, n) {
+  var copy = new Array(n);
+  for (var i = 0; i < n; ++i)
+    copy[i] = arr[i];
+  return copy;
+}
+
+function unwrapListeners(arr) {
+  var ret = new Array(arr.length);
+  for (var i = 0; i < ret.length; ++i) {
+    ret[i] = arr[i].listener || arr[i];
+  }
+  return ret;
+}
+
+function objectCreatePolyfill(proto) {
+  var F = function() {};
+  F.prototype = proto;
+  return new F;
+}
+function objectKeysPolyfill(obj) {
+  var keys = [];
+  for (var k in obj) if (Object.prototype.hasOwnProperty.call(obj, k)) {
+    keys.push(k);
+  }
+  return k;
+}
+function functionBindPolyfill(context) {
+  var fn = this;
+  return function () {
+    return fn.apply(context, arguments);
+  };
+}
+
+},{}],156:[function(_dereq_,module,exports){
 var naiveFallback = function () {
 	if (typeof self === "object" && self) return self;
 	if (typeof window === "object" && window) return window;
@@ -26926,12 +27205,12 @@ module.exports = (function () {
 	}
 })();
 
-},{}],153:[function(_dereq_,module,exports){
+},{}],157:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = _dereq_("./is-implemented")() ? globalThis : _dereq_("./implementation");
 
-},{"./implementation":152,"./is-implemented":154}],154:[function(_dereq_,module,exports){
+},{"./implementation":156,"./is-implemented":158}],158:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = function () {
@@ -26940,7 +27219,7 @@ module.exports = function () {
 	return globalThis.Array === Array;
 };
 
-},{}],155:[function(_dereq_,module,exports){
+},{}],159:[function(_dereq_,module,exports){
 /**
  * inspired by is-number <https://github.com/jonschlinkert/is-number>
  * but significantly simplified and sped up by ignoring number and string constructors
@@ -26966,7 +27245,7 @@ module.exports = function(n) {
     return n - n < 1;
 };
 
-},{"is-string-blank":215}],156:[function(_dereq_,module,exports){
+},{"is-string-blank":223}],160:[function(_dereq_,module,exports){
 /*eslint new-cap:0*/
 var dtype = _dereq_('dtype')
 
@@ -27026,7 +27305,7 @@ function flattenVertexData (data, output, offset) {
   return output
 }
 
-},{"dtype":91}],157:[function(_dereq_,module,exports){
+},{"dtype":94}],161:[function(_dereq_,module,exports){
 'use strict'
 
 var stringifyFont = _dereq_('css-font/stringify')
@@ -27085,7 +27364,7 @@ function atlas(options) {
   return canvas
 }
 
-},{"css-font/stringify":76}],158:[function(_dereq_,module,exports){
+},{"css-font/stringify":78}],162:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = measure
@@ -27272,7 +27551,7 @@ function firstBottom(iData) {
 	}
 }
 
-},{}],159:[function(_dereq_,module,exports){
+},{}],163:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = createRBTree
@@ -28269,7 +28548,7 @@ function defaultCompare(a, b) {
 function createRBTree(compare) {
   return new RedBlackTree(compare || defaultCompare, null)
 }
-},{}],160:[function(_dereq_,module,exports){
+},{}],164:[function(_dereq_,module,exports){
 // transliterated from the python snippet here:
 // http://en.wikipedia.org/wiki/Lanczos_approximation
 
@@ -28338,7 +28617,7 @@ module.exports = function gamma (z) {
 
 module.exports.log = lngamma;
 
-},{}],161:[function(_dereq_,module,exports){
+},{}],165:[function(_dereq_,module,exports){
 module.exports = getCanvasContext
 function getCanvasContext (type, opts) {
   if (typeof type !== 'string') {
@@ -28378,7 +28657,7 @@ function getCanvasContext (type, opts) {
   return (gl || null) // ensure null on fail
 }
 
-},{}],162:[function(_dereq_,module,exports){
+},{}],166:[function(_dereq_,module,exports){
 "use strict"
 
 var pool = _dereq_("typedarray-pool")
@@ -28532,7 +28811,7 @@ function createBuffer(gl, data, type, usage) {
 
 module.exports = createBuffer
 
-},{"ndarray":224,"ndarray-ops":223,"typedarray-pool":302}],163:[function(_dereq_,module,exports){
+},{"ndarray":233,"ndarray-ops":232,"typedarray-pool":317}],167:[function(_dereq_,module,exports){
 module.exports = {
   0: 'NONE',
   1: 'ONE',
@@ -28832,14 +29111,14 @@ module.exports = {
   37444: 'BROWSER_DEFAULT_WEBGL'
 }
 
-},{}],164:[function(_dereq_,module,exports){
+},{}],168:[function(_dereq_,module,exports){
 var gl10 = _dereq_('./1.0/numbers')
 
 module.exports = function lookupConstant (number) {
   return gl10[number]
 }
 
-},{"./1.0/numbers":163}],165:[function(_dereq_,module,exports){
+},{"./1.0/numbers":167}],169:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = createContour2D
@@ -29262,7 +29541,7 @@ function createContour2D (plot, options) {
   return contours
 }
 
-},{"./lib/shaders":166,"binary-search-bounds":39,"cdt2d":53,"clean-pslg":59,"gl-buffer":162,"gl-shader":183,"iota-array":209,"ndarray":224,"surface-nets":279}],166:[function(_dereq_,module,exports){
+},{"./lib/shaders":170,"binary-search-bounds":39,"cdt2d":52,"clean-pslg":58,"gl-buffer":166,"gl-shader":187,"iota-array":217,"ndarray":233,"surface-nets":296}],170:[function(_dereq_,module,exports){
 'use strict'
 
 var glslify = _dereq_('glslify')
@@ -29273,7 +29552,7 @@ module.exports = {
   fillVertex: glslify(["precision mediump float;\n#define GLSLIFY 1\n\nattribute vec2 position;\nattribute vec4 color;\n\nuniform mat3 viewTransform;\n\nvarying vec4 fragColor;\n\nvoid main() {\n  fragColor = color;\n  vec3 vPosition = viewTransform * vec3(position, 1.0);\n  gl_Position = vec4(vPosition.xy, 0, vPosition.z);\n}\n"])
 }
 
-},{"glslify":202}],167:[function(_dereq_,module,exports){
+},{"glslify":210}],171:[function(_dereq_,module,exports){
 'use strict'
 
 var createTexture = _dereq_('gl-texture2d')
@@ -29740,7 +30019,7 @@ function createFBO(gl, width, height, options) {
     WEBGL_draw_buffers)
 }
 
-},{"gl-texture2d":192}],168:[function(_dereq_,module,exports){
+},{"gl-texture2d":200}],172:[function(_dereq_,module,exports){
 
 var sprintf = _dereq_('sprintf-js').sprintf;
 var glConstants = _dereq_('gl-constants/lookup');
@@ -29795,7 +30074,7 @@ function formatCompilerError(errLog, src, type) {
 }
 
 
-},{"add-line-numbers":13,"gl-constants/lookup":164,"glsl-shader-name":194,"sprintf-js":277}],169:[function(_dereq_,module,exports){
+},{"add-line-numbers":13,"gl-constants/lookup":168,"glsl-shader-name":202,"sprintf-js":294}],173:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = createHeatmap2D
@@ -30147,7 +30426,7 @@ function createHeatmap2D (plot, options) {
   return heatmap
 }
 
-},{"./lib/shaders":170,"binary-search-bounds":39,"gl-buffer":162,"gl-shader":183,"iota-array":209,"typedarray-pool":302}],170:[function(_dereq_,module,exports){
+},{"./lib/shaders":174,"binary-search-bounds":39,"gl-buffer":166,"gl-shader":187,"iota-array":217,"typedarray-pool":317}],174:[function(_dereq_,module,exports){
 'use strict'
 
 var glslify = _dereq_('glslify')
@@ -30159,7 +30438,7 @@ module.exports = {
   pickVertex:   glslify(["precision mediump float;\n#define GLSLIFY 1\n\nattribute vec2 position;\nattribute vec4 pickId;\nattribute vec2 weight;\n\nuniform vec2 shape;\nuniform mat3 viewTransform;\n\nvarying vec4 fragId;\nvarying vec2 vWeight;\n\nvoid main() {\n  vWeight = weight;\n\n  fragId = pickId;\n\n  vec3 vPosition = viewTransform * vec3( position + (weight-.5)/(shape-1.) , 1.0);\n  gl_Position = vec4(vPosition.xy, 0, vPosition.z);\n}\n"])
 }
 
-},{"glslify":202}],171:[function(_dereq_,module,exports){
+},{"glslify":210}],175:[function(_dereq_,module,exports){
 module.exports = fromQuat;
 
 /**
@@ -30207,7 +30486,7 @@ function fromQuat(out, q) {
 
     return out;
 };
-},{}],172:[function(_dereq_,module,exports){
+},{}],176:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = createBoxes
@@ -30270,7 +30549,7 @@ function createBoxes(plot) {
   return new Boxes(plot, vbo, shader)
 }
 
-},{"./shaders":175,"gl-buffer":162,"gl-shader":183}],173:[function(_dereq_,module,exports){
+},{"./shaders":179,"gl-buffer":166,"gl-shader":187}],177:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = createGrid
@@ -30517,7 +30796,7 @@ function createGrid(plot) {
   return grid
 }
 
-},{"./shaders":175,"binary-search-bounds":39,"gl-buffer":162,"gl-shader":183}],174:[function(_dereq_,module,exports){
+},{"./shaders":179,"binary-search-bounds":39,"gl-buffer":166,"gl-shader":187}],178:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = createLines
@@ -30582,7 +30861,7 @@ function createLines(plot) {
   return lines
 }
 
-},{"./shaders":175,"gl-buffer":162,"gl-shader":183}],175:[function(_dereq_,module,exports){
+},{"./shaders":179,"gl-buffer":166,"gl-shader":187}],179:[function(_dereq_,module,exports){
 'use strict'
 
 var glslify = _dereq_('glslify')
@@ -30600,7 +30879,7 @@ module.exports = {
   tickVert: glslify(["precision mediump float;\n#define GLSLIFY 1\n\nattribute vec3 dataCoord;\n\nuniform vec2 dataAxis, dataShift, dataScale, screenOffset, tickScale;\n\nvoid main() {\n  vec2 pos = dataAxis * (dataScale * dataCoord.x + dataShift);\n  gl_Position = vec4(pos + tickScale*dataCoord.yz + screenOffset, 0, 1);\n}\n"])
 }
 
-},{"glslify":202}],176:[function(_dereq_,module,exports){
+},{"glslify":210}],180:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = createTextElements
@@ -30878,7 +31157,7 @@ function createTextElements(plot) {
   return text
 }
 
-},{"./shaders":175,"binary-search-bounds":39,"gl-buffer":162,"gl-shader":183,"text-cache":284}],177:[function(_dereq_,module,exports){
+},{"./shaders":179,"binary-search-bounds":39,"gl-buffer":166,"gl-shader":187,"text-cache":300}],181:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = createGLPlot2D
@@ -31461,7 +31740,7 @@ function createGLPlot2D(options) {
   return plot
 }
 
-},{"./lib/box":172,"./lib/grid":173,"./lib/line":174,"./lib/text":176,"gl-select-static":182}],178:[function(_dereq_,module,exports){
+},{"./lib/box":176,"./lib/grid":177,"./lib/line":178,"./lib/text":180,"gl-select-static":186}],182:[function(_dereq_,module,exports){
 var glslify = _dereq_('glslify')
 
 exports.pointVertex       = glslify(["precision mediump float;\n#define GLSLIFY 1\n\nattribute vec2 position;\n\nuniform mat3 matrix;\nuniform float pointSize;\nuniform float pointCloud;\n\nhighp float rand(vec2 co) {\n  highp float a = 12.9898;\n  highp float b = 78.233;\n  highp float c = 43758.5453;\n  highp float d = dot(co.xy, vec2(a, b));\n  highp float e = mod(d, 3.14);\n  return fract(sin(e) * c);\n}\n\nvoid main() {\n  vec3 hgPosition = matrix * vec3(position, 1);\n  gl_Position  = vec4(hgPosition.xy, 0, hgPosition.z);\n    // if we don't jitter the point size a bit, overall point cloud\n    // saturation 'jumps' on zooming, which is disturbing and confusing\n  gl_PointSize = pointSize * ((19.5 + rand(position)) / 20.0);\n  if(pointCloud != 0.0) { // pointCloud is truthy\n    // get the same square surface as circle would be\n    gl_PointSize *= 0.886;\n  }\n}"])
@@ -31469,7 +31748,7 @@ exports.pointFragment     = glslify(["precision mediump float;\n#define GLSLIFY 
 exports.pickVertex        = glslify(["precision mediump float;\n#define GLSLIFY 1\n\nattribute vec2 position;\nattribute vec4 pickId;\n\nuniform mat3 matrix;\nuniform float pointSize;\nuniform vec4 pickOffset;\n\nvarying vec4 fragId;\n\nvoid main() {\n  vec3 hgPosition = matrix * vec3(position, 1);\n  gl_Position  = vec4(hgPosition.xy, 0, hgPosition.z);\n  gl_PointSize = pointSize;\n\n  vec4 id = pickId + pickOffset;\n  id.y += floor(id.x / 256.0);\n  id.x -= floor(id.x / 256.0) * 256.0;\n\n  id.z += floor(id.y / 256.0);\n  id.y -= floor(id.y / 256.0) * 256.0;\n\n  id.w += floor(id.z / 256.0);\n  id.z -= floor(id.z / 256.0) * 256.0;\n\n  fragId = id;\n}\n"])
 exports.pickFragment      = glslify(["precision mediump float;\n#define GLSLIFY 1\n\nvarying vec4 fragId;\n\nvoid main() {\n  float radius = length(2.0 * gl_PointCoord.xy - 1.0);\n  if(radius > 1.0) {\n    discard;\n  }\n  gl_FragColor = fragId / 255.0;\n}\n"])
 
-},{"glslify":202}],179:[function(_dereq_,module,exports){
+},{"glslify":210}],183:[function(_dereq_,module,exports){
 'use strict'
 
 var createShader = _dereq_('gl-shader')
@@ -31689,7 +31968,7 @@ function createPointcloud2D(plot, options) {
   return result
 }
 
-},{"./lib/shader":178,"gl-buffer":162,"gl-shader":183,"typedarray-pool":302}],180:[function(_dereq_,module,exports){
+},{"./lib/shader":182,"gl-buffer":166,"gl-shader":187,"typedarray-pool":317}],184:[function(_dereq_,module,exports){
 'use strict'
 
 var glslify = _dereq_('glslify')
@@ -31697,7 +31976,7 @@ var glslify = _dereq_('glslify')
 exports.boxVertex = glslify(["precision mediump float;\n#define GLSLIFY 1\n\nattribute vec2 vertex;\n\nuniform vec2 cornerA, cornerB;\n\nvoid main() {\n  gl_Position = vec4(mix(cornerA, cornerB, vertex), 0, 1);\n}\n"])
 exports.boxFragment = glslify(["precision mediump float;\n#define GLSLIFY 1\n\nuniform vec4 color;\n\nvoid main() {\n  gl_FragColor = color;\n}\n"])
 
-},{"glslify":202}],181:[function(_dereq_,module,exports){
+},{"glslify":210}],185:[function(_dereq_,module,exports){
 'use strict'
 
 var createShader = _dereq_('gl-shader')
@@ -31823,7 +32102,7 @@ function createSelectBox(plot, options) {
   return selectBox
 }
 
-},{"./lib/shaders":180,"gl-buffer":162,"gl-shader":183}],182:[function(_dereq_,module,exports){
+},{"./lib/shaders":184,"gl-buffer":166,"gl-shader":187}],186:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = createSelectBuffer
@@ -32008,7 +32287,7 @@ function createSelectBuffer(gl, shape) {
   return new SelectBuffer(gl, fbo, buffer)
 }
 
-},{"bit-twiddle":40,"gl-fbo":167,"ndarray":224,"typedarray-pool":302}],183:[function(_dereq_,module,exports){
+},{"bit-twiddle":40,"gl-fbo":171,"ndarray":233,"typedarray-pool":317}],187:[function(_dereq_,module,exports){
 'use strict'
 
 var createUniformWrapper   = _dereq_('./lib/create-uniforms')
@@ -32274,7 +32553,7 @@ function createShader(
 
 module.exports = createShader
 
-},{"./lib/GLError":184,"./lib/create-attributes":185,"./lib/create-uniforms":186,"./lib/reflect":187,"./lib/runtime-reflect":188,"./lib/shader-cache":189}],184:[function(_dereq_,module,exports){
+},{"./lib/GLError":188,"./lib/create-attributes":189,"./lib/create-uniforms":190,"./lib/reflect":191,"./lib/runtime-reflect":192,"./lib/shader-cache":193}],188:[function(_dereq_,module,exports){
 function GLError (rawError, shortMessage, longMessage) {
     this.shortMessage = shortMessage || ''
     this.longMessage = longMessage || ''
@@ -32289,7 +32568,7 @@ GLError.prototype.name = 'GLError'
 GLError.prototype.constructor = GLError
 module.exports = GLError
 
-},{}],185:[function(_dereq_,module,exports){
+},{}],189:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = createAttributeWrapper
@@ -32554,7 +32833,7 @@ function createAttributeWrapper(
   return obj
 }
 
-},{"./GLError":184}],186:[function(_dereq_,module,exports){
+},{"./GLError":188}],190:[function(_dereq_,module,exports){
 'use strict'
 
 var coallesceUniforms = _dereq_('./reflect')
@@ -32747,7 +33026,7 @@ function createUniformWrapper(gl, wrapper, uniforms, locations) {
   }
 }
 
-},{"./GLError":184,"./reflect":187}],187:[function(_dereq_,module,exports){
+},{"./GLError":188,"./reflect":191}],191:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = makeReflectTypes
@@ -32805,7 +33084,7 @@ function makeReflectTypes(uniforms, useIndex) {
   }
   return obj
 }
-},{}],188:[function(_dereq_,module,exports){
+},{}],192:[function(_dereq_,module,exports){
 'use strict'
 
 exports.uniforms    = runtimeUniforms
@@ -32885,7 +33164,7 @@ function runtimeAttributes(gl, program) {
   return result
 }
 
-},{}],189:[function(_dereq_,module,exports){
+},{}],193:[function(_dereq_,module,exports){
 'use strict'
 
 exports.shader   = getShaderReference
@@ -33023,7 +33302,7 @@ function createProgram(gl, vref, fref, attribs, locations) {
   return getCache(gl).getProgram(vref, fref, attribs, locations)
 }
 
-},{"./GLError":184,"gl-format-compiler-error":168,"weakmap-shim":311}],190:[function(_dereq_,module,exports){
+},{"./GLError":188,"gl-format-compiler-error":172,"weakmap-shim":326}],194:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = createSpikes2D
@@ -33111,7 +33390,7 @@ function createSpikes2D(plot, options) {
   return spikes
 }
 
-},{}],191:[function(_dereq_,module,exports){
+},{}],195:[function(_dereq_,module,exports){
 'use strict'
 
 var Font = _dereq_('css-font')
@@ -33839,7 +34118,159 @@ function isRegl (o) {
 module.exports = GlText
 
 
-},{"bit-twiddle":40,"color-normalize":63,"css-font":73,"detect-kerning":88,"es6-weak-map":148,"flatten-vertex-data":156,"font-atlas":157,"font-measure":158,"gl-util/context":193,"is-plain-obj":214,"object-assign":227,"parse-rect":230,"parse-unit":232,"pick-by-alias":236,"regl":260,"to-px":287,"typedarray-pool":302}],192:[function(_dereq_,module,exports){
+},{"bit-twiddle":40,"color-normalize":196,"css-font":75,"detect-kerning":90,"es6-weak-map":151,"flatten-vertex-data":160,"font-atlas":161,"font-measure":162,"gl-util/context":201,"is-plain-obj":222,"object-assign":236,"parse-rect":239,"parse-unit":241,"pick-by-alias":245,"regl":278,"to-px":199,"typedarray-pool":317}],196:[function(_dereq_,module,exports){
+/** @module  color-normalize */
+
+'use strict'
+
+var rgba = _dereq_('color-rgba')
+var dtype = _dereq_('dtype')
+
+module.exports = function normalize (color, type) {
+	if (type === 'float' || !type) type = 'array'
+	if (type === 'uint') type = 'uint8'
+	if (type === 'uint_clamped') type = 'uint8_clamped'
+	var Ctor = dtype(type)
+	var output = new Ctor(4)
+
+	var normalize = type !== 'uint8' && type !== 'uint8_clamped'
+
+	// attempt to parse non-array arguments
+	if (!color.length || typeof color === 'string') {
+		color = rgba(color)
+		color[0] /= 255
+		color[1] /= 255
+		color[2] /= 255
+	}
+
+	// 0, 1 are possible contradictory values for Arrays:
+	// [1,1,1] input gives [1,1,1] output instead of [1/255,1/255,1/255], which may be collision if input is meant to be uint.
+	// converting [1,1,1] to [1/255,1/255,1/255] in case of float input gives larger mistake since [1,1,1] float is frequent edge value, whereas [0,1,1], [1,1,1] etc. uint inputs are relatively rare
+	if (isInt(color)) {
+		output[0] = color[0]
+		output[1] = color[1]
+		output[2] = color[2]
+		output[3] = color[3] != null ? color[3] : 255
+
+		if (normalize) {
+			output[0] /= 255
+			output[1] /= 255
+			output[2] /= 255
+			output[3] /= 255
+		}
+
+		return output
+	}
+
+	if (!normalize) {
+		output[0] = Math.min(Math.max(Math.floor(color[0] * 255), 0), 255)
+		output[1] = Math.min(Math.max(Math.floor(color[1] * 255), 0), 255)
+		output[2] = Math.min(Math.max(Math.floor(color[2] * 255), 0), 255)
+		output[3] = color[3] == null ? 255 : Math.min(Math.max(Math.floor(color[3] * 255), 0), 255)
+	} else {
+		output[0] = color[0]
+		output[1] = color[1]
+		output[2] = color[2]
+		output[3] = color[3] != null ? color[3] : 1
+	}
+
+	return output
+}
+
+function isInt(color) {
+	if (color instanceof Uint8Array || color instanceof Uint8ClampedArray) return true
+
+	if (Array.isArray(color) &&
+		(color[0] > 1 || color[0] === 0) &&
+		(color[1] > 1 || color[1] === 0) &&
+		(color[2] > 1 || color[2] === 0) &&
+		(!color[3] || color[3] > 1)
+	) return true
+
+	return false
+}
+
+},{"color-rgba":198,"dtype":94}],197:[function(_dereq_,module,exports){
+arguments[4][63][0].apply(exports,arguments)
+},{"color-name":61,"dup":63}],198:[function(_dereq_,module,exports){
+arguments[4][64][0].apply(exports,arguments)
+},{"color-parse":197,"color-space/hsl":67,"dup":64}],199:[function(_dereq_,module,exports){
+'use strict'
+
+var parseUnit = _dereq_('parse-unit')
+
+module.exports = toPX
+
+var PIXELS_PER_INCH = getSizeBrutal('in', document.body) // 96
+
+
+function getPropertyInPX(element, prop) {
+  var parts = parseUnit(getComputedStyle(element).getPropertyValue(prop))
+  return parts[0] * toPX(parts[1], element)
+}
+
+//This brutal hack is needed
+function getSizeBrutal(unit, element) {
+  var testDIV = document.createElement('div')
+  testDIV.style['height'] = '128' + unit
+  element.appendChild(testDIV)
+  var size = getPropertyInPX(testDIV, 'height') / 128
+  element.removeChild(testDIV)
+  return size
+}
+
+function toPX(str, element) {
+  if (!str) return null
+
+  element = element || document.body
+  str = (str + '' || 'px').trim().toLowerCase()
+  if(element === window || element === document) {
+    element = document.body
+  }
+
+  switch(str) {
+    case '%':  //Ambiguous, not sure if we should use width or height
+      return element.clientHeight / 100.0
+    case 'ch':
+    case 'ex':
+      return getSizeBrutal(str, element)
+    case 'em':
+      return getPropertyInPX(element, 'font-size')
+    case 'rem':
+      return getPropertyInPX(document.body, 'font-size')
+    case 'vw':
+      return window.innerWidth/100
+    case 'vh':
+      return window.innerHeight/100
+    case 'vmin':
+      return Math.min(window.innerWidth, window.innerHeight) / 100
+    case 'vmax':
+      return Math.max(window.innerWidth, window.innerHeight) / 100
+    case 'in':
+      return PIXELS_PER_INCH
+    case 'cm':
+      return PIXELS_PER_INCH / 2.54
+    case 'mm':
+      return PIXELS_PER_INCH / 25.4
+    case 'pt':
+      return PIXELS_PER_INCH / 72
+    case 'pc':
+      return PIXELS_PER_INCH / 6
+    case 'px':
+      return 1
+  }
+
+  // detect number of units
+  var parts = parseUnit(str)
+  if (!isNaN(parts[0]) && parts[1]) {
+    var px = toPX(parts[1], element)
+    return typeof px === 'number' ? parts[0] * px : null
+  }
+
+  return null
+}
+
+},{"parse-unit":241}],200:[function(_dereq_,module,exports){
 'use strict'
 
 var ndarray = _dereq_('ndarray')
@@ -34402,8 +34833,8 @@ function createTexture2D(gl) {
   throw new Error('gl-texture2d: Invalid arguments for texture2d constructor')
 }
 
-},{"ndarray":224,"ndarray-ops":223,"typedarray-pool":302}],193:[function(_dereq_,module,exports){
-(function (global){
+},{"ndarray":233,"ndarray-ops":232,"typedarray-pool":317}],201:[function(_dereq_,module,exports){
+(function (global){(function (){
 /** @module  gl-util/context */
 'use strict'
 
@@ -34477,16 +34908,12 @@ module.exports = function setContext (o) {
 
 	// make sure there is context
 	if (!o.gl) {
-		try {
-			o.gl = o.canvas.getContext('webgl', o.attrs)
-		} catch (e) {
+		['webgl', 'experimental-webgl', 'webgl-experimental'].some(function (c) {
 			try {
-				o.gl = o.canvas.getContext('experimental-webgl', o.attrs)
-			}
-			catch (e) {
-				o.gl = o.canvas.getContext('webgl-experimental', o.attrs)
-			}
-		}
+				o.gl = o.canvas.getContext(c, o.attrs);
+			} catch (e) { /* no-op */ }
+			return o.gl;
+		});
 	}
 
 	return o.gl
@@ -34533,8 +34960,8 @@ function createCanvas () {
 	return canvas
 }
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"pick-by-alias":236}],194:[function(_dereq_,module,exports){
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"pick-by-alias":245}],202:[function(_dereq_,module,exports){
 var tokenize = _dereq_('glsl-tokenizer')
 var atob     = _dereq_('atob-lite')
 
@@ -34559,7 +34986,7 @@ function getName(src) {
   }
 }
 
-},{"atob-lite":21,"glsl-tokenizer":201}],195:[function(_dereq_,module,exports){
+},{"atob-lite":21,"glsl-tokenizer":209}],203:[function(_dereq_,module,exports){
 module.exports = tokenize
 
 var literals100 = _dereq_('./lib/literals')
@@ -34936,7 +35363,7 @@ function tokenize(opt) {
   }
 }
 
-},{"./lib/builtins":197,"./lib/builtins-300es":196,"./lib/literals":199,"./lib/literals-300es":198,"./lib/operators":200}],196:[function(_dereq_,module,exports){
+},{"./lib/builtins":205,"./lib/builtins-300es":204,"./lib/literals":207,"./lib/literals-300es":206,"./lib/operators":208}],204:[function(_dereq_,module,exports){
 // 300es builtins/reserved words that were previously valid in v100
 var v100 = _dereq_('./builtins')
 
@@ -35007,7 +35434,7 @@ module.exports = v100.concat([
   , 'textureProjGradOffset'
 ])
 
-},{"./builtins":197}],197:[function(_dereq_,module,exports){
+},{"./builtins":205}],205:[function(_dereq_,module,exports){
 module.exports = [
   // Keep this list sorted
   'abs'
@@ -35159,7 +35586,7 @@ module.exports = [
   , 'textureCubeGradEXT'
 ]
 
-},{}],198:[function(_dereq_,module,exports){
+},{}],206:[function(_dereq_,module,exports){
 var v100 = _dereq_('./literals')
 
 module.exports = v100.slice().concat([
@@ -35248,7 +35675,7 @@ module.exports = v100.slice().concat([
   , 'usampler2DMSArray'
 ])
 
-},{"./literals":199}],199:[function(_dereq_,module,exports){
+},{"./literals":207}],207:[function(_dereq_,module,exports){
 module.exports = [
   // current
     'precision'
@@ -35344,7 +35771,7 @@ module.exports = [
   , 'using'
 ]
 
-},{}],200:[function(_dereq_,module,exports){
+},{}],208:[function(_dereq_,module,exports){
 module.exports = [
     '<<='
   , '>>='
@@ -35393,7 +35820,7 @@ module.exports = [
   , '}'
 ]
 
-},{}],201:[function(_dereq_,module,exports){
+},{}],209:[function(_dereq_,module,exports){
 var tokenize = _dereq_('./index')
 
 module.exports = tokenizeString
@@ -35408,7 +35835,7 @@ function tokenizeString(str, opt) {
   return tokens
 }
 
-},{"./index":195}],202:[function(_dereq_,module,exports){
+},{"./index":203}],210:[function(_dereq_,module,exports){
 module.exports = function(strings) {
   if (typeof strings === 'string') strings = [strings]
   var exprs = [].slice.call(arguments,1)
@@ -35420,8 +35847,8 @@ module.exports = function(strings) {
   return parts.join('')
 }
 
-},{}],203:[function(_dereq_,module,exports){
-(function (global){
+},{}],211:[function(_dereq_,module,exports){
+(function (global){(function (){
 'use strict'
 
 var isBrowser = _dereq_('is-browser')
@@ -35436,8 +35863,8 @@ else {
 
 module.exports = hasHover
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"is-browser":210}],204:[function(_dereq_,module,exports){
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"is-browser":218}],212:[function(_dereq_,module,exports){
 'use strict'
 
 var isBrowser = _dereq_('is-browser')
@@ -35463,7 +35890,8 @@ function detect() {
 
 module.exports = isBrowser && detect()
 
-},{"is-browser":210}],205:[function(_dereq_,module,exports){
+},{"is-browser":218}],213:[function(_dereq_,module,exports){
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = (nBytes * 8) - mLen - 1
@@ -35549,7 +35977,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],206:[function(_dereq_,module,exports){
+},{}],214:[function(_dereq_,module,exports){
 "use strict"
 
 var bounds = _dereq_("binary-search-bounds")
@@ -35916,7 +36344,7 @@ function createWrapper(intervals) {
   return new IntervalTree(createIntervalTree(intervals))
 }
 
-},{"binary-search-bounds":207}],207:[function(_dereq_,module,exports){
+},{"binary-search-bounds":215}],215:[function(_dereq_,module,exports){
 "use strict"
 
 function compileSearch(funcName, predicate, reversed, extraArgs, useNdarray, earlyOut) {
@@ -35978,7 +36406,7 @@ module.exports = {
   eq: compileBoundsSearch("-", true, "EQ", true)
 }
 
-},{}],208:[function(_dereq_,module,exports){
+},{}],216:[function(_dereq_,module,exports){
 "use strict"
 
 function invertPermutation(pi, result) {
@@ -35990,7 +36418,7 @@ function invertPermutation(pi, result) {
 }
 
 module.exports = invertPermutation
-},{}],209:[function(_dereq_,module,exports){
+},{}],217:[function(_dereq_,module,exports){
 "use strict"
 
 function iota(n) {
@@ -36002,9 +36430,9 @@ function iota(n) {
 }
 
 module.exports = iota
-},{}],210:[function(_dereq_,module,exports){
+},{}],218:[function(_dereq_,module,exports){
 module.exports = true;
-},{}],211:[function(_dereq_,module,exports){
+},{}],219:[function(_dereq_,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -36027,19 +36455,19 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],212:[function(_dereq_,module,exports){
+},{}],220:[function(_dereq_,module,exports){
 'use strict';
 module.exports = typeof navigator !== 'undefined' &&
 	(/MSIE/.test(navigator.userAgent) || /Trident\//.test(navigator.appVersion));
 
-},{}],213:[function(_dereq_,module,exports){
+},{}],221:[function(_dereq_,module,exports){
 'use strict';
 module.exports = function (x) {
 	var type = typeof x;
 	return x !== null && (type === 'object' || type === 'function');
 };
 
-},{}],214:[function(_dereq_,module,exports){
+},{}],222:[function(_dereq_,module,exports){
 'use strict';
 var toString = Object.prototype.toString;
 
@@ -36048,7 +36476,7 @@ module.exports = function (x) {
 	return toString.call(x) === '[object Object]' && (prototype = Object.getPrototypeOf(x), prototype === null || prototype === Object.getPrototypeOf({}));
 };
 
-},{}],215:[function(_dereq_,module,exports){
+},{}],223:[function(_dereq_,module,exports){
 'use strict';
 
 /**
@@ -36085,7 +36513,7 @@ module.exports = function(str){
     return true;
 }
 
-},{}],216:[function(_dereq_,module,exports){
+},{}],224:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = function isPath(str) {
@@ -36099,13 +36527,13 @@ module.exports = function isPath(str) {
 	return false
 }
 
-},{}],217:[function(_dereq_,module,exports){
+},{}],225:[function(_dereq_,module,exports){
 'use strict';
 module.exports = Math.log2 || function (x) {
 	return Math.log(x) * Math.LOG2E;
 };
 
-},{}],218:[function(_dereq_,module,exports){
+},{}],226:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = mouseListen
@@ -36312,7 +36740,7 @@ function mouseListen (element, callback) {
   return result
 }
 
-},{"mouse-event":220}],219:[function(_dereq_,module,exports){
+},{"mouse-event":228}],227:[function(_dereq_,module,exports){
 var rootPosition = { left: 0, top: 0 }
 
 module.exports = mouseEventOffset
@@ -36339,7 +36767,7 @@ function getBoundingClientOffset (element) {
   }
 }
 
-},{}],220:[function(_dereq_,module,exports){
+},{}],228:[function(_dereq_,module,exports){
 'use strict'
 
 function mouseButtons(ev) {
@@ -36401,7 +36829,9 @@ function mouseRelativeY(ev) {
 }
 exports.y = mouseRelativeY
 
-},{}],221:[function(_dereq_,module,exports){
+},{}],229:[function(_dereq_,module,exports){
+arguments[4][199][0].apply(exports,arguments)
+},{"dup":199,"parse-unit":241}],230:[function(_dereq_,module,exports){
 'use strict'
 
 var toPX = _dereq_('to-px')
@@ -36443,7 +36873,7 @@ function mouseWheelListen(element, callback, noScroll) {
   return listener
 }
 
-},{"to-px":287}],222:[function(_dereq_,module,exports){
+},{"to-px":229}],231:[function(_dereq_,module,exports){
 "use strict"
 
 var pool = _dereq_("typedarray-pool")
@@ -36859,7 +37289,7 @@ function createSurfaceExtractor(args) {
     order,
     typesig)
 }
-},{"typedarray-pool":302}],223:[function(_dereq_,module,exports){
+},{"typedarray-pool":317}],232:[function(_dereq_,module,exports){
 "use strict"
 
 var compile = _dereq_("cwise-compiler")
@@ -37322,7 +37752,7 @@ exports.equals = compile({
 
 
 
-},{"cwise-compiler":79}],224:[function(_dereq_,module,exports){
+},{"cwise-compiler":81}],233:[function(_dereq_,module,exports){
 var iota = _dereq_("iota-array")
 var isBuffer = _dereq_("is-buffer")
 
@@ -37673,7 +38103,7 @@ function wrappedNDArrayCtor(data, shape, stride, offset) {
 
 module.exports = wrappedNDArrayCtor
 
-},{"iota-array":209,"is-buffer":211}],225:[function(_dereq_,module,exports){
+},{"iota-array":217,"is-buffer":219}],234:[function(_dereq_,module,exports){
 "use strict"
 
 var doubleBits = _dereq_("double-bits")
@@ -37716,209 +38146,131 @@ function nextafter(x, y) {
   }
   return doubleBits.pack(lo, hi)
 }
-},{"double-bits":89}],226:[function(_dereq_,module,exports){
-
-var π = Math.PI
-var _120 = radians(120)
+},{"double-bits":91}],235:[function(_dereq_,module,exports){
+'use strict'
 
 module.exports = normalize
 
-/**
- * describe `path` in terms of cubic bézier 
- * curves and move commands
- *
- * @param {Array} path
- * @return {Array}
- */
+var arcToCurve = _dereq_('svg-arc-to-cubic-bezier')
 
 function normalize(path){
-	// init state
-	var prev
-	var result = []
-	var bezierX = 0
-	var bezierY = 0
-	var startX = 0
-	var startY = 0
-	var quadX = null
-	var quadY = null
-	var x = 0
-	var y = 0
+  // init state
+  var prev
+  var result = []
+  var bezierX = 0
+  var bezierY = 0
+  var startX = 0
+  var startY = 0
+  var quadX = null
+  var quadY = null
+  var x = 0
+  var y = 0
 
-	for (var i = 0, len = path.length; i < len; i++) {
-		var seg = path[i]
-		var command = seg[0]
-		switch (command) {
-			case 'M':
-				startX = seg[1]
-				startY = seg[2]
-				break
-			case 'A':
-				seg = arc(x, y,seg[1],seg[2],radians(seg[3]),seg[4],seg[5],seg[6],seg[7])
-				// split multi part
-				seg.unshift('C')
-				if (seg.length > 7) {
-					result.push(seg.splice(0, 7))
-					seg.unshift('C')
-				}
-				break
-			case 'S':
-				// default control point
-				var cx = x
-				var cy = y
-				if (prev == 'C' || prev == 'S') {
-					cx += cx - bezierX // reflect the previous command's control
-					cy += cy - bezierY // point relative to the current point
-				}
-				seg = ['C', cx, cy, seg[1], seg[2], seg[3], seg[4]]
-				break
-			case 'T':
-				if (prev == 'Q' || prev == 'T') {
-					quadX = x * 2 - quadX // as with 'S' reflect previous control point
-					quadY = y * 2 - quadY
-				} else {
-					quadX = x
-					quadY = y
-				}
-				seg = quadratic(x, y, quadX, quadY, seg[1], seg[2])
-				break
-			case 'Q':
-				quadX = seg[1]
-				quadY = seg[2]
-				seg = quadratic(x, y, seg[1], seg[2], seg[3], seg[4])
-				break
-			case 'L':
-				seg = line(x, y, seg[1], seg[2])
-				break
-			case 'H':
-				seg = line(x, y, seg[1], y)
-				break
-			case 'V':
-				seg = line(x, y, x, seg[1])
-				break
-			case 'Z':
-				seg = line(x, y, startX, startY)
-				break
-		}
+  for (var i = 0, len = path.length; i < len; i++) {
+    var seg = path[i]
+    var command = seg[0]
 
-		// update state
-		prev = command
-		x = seg[seg.length - 2]
-		y = seg[seg.length - 1]
-		if (seg.length > 4) {
-			bezierX = seg[seg.length - 4]
-			bezierY = seg[seg.length - 3]
-		} else {
-			bezierX = x
-			bezierY = y
-		}
-		result.push(seg)
-	}
+    switch (command) {
+      case 'M':
+        startX = seg[1]
+        startY = seg[2]
+        break
+      case 'A':
+        var curves = arcToCurve({
+          px: x,
+          py: y,
+          cx: seg[6],
+          cy:  seg[7],
+          rx: seg[1],
+          ry: seg[2],
+          xAxisRotation: seg[3],
+          largeArcFlag: seg[4],
+          sweepFlag: seg[5]
+        })
 
-	return result
+        // null-curves
+        if (!curves.length) continue
+
+        for (var j = 0, c; j < curves.length; j++) {
+          c = curves[j]
+          seg = ['C', c.x1, c.y1, c.x2, c.y2, c.x, c.y]
+          if (j < curves.length - 1) result.push(seg)
+        }
+
+        break
+      case 'S':
+        // default control point
+        var cx = x
+        var cy = y
+        if (prev == 'C' || prev == 'S') {
+          cx += cx - bezierX // reflect the previous command's control
+          cy += cy - bezierY // point relative to the current point
+        }
+        seg = ['C', cx, cy, seg[1], seg[2], seg[3], seg[4]]
+        break
+      case 'T':
+        if (prev == 'Q' || prev == 'T') {
+          quadX = x * 2 - quadX // as with 'S' reflect previous control point
+          quadY = y * 2 - quadY
+        } else {
+          quadX = x
+          quadY = y
+        }
+        seg = quadratic(x, y, quadX, quadY, seg[1], seg[2])
+        break
+      case 'Q':
+        quadX = seg[1]
+        quadY = seg[2]
+        seg = quadratic(x, y, seg[1], seg[2], seg[3], seg[4])
+        break
+      case 'L':
+        seg = line(x, y, seg[1], seg[2])
+        break
+      case 'H':
+        seg = line(x, y, seg[1], y)
+        break
+      case 'V':
+        seg = line(x, y, x, seg[1])
+        break
+      case 'Z':
+        seg = line(x, y, startX, startY)
+        break
+    }
+
+    // update state
+    prev = command
+    x = seg[seg.length - 2]
+    y = seg[seg.length - 1]
+    if (seg.length > 4) {
+      bezierX = seg[seg.length - 4]
+      bezierY = seg[seg.length - 3]
+    } else {
+      bezierX = x
+      bezierY = y
+    }
+    result.push(seg)
+  }
+
+  return result
 }
 
 function line(x1, y1, x2, y2){
-	return ['C', x1, y1, x2, y2, x2, y2]
+  return ['C', x1, y1, x2, y2, x2, y2]
 }
 
 function quadratic(x1, y1, cx, cy, x2, y2){
-	return [
-		'C',
-		x1/3 + (2/3) * cx,
-		y1/3 + (2/3) * cy,
-		x2/3 + (2/3) * cx,
-		y2/3 + (2/3) * cy,
-		x2,
-		y2
-	]
+  return [
+    'C',
+    x1/3 + (2/3) * cx,
+    y1/3 + (2/3) * cy,
+    x2/3 + (2/3) * cx,
+    y2/3 + (2/3) * cy,
+    x2,
+    y2
+  ]
 }
 
-// This function is ripped from 
-// github.com/DmitryBaranovskiy/raphael/blob/4d97d4/raphael.js#L2216-L2304 
-// which references w3.org/TR/SVG11/implnote.html#ArcImplementationNotes
-// TODO: make it human readable
-
-function arc(x1, y1, rx, ry, angle, large_arc_flag, sweep_flag, x2, y2, recursive) {
-	if (!recursive) {
-		var xy = rotate(x1, y1, -angle)
-		x1 = xy.x
-		y1 = xy.y
-		xy = rotate(x2, y2, -angle)
-		x2 = xy.x
-		y2 = xy.y
-		var x = (x1 - x2) / 2
-		var y = (y1 - y2) / 2
-		var h = (x * x) / (rx * rx) + (y * y) / (ry * ry)
-		if (h > 1) {
-			h = Math.sqrt(h)
-			rx = h * rx
-			ry = h * ry
-		}
-		var rx2 = rx * rx
-		var ry2 = ry * ry
-		var k = (large_arc_flag == sweep_flag ? -1 : 1)
-			* Math.sqrt(Math.abs((rx2 * ry2 - rx2 * y * y - ry2 * x * x) / (rx2 * y * y + ry2 * x * x)))
-		if (k == Infinity) k = 1 // neutralize
-		var cx = k * rx * y / ry + (x1 + x2) / 2
-		var cy = k * -ry * x / rx + (y1 + y2) / 2
-		var f1 = Math.asin(((y1 - cy) / ry).toFixed(9))
-		var f2 = Math.asin(((y2 - cy) / ry).toFixed(9))
-
-		f1 = x1 < cx ? π - f1 : f1
-		f2 = x2 < cx ? π - f2 : f2
-		if (f1 < 0) f1 = π * 2 + f1
-		if (f2 < 0) f2 = π * 2 + f2
-		if (sweep_flag && f1 > f2) f1 = f1 - π * 2
-		if (!sweep_flag && f2 > f1) f2 = f2 - π * 2
-	} else {
-		f1 = recursive[0]
-		f2 = recursive[1]
-		cx = recursive[2]
-		cy = recursive[3]
-	}
-	// greater than 120 degrees requires multiple segments
-	if (Math.abs(f2 - f1) > _120) {
-		var f2old = f2
-		var x2old = x2
-		var y2old = y2
-		f2 = f1 + _120 * (sweep_flag && f2 > f1 ? 1 : -1)
-		x2 = cx + rx * Math.cos(f2)
-		y2 = cy + ry * Math.sin(f2)
-		var res = arc(x2, y2, rx, ry, angle, 0, sweep_flag, x2old, y2old, [f2, f2old, cx, cy])
-	}
-	var t = Math.tan((f2 - f1) / 4)
-	var hx = 4 / 3 * rx * t
-	var hy = 4 / 3 * ry * t
-	var curve = [
-		2 * x1 - (x1 + hx * Math.sin(f1)),
-		2 * y1 - (y1 - hy * Math.cos(f1)),
-		x2 + hx * Math.sin(f2),
-		y2 - hy * Math.cos(f2),
-		x2,
-		y2
-	]
-	if (recursive) return curve
-	if (res) curve = curve.concat(res)
-	for (var i = 0; i < curve.length;) {
-		var rot = rotate(curve[i], curve[i+1], angle)
-		curve[i++] = rot.x
-		curve[i++] = rot.y
-	}
-	return curve
-}
-
-function rotate(x, y, rad){
-	return {
-		x: x * Math.cos(rad) - y * Math.sin(rad),
-		y: x * Math.sin(rad) + y * Math.cos(rad)
-	}
-}
-
-function radians(degress){
-	return degress * (π / 180)
-}
-
-},{}],227:[function(_dereq_,module,exports){
+},{"svg-arc-to-cubic-bezier":297}],236:[function(_dereq_,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -38010,7 +38362,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],228:[function(_dereq_,module,exports){
+},{}],237:[function(_dereq_,module,exports){
 /*!
  * pad-left <https://github.com/jonschlinkert/pad-left>
  *
@@ -38026,7 +38378,7 @@ module.exports = function padLeft(str, num, ch) {
   ch = typeof ch !== 'undefined' ? (ch + '') : ' ';
   return repeat(ch, num) + str;
 };
-},{"repeat-string":261}],229:[function(_dereq_,module,exports){
+},{"repeat-string":279}],238:[function(_dereq_,module,exports){
 'use strict'
 
 /**
@@ -38163,7 +38515,7 @@ parenthesis.stringify = stringify
 
 module.exports = parenthesis
 
-},{}],230:[function(_dereq_,module,exports){
+},{}],239:[function(_dereq_,module,exports){
 'use strict'
 
 var pick = _dereq_('pick-by-alias')
@@ -38250,7 +38602,7 @@ function parseRect (arg) {
   return rect
 }
 
-},{"pick-by-alias":236}],231:[function(_dereq_,module,exports){
+},{"pick-by-alias":245}],240:[function(_dereq_,module,exports){
 
 module.exports = parse
 
@@ -38309,7 +38661,7 @@ function parseValues(args) {
 	return numbers ? numbers.map(Number) : []
 }
 
-},{}],232:[function(_dereq_,module,exports){
+},{}],241:[function(_dereq_,module,exports){
 module.exports = function parseUnit(str, out) {
     if (!out)
         out = [ 0, '' ]
@@ -38320,8 +38672,8 @@ module.exports = function parseUnit(str, out) {
     out[1] = str.match(/[\d.\-\+]*\s*(.*)/)[1] || ''
     return out
 }
-},{}],233:[function(_dereq_,module,exports){
-(function (process){
+},{}],242:[function(_dereq_,module,exports){
+(function (process){(function (){
 // Generated by CoffeeScript 1.12.2
 (function() {
   var getNanoSeconds, hrtime, loadTime, moduleLoadTime, nodeLoadTime, upTime;
@@ -38359,8 +38711,8 @@ module.exports = function parseUnit(str, out) {
 
 
 
-}).call(this,_dereq_('_process'))
-},{"_process":250}],234:[function(_dereq_,module,exports){
+}).call(this)}).call(this,_dereq_('_process'))
+},{"_process":259}],243:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = permutationSign
@@ -38412,7 +38764,7 @@ function permutationSign(p) {
     return sgn
   }
 }
-},{"typedarray-pool":302}],235:[function(_dereq_,module,exports){
+},{"typedarray-pool":317}],244:[function(_dereq_,module,exports){
 "use strict"
 
 var pool = _dereq_("typedarray-pool")
@@ -38499,7 +38851,7 @@ function unrank(n, r, p) {
 exports.rank = rank
 exports.unrank = unrank
 
-},{"invert-permutation":208,"typedarray-pool":302}],236:[function(_dereq_,module,exports){
+},{"invert-permutation":216,"typedarray-pool":317}],245:[function(_dereq_,module,exports){
 'use strict'
 
 
@@ -38578,7 +38930,7 @@ function toList(arg) {
 	return arg
 }
 
-},{}],237:[function(_dereq_,module,exports){
+},{}],246:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = planarDual
@@ -38709,7 +39061,7 @@ function planarDual(cells, positions) {
   //Combine paths and loops together
   return cycles
 }
-},{"compare-angle":68}],238:[function(_dereq_,module,exports){
+},{"compare-angle":69}],247:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = trimLeaves
@@ -38765,7 +39117,7 @@ function trimLeaves(edges, positions) {
   
   return [ nedges, npositions ]
 }
-},{"edges-to-adjacency-list":94}],239:[function(_dereq_,module,exports){
+},{"edges-to-adjacency-list":97}],248:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = planarGraphToPolyline
@@ -38970,9 +39322,9 @@ function planarGraphToPolyline(edges, positions) {
 
   return result
 }
-},{"./lib/trim-leaves":238,"edges-to-adjacency-list":94,"planar-dual":237,"point-in-big-polygon":241,"robust-sum":268,"two-product":289,"uniq":304}],240:[function(_dereq_,module,exports){
-arguments[4][207][0].apply(exports,arguments)
-},{"dup":207}],241:[function(_dereq_,module,exports){
+},{"./lib/trim-leaves":247,"edges-to-adjacency-list":97,"planar-dual":246,"point-in-big-polygon":250,"robust-sum":286,"two-product":304,"uniq":319}],249:[function(_dereq_,module,exports){
+arguments[4][215][0].apply(exports,arguments)
+},{"dup":215}],250:[function(_dereq_,module,exports){
 module.exports = preprocessPolygon
 
 var orient = _dereq_('robust-orientation')[3]
@@ -39124,7 +39476,7 @@ function preprocessPolygon(loops) {
       testSlab)
   }
 }
-},{"binary-search-bounds":240,"interval-tree-1d":206,"robust-orientation":263,"slab-decomposition":276}],242:[function(_dereq_,module,exports){
+},{"binary-search-bounds":249,"interval-tree-1d":214,"robust-orientation":281,"slab-decomposition":293}],251:[function(_dereq_,module,exports){
 /*
  * @copyright 2016 Sean Connelly (@voidqk), http://syntheti.cc
  * @license MIT
@@ -39252,7 +39604,7 @@ if (typeof window === 'object')
 
 module.exports = PolyBool;
 
-},{"./lib/build-log":243,"./lib/epsilon":244,"./lib/geojson":245,"./lib/intersecter":246,"./lib/segment-chainer":248,"./lib/segment-selector":249}],243:[function(_dereq_,module,exports){
+},{"./lib/build-log":252,"./lib/epsilon":253,"./lib/geojson":254,"./lib/intersecter":255,"./lib/segment-chainer":257,"./lib/segment-selector":258}],252:[function(_dereq_,module,exports){
 // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
 // MIT License
 // Project Home: https://github.com/voidqk/polybooljs
@@ -39367,7 +39719,7 @@ function BuildLog(){
 
 module.exports = BuildLog;
 
-},{}],244:[function(_dereq_,module,exports){
+},{}],253:[function(_dereq_,module,exports){
 // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
 // MIT License
 // Project Home: https://github.com/voidqk/polybooljs
@@ -39539,7 +39891,7 @@ function Epsilon(eps){
 
 module.exports = Epsilon;
 
-},{}],245:[function(_dereq_,module,exports){
+},{}],254:[function(_dereq_,module,exports){
 // (c) Copyright 2017, Sean Connelly (@voidqk), http://syntheti.cc
 // MIT License
 // Project Home: https://github.com/voidqk/polybooljs
@@ -39729,7 +40081,7 @@ var GeoJSON = {
 
 module.exports = GeoJSON;
 
-},{}],246:[function(_dereq_,module,exports){
+},{}],255:[function(_dereq_,module,exports){
 // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
 // MIT License
 // Project Home: https://github.com/voidqk/polybooljs
@@ -40236,7 +40588,7 @@ function Intersecter(selfIntersection, eps, buildLog){
 
 module.exports = Intersecter;
 
-},{"./linked-list":247}],247:[function(_dereq_,module,exports){
+},{"./linked-list":256}],256:[function(_dereq_,module,exports){
 // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
 // MIT License
 // Project Home: https://github.com/voidqk/polybooljs
@@ -40319,7 +40671,7 @@ var LinkedList = {
 
 module.exports = LinkedList;
 
-},{}],248:[function(_dereq_,module,exports){
+},{}],257:[function(_dereq_,module,exports){
 // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
 // MIT License
 // Project Home: https://github.com/voidqk/polybooljs
@@ -40573,7 +40925,7 @@ function SegmentChainer(segments, eps, buildLog){
 
 module.exports = SegmentChainer;
 
-},{}],249:[function(_dereq_,module,exports){
+},{}],258:[function(_dereq_,module,exports){
 // (c) Copyright 2016, Sean Connelly (@voidqk), http://syntheti.cc
 // MIT License
 // Project Home: https://github.com/voidqk/polybooljs
@@ -40741,7 +41093,7 @@ var SegmentSelector = {
 
 module.exports = SegmentSelector;
 
-},{}],250:[function(_dereq_,module,exports){
+},{}],259:[function(_dereq_,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -40927,8 +41279,8 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],251:[function(_dereq_,module,exports){
-(function (global){
+},{}],260:[function(_dereq_,module,exports){
+(function (global){(function (){
 var now = _dereq_('performance-now')
   , root = typeof window === 'undefined' ? global : window
   , vendors = ['moz', 'webkit']
@@ -41005,8 +41357,8 @@ module.exports.polyfill = function(object) {
   object.cancelAnimationFrame = caf
 }
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"performance-now":233}],252:[function(_dereq_,module,exports){
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"performance-now":242}],261:[function(_dereq_,module,exports){
 'use strict'
 
 var bnadd = _dereq_('big-rat/add')
@@ -41022,7 +41374,7 @@ function add (a, b) {
   return r
 }
 
-},{"big-rat/add":23}],253:[function(_dereq_,module,exports){
+},{"big-rat/add":23}],262:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = float2rat
@@ -41037,7 +41389,7 @@ function float2rat(v) {
   return result
 }
 
-},{"big-rat":26}],254:[function(_dereq_,module,exports){
+},{"big-rat":26}],263:[function(_dereq_,module,exports){
 'use strict'
 
 var rat = _dereq_('big-rat')
@@ -41055,7 +41407,7 @@ function muls(a, x) {
   return r
 }
 
-},{"big-rat":26,"big-rat/mul":35}],255:[function(_dereq_,module,exports){
+},{"big-rat":26,"big-rat/mul":35}],264:[function(_dereq_,module,exports){
 'use strict'
 
 var bnsub = _dereq_('big-rat/sub')
@@ -41071,7 +41423,7 @@ function sub(a, b) {
   return r
 }
 
-},{"big-rat/sub":37}],256:[function(_dereq_,module,exports){
+},{"big-rat/sub":37}],265:[function(_dereq_,module,exports){
 'use strict'
 
 var getBounds = _dereq_('array-bounds')
@@ -41558,7 +41910,13 @@ function Error2D (regl, options) {
 	}
 }
 
-},{"array-bounds":14,"color-normalize":63,"flatten-vertex-data":156,"object-assign":227,"pick-by-alias":236,"to-float32":286,"update-diff":306}],257:[function(_dereq_,module,exports){
+},{"array-bounds":14,"color-normalize":266,"flatten-vertex-data":160,"object-assign":236,"pick-by-alias":245,"to-float32":302,"update-diff":321}],266:[function(_dereq_,module,exports){
+arguments[4][196][0].apply(exports,arguments)
+},{"color-rgba":268,"dtype":94,"dup":196}],267:[function(_dereq_,module,exports){
+arguments[4][63][0].apply(exports,arguments)
+},{"color-name":61,"dup":63}],268:[function(_dereq_,module,exports){
+arguments[4][64][0].apply(exports,arguments)
+},{"color-parse":267,"color-space/hsl":67,"dup":64}],269:[function(_dereq_,module,exports){
 'use strict'
 
 
@@ -42287,7 +42645,13 @@ Line2D.prototype.destroy = function () {
 	return this
 }
 
-},{"array-bounds":14,"array-normalize":15,"color-normalize":63,"earcut":93,"es6-weak-map":148,"flatten-vertex-data":156,"glslify":202,"object-assign":227,"parse-rect":230,"pick-by-alias":236,"to-float32":286}],258:[function(_dereq_,module,exports){
+},{"array-bounds":14,"array-normalize":15,"color-normalize":270,"earcut":96,"es6-weak-map":151,"flatten-vertex-data":160,"glslify":210,"object-assign":236,"parse-rect":239,"pick-by-alias":245,"to-float32":302}],270:[function(_dereq_,module,exports){
+arguments[4][196][0].apply(exports,arguments)
+},{"color-rgba":272,"dtype":94,"dup":196}],271:[function(_dereq_,module,exports){
+arguments[4][63][0].apply(exports,arguments)
+},{"color-name":61,"dup":63}],272:[function(_dereq_,module,exports){
+arguments[4][64][0].apply(exports,arguments)
+},{"color-parse":271,"color-space/hsl":67,"dup":64}],273:[function(_dereq_,module,exports){
 'use strict';
 
 function _slicedToArray(arr, i) {
@@ -43271,7 +43635,13 @@ var reglScatter2d = function reglScatter2d(regl, options) {
 
 module.exports = reglScatter2d;
 
-},{"@plotly/point-cluster":10,"array-bounds":14,"color-id":61,"color-normalize":63,"flatten-vertex-data":156,"glslify":202,"is-iexplorer":212,"object-assign":227,"parse-rect":230,"pick-by-alias":236,"to-float32":286,"update-diff":306}],259:[function(_dereq_,module,exports){
+},{"@plotly/point-cluster":10,"array-bounds":14,"color-id":60,"color-normalize":274,"flatten-vertex-data":160,"glslify":210,"is-iexplorer":220,"object-assign":236,"parse-rect":239,"pick-by-alias":245,"to-float32":302,"update-diff":321}],274:[function(_dereq_,module,exports){
+arguments[4][196][0].apply(exports,arguments)
+},{"color-rgba":276,"dtype":94,"dup":196}],275:[function(_dereq_,module,exports){
+arguments[4][63][0].apply(exports,arguments)
+},{"color-name":61,"dup":63}],276:[function(_dereq_,module,exports){
+arguments[4][64][0].apply(exports,arguments)
+},{"color-parse":275,"color-space/hsl":67,"dup":64}],277:[function(_dereq_,module,exports){
 'use strict'
 
 
@@ -43693,170 +44063,173 @@ function getPad (arg) {
 	}
 }
 
-},{"array-bounds":14,"array-range":16,"flatten-vertex-data":156,"parse-rect":230,"pick-by-alias":236,"raf":251,"regl-scatter2d":258}],260:[function(_dereq_,module,exports){
-(function(ja,N){"object"===typeof exports&&"undefined"!==typeof module?module.exports=N():"function"===typeof define&&define.amd?define(N):ja.createREGL=N()})(this,function(){function ja(a,b){this.id=Bb++;this.type=a;this.data=b}function N(a){if(0===a.length)return[];var b=a.charAt(0),c=a.charAt(a.length-1);if(1<a.length&&b===c&&('"'===b||"'"===b))return['"'+a.substr(1,a.length-2).replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"'];if(b=/\[(false|true|null|\d+|'[^']*'|"[^"]*")\]/.exec(a))return N(a.substr(0,
-b.index)).concat(N(b[1])).concat(N(a.substr(b.index+b[0].length)));b=a.split(".");if(1===b.length)return['"'+a.replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"'];a=[];for(c=0;c<b.length;++c)a=a.concat(N(b[c]));return a}function bb(a){return"["+N(a).join("][")+"]"}function Cb(){var a={"":0},b=[""];return{id:function(c){var e=a[c];if(e)return e;e=a[c]=b.length;b.push(c);return e},str:function(a){return b[a]}}}function Db(a,b,c){function e(){var b=window.innerWidth,e=window.innerHeight;a!==document.body&&
-(e=a.getBoundingClientRect(),b=e.right-e.left,e=e.bottom-e.top);g.width=c*b;g.height=c*e;H(g.style,{width:b+"px",height:e+"px"})}var g=document.createElement("canvas");H(g.style,{border:0,margin:0,padding:0,top:0,left:0});a.appendChild(g);a===document.body&&(g.style.position="absolute",H(a.style,{margin:0,padding:0}));var d;a!==document.body&&"function"===typeof ResizeObserver?(d=new ResizeObserver(function(){setTimeout(e)}),d.observe(a)):window.addEventListener("resize",e,!1);e();return{canvas:g,
-onDestroy:function(){d?d.disconnect():window.removeEventListener("resize",e);a.removeChild(g)}}}function Eb(a,b){function c(c){try{return a.getContext(c,b)}catch(g){return null}}return c("webgl")||c("experimental-webgl")||c("webgl-experimental")}function cb(a){return"string"===typeof a?a.split():a}function db(a){return"string"===typeof a?document.querySelector(a):a}function Fb(a){var b=a||{},c,e,g,d;a={};var r=[],n=[],u="undefined"===typeof window?1:window.devicePixelRatio,q=!1,t=function(a){},m=
-function(){};"string"===typeof b?c=document.querySelector(b):"object"===typeof b&&("string"===typeof b.nodeName&&"function"===typeof b.appendChild&&"function"===typeof b.getBoundingClientRect?c=b:"function"===typeof b.drawArrays||"function"===typeof b.drawElements?(d=b,g=d.canvas):("gl"in b?d=b.gl:"canvas"in b?g=db(b.canvas):"container"in b&&(e=db(b.container)),"attributes"in b&&(a=b.attributes),"extensions"in b&&(r=cb(b.extensions)),"optionalExtensions"in b&&(n=cb(b.optionalExtensions)),"onDone"in
-b&&(t=b.onDone),"profile"in b&&(q=!!b.profile),"pixelRatio"in b&&(u=+b.pixelRatio)));c&&("canvas"===c.nodeName.toLowerCase()?g=c:e=c);if(!d){if(!g){c=Db(e||document.body,t,u);if(!c)return null;g=c.canvas;m=c.onDestroy}void 0===a.premultipliedAlpha&&(a.premultipliedAlpha=!0);d=Eb(g,a)}return d?{gl:d,canvas:g,container:e,extensions:r,optionalExtensions:n,pixelRatio:u,profile:q,onDone:t,onDestroy:m}:(m(),t("webgl not supported, try upgrading your browser or graphics drivers http://get.webgl.org"),null)}
-function Gb(a,b){function c(b){b=b.toLowerCase();var c;try{c=e[b]=a.getExtension(b)}catch(g){}return!!c}for(var e={},g=0;g<b.extensions.length;++g){var d=b.extensions[g];if(!c(d))return b.onDestroy(),b.onDone('"'+d+'" extension is not supported by the current WebGL context, try upgrading your system or a different browser'),null}b.optionalExtensions.forEach(c);return{extensions:e,restore:function(){Object.keys(e).forEach(function(a){if(e[a]&&!c(a))throw Error("(regl): error restoring extension "+
-a);})}}}function A(a,b){for(var c=Array(a),e=0;e<a;++e)c[e]=b(e);return c}function eb(a){var b,c;b=(65535<a)<<4;a>>>=b;c=(255<a)<<3;a>>>=c;b|=c;c=(15<a)<<2;a>>>=c;b|=c;c=(3<a)<<1;return b|c|a>>>c>>1}function fb(){function a(a){a:{for(var b=16;268435456>=b;b*=16)if(a<=b){a=b;break a}a=0}b=c[eb(a)>>2];return 0<b.length?b.pop():new ArrayBuffer(a)}function b(a){c[eb(a.byteLength)>>2].push(a)}var c=A(8,function(){return[]});return{alloc:a,free:b,allocType:function(b,c){var d=null;switch(b){case 5120:d=
-new Int8Array(a(c),0,c);break;case 5121:d=new Uint8Array(a(c),0,c);break;case 5122:d=new Int16Array(a(2*c),0,c);break;case 5123:d=new Uint16Array(a(2*c),0,c);break;case 5124:d=new Int32Array(a(4*c),0,c);break;case 5125:d=new Uint32Array(a(4*c),0,c);break;case 5126:d=new Float32Array(a(4*c),0,c);break;default:return null}return d.length!==c?d.subarray(0,c):d},freeType:function(a){b(a.buffer)}}}function X(a){return!!a&&"object"===typeof a&&Array.isArray(a.shape)&&Array.isArray(a.stride)&&"number"===
-typeof a.offset&&a.shape.length===a.stride.length&&(Array.isArray(a.data)||G(a.data))}function gb(a,b,c,e,g,d){for(var r=0;r<b;++r)for(var n=a[r],u=0;u<c;++u)for(var q=n[u],t=0;t<e;++t)g[d++]=q[t]}function hb(a,b,c,e,g){for(var d=1,r=c+1;r<b.length;++r)d*=b[r];var n=b[c];if(4===b.length-c){var u=b[c+1],q=b[c+2];b=b[c+3];for(r=0;r<n;++r)gb(a[r],u,q,b,e,g),g+=d}else for(r=0;r<n;++r)hb(a[r],b,c+1,e,g),g+=d}function Fa(a){return Ga[Object.prototype.toString.call(a)]|0}function ib(a,b){for(var c=0;c<b.length;++c)a[c]=
-b[c]}function jb(a,b,c,e,g,d,r){for(var n=0,u=0;u<c;++u)for(var q=0;q<e;++q)a[n++]=b[g*u+d*q+r]}function Hb(a,b,c,e){function g(b){this.id=u++;this.buffer=a.createBuffer();this.type=b;this.usage=35044;this.byteLength=0;this.dimension=1;this.dtype=5121;this.persistentData=null;c.profile&&(this.stats={size:0})}function d(b,c,k){b.byteLength=c.byteLength;a.bufferData(b.type,c,k)}function r(a,b,c,h,f,p){a.usage=c;if(Array.isArray(b)){if(a.dtype=h||5126,0<b.length)if(Array.isArray(b[0])){f=kb(b);for(var l=
-h=1;l<f.length;++l)h*=f[l];a.dimension=h;b=Qa(b,f,a.dtype);d(a,b,c);p?a.persistentData=b:z.freeType(b)}else"number"===typeof b[0]?(a.dimension=f,f=z.allocType(a.dtype,b.length),ib(f,b),d(a,f,c),p?a.persistentData=f:z.freeType(f)):G(b[0])&&(a.dimension=b[0].length,a.dtype=h||Fa(b[0])||5126,b=Qa(b,[b.length,b[0].length],a.dtype),d(a,b,c),p?a.persistentData=b:z.freeType(b))}else if(G(b))a.dtype=h||Fa(b),a.dimension=f,d(a,b,c),p&&(a.persistentData=new Uint8Array(new Uint8Array(b.buffer)));else if(X(b)){f=
-b.shape;var v=b.stride,l=b.offset,e=0,g=0,q=0,n=0;1===f.length?(e=f[0],g=1,q=v[0],n=0):2===f.length&&(e=f[0],g=f[1],q=v[0],n=v[1]);a.dtype=h||Fa(b.data)||5126;a.dimension=g;f=z.allocType(a.dtype,e*g);jb(f,b.data,e,g,q,n,l);d(a,f,c);p?a.persistentData=f:z.freeType(f)}else b instanceof ArrayBuffer&&(a.dtype=5121,a.dimension=f,d(a,b,c),p&&(a.persistentData=new Uint8Array(new Uint8Array(b))))}function n(c){b.bufferCount--;e(c);a.deleteBuffer(c.buffer);c.buffer=null;delete q[c.id]}var u=0,q={};g.prototype.bind=
-function(){a.bindBuffer(this.type,this.buffer)};g.prototype.destroy=function(){n(this)};var t=[];c.profile&&(b.getTotalBufferSize=function(){var a=0;Object.keys(q).forEach(function(b){a+=q[b].stats.size});return a});return{create:function(m,e,d,h){function f(b){var m=35044,e=null,d=0,g=0,k=1;Array.isArray(b)||G(b)||X(b)||b instanceof ArrayBuffer?e=b:"number"===typeof b?d=b|0:b&&("data"in b&&(e=b.data),"usage"in b&&(m=lb[b.usage]),"type"in b&&(g=Ha[b.type]),"dimension"in b&&(k=b.dimension|0),"length"in
-b&&(d=b.length|0));p.bind();e?r(p,e,m,g,k,h):(d&&a.bufferData(p.type,d,m),p.dtype=g||5121,p.usage=m,p.dimension=k,p.byteLength=d);c.profile&&(p.stats.size=p.byteLength*ha[p.dtype]);return f}b.bufferCount++;var p=new g(e);q[p.id]=p;d||f(m);f._reglType="buffer";f._buffer=p;f.subdata=function(b,c){var m=(c||0)|0,h;p.bind();if(G(b)||b instanceof ArrayBuffer)a.bufferSubData(p.type,m,b);else if(Array.isArray(b)){if(0<b.length)if("number"===typeof b[0]){var d=z.allocType(p.dtype,b.length);ib(d,b);a.bufferSubData(p.type,
-m,d);z.freeType(d)}else if(Array.isArray(b[0])||G(b[0]))h=kb(b),d=Qa(b,h,p.dtype),a.bufferSubData(p.type,m,d),z.freeType(d)}else if(X(b)){h=b.shape;var e=b.stride,g=d=0,k=0,q=0;1===h.length?(d=h[0],g=1,k=e[0],q=0):2===h.length&&(d=h[0],g=h[1],k=e[0],q=e[1]);h=Array.isArray(b.data)?p.dtype:Fa(b.data);h=z.allocType(h,d*g);jb(h,b.data,d,g,k,q,b.offset);a.bufferSubData(p.type,m,h);z.freeType(h)}return f};c.profile&&(f.stats=p.stats);f.destroy=function(){n(p)};return f},createStream:function(a,b){var c=
-t.pop();c||(c=new g(a));c.bind();r(c,b,35040,0,1,!1);return c},destroyStream:function(a){t.push(a)},clear:function(){J(q).forEach(n);t.forEach(n)},getBuffer:function(a){return a&&a._buffer instanceof g?a._buffer:null},restore:function(){J(q).forEach(function(b){b.buffer=a.createBuffer();a.bindBuffer(b.type,b.buffer);a.bufferData(b.type,b.persistentData||b.byteLength,b.usage)})},_initBuffer:r}}function Ib(a,b,c,e){function g(a){this.id=u++;n[this.id]=this;this.buffer=a;this.primType=4;this.type=this.vertCount=
-0}function d(d,e,g,h,f,p,l){d.buffer.bind();var v;e?((v=l)||G(e)&&(!X(e)||G(e.data))||(v=b.oes_element_index_uint?5125:5123),c._initBuffer(d.buffer,e,g,v,3)):(a.bufferData(34963,p,g),d.buffer.dtype=v||5121,d.buffer.usage=g,d.buffer.dimension=3,d.buffer.byteLength=p);v=l;if(!l){switch(d.buffer.dtype){case 5121:case 5120:v=5121;break;case 5123:case 5122:v=5123;break;case 5125:case 5124:v=5125}d.buffer.dtype=v}d.type=v;e=f;0>e&&(e=d.buffer.byteLength,5123===v?e>>=1:5125===v&&(e>>=2));d.vertCount=e;e=
-h;0>h&&(e=4,h=d.buffer.dimension,1===h&&(e=0),2===h&&(e=1),3===h&&(e=4));d.primType=e}function r(a){e.elementsCount--;delete n[a.id];a.buffer.destroy();a.buffer=null}var n={},u=0,q={uint8:5121,uint16:5123};b.oes_element_index_uint&&(q.uint32=5125);g.prototype.bind=function(){this.buffer.bind()};var t=[];return{create:function(a,b){function k(a){if(a)if("number"===typeof a)h(a),f.primType=4,f.vertCount=a|0,f.type=5121;else{var b=null,c=35044,e=-1,g=-1,m=0,n=0;if(Array.isArray(a)||G(a)||X(a))b=a;else if("data"in
-a&&(b=a.data),"usage"in a&&(c=lb[a.usage]),"primitive"in a&&(e=Sa[a.primitive]),"count"in a&&(g=a.count|0),"type"in a&&(n=q[a.type]),"length"in a)m=a.length|0;else if(m=g,5123===n||5122===n)m*=2;else if(5125===n||5124===n)m*=4;d(f,b,c,e,g,m,n)}else h(),f.primType=4,f.vertCount=0,f.type=5121;return k}var h=c.create(null,34963,!0),f=new g(h._buffer);e.elementsCount++;k(a);k._reglType="elements";k._elements=f;k.subdata=function(a,b){h.subdata(a,b);return k};k.destroy=function(){r(f)};return k},createStream:function(a){var b=
-t.pop();b||(b=new g(c.create(null,34963,!0,!1)._buffer));d(b,a,35040,-1,-1,0,0);return b},destroyStream:function(a){t.push(a)},getElements:function(a){return"function"===typeof a&&a._elements instanceof g?a._elements:null},clear:function(){J(n).forEach(r)}}}function nb(a){for(var b=z.allocType(5123,a.length),c=0;c<a.length;++c)if(isNaN(a[c]))b[c]=65535;else if(Infinity===a[c])b[c]=31744;else if(-Infinity===a[c])b[c]=64512;else{ob[0]=a[c];var e=Jb[0],g=e>>>31<<15,d=(e<<1>>>24)-127,e=e>>13&1023;b[c]=
--24>d?g:-14>d?g+(e+1024>>-14-d):15<d?g+31744:g+(d+15<<10)+e}return b}function na(a){return Array.isArray(a)||G(a)}function ka(a){return"[object "+a+"]"}function pb(a){return Array.isArray(a)&&(0===a.length||"number"===typeof a[0])}function qb(a){return Array.isArray(a)&&0!==a.length&&na(a[0])?!0:!1}function Y(a){return Object.prototype.toString.call(a)}function Ta(a){if(!a)return!1;var b=Y(a);return 0<=Kb.indexOf(b)?!0:pb(a)||qb(a)||X(a)}function rb(a,b){36193===a.type?(a.data=nb(b),z.freeType(b)):
-a.data=b}function Ia(a,b,c,e,g,d){a="undefined"!==typeof w[a]?w[a]:S[a]*Z[b];d&&(a*=6);if(g){for(e=0;1<=c;)e+=a*c*c,c/=2;return e}return a*c*e}function Lb(a,b,c,e,g,d,r){function n(){this.format=this.internalformat=6408;this.type=5121;this.flipY=this.premultiplyAlpha=this.compressed=!1;this.unpackAlignment=1;this.colorSpace=37444;this.channels=this.height=this.width=0}function u(a,b){a.internalformat=b.internalformat;a.format=b.format;a.type=b.type;a.compressed=b.compressed;a.premultiplyAlpha=b.premultiplyAlpha;
-a.flipY=b.flipY;a.unpackAlignment=b.unpackAlignment;a.colorSpace=b.colorSpace;a.width=b.width;a.height=b.height;a.channels=b.channels}function q(a,b){if("object"===typeof b&&b){"premultiplyAlpha"in b&&(a.premultiplyAlpha=b.premultiplyAlpha);"flipY"in b&&(a.flipY=b.flipY);"alignment"in b&&(a.unpackAlignment=b.alignment);"colorSpace"in b&&(a.colorSpace=Mb[b.colorSpace]);"type"in b&&(a.type=K[b.type]);var c=a.width,f=a.height,e=a.channels,d=!1;"shape"in b?(c=b.shape[0],f=b.shape[1],3===b.shape.length&&
-(e=b.shape[2],d=!0)):("radius"in b&&(c=f=b.radius),"width"in b&&(c=b.width),"height"in b&&(f=b.height),"channels"in b&&(e=b.channels,d=!0));a.width=c|0;a.height=f|0;a.channels=e|0;c=!1;"format"in b&&(c=b.format,f=a.internalformat=B[c],a.format=M[f],c in K&&!("type"in b)&&(a.type=K[c]),c in V&&(a.compressed=!0),c=!0);!d&&c?a.channels=S[a.format]:d&&!c&&a.channels!==La[a.format]&&(a.format=a.internalformat=La[a.channels])}}function t(b){a.pixelStorei(37440,b.flipY);a.pixelStorei(37441,b.premultiplyAlpha);
-a.pixelStorei(37443,b.colorSpace);a.pixelStorei(3317,b.unpackAlignment)}function m(){n.call(this);this.yOffset=this.xOffset=0;this.data=null;this.needsFree=!1;this.element=null;this.needsCopy=!1}function F(a,b){var c=null;Ta(b)?c=b:b&&(q(a,b),"x"in b&&(a.xOffset=b.x|0),"y"in b&&(a.yOffset=b.y|0),Ta(b.data)&&(c=b.data));if(b.copy){var f=g.viewportWidth,d=g.viewportHeight;a.width=a.width||f-a.xOffset;a.height=a.height||d-a.yOffset;a.needsCopy=!0}else if(!c)a.width=a.width||1,a.height=a.height||1,a.channels=
-a.channels||4;else if(G(c))a.channels=a.channels||4,a.data=c,"type"in b||5121!==a.type||(a.type=Ga[Object.prototype.toString.call(c)]|0);else if(pb(c)){a.channels=a.channels||4;f=c;d=f.length;switch(a.type){case 5121:case 5123:case 5125:case 5126:d=z.allocType(a.type,d);d.set(f);a.data=d;break;case 36193:a.data=nb(f)}a.alignment=1;a.needsFree=!0}else if(X(c)){f=c.data;Array.isArray(f)||5121!==a.type||(a.type=Ga[Object.prototype.toString.call(f)]|0);var d=c.shape,e=c.stride,h,l,k,p;3===d.length?(k=
-d[2],p=e[2]):p=k=1;h=d[0];l=d[1];d=e[0];e=e[1];a.alignment=1;a.width=h;a.height=l;a.channels=k;a.format=a.internalformat=La[k];a.needsFree=!0;h=p;c=c.offset;k=a.width;p=a.height;l=a.channels;for(var y=z.allocType(36193===a.type?5126:a.type,k*p*l),I=0,U=0;U<p;++U)for(var da=0;da<k;++da)for(var Ua=0;Ua<l;++Ua)y[I++]=f[d*da+e*U+h*Ua+c];rb(a,y)}else if(Y(c)===Va||Y(c)===Wa||Y(c)===sb)Y(c)===Va||Y(c)===Wa?a.element=c:a.element=c.canvas,a.width=a.element.width,a.height=a.element.height,a.channels=4;else if(Y(c)===
-tb)a.element=c,a.width=c.width,a.height=c.height,a.channels=4;else if(Y(c)===ub)a.element=c,a.width=c.naturalWidth,a.height=c.naturalHeight,a.channels=4;else if(Y(c)===vb)a.element=c,a.width=c.videoWidth,a.height=c.videoHeight,a.channels=4;else if(qb(c)){f=a.width||c[0].length;d=a.height||c.length;e=a.channels;e=na(c[0][0])?e||c[0][0].length:e||1;h=Ma.shape(c);k=1;for(p=0;p<h.length;++p)k*=h[p];k=z.allocType(36193===a.type?5126:a.type,k);Ma.flatten(c,h,"",k);rb(a,k);a.alignment=1;a.width=f;a.height=
-d;a.channels=e;a.format=a.internalformat=La[e];a.needsFree=!0}}function k(b,c,f,d,h){var g=b.element,k=b.data,l=b.internalformat,p=b.format,v=b.type,y=b.width,I=b.height;t(b);g?a.texSubImage2D(c,h,f,d,p,v,g):b.compressed?a.compressedTexSubImage2D(c,h,f,d,l,y,I,k):b.needsCopy?(e(),a.copyTexSubImage2D(c,h,f,d,b.xOffset,b.yOffset,y,I)):a.texSubImage2D(c,h,f,d,y,I,p,v,k)}function h(){return L.pop()||new m}function f(a){a.needsFree&&z.freeType(a.data);m.call(a);L.push(a)}function p(){n.call(this);this.genMipmaps=
-!1;this.mipmapHint=4352;this.mipmask=0;this.images=Array(16)}function l(a,b,c){var f=a.images[0]=h();a.mipmask=1;f.width=a.width=b;f.height=a.height=c;f.channels=a.channels=4}function v(a,b){var c=null;if(Ta(b))c=a.images[0]=h(),u(c,a),F(c,b),a.mipmask=1;else if(q(a,b),Array.isArray(b.mipmap))for(var f=b.mipmap,d=0;d<f.length;++d)c=a.images[d]=h(),u(c,a),c.width>>=d,c.height>>=d,F(c,f[d]),a.mipmask|=1<<d;else c=a.images[0]=h(),u(c,a),F(c,b),a.mipmask=1;u(a,a.images[0])}function Q(b,c){for(var f=b.images,
-d=0;d<f.length&&f[d];++d){var h=f[d],g=c,k=d,l=h.element,p=h.data,v=h.internalformat,y=h.format,I=h.type,U=h.width,da=h.height;t(h);l?a.texImage2D(g,k,y,y,I,l):h.compressed?a.compressedTexImage2D(g,k,v,U,da,0,p):h.needsCopy?(e(),a.copyTexImage2D(g,k,y,h.xOffset,h.yOffset,U,da,0)):a.texImage2D(g,k,y,U,da,0,y,I,p||null)}}function C(){var a=A.pop()||new p;n.call(a);for(var b=a.mipmask=0;16>b;++b)a.images[b]=null;return a}function va(a){for(var b=a.images,c=0;c<b.length;++c)b[c]&&f(b[c]),b[c]=null;A.push(a)}
-function ea(){this.magFilter=this.minFilter=9728;this.wrapT=this.wrapS=33071;this.anisotropic=1;this.genMipmaps=!1;this.mipmapHint=4352}function mb(a,b){"min"in b&&(a.minFilter=O[b.min],0<=Nb.indexOf(a.minFilter)&&!("faces"in b)&&(a.genMipmaps=!0));"mag"in b&&(a.magFilter=T[b.mag]);var c=a.wrapS,f=a.wrapT;if("wrap"in b){var d=b.wrap;"string"===typeof d?c=f=la[d]:Array.isArray(d)&&(c=la[d[0]],f=la[d[1]])}else"wrapS"in b&&(c=la[b.wrapS]),"wrapT"in b&&(f=la[b.wrapT]);a.wrapS=c;a.wrapT=f;"anisotropic"in
-b&&(a.anisotropic=b.anisotropic);if("mipmap"in b){c=!1;switch(typeof b.mipmap){case "string":a.mipmapHint=x[b.mipmap];c=a.genMipmaps=!0;break;case "boolean":c=a.genMipmaps=b.mipmap;break;case "object":a.genMipmaps=!1,c=!0}!c||"min"in b||(a.minFilter=9984)}}function Ra(c,f){a.texParameteri(f,10241,c.minFilter);a.texParameteri(f,10240,c.magFilter);a.texParameteri(f,10242,c.wrapS);a.texParameteri(f,10243,c.wrapT);b.ext_texture_filter_anisotropic&&a.texParameteri(f,34046,c.anisotropic);c.genMipmaps&&
-(a.hint(33170,c.mipmapHint),a.generateMipmap(f))}function R(b){n.call(this);this.mipmask=0;this.internalformat=6408;this.id=P++;this.refCount=1;this.target=b;this.texture=a.createTexture();this.unit=-1;this.bindCount=0;this.texInfo=new ea;r.profile&&(this.stats={size:0})}function sa(b){a.activeTexture(33984);a.bindTexture(b.target,b.texture)}function za(){var b=W[0];b?a.bindTexture(b.target,b.texture):a.bindTexture(3553,null)}function D(b){var c=b.texture,f=b.unit,h=b.target;0<=f&&(a.activeTexture(33984+
-f),a.bindTexture(h,null),W[f]=null);a.deleteTexture(c);b.texture=null;b.params=null;b.pixels=null;b.refCount=0;delete E[b.id];d.textureCount--}var x={"don't care":4352,"dont care":4352,nice:4354,fast:4353},la={repeat:10497,clamp:33071,mirror:33648},T={nearest:9728,linear:9729},O=H({mipmap:9987,"nearest mipmap nearest":9984,"linear mipmap nearest":9985,"nearest mipmap linear":9986,"linear mipmap linear":9987},T),Mb={none:0,browser:37444},K={uint8:5121,rgba4:32819,rgb565:33635,"rgb5 a1":32820},B={alpha:6406,
-luminance:6409,"luminance alpha":6410,rgb:6407,rgba:6408,rgba4:32854,"rgb5 a1":32855,rgb565:36194},V={};b.ext_srgb&&(B.srgb=35904,B.srgba=35906);b.oes_texture_float&&(K.float32=K["float"]=5126);b.oes_texture_half_float&&(K.float16=K["half float"]=36193);b.webgl_depth_texture&&(H(B,{depth:6402,"depth stencil":34041}),H(K,{uint16:5123,uint32:5125,"depth stencil":34042}));b.webgl_compressed_texture_s3tc&&H(V,{"rgb s3tc dxt1":33776,"rgba s3tc dxt1":33777,"rgba s3tc dxt3":33778,"rgba s3tc dxt5":33779});
-b.webgl_compressed_texture_atc&&H(V,{"rgb atc":35986,"rgba atc explicit alpha":35987,"rgba atc interpolated alpha":34798});b.webgl_compressed_texture_pvrtc&&H(V,{"rgb pvrtc 4bppv1":35840,"rgb pvrtc 2bppv1":35841,"rgba pvrtc 4bppv1":35842,"rgba pvrtc 2bppv1":35843});b.webgl_compressed_texture_etc1&&(V["rgb etc1"]=36196);var w=Array.prototype.slice.call(a.getParameter(34467));Object.keys(V).forEach(function(a){var b=V[a];0<=w.indexOf(b)&&(B[a]=b)});var wa=Object.keys(B);c.textureFormats=wa;var aa=[];
-Object.keys(B).forEach(function(a){aa[B[a]]=a});var xa=[];Object.keys(K).forEach(function(a){xa[K[a]]=a});var ba=[];Object.keys(T).forEach(function(a){ba[T[a]]=a});var Da=[];Object.keys(O).forEach(function(a){Da[O[a]]=a});var fa=[];Object.keys(la).forEach(function(a){fa[la[a]]=a});var M=wa.reduce(function(a,c){var f=B[c];6409===f||6406===f||6409===f||6410===f||6402===f||34041===f||b.ext_srgb&&(35904===f||35906===f)?a[f]=f:32855===f||0<=c.indexOf("rgba")?a[f]=6408:a[f]=6407;return a},{}),L=[],A=[],
-P=0,E={},ia=c.maxTextureUnits,W=Array(ia).map(function(){return null});H(R.prototype,{bind:function(){this.bindCount+=1;var b=this.unit;if(0>b){for(var c=0;c<ia;++c){var f=W[c];if(f){if(0<f.bindCount)continue;f.unit=-1}W[c]=this;b=c;break}r.profile&&d.maxTextureUnits<b+1&&(d.maxTextureUnits=b+1);this.unit=b;a.activeTexture(33984+b);a.bindTexture(this.target,this.texture)}return b},unbind:function(){--this.bindCount},decRef:function(){0>=--this.refCount&&D(this)}});r.profile&&(d.getTotalTextureSize=
-function(){var a=0;Object.keys(E).forEach(function(b){a+=E[b].stats.size});return a});return{create2D:function(b,c){function e(a,b){var c=g.texInfo;ea.call(c);var f=C();"number"===typeof a?"number"===typeof b?l(f,a|0,b|0):l(f,a|0,a|0):a?(mb(c,a),v(f,a)):l(f,1,1);c.genMipmaps&&(f.mipmask=(f.width<<1)-1);g.mipmask=f.mipmask;u(g,f);g.internalformat=f.internalformat;e.width=f.width;e.height=f.height;sa(g);Q(f,3553);Ra(c,3553);za();va(f);r.profile&&(g.stats.size=Ia(g.internalformat,g.type,f.width,f.height,
-c.genMipmaps,!1));e.format=aa[g.internalformat];e.type=xa[g.type];e.mag=ba[c.magFilter];e.min=Da[c.minFilter];e.wrapS=fa[c.wrapS];e.wrapT=fa[c.wrapT];return e}var g=new R(3553);E[g.id]=g;d.textureCount++;e(b,c);e.subimage=function(a,b,c,d){b|=0;c|=0;d|=0;var l=h();u(l,g);l.width=0;l.height=0;F(l,a);l.width=l.width||(g.width>>d)-b;l.height=l.height||(g.height>>d)-c;sa(g);k(l,3553,b,c,d);za();f(l);return e};e.resize=function(b,c){var f=b|0,d=c|0||f;if(f===g.width&&d===g.height)return e;e.width=g.width=
-f;e.height=g.height=d;sa(g);for(var h=0;g.mipmask>>h;++h){var l=f>>h,y=d>>h;if(!l||!y)break;a.texImage2D(3553,h,g.format,l,y,0,g.format,g.type,null)}za();r.profile&&(g.stats.size=Ia(g.internalformat,g.type,f,d,!1,!1));return e};e._reglType="texture2d";e._texture=g;r.profile&&(e.stats=g.stats);e.destroy=function(){g.decRef()};return e},createCube:function(b,c,e,g,p,n){function m(a,b,c,f,d,e){var h,ma=x.texInfo;ea.call(ma);for(h=0;6>h;++h)D[h]=C();if("number"===typeof a||!a)for(a=a|0||1,h=0;6>h;++h)l(D[h],
-a,a);else if("object"===typeof a)if(b)v(D[0],a),v(D[1],b),v(D[2],c),v(D[3],f),v(D[4],d),v(D[5],e);else if(mb(ma,a),q(x,a),"faces"in a)for(a=a.faces,h=0;6>h;++h)u(D[h],x),v(D[h],a[h]);else for(h=0;6>h;++h)v(D[h],a);u(x,D[0]);x.mipmask=ma.genMipmaps?(D[0].width<<1)-1:D[0].mipmask;x.internalformat=D[0].internalformat;m.width=D[0].width;m.height=D[0].height;sa(x);for(h=0;6>h;++h)Q(D[h],34069+h);Ra(ma,34067);za();r.profile&&(x.stats.size=Ia(x.internalformat,x.type,m.width,m.height,ma.genMipmaps,!0));m.format=
-aa[x.internalformat];m.type=xa[x.type];m.mag=ba[ma.magFilter];m.min=Da[ma.minFilter];m.wrapS=fa[ma.wrapS];m.wrapT=fa[ma.wrapT];for(h=0;6>h;++h)va(D[h]);return m}var x=new R(34067);E[x.id]=x;d.cubeCount++;var D=Array(6);m(b,c,e,g,p,n);m.subimage=function(a,b,c,d,e){c|=0;d|=0;e|=0;var g=h();u(g,x);g.width=0;g.height=0;F(g,b);g.width=g.width||(x.width>>e)-c;g.height=g.height||(x.height>>e)-d;sa(x);k(g,34069+a,c,d,e);za();f(g);return m};m.resize=function(b){b|=0;if(b!==x.width){m.width=x.width=b;m.height=
-x.height=b;sa(x);for(var c=0;6>c;++c)for(var f=0;x.mipmask>>f;++f)a.texImage2D(34069+c,f,x.format,b>>f,b>>f,0,x.format,x.type,null);za();r.profile&&(x.stats.size=Ia(x.internalformat,x.type,m.width,m.height,!1,!0));return m}};m._reglType="textureCube";m._texture=x;r.profile&&(m.stats=x.stats);m.destroy=function(){x.decRef()};return m},clear:function(){for(var b=0;b<ia;++b)a.activeTexture(33984+b),a.bindTexture(3553,null),W[b]=null;J(E).forEach(D);d.cubeCount=0;d.textureCount=0},getTexture:function(a){return null},
-restore:function(){for(var b=0;b<ia;++b){var c=W[b];c&&(c.bindCount=0,c.unit=-1,W[b]=null)}J(E).forEach(function(b){b.texture=a.createTexture();a.bindTexture(b.target,b.texture);for(var c=0;32>c;++c)if(0!==(b.mipmask&1<<c))if(3553===b.target)a.texImage2D(3553,c,b.internalformat,b.width>>c,b.height>>c,0,b.internalformat,b.type,null);else for(var f=0;6>f;++f)a.texImage2D(34069+f,c,b.internalformat,b.width>>c,b.height>>c,0,b.internalformat,b.type,null);Ra(b.texInfo,b.target)})}}}function Ob(a,b,c,e,
-g,d){function r(a,b,c){this.target=a;this.texture=b;this.renderbuffer=c;var f=a=0;b?(a=b.width,f=b.height):c&&(a=c.width,f=c.height);this.width=a;this.height=f}function n(a){a&&(a.texture&&a.texture._texture.decRef(),a.renderbuffer&&a.renderbuffer._renderbuffer.decRef())}function u(a,b,c){a&&(a.texture?a.texture._texture.refCount+=1:a.renderbuffer._renderbuffer.refCount+=1)}function q(b,c){c&&(c.texture?a.framebufferTexture2D(36160,b,c.target,c.texture._texture.texture,0):a.framebufferRenderbuffer(36160,
-b,36161,c.renderbuffer._renderbuffer.renderbuffer))}function t(a){var b=3553,c=null,f=null,d=a;"object"===typeof a&&(d=a.data,"target"in a&&(b=a.target|0));a=d._reglType;"texture2d"===a?c=d:"textureCube"===a?c=d:"renderbuffer"===a&&(f=d,b=36161);return new r(b,c,f)}function m(a,b,c,f,d){if(c)return a=e.create2D({width:a,height:b,format:f,type:d}),a._texture.refCount=0,new r(3553,a,null);a=g.create({width:a,height:b,format:f});a._renderbuffer.refCount=0;return new r(36161,null,a)}function F(a){return a&&
-(a.texture||a.renderbuffer)}function k(a,b,c){a&&(a.texture?a.texture.resize(b,c):a.renderbuffer&&a.renderbuffer.resize(b,c),a.width=b,a.height=c)}function h(){this.id=z++;w[this.id]=this;this.framebuffer=a.createFramebuffer();this.height=this.width=0;this.colorAttachments=[];this.depthStencilAttachment=this.stencilAttachment=this.depthAttachment=null}function f(a){a.colorAttachments.forEach(n);n(a.depthAttachment);n(a.stencilAttachment);n(a.depthStencilAttachment)}function p(b){a.deleteFramebuffer(b.framebuffer);
-b.framebuffer=null;d.framebufferCount--;delete w[b.id]}function l(b){var f;a.bindFramebuffer(36160,b.framebuffer);var d=b.colorAttachments;for(f=0;f<d.length;++f)q(36064+f,d[f]);for(f=d.length;f<c.maxColorAttachments;++f)a.framebufferTexture2D(36160,36064+f,3553,null,0);a.framebufferTexture2D(36160,33306,3553,null,0);a.framebufferTexture2D(36160,36096,3553,null,0);a.framebufferTexture2D(36160,36128,3553,null,0);q(36096,b.depthAttachment);q(36128,b.stencilAttachment);q(33306,b.depthStencilAttachment);
-a.checkFramebufferStatus(36160);a.isContextLost();a.bindFramebuffer(36160,Q.next?Q.next.framebuffer:null);Q.cur=Q.next;a.getError()}function v(a,b){function c(a,b){var d,h=0,g=0,k=!0,p=!0;d=null;var v=!0,n="rgba",q="uint8",r=1,ea=null,ba=null,Q=null,fa=!1;if("number"===typeof a)h=a|0,g=b|0||h;else if(a){"shape"in a?(g=a.shape,h=g[0],g=g[1]):("radius"in a&&(h=g=a.radius),"width"in a&&(h=a.width),"height"in a&&(g=a.height));if("color"in a||"colors"in a)d=a.color||a.colors,Array.isArray(d);if(!d){"colorCount"in
-a&&(r=a.colorCount|0);"colorTexture"in a&&(v=!!a.colorTexture,n="rgba4");if("colorType"in a&&(q=a.colorType,!v))if("half float"===q||"float16"===q)n="rgba16f";else if("float"===q||"float32"===q)n="rgba32f";"colorFormat"in a&&(n=a.colorFormat,0<=C.indexOf(n)?v=!0:0<=va.indexOf(n)&&(v=!1))}if("depthTexture"in a||"depthStencilTexture"in a)fa=!(!a.depthTexture&&!a.depthStencilTexture);"depth"in a&&("boolean"===typeof a.depth?k=a.depth:(ea=a.depth,p=!1));"stencil"in a&&("boolean"===typeof a.stencil?p=
-a.stencil:(ba=a.stencil,k=!1));"depthStencil"in a&&("boolean"===typeof a.depthStencil?k=p=a.depthStencil:(Q=a.depthStencil,p=k=!1))}else h=g=1;var M=null,z=null,w=null,R=null;if(Array.isArray(d))M=d.map(t);else if(d)M=[t(d)];else for(M=Array(r),d=0;d<r;++d)M[d]=m(h,g,v,n,q);h=h||M[0].width;g=g||M[0].height;ea?z=t(ea):k&&!p&&(z=m(h,g,fa,"depth","uint32"));ba?w=t(ba):p&&!k&&(w=m(h,g,!1,"stencil","uint8"));Q?R=t(Q):!ea&&!ba&&p&&k&&(R=m(h,g,fa,"depth stencil","depth stencil"));k=null;for(d=0;d<M.length;++d)u(M[d],
-h,g),M[d]&&M[d].texture&&(p=Xa[M[d].texture._texture.format]*Na[M[d].texture._texture.type],null===k&&(k=p));u(z,h,g);u(w,h,g);u(R,h,g);f(e);e.width=h;e.height=g;e.colorAttachments=M;e.depthAttachment=z;e.stencilAttachment=w;e.depthStencilAttachment=R;c.color=M.map(F);c.depth=F(z);c.stencil=F(w);c.depthStencil=F(R);c.width=e.width;c.height=e.height;l(e);return c}var e=new h;d.framebufferCount++;c(a,b);return H(c,{resize:function(a,b){var f=Math.max(a|0,1),d=Math.max(b|0||f,1);if(f===e.width&&d===
-e.height)return c;for(var h=e.colorAttachments,g=0;g<h.length;++g)k(h[g],f,d);k(e.depthAttachment,f,d);k(e.stencilAttachment,f,d);k(e.depthStencilAttachment,f,d);e.width=c.width=f;e.height=c.height=d;l(e);return c},_reglType:"framebuffer",_framebuffer:e,destroy:function(){p(e);f(e)},use:function(a){Q.setFBO({framebuffer:c},a)}})}var Q={cur:null,next:null,dirty:!1,setFBO:null},C=["rgba"],va=["rgba4","rgb565","rgb5 a1"];b.ext_srgb&&va.push("srgba");b.ext_color_buffer_half_float&&va.push("rgba16f","rgb16f");
-b.webgl_color_buffer_float&&va.push("rgba32f");var ea=["uint8"];b.oes_texture_half_float&&ea.push("half float","float16");b.oes_texture_float&&ea.push("float","float32");var z=0,w={};return H(Q,{getFramebuffer:function(a){return"function"===typeof a&&"framebuffer"===a._reglType&&(a=a._framebuffer,a instanceof h)?a:null},create:v,createCube:function(a){function b(a){var f,d={color:null},h=0,g=null;f="rgba";var k="uint8",l=1;if("number"===typeof a)h=a|0;else if(a){"shape"in a?h=a.shape[0]:("radius"in
-a&&(h=a.radius|0),"width"in a?h=a.width|0:"height"in a&&(h=a.height|0));if("color"in a||"colors"in a)g=a.color||a.colors,Array.isArray(g);g||("colorCount"in a&&(l=a.colorCount|0),"colorType"in a&&(k=a.colorType),"colorFormat"in a&&(f=a.colorFormat));"depth"in a&&(d.depth=a.depth);"stencil"in a&&(d.stencil=a.stencil);"depthStencil"in a&&(d.depthStencil=a.depthStencil)}else h=1;if(g)if(Array.isArray(g))for(a=[],f=0;f<g.length;++f)a[f]=g[f];else a=[g];else for(a=Array(l),g={radius:h,format:f,type:k},
-f=0;f<l;++f)a[f]=e.createCube(g);d.color=Array(a.length);for(f=0;f<a.length;++f)l=a[f],h=h||l.width,d.color[f]={target:34069,data:a[f]};for(f=0;6>f;++f){for(l=0;l<a.length;++l)d.color[l].target=34069+f;0<f&&(d.depth=c[0].depth,d.stencil=c[0].stencil,d.depthStencil=c[0].depthStencil);if(c[f])c[f](d);else c[f]=v(d)}return H(b,{width:h,height:h,color:a})}var c=Array(6);b(a);return H(b,{faces:c,resize:function(a){var f=a|0;if(f===b.width)return b;var d=b.color;for(a=0;a<d.length;++a)d[a].resize(f);for(a=
-0;6>a;++a)c[a].resize(f);b.width=b.height=f;return b},_reglType:"framebufferCube",destroy:function(){c.forEach(function(a){a.destroy()})}})},clear:function(){J(w).forEach(p)},restore:function(){Q.cur=null;Q.next=null;Q.dirty=!0;J(w).forEach(function(b){b.framebuffer=a.createFramebuffer();l(b)})}})}function Ya(){this.w=this.z=this.y=this.x=this.state=0;this.buffer=null;this.size=0;this.normalized=!1;this.type=5126;this.divisor=this.stride=this.offset=0}function Pb(a,b,c,e,g){function d(a){if(a!==h.currentVAO){var c=
-b.oes_vertex_array_object;a?c.bindVertexArrayOES(a.vao):c.bindVertexArrayOES(null);h.currentVAO=a}}function r(c){if(c!==h.currentVAO){if(c)c.bindAttrs();else for(var d=b.angle_instanced_arrays,e=0;e<m.length;++e){var g=m[e];g.buffer?(a.enableVertexAttribArray(e),a.vertexAttribPointer(e,g.size,g.type,g.normalized,g.stride,g.offfset),d&&d.vertexAttribDivisorANGLE(e,g.divisor)):(a.disableVertexAttribArray(e),a.vertexAttrib4f(e,g.x,g.y,g.z,g.w))}h.currentVAO=c}}function n(){J(k).forEach(function(a){a.destroy()})}
-function u(){this.id=++F;this.attributes=[];var a=b.oes_vertex_array_object;this.vao=a?a.createVertexArrayOES():null;k[this.id]=this;this.buffers=[]}function q(){b.oes_vertex_array_object&&J(k).forEach(function(a){a.refresh()})}var t=c.maxAttributes,m=Array(t);for(c=0;c<t;++c)m[c]=new Ya;var F=0,k={},h={Record:Ya,scope:{},state:m,currentVAO:null,targetVAO:null,restore:b.oes_vertex_array_object?q:function(){},createVAO:function(a){function b(a){for(var f=0;f<c.buffers.length;++f)c.buffers[f].destroy();
-c.buffers.length=0;f=c.attributes;f.length=a.length;for(var d=0;d<a.length;++d){var h=a[d],e=f[d]=new Ya;Array.isArray(h)||G(h)||X(h)?(h=g.create(h,34962,!1,!0),e.buffer=g.getBuffer(h),e.size=e.buffer.dimension|0,e.normalized=!1,e.type=e.buffer.dtype,e.offset=0,e.stride=0,e.divisor=0,e.state=1,c.buffers.push(h)):g.getBuffer(h)?(e.buffer=g.getBuffer(h),e.size=e.buffer.dimension|0,e.normalized=!1,e.type=e.buffer.dtype,e.offset=0,e.stride=0,e.divisor=0,e.state=1):g.getBuffer(h.buffer)?(e.buffer=g.getBuffer(h.buffer),
-e.size=(+h.size||e.buffer.dimension)|0,e.normalized=!!h.normalized||!1,e.type="type"in h?Ha[h.type]:e.buffer.dtype,e.offset=(h.offset||0)|0,e.stride=(h.stride||0)|0,e.divisor=(h.divisor||0)|0,e.state=1):"x"in h&&(e.x=+h.x||0,e.y=+h.y||0,e.z=+h.z||0,e.w=+h.w||0,e.state=2)}c.refresh();return b}var c=new u;e.vaoCount+=1;b.destroy=function(){c.destroy()};b._vao=c;b._reglType="vao";return b(a)},getVAO:function(a){return"function"===typeof a&&a._vao?a._vao:null},destroyBuffer:function(b){for(var c=0;c<
-m.length;++c){var d=m[c];d.buffer===b&&(a.disableVertexAttribArray(c),d.buffer=null)}},setVAO:b.oes_vertex_array_object?d:r,clear:b.oes_vertex_array_object?n:function(){}};u.prototype.bindAttrs=function(){for(var c=b.angle_instanced_arrays,d=this.attributes,e=0;e<d.length;++e){var h=d[e];h.buffer?(a.enableVertexAttribArray(e),a.bindBuffer(34962,h.buffer.buffer),a.vertexAttribPointer(e,h.size,h.type,h.normalized,h.stride,h.offset),c&&c.vertexAttribDivisorANGLE(e,h.divisor)):(a.disableVertexAttribArray(e),
-a.vertexAttrib4f(e,h.x,h.y,h.z,h.w))}for(c=d.length;c<t;++c)a.disableVertexAttribArray(c)};u.prototype.refresh=function(){var a=b.oes_vertex_array_object;a&&(a.bindVertexArrayOES(this.vao),this.bindAttrs(),h.currentVAO=this)};u.prototype.destroy=function(){if(this.vao){var a=b.oes_vertex_array_object;this===h.currentVAO&&(h.currentVAO=null,a.bindVertexArrayOES(null));a.deleteVertexArrayOES(this.vao);this.vao=null}k[this.id]&&(delete k[this.id],--e.vaoCount)};return h}function Qb(a,b,c,e){function g(a,
-b,c,d){this.name=a;this.id=b;this.location=c;this.info=d}function d(a,b){for(var c=0;c<a.length;++c)if(a[c].id===b.id){a[c].location=b.location;return}a.push(b)}function r(c,f,d){d=35632===c?q:t;var e=d[f];if(!e){var g=b.str(f),e=a.createShader(c);a.shaderSource(e,g);a.compileShader(e);d[f]=e}return e}function n(a,b){this.id=k++;this.fragId=a;this.vertId=b;this.program=null;this.uniforms=[];this.attributes=[];e.profile&&(this.stats={uniformsCount:0,attributesCount:0})}function u(c,f,k){var m;m=r(35632,
-c.fragId);var n=r(35633,c.vertId);f=c.program=a.createProgram();a.attachShader(f,m);a.attachShader(f,n);if(k)for(m=0;m<k.length;++m)n=k[m],a.bindAttribLocation(f,n[0],n[1]);a.linkProgram(f);n=a.getProgramParameter(f,35718);e.profile&&(c.stats.uniformsCount=n);var q=c.uniforms;for(m=0;m<n;++m)if(k=a.getActiveUniform(f,m))if(1<k.size)for(var u=0;u<k.size;++u){var t=k.name.replace("[0]","["+u+"]");d(q,new g(t,b.id(t),a.getUniformLocation(f,t),k))}else d(q,new g(k.name,b.id(k.name),a.getUniformLocation(f,
-k.name),k));n=a.getProgramParameter(f,35721);e.profile&&(c.stats.attributesCount=n);c=c.attributes;for(m=0;m<n;++m)(k=a.getActiveAttrib(f,m))&&d(c,new g(k.name,b.id(k.name),a.getAttribLocation(f,k.name),k))}var q={},t={},m={},F=[],k=0;e.profile&&(c.getMaxUniformsCount=function(){var a=0;F.forEach(function(b){b.stats.uniformsCount>a&&(a=b.stats.uniformsCount)});return a},c.getMaxAttributesCount=function(){var a=0;F.forEach(function(b){b.stats.attributesCount>a&&(a=b.stats.attributesCount)});return a});
-return{clear:function(){var b=a.deleteShader.bind(a);J(q).forEach(b);q={};J(t).forEach(b);t={};F.forEach(function(b){a.deleteProgram(b.program)});F.length=0;m={};c.shaderCount=0},program:function(a,b,d,e){var g=m[b];g||(g=m[b]={});var k=g[a];if(k&&!e)return k;b=new n(b,a);c.shaderCount++;u(b,d,e);k||(g[a]=b);F.push(b);return b},restore:function(){q={};t={};for(var a=0;a<F.length;++a)u(F[a],null,F[a].attributes.map(function(a){return[a.location,a.name]}))},shader:r,frag:-1,vert:-1}}function Rb(a,b,
-c,e,g,d,r){function n(d){var g;g=null===b.next?5121:b.next.colorAttachments[0].texture._texture.type;var m=0,n=0,k=e.framebufferWidth,h=e.framebufferHeight,f=null;G(d)?f=d:d&&(m=d.x|0,n=d.y|0,k=(d.width||e.framebufferWidth-m)|0,h=(d.height||e.framebufferHeight-n)|0,f=d.data||null);c();d=k*h*4;f||(5121===g?f=new Uint8Array(d):5126===g&&(f=f||new Float32Array(d)));a.pixelStorei(3333,4);a.readPixels(m,n,k,h,6408,g,f);return f}function u(a){var c;b.setFBO({framebuffer:a.framebuffer},function(){c=n(a)});
-return c}return function(a){return a&&"framebuffer"in a?u(a):n(a)}}function ta(a){return Array.prototype.slice.call(a)}function Aa(a){return ta(a).join("")}function Sb(){function a(){var a=[],b=[];return H(function(){a.push.apply(a,ta(arguments))},{def:function(){var d="v"+c++;b.push(d);0<arguments.length&&(a.push(d,"="),a.push.apply(a,ta(arguments)),a.push(";"));return d},toString:function(){return Aa([0<b.length?"var "+b.join(",")+";":"",Aa(a)])}})}function b(){function b(a,e){d(a,e,"=",c.def(a,
-e),";")}var c=a(),d=a(),e=c.toString,g=d.toString;return H(function(){c.apply(c,ta(arguments))},{def:c.def,entry:c,exit:d,save:b,set:function(a,d,e){b(a,d);c(a,d,"=",e,";")},toString:function(){return e()+g()}})}var c=0,e=[],g=[],d=a(),r={};return{global:d,link:function(a){for(var b=0;b<g.length;++b)if(g[b]===a)return e[b];b="g"+c++;e.push(b);g.push(a);return b},block:a,proc:function(a,c){function d(){var a="a"+e.length;e.push(a);return a}var e=[];c=c||0;for(var g=0;g<c;++g)d();var g=b(),F=g.toString;
-return r[a]=H(g,{arg:d,toString:function(){return Aa(["function(",e.join(),"){",F(),"}"])}})},scope:b,cond:function(){var a=Aa(arguments),c=b(),d=b(),e=c.toString,g=d.toString;return H(c,{then:function(){c.apply(c,ta(arguments));return this},"else":function(){d.apply(d,ta(arguments));return this},toString:function(){var b=g();b&&(b="else{"+b+"}");return Aa(["if(",a,"){",e(),"}",b])}})},compile:function(){var a=['"use strict";',d,"return {"];Object.keys(r).forEach(function(b){a.push('"',b,'":',r[b].toString(),
-",")});a.push("}");var b=Aa(a).replace(/;/g,";\n").replace(/}/g,"}\n").replace(/{/g,"{\n");return Function.apply(null,e.concat(b)).apply(null,g)}}}function Oa(a){return Array.isArray(a)||G(a)||X(a)}function wb(a){return a.sort(function(a,c){return"viewport"===a?-1:"viewport"===c?1:a<c?-1:1})}function P(a,b,c,e){this.thisDep=a;this.contextDep=b;this.propDep=c;this.append=e}function ua(a){return a&&!(a.thisDep||a.contextDep||a.propDep)}function C(a){return new P(!1,!1,!1,a)}function L(a,b){var c=a.type;
-return 0===c?(c=a.data.length,new P(!0,1<=c,2<=c,b)):4===c?(c=a.data,new P(c.thisDep,c.contextDep,c.propDep,b)):new P(3===c,2===c,1===c,b)}function Tb(a,b,c,e,g,d,r,n,u,q,t,m,F,k,h){function f(a){return a.replace(".","_")}function p(a,b,c){var d=f(a);Ka.push(a);Ca[d]=pa[d]=!!c;qa[d]=b}function l(a,b,c){var d=f(a);Ka.push(a);Array.isArray(c)?(pa[d]=c.slice(),Ca[d]=c.slice()):pa[d]=Ca[d]=c;ra[d]=b}function v(){var a=Sb(),c=a.link,d=a.global;a.id=ta++;a.batchId="0";var e=c(ka),f=a.shared={props:"a0"};
-Object.keys(ka).forEach(function(a){f[a]=d.def(e,".",a)});var g=a.next={},h=a.current={};Object.keys(ra).forEach(function(a){Array.isArray(pa[a])&&(g[a]=d.def(f.next,".",a),h[a]=d.def(f.current,".",a))});var ca=a.constants={};Object.keys(Z).forEach(function(a){ca[a]=d.def(JSON.stringify(Z[a]))});a.invoke=function(b,d){switch(d.type){case 0:var e=["this",f.context,f.props,a.batchId];return b.def(c(d.data),".call(",e.slice(0,Math.max(d.data.length+1,4)),")");case 1:return b.def(f.props,d.data);case 2:return b.def(f.context,
-d.data);case 3:return b.def("this",d.data);case 4:return d.data.append(a,b),d.data.ref}};a.attribCache={};var ya={};a.scopeAttrib=function(a){a=b.id(a);if(a in ya)return ya[a];var d=q.scope[a];d||(d=q.scope[a]=new ia);return ya[a]=c(d)};return a}function Q(a){var b=a["static"];a=a.dynamic;var c;if("profile"in b){var d=!!b.profile;c=C(function(a,b){return d});c.enable=d}else if("profile"in a){var e=a.profile;c=L(e,function(a,b){return a.invoke(b,e)})}return c}function z(a,b){var c=a["static"],d=a.dynamic;
-if("framebuffer"in c){var e=c.framebuffer;return e?(e=n.getFramebuffer(e),C(function(a,b){var c=a.link(e),d=a.shared;b.set(d.framebuffer,".next",c);d=d.context;b.set(d,".framebufferWidth",c+".width");b.set(d,".framebufferHeight",c+".height");return c})):C(function(a,b){var c=a.shared;b.set(c.framebuffer,".next","null");c=c.context;b.set(c,".framebufferWidth",c+".drawingBufferWidth");b.set(c,".framebufferHeight",c+".drawingBufferHeight");return"null"})}if("framebuffer"in d){var f=d.framebuffer;return L(f,
-function(a,b){var c=a.invoke(b,f),d=a.shared,e=d.framebuffer,c=b.def(e,".getFramebuffer(",c,")");b.set(e,".next",c);d=d.context;b.set(d,".framebufferWidth",c+"?"+c+".width:"+d+".drawingBufferWidth");b.set(d,".framebufferHeight",c+"?"+c+".height:"+d+".drawingBufferHeight");return c})}return null}function w(a,b,c){function d(a){if(a in e){var c=e[a];a=!0;var g=c.x|0,y=c.y|0,h,U;"width"in c?h=c.width|0:a=!1;"height"in c?U=c.height|0:a=!1;return new P(!a&&b&&b.thisDep,!a&&b&&b.contextDep,!a&&b&&b.propDep,
-function(a,b){var d=a.shared.context,e=h;"width"in c||(e=b.def(d,".","framebufferWidth","-",g));var f=U;"height"in c||(f=b.def(d,".","framebufferHeight","-",y));return[g,y,e,f]})}if(a in f){var k=f[a];a=L(k,function(a,b){var c=a.invoke(b,k),d=a.shared.context,e=b.def(c,".x|0"),f=b.def(c,".y|0"),g=b.def('"width" in ',c,"?",c,".width|0:","(",d,".","framebufferWidth","-",e,")"),c=b.def('"height" in ',c,"?",c,".height|0:","(",d,".","framebufferHeight","-",f,")");return[e,f,g,c]});b&&(a.thisDep=a.thisDep||
-b.thisDep,a.contextDep=a.contextDep||b.contextDep,a.propDep=a.propDep||b.propDep);return a}return b?new P(b.thisDep,b.contextDep,b.propDep,function(a,b){var c=a.shared.context;return[0,0,b.def(c,".","framebufferWidth"),b.def(c,".","framebufferHeight")]}):null}var e=a["static"],f=a.dynamic;if(a=d("viewport")){var g=a;a=new P(a.thisDep,a.contextDep,a.propDep,function(a,b){var c=g.append(a,b),d=a.shared.context;b.set(d,".viewportWidth",c[2]);b.set(d,".viewportHeight",c[3]);return c})}return{viewport:a,
-scissor_box:d("scissor.box")}}function H(a,b){var c=a["static"];if("string"===typeof c.frag&&"string"===typeof c.vert){if(0<Object.keys(b.dynamic).length)return null;var c=b["static"],d=Object.keys(c);if(0<d.length&&"number"===typeof c[d[0]]){for(var e=[],f=0;f<d.length;++f)e.push([c[d[f]]|0,d[f]]);return e}}return null}function E(a,c,d){function e(a){if(a in f){var c=b.id(f[a]);a=C(function(){return c});a.id=c;return a}if(a in g){var d=g[a];return L(d,function(a,b){var c=a.invoke(b,d);return b.def(a.shared.strings,
-".id(",c,")")})}return null}var f=a["static"],g=a.dynamic,h=e("frag"),ca=e("vert"),ya=null;ua(h)&&ua(ca)?(ya=t.program(ca.id,h.id,null,d),a=C(function(a,b){return a.link(ya)})):a=new P(h&&h.thisDep||ca&&ca.thisDep,h&&h.contextDep||ca&&ca.contextDep,h&&h.propDep||ca&&ca.propDep,function(a,b){var c=a.shared.shader,d;d=h?h.append(a,b):b.def(c,".","frag");var e;e=ca?ca.append(a,b):b.def(c,".","vert");return b.def(c+".program("+e+","+d+")")});return{frag:h,vert:ca,progVar:a,program:ya}}function G(a,b){function c(a,
-b){if(a in e){var d=e[a]|0;return C(function(a,c){b&&(a.OFFSET=d);return d})}if(a in f){var h=f[a];return L(h,function(a,c){var d=a.invoke(c,h);b&&(a.OFFSET=d);return d})}return b&&g?C(function(a,b){a.OFFSET="0";return 0}):null}var e=a["static"],f=a.dynamic,g=function(){if("elements"in e){var a=e.elements;Oa(a)?a=d.getElements(d.create(a,!0)):a&&(a=d.getElements(a));var b=C(function(b,c){if(a){var d=b.link(a);return b.ELEMENTS=d}return b.ELEMENTS=null});b.value=a;return b}if("elements"in f){var c=
-f.elements;return L(c,function(a,b){var d=a.shared,e=d.isBufferArgs,d=d.elements,f=a.invoke(b,c),g=b.def("null"),e=b.def(e,"(",f,")"),f=a.cond(e).then(g,"=",d,".createStream(",f,");")["else"](g,"=",d,".getElements(",f,");");b.entry(f);b.exit(a.cond(e).then(d,".destroyStream(",g,");"));return a.ELEMENTS=g})}return null}(),h=c("offset",!0);return{elements:g,primitive:function(){if("primitive"in e){var a=e.primitive;return C(function(b,c){return Sa[a]})}if("primitive"in f){var b=f.primitive;return L(b,
-function(a,c){var d=a.constants.primTypes,e=a.invoke(c,b);return c.def(d,"[",e,"]")})}return g?ua(g)?g.value?C(function(a,b){return b.def(a.ELEMENTS,".primType")}):C(function(){return 4}):new P(g.thisDep,g.contextDep,g.propDep,function(a,b){var c=a.ELEMENTS;return b.def(c,"?",c,".primType:",4)}):null}(),count:function(){if("count"in e){var a=e.count|0;return C(function(){return a})}if("count"in f){var b=f.count;return L(b,function(a,c){return a.invoke(c,b)})}return g?ua(g)?g?h?new P(h.thisDep,h.contextDep,
-h.propDep,function(a,b){return b.def(a.ELEMENTS,".vertCount-",a.OFFSET)}):C(function(a,b){return b.def(a.ELEMENTS,".vertCount")}):C(function(){return-1}):new P(g.thisDep||h.thisDep,g.contextDep||h.contextDep,g.propDep||h.propDep,function(a,b){var c=a.ELEMENTS;return a.OFFSET?b.def(c,"?",c,".vertCount-",a.OFFSET,":-1"):b.def(c,"?",c,".vertCount:-1")}):null}(),instances:c("instances",!1),offset:h}}function R(a,b){var c=a["static"],d=a.dynamic,e={};Ka.forEach(function(a){function b(f,h){if(a in c){var y=
-f(c[a]);e[g]=C(function(){return y})}else if(a in d){var I=d[a];e[g]=L(I,function(a,b){return h(a,b,a.invoke(b,I))})}}var g=f(a);switch(a){case "cull.enable":case "blend.enable":case "dither":case "stencil.enable":case "depth.enable":case "scissor.enable":case "polygonOffset.enable":case "sample.alpha":case "sample.enable":case "depth.mask":return b(function(a){return a},function(a,b,c){return c});case "depth.func":return b(function(a){return $a[a]},function(a,b,c){return b.def(a.constants.compareFuncs,
-"[",c,"]")});case "depth.range":return b(function(a){return a},function(a,b,c){a=b.def("+",c,"[0]");b=b.def("+",c,"[1]");return[a,b]});case "blend.func":return b(function(a){return[Ea["srcRGB"in a?a.srcRGB:a.src],Ea["dstRGB"in a?a.dstRGB:a.dst],Ea["srcAlpha"in a?a.srcAlpha:a.src],Ea["dstAlpha"in a?a.dstAlpha:a.dst]]},function(a,b,c){function d(a,e){return b.def('"',a,e,'" in ',c,"?",c,".",a,e,":",c,".",a)}a=a.constants.blendFuncs;var e=d("src","RGB"),f=d("dst","RGB"),e=b.def(a,"[",e,"]"),g=b.def(a,
-"[",d("src","Alpha"),"]"),f=b.def(a,"[",f,"]");a=b.def(a,"[",d("dst","Alpha"),"]");return[e,f,g,a]});case "blend.equation":return b(function(a){if("string"===typeof a)return[W[a],W[a]];if("object"===typeof a)return[W[a.rgb],W[a.alpha]]},function(a,b,c){var d=a.constants.blendEquations,e=b.def(),f=b.def();a=a.cond("typeof ",c,'==="string"');a.then(e,"=",f,"=",d,"[",c,"];");a["else"](e,"=",d,"[",c,".rgb];",f,"=",d,"[",c,".alpha];");b(a);return[e,f]});case "blend.color":return b(function(a){return A(4,
-function(b){return+a[b]})},function(a,b,c){return A(4,function(a){return b.def("+",c,"[",a,"]")})});case "stencil.mask":return b(function(a){return a|0},function(a,b,c){return b.def(c,"|0")});case "stencil.func":return b(function(a){return[$a[a.cmp||"keep"],a.ref||0,"mask"in a?a.mask:-1]},function(a,b,c){a=b.def('"cmp" in ',c,"?",a.constants.compareFuncs,"[",c,".cmp]",":",7680);var d=b.def(c,".ref|0");b=b.def('"mask" in ',c,"?",c,".mask|0:-1");return[a,d,b]});case "stencil.opFront":case "stencil.opBack":return b(function(b){return["stencil.opBack"===
-a?1029:1028,Pa[b.fail||"keep"],Pa[b.zfail||"keep"],Pa[b.zpass||"keep"]]},function(b,c,d){function e(a){return c.def('"',a,'" in ',d,"?",f,"[",d,".",a,"]:",7680)}var f=b.constants.stencilOps;return["stencil.opBack"===a?1029:1028,e("fail"),e("zfail"),e("zpass")]});case "polygonOffset.offset":return b(function(a){return[a.factor|0,a.units|0]},function(a,b,c){a=b.def(c,".factor|0");b=b.def(c,".units|0");return[a,b]});case "cull.face":return b(function(a){var b=0;"front"===a?b=1028:"back"===a&&(b=1029);
-return b},function(a,b,c){return b.def(c,'==="front"?',1028,":",1029)});case "lineWidth":return b(function(a){return a},function(a,b,c){return c});case "frontFace":return b(function(a){return xb[a]},function(a,b,c){return b.def(c+'==="cw"?2304:2305')});case "colorMask":return b(function(a){return a.map(function(a){return!!a})},function(a,b,c){return A(4,function(a){return"!!"+c+"["+a+"]"})});case "sample.coverage":return b(function(a){return["value"in a?a.value:1,!!a.invert]},function(a,b,c){a=b.def('"value" in ',
-c,"?+",c,".value:1");b=b.def("!!",c,".invert");return[a,b]})}});return e}function sa(a,b){var c=a["static"],d=a.dynamic,e={};Object.keys(c).forEach(function(a){var b=c[a],d;if("number"===typeof b||"boolean"===typeof b)d=C(function(){return b});else if("function"===typeof b){var f=b._reglType;if("texture2d"===f||"textureCube"===f)d=C(function(a){return a.link(b)});else if("framebuffer"===f||"framebufferCube"===f)d=C(function(a){return a.link(b.color[0])})}else na(b)&&(d=C(function(a){return a.global.def("[",
-A(b.length,function(a){return b[a]}),"]")}));d.value=b;e[a]=d});Object.keys(d).forEach(function(a){var b=d[a];e[a]=L(b,function(a,c){return a.invoke(c,b)})});return e}function J(a,c){var d=a["static"],e=a.dynamic,f={};Object.keys(d).forEach(function(a){var c=d[a],e=b.id(a),h=new ia;if(Oa(c))h.state=1,h.buffer=g.getBuffer(g.create(c,34962,!1,!0)),h.type=0;else{var y=g.getBuffer(c);if(y)h.state=1,h.buffer=y,h.type=0;else if("constant"in c){var I=c.constant;h.buffer="null";h.state=2;"number"===typeof I?
-h.x=I:Ba.forEach(function(a,b){b<I.length&&(h[a]=I[b])})}else{var y=Oa(c.buffer)?g.getBuffer(g.create(c.buffer,34962,!1,!0)):g.getBuffer(c.buffer),k=c.offset|0,m=c.stride|0,da=c.size|0,n=!!c.normalized,l=0;"type"in c&&(l=Ha[c.type]);c=c.divisor|0;h.buffer=y;h.state=1;h.size=da;h.normalized=n;h.type=l||y.dtype;h.offset=k;h.stride=m;h.divisor=c}}f[a]=C(function(a,b){var c=a.attribCache;if(e in c)return c[e];var d={isStream:!1};Object.keys(h).forEach(function(a){d[a]=h[a]});h.buffer&&(d.buffer=a.link(h.buffer),
-d.type=d.type||d.buffer+".dtype");return c[e]=d})});Object.keys(e).forEach(function(a){var b=e[a];f[a]=L(b,function(a,c){function d(a){c(y[a],"=",e,".",a,"|0;")}var e=a.invoke(c,b),f=a.shared,g=a.constants,h=f.isBufferArgs,f=f.buffer,y={isStream:c.def(!1)},I=new ia;I.state=1;Object.keys(I).forEach(function(a){y[a]=c.def(""+I[a])});var k=y.buffer,U=y.type;c("if(",h,"(",e,")){",y.isStream,"=true;",k,"=",f,".createStream(",34962,",",e,");",U,"=",k,".dtype;","}else{",k,"=",f,".getBuffer(",e,");","if(",
-k,"){",U,"=",k,".dtype;",'}else if("constant" in ',e,"){",y.state,"=",2,";","if(typeof "+e+'.constant === "number"){',y[Ba[0]],"=",e,".constant;",Ba.slice(1).map(function(a){return y[a]}).join("="),"=0;","}else{",Ba.map(function(a,b){return y[a]+"="+e+".constant.length>"+b+"?"+e+".constant["+b+"]:0;"}).join(""),"}}else{","if(",h,"(",e,".buffer)){",k,"=",f,".createStream(",34962,",",e,".buffer);","}else{",k,"=",f,".getBuffer(",e,".buffer);","}",U,'="type" in ',e,"?",g.glTypes,"[",e,".type]:",k,".dtype;",
-y.normalized,"=!!",e,".normalized;");d("size");d("offset");d("stride");d("divisor");c("}}");c.exit("if(",y.isStream,"){",f,".destroyStream(",k,");","}");return y})});return f}function D(a,b){var c=a["static"],d=a.dynamic;if("vao"in c){var e=c.vao;null!==e&&null===q.getVAO(e)&&(e=q.createVAO(e));return C(function(a){return a.link(q.getVAO(e))})}if("vao"in d){var f=d.vao;return L(f,function(a,b){var c=a.invoke(b,f);return b.def(a.shared.vao+".getVAO("+c+")")})}return null}function x(a){var b=a["static"],
-c=a.dynamic,d={};Object.keys(b).forEach(function(a){var c=b[a];d[a]=C(function(a,b){return"number"===typeof c||"boolean"===typeof c?""+c:a.link(c)})});Object.keys(c).forEach(function(a){var b=c[a];d[a]=L(b,function(a,c){return a.invoke(c,b)})});return d}function la(a,b,d,e,g){function h(a){var b=n[a];b&&(Za[a]=b)}var k=H(a,b),m=z(a,g),n=w(a,m,g),l=G(a,g),Za=R(a,g),p=E(a,g,k);h("viewport");h(f("scissor.box"));var r=0<Object.keys(Za).length,m={framebuffer:m,draw:l,shader:p,state:Za,dirty:r,scopeVAO:null,
-drawVAO:null,useVAO:!1,attributes:{}};m.profile=Q(a,g);m.uniforms=sa(d,g);m.drawVAO=m.scopeVAO=D(a,g);if(!m.drawVAO&&p.program&&!k&&c.angle_instanced_arrays){var t=!0;a=p.program.attributes.map(function(a){a=b["static"][a];t=t&&!!a;return a});if(t&&0<a.length){var v=q.getVAO(q.createVAO(a));m.drawVAO=new P(null,null,null,function(a,b){return a.link(v)});m.useVAO=!0}}k?m.useVAO=!0:m.attributes=J(b,g);m.context=x(e,g);return m}function T(a,b,c){var d=a.shared.context,e=a.scope();Object.keys(c).forEach(function(f){b.save(d,
-"."+f);e(d,".",f,"=",c[f].append(a,b),";")});b(e)}function O(a,b,c,d){var e=a.shared,f=e.gl,g=e.framebuffer,h;Ja&&(h=b.def(e.extensions,".webgl_draw_buffers"));var k=a.constants,e=k.drawBuffer,k=k.backBuffer;a=c?c.append(a,b):b.def(g,".next");d||b("if(",a,"!==",g,".cur){");b("if(",a,"){",f,".bindFramebuffer(",36160,",",a,".framebuffer);");Ja&&b(h,".drawBuffersWEBGL(",e,"[",a,".colorAttachments.length]);");b("}else{",f,".bindFramebuffer(",36160,",null);");Ja&&b(h,".drawBuffersWEBGL(",k,");");b("}",
-g,".cur=",a,";");d||b("}")}function S(a,b,c){var d=a.shared,e=d.gl,g=a.current,h=a.next,k=d.current,m=d.next,n=a.cond(k,".dirty");Ka.forEach(function(b){b=f(b);if(!(b in c.state)){var d,I;if(b in h){d=h[b];I=g[b];var l=A(pa[b].length,function(a){return n.def(d,"[",a,"]")});n(a.cond(l.map(function(a,b){return a+"!=="+I+"["+b+"]"}).join("||")).then(e,".",ra[b],"(",l,");",l.map(function(a,b){return I+"["+b+"]="+a}).join(";"),";"))}else d=n.def(m,".",b),l=a.cond(d,"!==",k,".",b),n(l),b in qa?l(a.cond(d).then(e,
-".enable(",qa[b],");")["else"](e,".disable(",qa[b],");"),k,".",b,"=",d,";"):l(e,".",ra[b],"(",d,");",k,".",b,"=",d,";")}});0===Object.keys(c.state).length&&n(k,".dirty=false;");b(n)}function K(a,b,c,d){var e=a.shared,f=a.current,g=e.current,h=e.gl;wb(Object.keys(c)).forEach(function(e){var k=c[e];if(!d||d(k)){var m=k.append(a,b);if(qa[e]){var n=qa[e];ua(k)?m?b(h,".enable(",n,");"):b(h,".disable(",n,");"):b(a.cond(m).then(h,".enable(",n,");")["else"](h,".disable(",n,");"));b(g,".",e,"=",m,";")}else if(na(m)){var l=
-f[e];b(h,".",ra[e],"(",m,");",m.map(function(a,b){return l+"["+b+"]="+a}).join(";"),";")}else b(h,".",ra[e],"(",m,");",g,".",e,"=",m,";")}})}function B(a,b){oa&&(a.instancing=b.def(a.shared.extensions,".angle_instanced_arrays"))}function V(a,b,c,d,e){function f(){return"undefined"===typeof performance?"Date.now()":"performance.now()"}function g(a){q=b.def();a(q,"=",f(),";");"string"===typeof e?a(l,".count+=",e,";"):a(l,".count++;");k&&(d?(t=b.def(),a(t,"=",r,".getNumPendingQueries();")):a(r,".beginQuery(",
-l,");"))}function h(a){a(l,".cpuTime+=",f(),"-",q,";");k&&(d?a(r,".pushScopeStats(",t,",",r,".getNumPendingQueries(),",l,");"):a(r,".endQuery();"))}function m(a){var c=b.def(p,".profile");b(p,".profile=",a,";");b.exit(p,".profile=",c,";")}var n=a.shared,l=a.stats,p=n.current,r=n.timer;c=c.profile;var q,t;if(c){if(ua(c)){c.enable?(g(b),h(b.exit),m("true")):m("false");return}c=c.append(a,b);m(c)}else c=b.def(p,".profile");n=a.block();g(n);b("if(",c,"){",n,"}");a=a.block();h(a);b.exit("if(",c,"){",a,
-"}")}function N(a,b,c,d,e){function f(a){switch(a){case 35664:case 35667:case 35671:return 2;case 35665:case 35668:case 35672:return 3;case 35666:case 35669:case 35673:return 4;default:return 1}}function g(c,d,e){function f(){b("if(!",l,".buffer){",m,".enableVertexAttribArray(",n,");}");var c=e.type,g;g=e.size?b.def(e.size,"||",d):d;b("if(",l,".type!==",c,"||",l,".size!==",g,"||",da.map(function(a){return l+"."+a+"!=="+e[a]}).join("||"),"){",m,".bindBuffer(",34962,",",U,".buffer);",m,".vertexAttribPointer(",
-[n,g,c,e.normalized,e.stride,e.offset],");",l,".type=",c,";",l,".size=",g,";",da.map(function(a){return l+"."+a+"="+e[a]+";"}).join(""),"}");oa&&(c=e.divisor,b("if(",l,".divisor!==",c,"){",a.instancing,".vertexAttribDivisorANGLE(",[n,c],");",l,".divisor=",c,";}"))}function k(){b("if(",l,".buffer){",m,".disableVertexAttribArray(",n,");",l,".buffer=null;","}if(",Ba.map(function(a,b){return l+"."+a+"!=="+p[b]}).join("||"),"){",m,".vertexAttrib4f(",n,",",p,");",Ba.map(function(a,b){return l+"."+a+"="+
-p[b]+";"}).join(""),"}")}var m=h.gl,n=b.def(c,".location"),l=b.def(h.attributes,"[",n,"]");c=e.state;var U=e.buffer,p=[e.x,e.y,e.z,e.w],da=["buffer","normalized","offset","stride"];1===c?f():2===c?k():(b("if(",c,"===",1,"){"),f(),b("}else{"),k(),b("}"))}var h=a.shared;d.forEach(function(d){var h=d.name,k=c.attributes[h],m;if(k){if(!e(k))return;m=k.append(a,b)}else{if(!e(yb))return;var n=a.scopeAttrib(h);m={};Object.keys(new ia).forEach(function(a){m[a]=b.def(n,".",a)})}g(a.link(d),f(d.info.type),
-m)})}function wa(a,c,d,e,f){for(var g=a.shared,h=g.gl,k,m=0;m<e.length;++m){var n=e[m],l=n.name,p=n.info.type,r=d.uniforms[l],n=a.link(n)+".location",q;if(r){if(!f(r))continue;if(ua(r)){l=r.value;if(35678===p||35680===p)p=a.link(l._texture||l.color[0]._texture),c(h,".uniform1i(",n,",",p+".bind());"),c.exit(p,".unbind();");else if(35674===p||35675===p||35676===p)l=a.global.def("new Float32Array(["+Array.prototype.slice.call(l)+"])"),r=2,35675===p?r=3:35676===p&&(r=4),c(h,".uniformMatrix",r,"fv(",n,
-",false,",l,");");else{switch(p){case 5126:k="1f";break;case 35664:k="2f";break;case 35665:k="3f";break;case 35666:k="4f";break;case 35670:k="1i";break;case 5124:k="1i";break;case 35671:k="2i";break;case 35667:k="2i";break;case 35672:k="3i";break;case 35668:k="3i";break;case 35673:k="4i";break;case 35669:k="4i"}c(h,".uniform",k,"(",n,",",na(l)?Array.prototype.slice.call(l):l,");")}continue}else q=r.append(a,c)}else{if(!f(yb))continue;q=c.def(g.uniforms,"[",b.id(l),"]")}35678===p?c("if(",q,"&&",q,
-'._reglType==="framebuffer"){',q,"=",q,".color[0];","}"):35680===p&&c("if(",q,"&&",q,'._reglType==="framebufferCube"){',q,"=",q,".color[0];","}");l=1;switch(p){case 35678:case 35680:p=c.def(q,"._texture");c(h,".uniform1i(",n,",",p,".bind());");c.exit(p,".unbind();");continue;case 5124:case 35670:k="1i";break;case 35667:case 35671:k="2i";l=2;break;case 35668:case 35672:k="3i";l=3;break;case 35669:case 35673:k="4i";l=4;break;case 5126:k="1f";break;case 35664:k="2f";l=2;break;case 35665:k="3f";l=3;break;
-case 35666:k="4f";l=4;break;case 35674:k="Matrix2fv";break;case 35675:k="Matrix3fv";break;case 35676:k="Matrix4fv"}c(h,".uniform",k,"(",n,",");if("M"===k.charAt(0)){var n=Math.pow(p-35674+2,2),t=a.global.def("new Float32Array(",n,")");c("false,(Array.isArray(",q,")||",q," instanceof Float32Array)?",q,":(",A(n,function(a){return t+"["+a+"]="+q+"["+a+"]"}),",",t,")")}else 1<l?c(A(l,function(a){return q+"["+a+"]"})):c(q);c(");")}}function aa(a,b,c,d){function e(f){var g=l[f];return g?g.contextDep&&d.contextDynamic||
-g.propDep?g.append(a,c):g.append(a,b):b.def(m,".",f)}function f(){function a(){c(v,".drawElementsInstancedANGLE(",[p,r,u,q+"<<(("+u+"-5121)>>1)",t],");")}function b(){c(v,".drawArraysInstancedANGLE(",[p,q,r,t],");")}n?ba?a():(c("if(",n,"){"),a(),c("}else{"),b(),c("}")):b()}function g(){function a(){c(k+".drawElements("+[p,r,u,q+"<<(("+u+"-5121)>>1)"]+");")}function b(){c(k+".drawArrays("+[p,q,r]+");")}n?ba?a():(c("if(",n,"){"),a(),c("}else{"),b(),c("}")):b()}var h=a.shared,k=h.gl,m=h.draw,l=d.draw,
-n=function(){var e=l.elements,f=b;if(e){if(e.contextDep&&d.contextDynamic||e.propDep)f=c;e=e.append(a,f)}else e=f.def(m,".","elements");e&&f("if("+e+")"+k+".bindBuffer(34963,"+e+".buffer.buffer);");return e}(),p=e("primitive"),q=e("offset"),r=function(){var e=l.count,f=b;if(e){if(e.contextDep&&d.contextDynamic||e.propDep)f=c;e=e.append(a,f)}else e=f.def(m,".","count");return e}();if("number"===typeof r){if(0===r)return}else c("if(",r,"){"),c.exit("}");var t,v;oa&&(t=e("instances"),v=a.instancing);
-var u=n+".type",ba=l.elements&&ua(l.elements);oa&&("number"!==typeof t||0<=t)?"string"===typeof t?(c("if(",t,">0){"),f(),c("}else if(",t,"<0){"),g(),c("}")):f():g()}function xa(a,b,c,d,e){b=v();e=b.proc("body",e);oa&&(b.instancing=e.def(b.shared.extensions,".angle_instanced_arrays"));a(b,e,c,d);return b.compile().body}function ba(a,b,c,d){B(a,b);c.useVAO?c.drawVAO?b(a.shared.vao,".setVAO(",c.drawVAO.append(a,b),");"):b(a.shared.vao,".setVAO(",a.shared.vao,".targetVAO);"):(b(a.shared.vao,".setVAO(null);"),
-N(a,b,c,d.attributes,function(){return!0}));wa(a,b,c,d.uniforms,function(){return!0});aa(a,b,b,c)}function Da(a,b){var c=a.proc("draw",1);B(a,c);T(a,c,b.context);O(a,c,b.framebuffer);S(a,c,b);K(a,c,b.state);V(a,c,b,!1,!0);var d=b.shader.progVar.append(a,c);c(a.shared.gl,".useProgram(",d,".program);");if(b.shader.program)ba(a,c,b,b.shader.program);else{c(a.shared.vao,".setVAO(null);");var e=a.global.def("{}"),f=c.def(d,".id"),g=c.def(e,"[",f,"]");c(a.cond(g).then(g,".call(this,a0);")["else"](g,"=",
-e,"[",f,"]=",a.link(function(c){return xa(ba,a,b,c,1)}),"(",d,");",g,".call(this,a0);"))}0<Object.keys(b.state).length&&c(a.shared.current,".dirty=true;")}function fa(a,b,c,d){function e(){return!0}a.batchId="a1";B(a,b);N(a,b,c,d.attributes,e);wa(a,b,c,d.uniforms,e);aa(a,b,b,c)}function M(a,b,c,d){function e(a){return a.contextDep&&g||a.propDep}function f(a){return!e(a)}B(a,b);var g=c.contextDep,h=b.def(),k=b.def();a.shared.props=k;a.batchId=h;var m=a.scope(),l=a.scope();b(m.entry,"for(",h,"=0;",
-h,"<","a1",";++",h,"){",k,"=","a0","[",h,"];",l,"}",m.exit);c.needsContext&&T(a,l,c.context);c.needsFramebuffer&&O(a,l,c.framebuffer);K(a,l,c.state,e);c.profile&&e(c.profile)&&V(a,l,c,!1,!0);d?(c.useVAO?c.drawVAO?e(c.drawVAO)?l(a.shared.vao,".setVAO(",c.drawVAO.append(a,l),");"):m(a.shared.vao,".setVAO(",c.drawVAO.append(a,m),");"):m(a.shared.vao,".setVAO(",a.shared.vao,".targetVAO);"):(m(a.shared.vao,".setVAO(null);"),N(a,m,c,d.attributes,f),N(a,l,c,d.attributes,e)),wa(a,m,c,d.uniforms,f),wa(a,l,
-c,d.uniforms,e),aa(a,m,l,c)):(b=a.global.def("{}"),d=c.shader.progVar.append(a,l),k=l.def(d,".id"),m=l.def(b,"[",k,"]"),l(a.shared.gl,".useProgram(",d,".program);","if(!",m,"){",m,"=",b,"[",k,"]=",a.link(function(b){return xa(fa,a,c,b,2)}),"(",d,");}",m,".call(this,a0[",h,"],",h,");"))}function X(a,b){function c(a){return a.contextDep&&e||a.propDep}var d=a.proc("batch",2);a.batchId="0";B(a,d);var e=!1,f=!0;Object.keys(b.context).forEach(function(a){e=e||b.context[a].propDep});e||(T(a,d,b.context),
-f=!1);var g=b.framebuffer,h=!1;g?(g.propDep?e=h=!0:g.contextDep&&e&&(h=!0),h||O(a,d,g)):O(a,d,null);b.state.viewport&&b.state.viewport.propDep&&(e=!0);S(a,d,b);K(a,d,b.state,function(a){return!c(a)});b.profile&&c(b.profile)||V(a,d,b,!1,"a1");b.contextDep=e;b.needsContext=f;b.needsFramebuffer=h;f=b.shader.progVar;if(f.contextDep&&e||f.propDep)M(a,d,b,null);else if(f=f.append(a,d),d(a.shared.gl,".useProgram(",f,".program);"),b.shader.program)M(a,d,b,b.shader.program);else{d(a.shared.vao,".setVAO(null);");
-var g=a.global.def("{}"),h=d.def(f,".id"),k=d.def(g,"[",h,"]");d(a.cond(k).then(k,".call(this,a0,a1);")["else"](k,"=",g,"[",h,"]=",a.link(function(c){return xa(M,a,b,c,2)}),"(",f,");",k,".call(this,a0,a1);"))}0<Object.keys(b.state).length&&d(a.shared.current,".dirty=true;")}function Y(a,c){function d(b){var g=c.shader[b];g&&e.set(f.shader,"."+b,g.append(a,e))}var e=a.proc("scope",3);a.batchId="a2";var f=a.shared,g=f.current;T(a,e,c.context);c.framebuffer&&c.framebuffer.append(a,e);wb(Object.keys(c.state)).forEach(function(b){var d=
-c.state[b].append(a,e);na(d)?d.forEach(function(c,d){e.set(a.next[b],"["+d+"]",c)}):e.set(f.next,"."+b,d)});V(a,e,c,!0,!0);["elements","offset","count","instances","primitive"].forEach(function(b){var d=c.draw[b];d&&e.set(f.draw,"."+b,""+d.append(a,e))});Object.keys(c.uniforms).forEach(function(d){e.set(f.uniforms,"["+b.id(d)+"]",c.uniforms[d].append(a,e))});Object.keys(c.attributes).forEach(function(b){var d=c.attributes[b].append(a,e),f=a.scopeAttrib(b);Object.keys(new ia).forEach(function(a){e.set(f,
-"."+a,d[a])})});c.scopeVAO&&e.set(f.vao,".targetVAO",c.scopeVAO.append(a,e));d("vert");d("frag");0<Object.keys(c.state).length&&(e(g,".dirty=true;"),e.exit(g,".dirty=true;"));e("a1(",a.shared.context,",a0,",a.batchId,");")}function ha(a){if("object"===typeof a&&!na(a)){for(var b=Object.keys(a),c=0;c<b.length;++c)if(ga.isDynamic(a[b[c]]))return!0;return!1}}function ja(a,b,c){function d(a,b){g.forEach(function(c){var d=e[c];ga.isDynamic(d)&&(d=a.invoke(b,d),b(l,".",c,"=",d,";"))})}var e=b["static"][c];
-if(e&&ha(e)){var f=a.global,g=Object.keys(e),h=!1,k=!1,m=!1,l=a.global.def("{}");g.forEach(function(b){var c=e[b];if(ga.isDynamic(c))"function"===typeof c&&(c=e[b]=ga.unbox(c)),b=L(c,null),h=h||b.thisDep,m=m||b.propDep,k=k||b.contextDep;else{f(l,".",b,"=");switch(typeof c){case "number":f(c);break;case "string":f('"',c,'"');break;case "object":Array.isArray(c)&&f("[",c.join(),"]");break;default:f(a.link(c))}f(";")}});b.dynamic[c]=new ga.DynamicVariable(4,{thisDep:h,contextDep:k,propDep:m,ref:l,append:d});
-delete b["static"][c]}}var ia=q.Record,W={add:32774,subtract:32778,"reverse subtract":32779};c.ext_blend_minmax&&(W.min=32775,W.max=32776);var oa=c.angle_instanced_arrays,Ja=c.webgl_draw_buffers,pa={dirty:!0,profile:h.profile},Ca={},Ka=[],qa={},ra={};p("dither",3024);p("blend.enable",3042);l("blend.color","blendColor",[0,0,0,0]);l("blend.equation","blendEquationSeparate",[32774,32774]);l("blend.func","blendFuncSeparate",[1,0,1,0]);p("depth.enable",2929,!0);l("depth.func","depthFunc",513);l("depth.range",
-"depthRange",[0,1]);l("depth.mask","depthMask",!0);l("colorMask","colorMask",[!0,!0,!0,!0]);p("cull.enable",2884);l("cull.face","cullFace",1029);l("frontFace","frontFace",2305);l("lineWidth","lineWidth",1);p("polygonOffset.enable",32823);l("polygonOffset.offset","polygonOffset",[0,0]);p("sample.alpha",32926);p("sample.enable",32928);l("sample.coverage","sampleCoverage",[1,!1]);p("stencil.enable",2960);l("stencil.mask","stencilMask",-1);l("stencil.func","stencilFunc",[519,0,-1]);l("stencil.opFront",
-"stencilOpSeparate",[1028,7680,7680,7680]);l("stencil.opBack","stencilOpSeparate",[1029,7680,7680,7680]);p("scissor.enable",3089);l("scissor.box","scissor",[0,0,a.drawingBufferWidth,a.drawingBufferHeight]);l("viewport","viewport",[0,0,a.drawingBufferWidth,a.drawingBufferHeight]);var ka={gl:a,context:F,strings:b,next:Ca,current:pa,draw:m,elements:d,buffer:g,shader:t,attributes:q.state,vao:q,uniforms:u,framebuffer:n,extensions:c,timer:k,isBufferArgs:Oa},Z={primTypes:Sa,compareFuncs:$a,blendFuncs:Ea,
-blendEquations:W,stencilOps:Pa,glTypes:Ha,orientationType:xb};Ja&&(Z.backBuffer=[1029],Z.drawBuffer=A(e.maxDrawbuffers,function(a){return 0===a?[0]:A(a,function(a){return 36064+a})}));var ta=0;return{next:Ca,current:pa,procs:function(){var a=v(),b=a.proc("poll"),d=a.proc("refresh"),f=a.block();b(f);d(f);var g=a.shared,h=g.gl,k=g.next,m=g.current;f(m,".dirty=false;");O(a,b);O(a,d,null,!0);var l;oa&&(l=a.link(oa));c.oes_vertex_array_object&&d(a.link(c.oes_vertex_array_object),".bindVertexArrayOES(null);");
-for(var n=0;n<e.maxAttributes;++n){var p=d.def(g.attributes,"[",n,"]"),q=a.cond(p,".buffer");q.then(h,".enableVertexAttribArray(",n,");",h,".bindBuffer(",34962,",",p,".buffer.buffer);",h,".vertexAttribPointer(",n,",",p,".size,",p,".type,",p,".normalized,",p,".stride,",p,".offset);")["else"](h,".disableVertexAttribArray(",n,");",h,".vertexAttrib4f(",n,",",p,".x,",p,".y,",p,".z,",p,".w);",p,".buffer=null;");d(q);oa&&d(l,".vertexAttribDivisorANGLE(",n,",",p,".divisor);")}d(a.shared.vao,".currentVAO=null;",
-a.shared.vao,".setVAO(",a.shared.vao,".targetVAO);");Object.keys(qa).forEach(function(c){var e=qa[c],g=f.def(k,".",c),l=a.block();l("if(",g,"){",h,".enable(",e,")}else{",h,".disable(",e,")}",m,".",c,"=",g,";");d(l);b("if(",g,"!==",m,".",c,"){",l,"}")});Object.keys(ra).forEach(function(c){var e=ra[c],g=pa[c],l,n,p=a.block();p(h,".",e,"(");na(g)?(e=g.length,l=a.global.def(k,".",c),n=a.global.def(m,".",c),p(A(e,function(a){return l+"["+a+"]"}),");",A(e,function(a){return n+"["+a+"]="+l+"["+a+"];"}).join("")),
-b("if(",A(e,function(a){return l+"["+a+"]!=="+n+"["+a+"]"}).join("||"),"){",p,"}")):(l=f.def(k,".",c),n=f.def(m,".",c),p(l,");",m,".",c,"=",l,";"),b("if(",l,"!==",n,"){",p,"}"));d(p)});return a.compile()}(),compile:function(a,b,c,d,e){var f=v();f.stats=f.link(e);Object.keys(b["static"]).forEach(function(a){ja(f,b,a)});Ub.forEach(function(b){ja(f,a,b)});c=la(a,b,c,d,f);Da(f,c);Y(f,c);X(f,c);return f.compile()}}}function zb(a,b){for(var c=0;c<a.length;++c)if(a[c]===b)return c;return-1}var H=function(a,
-b){for(var c=Object.keys(b),e=0;e<c.length;++e)a[c[e]]=b[c[e]];return a},Bb=0,ga={DynamicVariable:ja,define:function(a,b){return new ja(a,bb(b+""))},isDynamic:function(a){return"function"===typeof a&&!a._reglType||a instanceof ja},unbox:function(a,b){return"function"===typeof a?new ja(0,a):a},accessor:bb},ab={next:"function"===typeof requestAnimationFrame?function(a){return requestAnimationFrame(a)}:function(a){return setTimeout(a,16)},cancel:"function"===typeof cancelAnimationFrame?function(a){return cancelAnimationFrame(a)}:
-clearTimeout},Ab="undefined"!==typeof performance&&performance.now?function(){return performance.now()}:function(){return+new Date},z=fb();z.zero=fb();var Vb=function(a,b){var c=1;b.ext_texture_filter_anisotropic&&(c=a.getParameter(34047));var e=1,g=1;b.webgl_draw_buffers&&(e=a.getParameter(34852),g=a.getParameter(36063));var d=!!b.oes_texture_float;if(d){d=a.createTexture();a.bindTexture(3553,d);a.texImage2D(3553,0,6408,1,1,0,6408,5126,null);var r=a.createFramebuffer();a.bindFramebuffer(36160,r);
-a.framebufferTexture2D(36160,36064,3553,d,0);a.bindTexture(3553,null);if(36053!==a.checkFramebufferStatus(36160))d=!1;else{a.viewport(0,0,1,1);a.clearColor(1,0,0,1);a.clear(16384);var n=z.allocType(5126,4);a.readPixels(0,0,1,1,6408,5126,n);a.getError()?d=!1:(a.deleteFramebuffer(r),a.deleteTexture(d),d=1===n[0]);z.freeType(n)}}n=!0;"undefined"!==typeof navigator&&(/MSIE/.test(navigator.userAgent)||/Trident\//.test(navigator.appVersion)||/Edge/.test(navigator.userAgent))||(n=a.createTexture(),r=z.allocType(5121,
-36),a.activeTexture(33984),a.bindTexture(34067,n),a.texImage2D(34069,0,6408,3,3,0,6408,5121,r),z.freeType(r),a.bindTexture(34067,null),a.deleteTexture(n),n=!a.getError());return{colorBits:[a.getParameter(3410),a.getParameter(3411),a.getParameter(3412),a.getParameter(3413)],depthBits:a.getParameter(3414),stencilBits:a.getParameter(3415),subpixelBits:a.getParameter(3408),extensions:Object.keys(b).filter(function(a){return!!b[a]}),maxAnisotropic:c,maxDrawbuffers:e,maxColorAttachments:g,pointSizeDims:a.getParameter(33901),
-lineWidthDims:a.getParameter(33902),maxViewportDims:a.getParameter(3386),maxCombinedTextureUnits:a.getParameter(35661),maxCubeMapSize:a.getParameter(34076),maxRenderbufferSize:a.getParameter(34024),maxTextureUnits:a.getParameter(34930),maxTextureSize:a.getParameter(3379),maxAttributes:a.getParameter(34921),maxVertexUniforms:a.getParameter(36347),maxVertexTextureUnits:a.getParameter(35660),maxVaryingVectors:a.getParameter(36348),maxFragmentUniforms:a.getParameter(36349),glsl:a.getParameter(35724),
-renderer:a.getParameter(7937),vendor:a.getParameter(7936),version:a.getParameter(7938),readFloat:d,npotTextureCube:n}},G=function(a){return a instanceof Uint8Array||a instanceof Uint16Array||a instanceof Uint32Array||a instanceof Int8Array||a instanceof Int16Array||a instanceof Int32Array||a instanceof Float32Array||a instanceof Float64Array||a instanceof Uint8ClampedArray},J=function(a){return Object.keys(a).map(function(b){return a[b]})},Ma={shape:function(a){for(var b=[];a.length;a=a[0])b.push(a.length);
-return b},flatten:function(a,b,c,e){var g=1;if(b.length)for(var d=0;d<b.length;++d)g*=b[d];else g=0;c=e||z.allocType(c,g);switch(b.length){case 0:break;case 1:e=b[0];for(b=0;b<e;++b)c[b]=a[b];break;case 2:e=b[0];b=b[1];for(d=g=0;d<e;++d)for(var r=a[d],n=0;n<b;++n)c[g++]=r[n];break;case 3:gb(a,b[0],b[1],b[2],c,0);break;default:hb(a,b,0,c,0)}return c}},Ga={"[object Int8Array]":5120,"[object Int16Array]":5122,"[object Int32Array]":5124,"[object Uint8Array]":5121,"[object Uint8ClampedArray]":5121,"[object Uint16Array]":5123,
-"[object Uint32Array]":5125,"[object Float32Array]":5126,"[object Float64Array]":5121,"[object ArrayBuffer]":5121},Ha={int8:5120,int16:5122,int32:5124,uint8:5121,uint16:5123,uint32:5125,"float":5126,float32:5126},lb={dynamic:35048,stream:35040,"static":35044},Qa=Ma.flatten,kb=Ma.shape,ha=[];ha[5120]=1;ha[5122]=2;ha[5124]=4;ha[5121]=1;ha[5123]=2;ha[5125]=4;ha[5126]=4;var Sa={points:0,point:0,lines:1,line:1,triangles:4,triangle:4,"line loop":2,"line strip":3,"triangle strip":5,"triangle fan":6},ob=
-new Float32Array(1),Jb=new Uint32Array(ob.buffer),Nb=[9984,9986,9985,9987],La=[0,6409,6410,6407,6408],S={};S[6409]=S[6406]=S[6402]=1;S[34041]=S[6410]=2;S[6407]=S[35904]=3;S[6408]=S[35906]=4;var Va=ka("HTMLCanvasElement"),Wa=ka("OffscreenCanvas"),sb=ka("CanvasRenderingContext2D"),tb=ka("ImageBitmap"),ub=ka("HTMLImageElement"),vb=ka("HTMLVideoElement"),Kb=Object.keys(Ga).concat([Va,Wa,sb,tb,ub,vb]),Z=[];Z[5121]=1;Z[5126]=4;Z[36193]=2;Z[5123]=2;Z[5125]=4;var w=[];w[32854]=2;w[32855]=2;w[36194]=2;w[34041]=
-4;w[33776]=.5;w[33777]=.5;w[33778]=1;w[33779]=1;w[35986]=.5;w[35987]=1;w[34798]=1;w[35840]=.5;w[35841]=.25;w[35842]=.5;w[35843]=.25;w[36196]=.5;var E=[];E[32854]=2;E[32855]=2;E[36194]=2;E[33189]=2;E[36168]=1;E[34041]=4;E[35907]=4;E[34836]=16;E[34842]=8;E[34843]=6;var Wb=function(a,b,c,e,g){function d(a){this.id=q++;this.refCount=1;this.renderbuffer=a;this.format=32854;this.height=this.width=0;g.profile&&(this.stats={size:0})}function r(b){var c=b.renderbuffer;a.bindRenderbuffer(36161,null);a.deleteRenderbuffer(c);
-b.renderbuffer=null;b.refCount=0;delete t[b.id];e.renderbufferCount--}var n={rgba4:32854,rgb565:36194,"rgb5 a1":32855,depth:33189,stencil:36168,"depth stencil":34041};b.ext_srgb&&(n.srgba=35907);b.ext_color_buffer_half_float&&(n.rgba16f=34842,n.rgb16f=34843);b.webgl_color_buffer_float&&(n.rgba32f=34836);var u=[];Object.keys(n).forEach(function(a){u[n[a]]=a});var q=0,t={};d.prototype.decRef=function(){0>=--this.refCount&&r(this)};g.profile&&(e.getTotalRenderbufferSize=function(){var a=0;Object.keys(t).forEach(function(b){a+=
-t[b].stats.size});return a});return{create:function(b,c){function k(b,c){var d=0,e=0,m=32854;"object"===typeof b&&b?("shape"in b?(e=b.shape,d=e[0]|0,e=e[1]|0):("radius"in b&&(d=e=b.radius|0),"width"in b&&(d=b.width|0),"height"in b&&(e=b.height|0)),"format"in b&&(m=n[b.format])):"number"===typeof b?(d=b|0,e="number"===typeof c?c|0:d):b||(d=e=1);if(d!==h.width||e!==h.height||m!==h.format)return k.width=h.width=d,k.height=h.height=e,h.format=m,a.bindRenderbuffer(36161,h.renderbuffer),a.renderbufferStorage(36161,
-m,d,e),g.profile&&(h.stats.size=E[h.format]*h.width*h.height),k.format=u[h.format],k}var h=new d(a.createRenderbuffer());t[h.id]=h;e.renderbufferCount++;k(b,c);k.resize=function(b,c){var d=b|0,e=c|0||d;if(d===h.width&&e===h.height)return k;k.width=h.width=d;k.height=h.height=e;a.bindRenderbuffer(36161,h.renderbuffer);a.renderbufferStorage(36161,h.format,d,e);g.profile&&(h.stats.size=E[h.format]*h.width*h.height);return k};k._reglType="renderbuffer";k._renderbuffer=h;g.profile&&(k.stats=h.stats);k.destroy=
-function(){h.decRef()};return k},clear:function(){J(t).forEach(r)},restore:function(){J(t).forEach(function(b){b.renderbuffer=a.createRenderbuffer();a.bindRenderbuffer(36161,b.renderbuffer);a.renderbufferStorage(36161,b.format,b.width,b.height)});a.bindRenderbuffer(36161,null)}}},Xa=[];Xa[6408]=4;Xa[6407]=3;var Na=[];Na[5121]=1;Na[5126]=4;Na[36193]=2;var Ba=["x","y","z","w"],Ub="blend.func blend.equation stencil.func stencil.opFront stencil.opBack sample.coverage viewport scissor.box polygonOffset.offset".split(" "),
-Ea={0:0,1:1,zero:0,one:1,"src color":768,"one minus src color":769,"src alpha":770,"one minus src alpha":771,"dst color":774,"one minus dst color":775,"dst alpha":772,"one minus dst alpha":773,"constant color":32769,"one minus constant color":32770,"constant alpha":32771,"one minus constant alpha":32772,"src alpha saturate":776},$a={never:512,less:513,"<":513,equal:514,"=":514,"==":514,"===":514,lequal:515,"<=":515,greater:516,">":516,notequal:517,"!=":517,"!==":517,gequal:518,">=":518,always:519},
-Pa={0:0,zero:0,keep:7680,replace:7681,increment:7682,decrement:7683,"increment wrap":34055,"decrement wrap":34056,invert:5386},xb={cw:2304,ccw:2305},yb=new P(!1,!1,!1,function(){}),Xb=function(a,b){function c(){this.endQueryIndex=this.startQueryIndex=-1;this.sum=0;this.stats=null}function e(a,b,d){var e=r.pop()||new c;e.startQueryIndex=a;e.endQueryIndex=b;e.sum=0;e.stats=d;n.push(e)}if(!b.ext_disjoint_timer_query)return null;var g=[],d=[],r=[],n=[],u=[],q=[];return{beginQuery:function(a){var c=g.pop()||
-b.ext_disjoint_timer_query.createQueryEXT();b.ext_disjoint_timer_query.beginQueryEXT(35007,c);d.push(c);e(d.length-1,d.length,a)},endQuery:function(){b.ext_disjoint_timer_query.endQueryEXT(35007)},pushScopeStats:e,update:function(){var a,c;a=d.length;if(0!==a){q.length=Math.max(q.length,a+1);u.length=Math.max(u.length,a+1);u[0]=0;var e=q[0]=0;for(c=a=0;c<d.length;++c){var k=d[c];b.ext_disjoint_timer_query.getQueryObjectEXT(k,34919)?(e+=b.ext_disjoint_timer_query.getQueryObjectEXT(k,34918),g.push(k)):
-d[a++]=k;u[c+1]=e;q[c+1]=a}d.length=a;for(c=a=0;c<n.length;++c){var e=n[c],h=e.startQueryIndex,k=e.endQueryIndex;e.sum+=u[k]-u[h];h=q[h];k=q[k];k===h?(e.stats.gpuTime+=e.sum/1E6,r.push(e)):(e.startQueryIndex=h,e.endQueryIndex=k,n[a++]=e)}n.length=a}},getNumPendingQueries:function(){return d.length},clear:function(){g.push.apply(g,d);for(var a=0;a<g.length;a++)b.ext_disjoint_timer_query.deleteQueryEXT(g[a]);d.length=0;g.length=0},restore:function(){d.length=0;g.length=0}}};return function(a){function b(){if(0===
-B.length)w&&w.update(),aa=null;else{aa=ab.next(b);t();for(var a=B.length-1;0<=a;--a){var c=B[a];c&&c(A,null,0)}k.flush();w&&w.update()}}function c(){!aa&&0<B.length&&(aa=ab.next(b))}function e(){aa&&(ab.cancel(b),aa=null)}function g(a){a.preventDefault();e();V.forEach(function(a){a()})}function d(a){k.getError();f.restore();D.restore();R.restore();x.restore();N.restore();T.restore();J.restore();w&&w.restore();O.procs.refresh();c();X.forEach(function(a){a()})}function r(a){function b(a){var c={},d=
-{};Object.keys(a).forEach(function(b){var e=a[b];ga.isDynamic(e)?d[b]=ga.unbox(e,b):c[b]=e});return{dynamic:d,"static":c}}function c(a){for(;m.length<a;)m.push(null);return m}var d=b(a.context||{}),e=b(a.uniforms||{}),f=b(a.attributes||{}),g=b(function(a){function b(a){if(a in c){var d=c[a];delete c[a];Object.keys(d).forEach(function(b){c[a+"."+b]=d[b]})}}var c=H({},a);delete c.uniforms;delete c.attributes;delete c.context;delete c.vao;"stencil"in c&&c.stencil.op&&(c.stencil.opBack=c.stencil.opFront=
-c.stencil.op,delete c.stencil.op);b("blend");b("depth");b("cull");b("stencil");b("polygonOffset");b("scissor");b("sample");"vao"in a&&(c.vao=a.vao);return c}(a));a={gpuTime:0,cpuTime:0,count:0};var d=O.compile(g,f,e,d,a),h=d.draw,k=d.batch,l=d.scope,m=[];return H(function(a,b){var d;if("function"===typeof a)return l.call(this,null,a,0);if("function"===typeof b)if("number"===typeof a)for(d=0;d<a;++d)l.call(this,null,b,d);else if(Array.isArray(a))for(d=0;d<a.length;++d)l.call(this,a[d],b,d);else return l.call(this,
-a,b,0);else if("number"===typeof a){if(0<a)return k.call(this,c(a|0),a|0)}else if(Array.isArray(a)){if(a.length)return k.call(this,a,a.length)}else return h.call(this,a)},{stats:a})}function n(a,b){var c=0;O.procs.poll();var d=b.color;d&&(k.clearColor(+d[0]||0,+d[1]||0,+d[2]||0,+d[3]||0),c|=16384);"depth"in b&&(k.clearDepth(+b.depth),c|=256);"stencil"in b&&(k.clearStencil(b.stencil|0),c|=1024);k.clear(c)}function u(a){B.push(a);c();return{cancel:function(){function b(){var a=zb(B,b);B[a]=B[B.length-
-1];--B.length;0>=B.length&&e()}var c=zb(B,a);B[c]=b}}}function q(){var a=S.viewport,b=S.scissor_box;a[0]=a[1]=b[0]=b[1]=0;A.viewportWidth=A.framebufferWidth=A.drawingBufferWidth=a[2]=b[2]=k.drawingBufferWidth;A.viewportHeight=A.framebufferHeight=A.drawingBufferHeight=a[3]=b[3]=k.drawingBufferHeight}function t(){A.tick+=1;A.time=z();q();O.procs.poll()}function m(){q();O.procs.refresh();w&&w.update()}function z(){return(Ab()-C)/1E3}a=Fb(a);if(!a)return null;var k=a.gl,h=k.getContextAttributes();k.isContextLost();
-var f=Gb(k,a);if(!f)return null;var p=Cb(),l={vaoCount:0,bufferCount:0,elementsCount:0,framebufferCount:0,shaderCount:0,textureCount:0,cubeCount:0,renderbufferCount:0,maxTextureUnits:0},v=f.extensions,w=Xb(k,v),C=Ab(),E=k.drawingBufferWidth,L=k.drawingBufferHeight,A={tick:0,time:0,viewportWidth:E,viewportHeight:L,framebufferWidth:E,framebufferHeight:L,drawingBufferWidth:E,drawingBufferHeight:L,pixelRatio:a.pixelRatio},G=Vb(k,v),R=Hb(k,l,a,function(a){return J.destroyBuffer(a)}),J=Pb(k,v,G,l,R),P=
-Ib(k,v,R,l),D=Qb(k,p,l,a),x=Lb(k,v,G,function(){O.procs.poll()},A,l,a),N=Wb(k,v,G,l,a),T=Ob(k,v,G,x,N,l),O=Tb(k,p,v,G,R,P,x,T,{},J,D,{elements:null,primitive:4,count:-1,offset:0,instances:-1},A,w,a),p=Rb(k,T,O.procs.poll,A,h,v,G),S=O.next,K=k.canvas,B=[],V=[],X=[],Y=[a.onDestroy],aa=null;K&&(K.addEventListener("webglcontextlost",g,!1),K.addEventListener("webglcontextrestored",d,!1));var Z=T.setFBO=r({framebuffer:ga.define.call(null,1,"framebuffer")});m();h=H(r,{clear:function(a){if("framebuffer"in
-a)if(a.framebuffer&&"framebufferCube"===a.framebuffer_reglType)for(var b=0;6>b;++b)Z(H({framebuffer:a.framebuffer.faces[b]},a),n);else Z(a,n);else n(null,a)},prop:ga.define.bind(null,1),context:ga.define.bind(null,2),"this":ga.define.bind(null,3),draw:r({}),buffer:function(a){return R.create(a,34962,!1,!1)},elements:function(a){return P.create(a,!1)},texture:x.create2D,cube:x.createCube,renderbuffer:N.create,framebuffer:T.create,framebufferCube:T.createCube,vao:J.createVAO,attributes:h,frame:u,on:function(a,
-b){var c;switch(a){case "frame":return u(b);case "lost":c=V;break;case "restore":c=X;break;case "destroy":c=Y}c.push(b);return{cancel:function(){for(var a=0;a<c.length;++a)if(c[a]===b){c[a]=c[c.length-1];c.pop();break}}}},limits:G,hasExtension:function(a){return 0<=G.extensions.indexOf(a.toLowerCase())},read:p,destroy:function(){B.length=0;e();K&&(K.removeEventListener("webglcontextlost",g),K.removeEventListener("webglcontextrestored",d));D.clear();T.clear();N.clear();x.clear();P.clear();R.clear();
-J.clear();w&&w.clear();Y.forEach(function(a){a()})},_gl:k,_refresh:m,poll:function(){t();w&&w.update()},now:z,stats:l});a.onDone(null,h);return h}});
+},{"array-bounds":14,"array-range":16,"flatten-vertex-data":160,"parse-rect":239,"pick-by-alias":245,"raf":260,"regl-scatter2d":273}],278:[function(_dereq_,module,exports){
+(function(U,X){"object"===typeof exports&&"undefined"!==typeof module?module.exports=X():"function"===typeof define&&define.amd?define(X):U.createREGL=X()})(this,function(){function U(a,b){this.id=Eb++;this.type=a;this.data=b}function X(a){if(0===a.length)return[];var b=a.charAt(0),c=a.charAt(a.length-1);if(1<a.length&&b===c&&('"'===b||"'"===b))return['"'+a.substr(1,a.length-2).replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"'];if(b=/\[(false|true|null|\d+|'[^']*'|"[^"]*")\]/.exec(a))return X(a.substr(0,
+b.index)).concat(X(b[1])).concat(X(a.substr(b.index+b[0].length)));b=a.split(".");if(1===b.length)return['"'+a.replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"'];a=[];for(c=0;c<b.length;++c)a=a.concat(X(b[c]));return a}function cb(a){return"["+X(a).join("][")+"]"}function db(a,b){if("function"===typeof a)return new U(0,a);if("number"===typeof a||"boolean"===typeof a)return new U(5,a);if(Array.isArray(a))return new U(6,a.map(function(a,e){return db(a,b+"["+e+"]")}));if(a instanceof U)return a}function Fb(){var a=
+{"":0},b=[""];return{id:function(c){var e=a[c];if(e)return e;e=a[c]=b.length;b.push(c);return e},str:function(a){return b[a]}}}function Gb(a,b,c){function e(){var b=window.innerWidth,e=window.innerHeight;a!==document.body&&(e=a.getBoundingClientRect(),b=e.right-e.left,e=e.bottom-e.top);f.width=c*b;f.height=c*e;A(f.style,{width:b+"px",height:e+"px"})}var f=document.createElement("canvas");A(f.style,{border:0,margin:0,padding:0,top:0,left:0});a.appendChild(f);a===document.body&&(f.style.position="absolute",
+A(a.style,{margin:0,padding:0}));var d;a!==document.body&&"function"===typeof ResizeObserver?(d=new ResizeObserver(function(){setTimeout(e)}),d.observe(a)):window.addEventListener("resize",e,!1);e();return{canvas:f,onDestroy:function(){d?d.disconnect():window.removeEventListener("resize",e);a.removeChild(f)}}}function Hb(a,b){function c(c){try{return a.getContext(c,b)}catch(f){return null}}return c("webgl")||c("experimental-webgl")||c("webgl-experimental")}function eb(a){return"string"===typeof a?
+a.split():a}function fb(a){return"string"===typeof a?document.querySelector(a):a}function Ib(a){var b=a||{},c,e,f,d;a={};var p=[],n=[],u="undefined"===typeof window?1:window.devicePixelRatio,t=!1,w=function(a){},k=function(){};"string"===typeof b?c=document.querySelector(b):"object"===typeof b&&("string"===typeof b.nodeName&&"function"===typeof b.appendChild&&"function"===typeof b.getBoundingClientRect?c=b:"function"===typeof b.drawArrays||"function"===typeof b.drawElements?(d=b,f=d.canvas):("gl"in
+b?d=b.gl:"canvas"in b?f=fb(b.canvas):"container"in b&&(e=fb(b.container)),"attributes"in b&&(a=b.attributes),"extensions"in b&&(p=eb(b.extensions)),"optionalExtensions"in b&&(n=eb(b.optionalExtensions)),"onDone"in b&&(w=b.onDone),"profile"in b&&(t=!!b.profile),"pixelRatio"in b&&(u=+b.pixelRatio)));c&&("canvas"===c.nodeName.toLowerCase()?f=c:e=c);if(!d){if(!f){c=Gb(e||document.body,w,u);if(!c)return null;f=c.canvas;k=c.onDestroy}void 0===a.premultipliedAlpha&&(a.premultipliedAlpha=!0);d=Hb(f,a)}return d?
+{gl:d,canvas:f,container:e,extensions:p,optionalExtensions:n,pixelRatio:u,profile:t,onDone:w,onDestroy:k}:(k(),w("webgl not supported, try upgrading your browser or graphics drivers http://get.webgl.org"),null)}function Jb(a,b){function c(b){b=b.toLowerCase();var c;try{c=e[b]=a.getExtension(b)}catch(f){}return!!c}for(var e={},f=0;f<b.extensions.length;++f){var d=b.extensions[f];if(!c(d))return b.onDestroy(),b.onDone('"'+d+'" extension is not supported by the current WebGL context, try upgrading your system or a different browser'),
+null}b.optionalExtensions.forEach(c);return{extensions:e,restore:function(){Object.keys(e).forEach(function(a){if(e[a]&&!c(a))throw Error("(regl): error restoring extension "+a);})}}}function J(a,b){for(var c=Array(a),e=0;e<a;++e)c[e]=b(e);return c}function gb(a){var b,c;b=(65535<a)<<4;a>>>=b;c=(255<a)<<3;a>>>=c;b|=c;c=(15<a)<<2;a>>>=c;b|=c;c=(3<a)<<1;return b|c|a>>>c>>1}function hb(){function a(a){a:{for(var b=16;268435456>=b;b*=16)if(a<=b){a=b;break a}a=0}b=c[gb(a)>>2];return 0<b.length?b.pop():
+new ArrayBuffer(a)}function b(a){c[gb(a.byteLength)>>2].push(a)}var c=J(8,function(){return[]});return{alloc:a,free:b,allocType:function(b,c){var d=null;switch(b){case 5120:d=new Int8Array(a(c),0,c);break;case 5121:d=new Uint8Array(a(c),0,c);break;case 5122:d=new Int16Array(a(2*c),0,c);break;case 5123:d=new Uint16Array(a(2*c),0,c);break;case 5124:d=new Int32Array(a(4*c),0,c);break;case 5125:d=new Uint32Array(a(4*c),0,c);break;case 5126:d=new Float32Array(a(4*c),0,c);break;default:return null}return d.length!==
+c?d.subarray(0,c):d},freeType:function(a){b(a.buffer)}}}function da(a){return!!a&&"object"===typeof a&&Array.isArray(a.shape)&&Array.isArray(a.stride)&&"number"===typeof a.offset&&a.shape.length===a.stride.length&&(Array.isArray(a.data)||M(a.data))}function ib(a,b,c,e,f,d){for(var p=0;p<b;++p)for(var n=a[p],u=0;u<c;++u)for(var t=n[u],w=0;w<e;++w)f[d++]=t[w]}function jb(a,b,c,e,f){for(var d=1,p=c+1;p<b.length;++p)d*=b[p];var n=b[c];if(4===b.length-c){var u=b[c+1],t=b[c+2];b=b[c+3];for(p=0;p<n;++p)ib(a[p],
+u,t,b,e,f),f+=d}else for(p=0;p<n;++p)jb(a[p],b,c+1,e,f),f+=d}function Fa(a){return Ga[Object.prototype.toString.call(a)]|0}function kb(a,b){for(var c=0;c<b.length;++c)a[c]=b[c]}function lb(a,b,c,e,f,d,p){for(var n=0,u=0;u<c;++u)for(var t=0;t<e;++t)a[n++]=b[f*u+d*t+p]}function Kb(a,b,c,e){function f(b){this.id=u++;this.buffer=a.createBuffer();this.type=b;this.usage=35044;this.byteLength=0;this.dimension=1;this.dtype=5121;this.persistentData=null;c.profile&&(this.stats={size:0})}function d(b,c,l){b.byteLength=
+c.byteLength;a.bufferData(b.type,c,l)}function p(a,b,c,h,g,q){a.usage=c;if(Array.isArray(b)){if(a.dtype=h||5126,0<b.length)if(Array.isArray(b[0])){g=mb(b);for(var r=h=1;r<g.length;++r)h*=g[r];a.dimension=h;b=Sa(b,g,a.dtype);d(a,b,c);q?a.persistentData=b:E.freeType(b)}else"number"===typeof b[0]?(a.dimension=g,g=E.allocType(a.dtype,b.length),kb(g,b),d(a,g,c),q?a.persistentData=g:E.freeType(g)):M(b[0])&&(a.dimension=b[0].length,a.dtype=h||Fa(b[0])||5126,b=Sa(b,[b.length,b[0].length],a.dtype),d(a,b,c),
+q?a.persistentData=b:E.freeType(b))}else if(M(b))a.dtype=h||Fa(b),a.dimension=g,d(a,b,c),q&&(a.persistentData=new Uint8Array(new Uint8Array(b.buffer)));else if(da(b)){g=b.shape;var m=b.stride,r=b.offset,e=0,f=0,t=0,n=0;1===g.length?(e=g[0],f=1,t=m[0],n=0):2===g.length&&(e=g[0],f=g[1],t=m[0],n=m[1]);a.dtype=h||Fa(b.data)||5126;a.dimension=f;g=E.allocType(a.dtype,e*f);lb(g,b.data,e,f,t,n,r);d(a,g,c);q?a.persistentData=g:E.freeType(g)}else b instanceof ArrayBuffer&&(a.dtype=5121,a.dimension=g,d(a,b,
+c),q&&(a.persistentData=new Uint8Array(new Uint8Array(b))))}function n(c){b.bufferCount--;e(c);a.deleteBuffer(c.buffer);c.buffer=null;delete t[c.id]}var u=0,t={};f.prototype.bind=function(){a.bindBuffer(this.type,this.buffer)};f.prototype.destroy=function(){n(this)};var w=[];c.profile&&(b.getTotalBufferSize=function(){var a=0;Object.keys(t).forEach(function(b){a+=t[b].stats.size});return a});return{create:function(k,e,d,h){function g(b){var m=35044,k=null,e=0,d=0,f=1;Array.isArray(b)||M(b)||da(b)||
+b instanceof ArrayBuffer?k=b:"number"===typeof b?e=b|0:b&&("data"in b&&(k=b.data),"usage"in b&&(m=ob[b.usage]),"type"in b&&(d=Ia[b.type]),"dimension"in b&&(f=b.dimension|0),"length"in b&&(e=b.length|0));q.bind();k?p(q,k,m,d,f,h):(e&&a.bufferData(q.type,e,m),q.dtype=d||5121,q.usage=m,q.dimension=f,q.byteLength=e);c.profile&&(q.stats.size=q.byteLength*ha[q.dtype]);return g}b.bufferCount++;var q=new f(e);t[q.id]=q;d||g(k);g._reglType="buffer";g._buffer=q;g.subdata=function(b,c){var k=(c||0)|0,e;q.bind();
+if(M(b)||b instanceof ArrayBuffer)a.bufferSubData(q.type,k,b);else if(Array.isArray(b)){if(0<b.length)if("number"===typeof b[0]){var h=E.allocType(q.dtype,b.length);kb(h,b);a.bufferSubData(q.type,k,h);E.freeType(h)}else if(Array.isArray(b[0])||M(b[0]))e=mb(b),h=Sa(b,e,q.dtype),a.bufferSubData(q.type,k,h),E.freeType(h)}else if(da(b)){e=b.shape;var d=b.stride,f=h=0,l=0,O=0;1===e.length?(h=e[0],f=1,l=d[0],O=0):2===e.length&&(h=e[0],f=e[1],l=d[0],O=d[1]);e=Array.isArray(b.data)?q.dtype:Fa(b.data);e=E.allocType(e,
+h*f);lb(e,b.data,h,f,l,O,b.offset);a.bufferSubData(q.type,k,e);E.freeType(e)}return g};c.profile&&(g.stats=q.stats);g.destroy=function(){n(q)};return g},createStream:function(a,b){var c=w.pop();c||(c=new f(a));c.bind();p(c,b,35040,0,1,!1);return c},destroyStream:function(a){w.push(a)},clear:function(){S(t).forEach(n);w.forEach(n)},getBuffer:function(a){return a&&a._buffer instanceof f?a._buffer:null},restore:function(){S(t).forEach(function(b){b.buffer=a.createBuffer();a.bindBuffer(b.type,b.buffer);
+a.bufferData(b.type,b.persistentData||b.byteLength,b.usage)})},_initBuffer:p}}function Lb(a,b,c,e){function f(a){this.id=u++;n[this.id]=this;this.buffer=a;this.primType=4;this.type=this.vertCount=0}function d(e,d,f,h,g,q,r){e.buffer.bind();var m;d?((m=r)||M(d)&&(!da(d)||M(d.data))||(m=b.oes_element_index_uint?5125:5123),c._initBuffer(e.buffer,d,f,m,3)):(a.bufferData(34963,q,f),e.buffer.dtype=m||5121,e.buffer.usage=f,e.buffer.dimension=3,e.buffer.byteLength=q);m=r;if(!r){switch(e.buffer.dtype){case 5121:case 5120:m=
+5121;break;case 5123:case 5122:m=5123;break;case 5125:case 5124:m=5125}e.buffer.dtype=m}e.type=m;d=g;0>d&&(d=e.buffer.byteLength,5123===m?d>>=1:5125===m&&(d>>=2));e.vertCount=d;d=h;0>h&&(d=4,h=e.buffer.dimension,1===h&&(d=0),2===h&&(d=1),3===h&&(d=4));e.primType=d}function p(a){e.elementsCount--;delete n[a.id];a.buffer.destroy();a.buffer=null}var n={},u=0,t={uint8:5121,uint16:5123};b.oes_element_index_uint&&(t.uint32=5125);f.prototype.bind=function(){this.buffer.bind()};var w=[];return{create:function(a,
+b){function l(a){if(a)if("number"===typeof a)h(a),g.primType=4,g.vertCount=a|0,g.type=5121;else{var b=null,c=35044,e=-1,f=-1,k=0,n=0;if(Array.isArray(a)||M(a)||da(a))b=a;else if("data"in a&&(b=a.data),"usage"in a&&(c=ob[a.usage]),"primitive"in a&&(e=Ta[a.primitive]),"count"in a&&(f=a.count|0),"type"in a&&(n=t[a.type]),"length"in a)k=a.length|0;else if(k=f,5123===n||5122===n)k*=2;else if(5125===n||5124===n)k*=4;d(g,b,c,e,f,k,n)}else h(),g.primType=4,g.vertCount=0,g.type=5121;return l}var h=c.create(null,
+34963,!0),g=new f(h._buffer);e.elementsCount++;l(a);l._reglType="elements";l._elements=g;l.subdata=function(a,b){h.subdata(a,b);return l};l.destroy=function(){p(g)};return l},createStream:function(a){var b=w.pop();b||(b=new f(c.create(null,34963,!0,!1)._buffer));d(b,a,35040,-1,-1,0,0);return b},destroyStream:function(a){w.push(a)},getElements:function(a){return"function"===typeof a&&a._elements instanceof f?a._elements:null},clear:function(){S(n).forEach(p)}}}function pb(a){for(var b=E.allocType(5123,
+a.length),c=0;c<a.length;++c)if(isNaN(a[c]))b[c]=65535;else if(Infinity===a[c])b[c]=31744;else if(-Infinity===a[c])b[c]=64512;else{qb[0]=a[c];var e=Mb[0],f=e>>>31<<15,d=(e<<1>>>24)-127,e=e>>13&1023;b[c]=-24>d?f:-14>d?f+(e+1024>>-14-d):15<d?f+31744:f+(d+15<<10)+e}return b}function ma(a){return Array.isArray(a)||M(a)}function na(a){return"[object "+a+"]"}function rb(a){return Array.isArray(a)&&(0===a.length||"number"===typeof a[0])}function sb(a){return Array.isArray(a)&&0!==a.length&&ma(a[0])?!0:!1}
+function ea(a){return Object.prototype.toString.call(a)}function Ua(a){if(!a)return!1;var b=ea(a);return 0<=Nb.indexOf(b)?!0:rb(a)||sb(a)||da(a)}function tb(a,b){36193===a.type?(a.data=pb(b),E.freeType(b)):a.data=b}function Ja(a,b,c,e,f,d){a="undefined"!==typeof F[a]?F[a]:Q[a]*wa[b];d&&(a*=6);if(f){for(e=0;1<=c;)e+=a*c*c,c/=2;return e}return a*c*e}function Ob(a,b,c,e,f,d,p){function n(){this.format=this.internalformat=6408;this.type=5121;this.flipY=this.premultiplyAlpha=this.compressed=!1;this.unpackAlignment=
+1;this.colorSpace=37444;this.channels=this.height=this.width=0}function u(a,b){a.internalformat=b.internalformat;a.format=b.format;a.type=b.type;a.compressed=b.compressed;a.premultiplyAlpha=b.premultiplyAlpha;a.flipY=b.flipY;a.unpackAlignment=b.unpackAlignment;a.colorSpace=b.colorSpace;a.width=b.width;a.height=b.height;a.channels=b.channels}function t(a,b){if("object"===typeof b&&b){"premultiplyAlpha"in b&&(a.premultiplyAlpha=b.premultiplyAlpha);"flipY"in b&&(a.flipY=b.flipY);"alignment"in b&&(a.unpackAlignment=
+b.alignment);"colorSpace"in b&&(a.colorSpace=Pb[b.colorSpace]);"type"in b&&(a.type=N[b.type]);var c=a.width,g=a.height,e=a.channels,d=!1;"shape"in b?(c=b.shape[0],g=b.shape[1],3===b.shape.length&&(e=b.shape[2],d=!0)):("radius"in b&&(c=g=b.radius),"width"in b&&(c=b.width),"height"in b&&(g=b.height),"channels"in b&&(e=b.channels,d=!0));a.width=c|0;a.height=g|0;a.channels=e|0;c=!1;"format"in b&&(c=b.format,g=a.internalformat=C[c],a.format=P[g],c in N&&!("type"in b)&&(a.type=N[c]),c in v&&(a.compressed=
+!0),c=!0);!d&&c?a.channels=Q[a.format]:d&&!c&&a.channels!==Ma[a.format]&&(a.format=a.internalformat=Ma[a.channels])}}function w(b){a.pixelStorei(37440,b.flipY);a.pixelStorei(37441,b.premultiplyAlpha);a.pixelStorei(37443,b.colorSpace);a.pixelStorei(3317,b.unpackAlignment)}function k(){n.call(this);this.yOffset=this.xOffset=0;this.data=null;this.needsFree=!1;this.element=null;this.needsCopy=!1}function B(a,b){var c=null;Ua(b)?c=b:b&&(t(a,b),"x"in b&&(a.xOffset=b.x|0),"y"in b&&(a.yOffset=b.y|0),Ua(b.data)&&
+(c=b.data));if(b.copy){var g=f.viewportWidth,e=f.viewportHeight;a.width=a.width||g-a.xOffset;a.height=a.height||e-a.yOffset;a.needsCopy=!0}else if(!c)a.width=a.width||1,a.height=a.height||1,a.channels=a.channels||4;else if(M(c))a.channels=a.channels||4,a.data=c,"type"in b||5121!==a.type||(a.type=Ga[Object.prototype.toString.call(c)]|0);else if(rb(c)){a.channels=a.channels||4;g=c;e=g.length;switch(a.type){case 5121:case 5123:case 5125:case 5126:e=E.allocType(a.type,e);e.set(g);a.data=e;break;case 36193:a.data=
+pb(g)}a.alignment=1;a.needsFree=!0}else if(da(c)){g=c.data;Array.isArray(g)||5121!==a.type||(a.type=Ga[Object.prototype.toString.call(g)]|0);var e=c.shape,d=c.stride,h,r,m,q;3===e.length?(m=e[2],q=d[2]):q=m=1;h=e[0];r=e[1];e=d[0];d=d[1];a.alignment=1;a.width=h;a.height=r;a.channels=m;a.format=a.internalformat=Ma[m];a.needsFree=!0;h=q;c=c.offset;m=a.width;q=a.height;r=a.channels;for(var x=E.allocType(36193===a.type?5126:a.type,m*q*r),I=0,ja=0;ja<q;++ja)for(var ka=0;ka<m;++ka)for(var Va=0;Va<r;++Va)x[I++]=
+g[e*ka+d*ja+h*Va+c];tb(a,x)}else if(ea(c)===Wa||ea(c)===Xa||ea(c)===vb)ea(c)===Wa||ea(c)===Xa?a.element=c:a.element=c.canvas,a.width=a.element.width,a.height=a.element.height,a.channels=4;else if(ea(c)===wb)a.element=c,a.width=c.width,a.height=c.height,a.channels=4;else if(ea(c)===xb)a.element=c,a.width=c.naturalWidth,a.height=c.naturalHeight,a.channels=4;else if(ea(c)===yb)a.element=c,a.width=c.videoWidth,a.height=c.videoHeight,a.channels=4;else if(sb(c)){g=a.width||c[0].length;e=a.height||c.length;
+d=a.channels;d=ma(c[0][0])?d||c[0][0].length:d||1;h=Oa.shape(c);m=1;for(q=0;q<h.length;++q)m*=h[q];m=E.allocType(36193===a.type?5126:a.type,m);Oa.flatten(c,h,"",m);tb(a,m);a.alignment=1;a.width=g;a.height=e;a.channels=d;a.format=a.internalformat=Ma[d];a.needsFree=!0}}function l(b,c,g,d,h){var m=b.element,f=b.data,r=b.internalformat,q=b.format,l=b.type,x=b.width,I=b.height;w(b);m?a.texSubImage2D(c,h,g,d,q,l,m):b.compressed?a.compressedTexSubImage2D(c,h,g,d,r,x,I,f):b.needsCopy?(e(),a.copyTexSubImage2D(c,
+h,g,d,b.xOffset,b.yOffset,x,I)):a.texSubImage2D(c,h,g,d,x,I,q,l,f)}function h(){return J.pop()||new k}function g(a){a.needsFree&&E.freeType(a.data);k.call(a);J.push(a)}function q(){n.call(this);this.genMipmaps=!1;this.mipmapHint=4352;this.mipmask=0;this.images=Array(16)}function r(a,b,c){var g=a.images[0]=h();a.mipmask=1;g.width=a.width=b;g.height=a.height=c;g.channels=a.channels=4}function m(a,b){var c=null;if(Ua(b))c=a.images[0]=h(),u(c,a),B(c,b),a.mipmask=1;else if(t(a,b),Array.isArray(b.mipmap))for(var g=
+b.mipmap,e=0;e<g.length;++e)c=a.images[e]=h(),u(c,a),c.width>>=e,c.height>>=e,B(c,g[e]),a.mipmask|=1<<e;else c=a.images[0]=h(),u(c,a),B(c,b),a.mipmask=1;u(a,a.images[0])}function z(b,c){for(var g=b.images,d=0;d<g.length&&g[d];++d){var h=g[d],m=c,f=d,r=h.element,q=h.data,l=h.internalformat,x=h.format,I=h.type,ja=h.width,ka=h.height;w(h);r?a.texImage2D(m,f,x,x,I,r):h.compressed?a.compressedTexImage2D(m,f,l,ja,ka,0,q):h.needsCopy?(e(),a.copyTexImage2D(m,f,x,h.xOffset,h.yOffset,ja,ka,0)):a.texImage2D(m,
+f,x,ja,ka,0,x,I,q||null)}}function Ha(){var a=L.pop()||new q;n.call(a);for(var b=a.mipmask=0;16>b;++b)a.images[b]=null;return a}function nb(a){for(var b=a.images,c=0;c<b.length;++c)b[c]&&g(b[c]),b[c]=null;L.push(a)}function Z(){this.magFilter=this.minFilter=9728;this.wrapT=this.wrapS=33071;this.anisotropic=1;this.genMipmaps=!1;this.mipmapHint=4352}function G(a,b){"min"in b&&(a.minFilter=R[b.min],0<=Qb.indexOf(a.minFilter)&&!("faces"in b)&&(a.genMipmaps=!0));"mag"in b&&(a.magFilter=V[b.mag]);var c=
+a.wrapS,g=a.wrapT;if("wrap"in b){var e=b.wrap;"string"===typeof e?c=g=la[e]:Array.isArray(e)&&(c=la[e[0]],g=la[e[1]])}else"wrapS"in b&&(c=la[b.wrapS]),"wrapT"in b&&(g=la[b.wrapT]);a.wrapS=c;a.wrapT=g;"anisotropic"in b&&(a.anisotropic=b.anisotropic);if("mipmap"in b){c=!1;switch(typeof b.mipmap){case "string":a.mipmapHint=y[b.mipmap];c=a.genMipmaps=!0;break;case "boolean":c=a.genMipmaps=b.mipmap;break;case "object":a.genMipmaps=!1,c=!0}!c||"min"in b||(a.minFilter=9984)}}function H(c,g){a.texParameteri(g,
+10241,c.minFilter);a.texParameteri(g,10240,c.magFilter);a.texParameteri(g,10242,c.wrapS);a.texParameteri(g,10243,c.wrapT);b.ext_texture_filter_anisotropic&&a.texParameteri(g,34046,c.anisotropic);c.genMipmaps&&(a.hint(33170,c.mipmapHint),a.generateMipmap(g))}function O(b){n.call(this);this.mipmask=0;this.internalformat=6408;this.id=Y++;this.refCount=1;this.target=b;this.texture=a.createTexture();this.unit=-1;this.bindCount=0;this.texInfo=new Z;p.profile&&(this.stats={size:0})}function xa(b){a.activeTexture(33984);
+a.bindTexture(b.target,b.texture)}function ya(){var b=W[0];b?a.bindTexture(b.target,b.texture):a.bindTexture(3553,null)}function D(b){var c=b.texture,g=b.unit,e=b.target;0<=g&&(a.activeTexture(33984+g),a.bindTexture(e,null),W[g]=null);a.deleteTexture(c);b.texture=null;b.params=null;b.pixels=null;b.refCount=0;delete ia[b.id];d.textureCount--}var y={"don't care":4352,"dont care":4352,nice:4354,fast:4353},la={repeat:10497,clamp:33071,mirror:33648},V={nearest:9728,linear:9729},R=A({mipmap:9987,"nearest mipmap nearest":9984,
+"linear mipmap nearest":9985,"nearest mipmap linear":9986,"linear mipmap linear":9987},V),Pb={none:0,browser:37444},N={uint8:5121,rgba4:32819,rgb565:33635,"rgb5 a1":32820},C={alpha:6406,luminance:6409,"luminance alpha":6410,rgb:6407,rgba:6408,rgba4:32854,"rgb5 a1":32855,rgb565:36194},v={};b.ext_srgb&&(C.srgb=35904,C.srgba=35906);b.oes_texture_float&&(N.float32=N["float"]=5126);b.oes_texture_half_float&&(N.float16=N["half float"]=36193);b.webgl_depth_texture&&(A(C,{depth:6402,"depth stencil":34041}),
+A(N,{uint16:5123,uint32:5125,"depth stencil":34042}));b.webgl_compressed_texture_s3tc&&A(v,{"rgb s3tc dxt1":33776,"rgba s3tc dxt1":33777,"rgba s3tc dxt3":33778,"rgba s3tc dxt5":33779});b.webgl_compressed_texture_atc&&A(v,{"rgb atc":35986,"rgba atc explicit alpha":35987,"rgba atc interpolated alpha":34798});b.webgl_compressed_texture_pvrtc&&A(v,{"rgb pvrtc 4bppv1":35840,"rgb pvrtc 2bppv1":35841,"rgba pvrtc 4bppv1":35842,"rgba pvrtc 2bppv1":35843});b.webgl_compressed_texture_etc1&&(v["rgb etc1"]=36196);
+var F=Array.prototype.slice.call(a.getParameter(34467));Object.keys(v).forEach(function(a){var b=v[a];0<=F.indexOf(b)&&(C[a]=b)});var ta=Object.keys(C);c.textureFormats=ta;var aa=[];Object.keys(C).forEach(function(a){aa[C[a]]=a});var K=[];Object.keys(N).forEach(function(a){K[N[a]]=a});var fa=[];Object.keys(V).forEach(function(a){fa[V[a]]=a});var Da=[];Object.keys(R).forEach(function(a){Da[R[a]]=a});var ua=[];Object.keys(la).forEach(function(a){ua[la[a]]=a});var P=ta.reduce(function(a,c){var g=C[c];
+6409===g||6406===g||6409===g||6410===g||6402===g||34041===g||b.ext_srgb&&(35904===g||35906===g)?a[g]=g:32855===g||0<=c.indexOf("rgba")?a[g]=6408:a[g]=6407;return a},{}),J=[],L=[],Y=0,ia={},ga=c.maxTextureUnits,W=Array(ga).map(function(){return null});A(O.prototype,{bind:function(){this.bindCount+=1;var b=this.unit;if(0>b){for(var c=0;c<ga;++c){var g=W[c];if(g){if(0<g.bindCount)continue;g.unit=-1}W[c]=this;b=c;break}p.profile&&d.maxTextureUnits<b+1&&(d.maxTextureUnits=b+1);this.unit=b;a.activeTexture(33984+
+b);a.bindTexture(this.target,this.texture)}return b},unbind:function(){--this.bindCount},decRef:function(){0>=--this.refCount&&D(this)}});p.profile&&(d.getTotalTextureSize=function(){var a=0;Object.keys(ia).forEach(function(b){a+=ia[b].stats.size});return a});return{create2D:function(b,c){function e(a,b){var c=f.texInfo;Z.call(c);var g=Ha();"number"===typeof a?"number"===typeof b?r(g,a|0,b|0):r(g,a|0,a|0):a?(G(c,a),m(g,a)):r(g,1,1);c.genMipmaps&&(g.mipmask=(g.width<<1)-1);f.mipmask=g.mipmask;u(f,
+g);f.internalformat=g.internalformat;e.width=g.width;e.height=g.height;xa(f);z(g,3553);H(c,3553);ya();nb(g);p.profile&&(f.stats.size=Ja(f.internalformat,f.type,g.width,g.height,c.genMipmaps,!1));e.format=aa[f.internalformat];e.type=K[f.type];e.mag=fa[c.magFilter];e.min=Da[c.minFilter];e.wrapS=ua[c.wrapS];e.wrapT=ua[c.wrapT];return e}var f=new O(3553);ia[f.id]=f;d.textureCount++;e(b,c);e.subimage=function(a,b,c,d){b|=0;c|=0;d|=0;var m=h();u(m,f);m.width=0;m.height=0;B(m,a);m.width=m.width||(f.width>>
+d)-b;m.height=m.height||(f.height>>d)-c;xa(f);l(m,3553,b,c,d);ya();g(m);return e};e.resize=function(b,c){var g=b|0,d=c|0||g;if(g===f.width&&d===f.height)return e;e.width=f.width=g;e.height=f.height=d;xa(f);for(var h=0;f.mipmask>>h;++h){var m=g>>h,x=d>>h;if(!m||!x)break;a.texImage2D(3553,h,f.format,m,x,0,f.format,f.type,null)}ya();p.profile&&(f.stats.size=Ja(f.internalformat,f.type,g,d,!1,!1));return e};e._reglType="texture2d";e._texture=f;p.profile&&(e.stats=f.stats);e.destroy=function(){f.decRef()};
+return e},createCube:function(b,c,e,f,q,n){function k(a,b,c,g,e,d){var f,ca=y.texInfo;Z.call(ca);for(f=0;6>f;++f)D[f]=Ha();if("number"===typeof a||!a)for(a=a|0||1,f=0;6>f;++f)r(D[f],a,a);else if("object"===typeof a)if(b)m(D[0],a),m(D[1],b),m(D[2],c),m(D[3],g),m(D[4],e),m(D[5],d);else if(G(ca,a),t(y,a),"faces"in a)for(a=a.faces,f=0;6>f;++f)u(D[f],y),m(D[f],a[f]);else for(f=0;6>f;++f)m(D[f],a);u(y,D[0]);y.mipmask=ca.genMipmaps?(D[0].width<<1)-1:D[0].mipmask;y.internalformat=D[0].internalformat;k.width=
+D[0].width;k.height=D[0].height;xa(y);for(f=0;6>f;++f)z(D[f],34069+f);H(ca,34067);ya();p.profile&&(y.stats.size=Ja(y.internalformat,y.type,k.width,k.height,ca.genMipmaps,!0));k.format=aa[y.internalformat];k.type=K[y.type];k.mag=fa[ca.magFilter];k.min=Da[ca.minFilter];k.wrapS=ua[ca.wrapS];k.wrapT=ua[ca.wrapT];for(f=0;6>f;++f)nb(D[f]);return k}var y=new O(34067);ia[y.id]=y;d.cubeCount++;var D=Array(6);k(b,c,e,f,q,n);k.subimage=function(a,b,c,e,f){c|=0;e|=0;f|=0;var d=h();u(d,y);d.width=0;d.height=0;
+B(d,b);d.width=d.width||(y.width>>f)-c;d.height=d.height||(y.height>>f)-e;xa(y);l(d,34069+a,c,e,f);ya();g(d);return k};k.resize=function(b){b|=0;if(b!==y.width){k.width=y.width=b;k.height=y.height=b;xa(y);for(var c=0;6>c;++c)for(var g=0;y.mipmask>>g;++g)a.texImage2D(34069+c,g,y.format,b>>g,b>>g,0,y.format,y.type,null);ya();p.profile&&(y.stats.size=Ja(y.internalformat,y.type,k.width,k.height,!1,!0));return k}};k._reglType="textureCube";k._texture=y;p.profile&&(k.stats=y.stats);k.destroy=function(){y.decRef()};
+return k},clear:function(){for(var b=0;b<ga;++b)a.activeTexture(33984+b),a.bindTexture(3553,null),W[b]=null;S(ia).forEach(D);d.cubeCount=0;d.textureCount=0},getTexture:function(a){return null},restore:function(){for(var b=0;b<ga;++b){var c=W[b];c&&(c.bindCount=0,c.unit=-1,W[b]=null)}S(ia).forEach(function(b){b.texture=a.createTexture();a.bindTexture(b.target,b.texture);for(var c=0;32>c;++c)if(0!==(b.mipmask&1<<c))if(3553===b.target)a.texImage2D(3553,c,b.internalformat,b.width>>c,b.height>>c,0,b.internalformat,
+b.type,null);else for(var g=0;6>g;++g)a.texImage2D(34069+g,c,b.internalformat,b.width>>c,b.height>>c,0,b.internalformat,b.type,null);H(b.texInfo,b.target)})},refresh:function(){for(var b=0;b<ga;++b){var c=W[b];c&&(c.bindCount=0,c.unit=-1,W[b]=null);a.activeTexture(33984+b);a.bindTexture(3553,null);a.bindTexture(34067,null)}}}}function Rb(a,b,c,e,f,d){function p(a,b,c){this.target=a;this.texture=b;this.renderbuffer=c;var g=a=0;b?(a=b.width,g=b.height):c&&(a=c.width,g=c.height);this.width=a;this.height=
+g}function n(a){a&&(a.texture&&a.texture._texture.decRef(),a.renderbuffer&&a.renderbuffer._renderbuffer.decRef())}function u(a,b,c){a&&(a.texture?a.texture._texture.refCount+=1:a.renderbuffer._renderbuffer.refCount+=1)}function t(b,c){c&&(c.texture?a.framebufferTexture2D(36160,b,c.target,c.texture._texture.texture,0):a.framebufferRenderbuffer(36160,b,36161,c.renderbuffer._renderbuffer.renderbuffer))}function w(a){var b=3553,c=null,g=null,e=a;"object"===typeof a&&(e=a.data,"target"in a&&(b=a.target|
+0));a=e._reglType;"texture2d"===a?c=e:"textureCube"===a?c=e:"renderbuffer"===a&&(g=e,b=36161);return new p(b,c,g)}function k(a,b,c,g,d){if(c)return a=e.create2D({width:a,height:b,format:g,type:d}),a._texture.refCount=0,new p(3553,a,null);a=f.create({width:a,height:b,format:g});a._renderbuffer.refCount=0;return new p(36161,null,a)}function B(a){return a&&(a.texture||a.renderbuffer)}function l(a,b,c){a&&(a.texture?a.texture.resize(b,c):a.renderbuffer&&a.renderbuffer.resize(b,c),a.width=b,a.height=c)}
+function h(){this.id=G++;H[this.id]=this;this.framebuffer=a.createFramebuffer();this.height=this.width=0;this.colorAttachments=[];this.depthStencilAttachment=this.stencilAttachment=this.depthAttachment=null}function g(a){a.colorAttachments.forEach(n);n(a.depthAttachment);n(a.stencilAttachment);n(a.depthStencilAttachment)}function q(b){a.deleteFramebuffer(b.framebuffer);b.framebuffer=null;d.framebufferCount--;delete H[b.id]}function r(b){var g;a.bindFramebuffer(36160,b.framebuffer);var e=b.colorAttachments;
+for(g=0;g<e.length;++g)t(36064+g,e[g]);for(g=e.length;g<c.maxColorAttachments;++g)a.framebufferTexture2D(36160,36064+g,3553,null,0);a.framebufferTexture2D(36160,33306,3553,null,0);a.framebufferTexture2D(36160,36096,3553,null,0);a.framebufferTexture2D(36160,36128,3553,null,0);t(36096,b.depthAttachment);t(36128,b.stencilAttachment);t(33306,b.depthStencilAttachment);a.checkFramebufferStatus(36160);a.isContextLost();a.bindFramebuffer(36160,z.next?z.next.framebuffer:null);z.cur=z.next;a.getError()}function m(a,
+b){function c(a,b){var f,d=0,h=0,m=!0,q=!0;f=null;var l=!0,n="rgba",t="uint8",p=1,G=null,fa=null,z=null,O=!1;if("number"===typeof a)d=a|0,h=b|0||d;else if(a){"shape"in a?(h=a.shape,d=h[0],h=h[1]):("radius"in a&&(d=h=a.radius),"width"in a&&(d=a.width),"height"in a&&(h=a.height));if("color"in a||"colors"in a)f=a.color||a.colors,Array.isArray(f);if(!f){"colorCount"in a&&(p=a.colorCount|0);"colorTexture"in a&&(l=!!a.colorTexture,n="rgba4");if("colorType"in a&&(t=a.colorType,!l))if("half float"===t||"float16"===
+t)n="rgba16f";else if("float"===t||"float32"===t)n="rgba32f";"colorFormat"in a&&(n=a.colorFormat,0<=Ha.indexOf(n)?l=!0:0<=v.indexOf(n)&&(l=!1))}if("depthTexture"in a||"depthStencilTexture"in a)O=!(!a.depthTexture&&!a.depthStencilTexture);"depth"in a&&("boolean"===typeof a.depth?m=a.depth:(G=a.depth,q=!1));"stencil"in a&&("boolean"===typeof a.stencil?q=a.stencil:(fa=a.stencil,m=!1));"depthStencil"in a&&("boolean"===typeof a.depthStencil?m=q=a.depthStencil:(z=a.depthStencil,q=m=!1))}else d=h=1;var P=
+null,Z=null,H=null,A=null;if(Array.isArray(f))P=f.map(w);else if(f)P=[w(f)];else for(P=Array(p),f=0;f<p;++f)P[f]=k(d,h,l,n,t);d=d||P[0].width;h=h||P[0].height;G?Z=w(G):m&&!q&&(Z=k(d,h,O,"depth","uint32"));fa?H=w(fa):q&&!m&&(H=k(d,h,!1,"stencil","uint8"));z?A=w(z):!G&&!fa&&q&&m&&(A=k(d,h,O,"depth stencil","depth stencil"));m=null;for(f=0;f<P.length;++f)u(P[f],d,h),P[f]&&P[f].texture&&(q=Ya[P[f].texture._texture.format]*Pa[P[f].texture._texture.type],null===m&&(m=q));u(Z,d,h);u(H,d,h);u(A,d,h);g(e);
+e.width=d;e.height=h;e.colorAttachments=P;e.depthAttachment=Z;e.stencilAttachment=H;e.depthStencilAttachment=A;c.color=P.map(B);c.depth=B(Z);c.stencil=B(H);c.depthStencil=B(A);c.width=e.width;c.height=e.height;r(e);return c}var e=new h;d.framebufferCount++;c(a,b);return A(c,{resize:function(a,b){var g=Math.max(a|0,1),f=Math.max(b|0||g,1);if(g===e.width&&f===e.height)return c;for(var d=e.colorAttachments,h=0;h<d.length;++h)l(d[h],g,f);l(e.depthAttachment,g,f);l(e.stencilAttachment,g,f);l(e.depthStencilAttachment,
+g,f);e.width=c.width=g;e.height=c.height=f;r(e);return c},_reglType:"framebuffer",_framebuffer:e,destroy:function(){q(e);g(e)},use:function(a){z.setFBO({framebuffer:c},a)}})}var z={cur:null,next:null,dirty:!1,setFBO:null},Ha=["rgba"],v=["rgba4","rgb565","rgb5 a1"];b.ext_srgb&&v.push("srgba");b.ext_color_buffer_half_float&&v.push("rgba16f","rgb16f");b.webgl_color_buffer_float&&v.push("rgba32f");var Z=["uint8"];b.oes_texture_half_float&&Z.push("half float","float16");b.oes_texture_float&&Z.push("float",
+"float32");var G=0,H={};return A(z,{getFramebuffer:function(a){return"function"===typeof a&&"framebuffer"===a._reglType&&(a=a._framebuffer,a instanceof h)?a:null},create:m,createCube:function(a){function b(a){var g,f={color:null},d=0,h=null;g="rgba";var q="uint8",r=1;if("number"===typeof a)d=a|0;else if(a){"shape"in a?d=a.shape[0]:("radius"in a&&(d=a.radius|0),"width"in a?d=a.width|0:"height"in a&&(d=a.height|0));if("color"in a||"colors"in a)h=a.color||a.colors,Array.isArray(h);h||("colorCount"in
+a&&(r=a.colorCount|0),"colorType"in a&&(q=a.colorType),"colorFormat"in a&&(g=a.colorFormat));"depth"in a&&(f.depth=a.depth);"stencil"in a&&(f.stencil=a.stencil);"depthStencil"in a&&(f.depthStencil=a.depthStencil)}else d=1;if(h)if(Array.isArray(h))for(a=[],g=0;g<h.length;++g)a[g]=h[g];else a=[h];else for(a=Array(r),h={radius:d,format:g,type:q},g=0;g<r;++g)a[g]=e.createCube(h);f.color=Array(a.length);for(g=0;g<a.length;++g)r=a[g],d=d||r.width,f.color[g]={target:34069,data:a[g]};for(g=0;6>g;++g){for(r=
+0;r<a.length;++r)f.color[r].target=34069+g;0<g&&(f.depth=c[0].depth,f.stencil=c[0].stencil,f.depthStencil=c[0].depthStencil);if(c[g])c[g](f);else c[g]=m(f)}return A(b,{width:d,height:d,color:a})}var c=Array(6);b(a);return A(b,{faces:c,resize:function(a){var g=a|0;if(g===b.width)return b;var e=b.color;for(a=0;a<e.length;++a)e[a].resize(g);for(a=0;6>a;++a)c[a].resize(g);b.width=b.height=g;return b},_reglType:"framebufferCube",destroy:function(){c.forEach(function(a){a.destroy()})}})},clear:function(){S(H).forEach(q)},
+restore:function(){z.cur=null;z.next=null;z.dirty=!0;S(H).forEach(function(b){b.framebuffer=a.createFramebuffer();r(b)})}})}function Za(){this.w=this.z=this.y=this.x=this.state=0;this.buffer=null;this.size=0;this.normalized=!1;this.type=5126;this.divisor=this.stride=this.offset=0}function Sb(a,b,c,e,f){function d(a){if(a!==h.currentVAO){var c=b.oes_vertex_array_object;a?c.bindVertexArrayOES(a.vao):c.bindVertexArrayOES(null);h.currentVAO=a}}function p(c){if(c!==h.currentVAO){if(c)c.bindAttrs();else for(var e=
+b.angle_instanced_arrays,f=0;f<k.length;++f){var d=k[f];d.buffer?(a.enableVertexAttribArray(f),a.vertexAttribPointer(f,d.size,d.type,d.normalized,d.stride,d.offfset),e&&d.divisor&&e.vertexAttribDivisorANGLE(f,d.divisor)):(a.disableVertexAttribArray(f),a.vertexAttrib4f(f,d.x,d.y,d.z,d.w))}h.currentVAO=c}}function n(){S(l).forEach(function(a){a.destroy()})}function u(){this.id=++B;this.attributes=[];var a=b.oes_vertex_array_object;this.vao=a?a.createVertexArrayOES():null;l[this.id]=this;this.buffers=
+[]}function t(){b.oes_vertex_array_object&&S(l).forEach(function(a){a.refresh()})}var w=c.maxAttributes,k=Array(w);for(c=0;c<w;++c)k[c]=new Za;var B=0,l={},h={Record:Za,scope:{},state:k,currentVAO:null,targetVAO:null,restore:b.oes_vertex_array_object?t:function(){},createVAO:function(a){function b(a){var g={},e=c.attributes;e.length=a.length;for(var d=0;d<a.length;++d){var h=a[d],k=e[d]=new Za,l=h.data||h;if(Array.isArray(l)||M(l)||da(l)){var n;c.buffers[d]&&(n=c.buffers[d],M(l)&&n._buffer.byteLength>=
+l.byteLength?n.subdata(l):(n.destroy(),c.buffers[d]=null));c.buffers[d]||(n=c.buffers[d]=f.create(h,34962,!1,!0));k.buffer=f.getBuffer(n);k.size=k.buffer.dimension|0;k.normalized=!1;k.type=k.buffer.dtype;k.offset=0;k.stride=0;k.divisor=0;k.state=1;g[d]=1}else f.getBuffer(h)?(k.buffer=f.getBuffer(h),k.size=k.buffer.dimension|0,k.normalized=!1,k.type=k.buffer.dtype,k.offset=0,k.stride=0,k.divisor=0,k.state=1):f.getBuffer(h.buffer)?(k.buffer=f.getBuffer(h.buffer),k.size=(+h.size||k.buffer.dimension)|
+0,k.normalized=!!h.normalized||!1,k.type="type"in h?Ia[h.type]:k.buffer.dtype,k.offset=(h.offset||0)|0,k.stride=(h.stride||0)|0,k.divisor=(h.divisor||0)|0,k.state=1):"x"in h&&(k.x=+h.x||0,k.y=+h.y||0,k.z=+h.z||0,k.w=+h.w||0,k.state=2)}for(a=0;a<c.buffers.length;++a)!g[a]&&c.buffers[a]&&(c.buffers[a].destroy(),c.buffers[a]=null);c.refresh();return b}var c=new u;e.vaoCount+=1;b.destroy=function(){for(var a=0;a<c.buffers.length;++a)c.buffers[a]&&c.buffers[a].destroy();c.buffers.length=0;c.destroy()};
+b._vao=c;b._reglType="vao";return b(a)},getVAO:function(a){return"function"===typeof a&&a._vao?a._vao:null},destroyBuffer:function(b){for(var c=0;c<k.length;++c){var e=k[c];e.buffer===b&&(a.disableVertexAttribArray(c),e.buffer=null)}},setVAO:b.oes_vertex_array_object?d:p,clear:b.oes_vertex_array_object?n:function(){}};u.prototype.bindAttrs=function(){for(var c=b.angle_instanced_arrays,e=this.attributes,f=0;f<e.length;++f){var d=e[f];d.buffer?(a.enableVertexAttribArray(f),a.bindBuffer(34962,d.buffer.buffer),
+a.vertexAttribPointer(f,d.size,d.type,d.normalized,d.stride,d.offset),c&&d.divisor&&c.vertexAttribDivisorANGLE(f,d.divisor)):(a.disableVertexAttribArray(f),a.vertexAttrib4f(f,d.x,d.y,d.z,d.w))}for(c=e.length;c<w;++c)a.disableVertexAttribArray(c)};u.prototype.refresh=function(){var a=b.oes_vertex_array_object;a&&(a.bindVertexArrayOES(this.vao),this.bindAttrs(),h.currentVAO=this)};u.prototype.destroy=function(){if(this.vao){var a=b.oes_vertex_array_object;this===h.currentVAO&&(h.currentVAO=null,a.bindVertexArrayOES(null));
+a.deleteVertexArrayOES(this.vao);this.vao=null}l[this.id]&&(delete l[this.id],--e.vaoCount)};return h}function Tb(a,b,c,e){function f(a,b,c,e){this.name=a;this.id=b;this.location=c;this.info=e}function d(a,b){for(var c=0;c<a.length;++c)if(a[c].id===b.id){a[c].location=b.location;return}a.push(b)}function p(c,g,e){e=35632===c?t:w;var d=e[g];if(!d){var f=b.str(g),d=a.createShader(c);a.shaderSource(d,f);a.compileShader(d);e[g]=d}return d}function n(a,b){this.id=l++;this.fragId=a;this.vertId=b;this.program=
+null;this.uniforms=[];this.attributes=[];this.refCount=1;e.profile&&(this.stats={uniformsCount:0,attributesCount:0})}function u(c,g,k){var l;l=p(35632,c.fragId);var m=p(35633,c.vertId);g=c.program=a.createProgram();a.attachShader(g,l);a.attachShader(g,m);if(k)for(l=0;l<k.length;++l)m=k[l],a.bindAttribLocation(g,m[0],m[1]);a.linkProgram(g);m=a.getProgramParameter(g,35718);e.profile&&(c.stats.uniformsCount=m);var n=c.uniforms;for(l=0;l<m;++l)if(k=a.getActiveUniform(g,l))if(1<k.size)for(var t=0;t<k.size;++t){var u=
+k.name.replace("[0]","["+t+"]");d(n,new f(u,b.id(u),a.getUniformLocation(g,u),k))}else d(n,new f(k.name,b.id(k.name),a.getUniformLocation(g,k.name),k));m=a.getProgramParameter(g,35721);e.profile&&(c.stats.attributesCount=m);c=c.attributes;for(l=0;l<m;++l)(k=a.getActiveAttrib(g,l))&&d(c,new f(k.name,b.id(k.name),a.getAttribLocation(g,k.name),k))}var t={},w={},k={},B=[],l=0;e.profile&&(c.getMaxUniformsCount=function(){var a=0;B.forEach(function(b){b.stats.uniformsCount>a&&(a=b.stats.uniformsCount)});
+return a},c.getMaxAttributesCount=function(){var a=0;B.forEach(function(b){b.stats.attributesCount>a&&(a=b.stats.attributesCount)});return a});return{clear:function(){var b=a.deleteShader.bind(a);S(t).forEach(b);t={};S(w).forEach(b);w={};B.forEach(function(b){a.deleteProgram(b.program)});B.length=0;k={};c.shaderCount=0},program:function(b,e,d,f){var l=k[e];l||(l=k[e]={});var p=l[b];if(p&&(p.refCount++,!f))return p;var v=new n(e,b);c.shaderCount++;u(v,d,f);p||(l[b]=v);B.push(v);return A(v,{destroy:function(){v.refCount--;
+if(0>=v.refCount){a.deleteProgram(v.program);var b=B.indexOf(v);B.splice(b,1);c.shaderCount--}0>=l[v.vertId].refCount&&(a.deleteShader(w[v.vertId]),delete w[v.vertId],delete k[v.fragId][v.vertId]);Object.keys(k[v.fragId]).length||(a.deleteShader(t[v.fragId]),delete t[v.fragId],delete k[v.fragId])}})},restore:function(){t={};w={};for(var a=0;a<B.length;++a)u(B[a],null,B[a].attributes.map(function(a){return[a.location,a.name]}))},shader:p,frag:-1,vert:-1}}function Ub(a,b,c,e,f,d,p){function n(d){var f;
+f=null===b.next?5121:b.next.colorAttachments[0].texture._texture.type;var k=0,n=0,l=e.framebufferWidth,h=e.framebufferHeight,g=null;M(d)?g=d:d&&(k=d.x|0,n=d.y|0,l=(d.width||e.framebufferWidth-k)|0,h=(d.height||e.framebufferHeight-n)|0,g=d.data||null);c();d=l*h*4;g||(5121===f?g=new Uint8Array(d):5126===f&&(g=g||new Float32Array(d)));a.pixelStorei(3333,4);a.readPixels(k,n,l,h,6408,f,g);return g}function u(a){var c;b.setFBO({framebuffer:a.framebuffer},function(){c=n(a)});return c}return function(a){return a&&
+"framebuffer"in a?u(a):n(a)}}function za(a){return Array.prototype.slice.call(a)}function Aa(a){return za(a).join("")}function Vb(){function a(){var a=[],b=[];return A(function(){a.push.apply(a,za(arguments))},{def:function(){var d="v"+c++;b.push(d);0<arguments.length&&(a.push(d,"="),a.push.apply(a,za(arguments)),a.push(";"));return d},toString:function(){return Aa([0<b.length?"var "+b.join(",")+";":"",Aa(a)])}})}function b(){function b(a,e){d(a,e,"=",c.def(a,e),";")}var c=a(),d=a(),e=c.toString,
+f=d.toString;return A(function(){c.apply(c,za(arguments))},{def:c.def,entry:c,exit:d,save:b,set:function(a,d,e){b(a,d);c(a,d,"=",e,";")},toString:function(){return e()+f()}})}var c=0,e=[],f=[],d=a(),p={};return{global:d,link:function(a){for(var b=0;b<f.length;++b)if(f[b]===a)return e[b];b="g"+c++;e.push(b);f.push(a);return b},block:a,proc:function(a,c){function d(){var a="a"+e.length;e.push(a);return a}var e=[];c=c||0;for(var f=0;f<c;++f)d();var f=b(),B=f.toString;return p[a]=A(f,{arg:d,toString:function(){return Aa(["function(",
+e.join(),"){",B(),"}"])}})},scope:b,cond:function(){var a=Aa(arguments),c=b(),d=b(),e=c.toString,f=d.toString;return A(c,{then:function(){c.apply(c,za(arguments));return this},"else":function(){d.apply(d,za(arguments));return this},toString:function(){var b=f();b&&(b="else{"+b+"}");return Aa(["if(",a,"){",e(),"}",b])}})},compile:function(){var a=['"use strict";',d,"return {"];Object.keys(p).forEach(function(b){a.push('"',b,'":',p[b].toString(),",")});a.push("}");var b=Aa(a).replace(/;/g,";\n").replace(/}/g,
+"}\n").replace(/{/g,"{\n");return Function.apply(null,e.concat(b)).apply(null,f)}}}function Qa(a){return Array.isArray(a)||M(a)||da(a)}function zb(a){return a.sort(function(a,c){return"viewport"===a?-1:"viewport"===c?1:a<c?-1:1})}function K(a,b,c,e){this.thisDep=a;this.contextDep=b;this.propDep=c;this.append=e}function sa(a){return a&&!(a.thisDep||a.contextDep||a.propDep)}function v(a){return new K(!1,!1,!1,a)}function L(a,b){var c=a.type;if(0===c)return c=a.data.length,new K(!0,1<=c,2<=c,b);if(4===
+c)return c=a.data,new K(c.thisDep,c.contextDep,c.propDep,b);if(5===c)return new K(!1,!1,!1,b);if(6===c){for(var e=c=!1,f=!1,d=0;d<a.data.length;++d){var p=a.data[d];1===p.type?f=!0:2===p.type?e=!0:3===p.type?c=!0:0===p.type?(c=!0,p=p.data,1<=p&&(e=!0),2<=p&&(f=!0)):4===p.type&&(c=c||p.data.thisDep,e=e||p.data.contextDep,f=f||p.data.propDep)}return new K(c,e,f,b)}return new K(3===c,2===c,1===c,b)}function Wb(a,b,c,e,f,d,p,n,u,t,w,k,B,l,h){function g(a){return a.replace(".","_")}function q(a,b,c){var d=
+g(a);La.push(a);Ca[d]=pa[d]=!!c;qa[d]=b}function r(a,b,c){var d=g(a);La.push(a);Array.isArray(c)?(pa[d]=c.slice(),Ca[d]=c.slice()):pa[d]=Ca[d]=c;ra[d]=b}function m(){var a=Vb(),c=a.link,d=a.global;a.id=na++;a.batchId="0";var e=c(ub),f=a.shared={props:"a0"};Object.keys(ub).forEach(function(a){f[a]=d.def(e,".",a)});var g=a.next={},h=a.current={};Object.keys(ra).forEach(function(a){Array.isArray(pa[a])&&(g[a]=d.def(f.next,".",a),h[a]=d.def(f.current,".",a))});var ba=a.constants={};Object.keys(Na).forEach(function(a){ba[a]=
+d.def(JSON.stringify(Na[a]))});a.invoke=function(b,d){switch(d.type){case 0:var e=["this",f.context,f.props,a.batchId];return b.def(c(d.data),".call(",e.slice(0,Math.max(d.data.length+1,4)),")");case 1:return b.def(f.props,d.data);case 2:return b.def(f.context,d.data);case 3:return b.def("this",d.data);case 4:return d.data.append(a,b),d.data.ref;case 5:return d.data.toString();case 6:return d.data.map(function(c){return a.invoke(b,c)})}};a.attribCache={};var va={};a.scopeAttrib=function(a){a=b.id(a);
+if(a in va)return va[a];var d=t.scope[a];d||(d=t.scope[a]=new ga);return va[a]=c(d)};return a}function z(a){var b=a["static"];a=a.dynamic;var c;if("profile"in b){var d=!!b.profile;c=v(function(a,b){return d});c.enable=d}else if("profile"in a){var e=a.profile;c=L(e,function(a,b){return a.invoke(b,e)})}return c}function E(a,b){var c=a["static"],d=a.dynamic;if("framebuffer"in c){var e=c.framebuffer;return e?(e=n.getFramebuffer(e),v(function(a,b){var c=a.link(e),d=a.shared;b.set(d.framebuffer,".next",
+c);d=d.context;b.set(d,".framebufferWidth",c+".width");b.set(d,".framebufferHeight",c+".height");return c})):v(function(a,b){var c=a.shared;b.set(c.framebuffer,".next","null");c=c.context;b.set(c,".framebufferWidth",c+".drawingBufferWidth");b.set(c,".framebufferHeight",c+".drawingBufferHeight");return"null"})}if("framebuffer"in d){var f=d.framebuffer;return L(f,function(a,b){var c=a.invoke(b,f),d=a.shared,e=d.framebuffer,c=b.def(e,".getFramebuffer(",c,")");b.set(e,".next",c);d=d.context;b.set(d,".framebufferWidth",
+c+"?"+c+".width:"+d+".drawingBufferWidth");b.set(d,".framebufferHeight",c+"?"+c+".height:"+d+".drawingBufferHeight");return c})}return null}function F(a,b,c){function d(a){if(a in e){var c=e[a];a=!0;var g=c.x|0,x=c.y|0,h,k;"width"in c?h=c.width|0:a=!1;"height"in c?k=c.height|0:a=!1;return new K(!a&&b&&b.thisDep,!a&&b&&b.contextDep,!a&&b&&b.propDep,function(a,b){var d=a.shared.context,e=h;"width"in c||(e=b.def(d,".","framebufferWidth","-",g));var f=k;"height"in c||(f=b.def(d,".","framebufferHeight",
+"-",x));return[g,x,e,f]})}if(a in f){var ca=f[a];a=L(ca,function(a,b){var c=a.invoke(b,ca),d=a.shared.context,e=b.def(c,".x|0"),f=b.def(c,".y|0"),g=b.def('"width" in ',c,"?",c,".width|0:","(",d,".","framebufferWidth","-",e,")"),c=b.def('"height" in ',c,"?",c,".height|0:","(",d,".","framebufferHeight","-",f,")");return[e,f,g,c]});b&&(a.thisDep=a.thisDep||b.thisDep,a.contextDep=a.contextDep||b.contextDep,a.propDep=a.propDep||b.propDep);return a}return b?new K(b.thisDep,b.contextDep,b.propDep,function(a,
+b){var c=a.shared.context;return[0,0,b.def(c,".","framebufferWidth"),b.def(c,".","framebufferHeight")]}):null}var e=a["static"],f=a.dynamic;if(a=d("viewport")){var g=a;a=new K(a.thisDep,a.contextDep,a.propDep,function(a,b){var c=g.append(a,b),d=a.shared.context;b.set(d,".viewportWidth",c[2]);b.set(d,".viewportHeight",c[3]);return c})}return{viewport:a,scissor_box:d("scissor.box")}}function Z(a,b){var c=a["static"];if("string"===typeof c.frag&&"string"===typeof c.vert){if(0<Object.keys(b.dynamic).length)return null;
+var c=b["static"],d=Object.keys(c);if(0<d.length&&"number"===typeof c[d[0]]){for(var e=[],f=0;f<d.length;++f)e.push([c[d[f]]|0,d[f]]);return e}}return null}function G(a,c,d){function e(a){if(a in f){var c=b.id(f[a]);a=v(function(){return c});a.id=c;return a}if(a in g){var d=g[a];return L(d,function(a,b){var c=a.invoke(b,d);return b.def(a.shared.strings,".id(",c,")")})}return null}var f=a["static"],g=a.dynamic,h=e("frag"),ba=e("vert"),va=null;sa(h)&&sa(ba)?(va=w.program(ba.id,h.id,null,d),a=v(function(a,
+b){return a.link(va)})):a=new K(h&&h.thisDep||ba&&ba.thisDep,h&&h.contextDep||ba&&ba.contextDep,h&&h.propDep||ba&&ba.propDep,function(a,b){var c=a.shared.shader,d;d=h?h.append(a,b):b.def(c,".","frag");var e;e=ba?ba.append(a,b):b.def(c,".","vert");return b.def(c+".program("+e+","+d+")")});return{frag:h,vert:ba,progVar:a,program:va}}function H(a,b){function c(a,b){if(a in e){var d=e[a]|0;return v(function(a,c){b&&(a.OFFSET=d);return d})}if(a in f){var x=f[a];return L(x,function(a,c){var d=a.invoke(c,
+x);b&&(a.OFFSET=d);return d})}return b&&g?v(function(a,b){a.OFFSET="0";return 0}):null}var e=a["static"],f=a.dynamic,g=function(){if("elements"in e){var a=e.elements;Qa(a)?a=d.getElements(d.create(a,!0)):a&&(a=d.getElements(a));var b=v(function(b,c){if(a){var d=b.link(a);return b.ELEMENTS=d}return b.ELEMENTS=null});b.value=a;return b}if("elements"in f){var c=f.elements;return L(c,function(a,b){var d=a.shared,e=d.isBufferArgs,d=d.elements,f=a.invoke(b,c),g=b.def("null"),e=b.def(e,"(",f,")"),f=a.cond(e).then(g,
+"=",d,".createStream(",f,");")["else"](g,"=",d,".getElements(",f,");");b.entry(f);b.exit(a.cond(e).then(d,".destroyStream(",g,");"));return a.ELEMENTS=g})}return null}(),h=c("offset",!0);return{elements:g,primitive:function(){if("primitive"in e){var a=e.primitive;return v(function(b,c){return Ta[a]})}if("primitive"in f){var b=f.primitive;return L(b,function(a,c){var d=a.constants.primTypes,e=a.invoke(c,b);return c.def(d,"[",e,"]")})}return g?sa(g)?g.value?v(function(a,b){return b.def(a.ELEMENTS,".primType")}):
+v(function(){return 4}):new K(g.thisDep,g.contextDep,g.propDep,function(a,b){var c=a.ELEMENTS;return b.def(c,"?",c,".primType:",4)}):null}(),count:function(){if("count"in e){var a=e.count|0;return v(function(){return a})}if("count"in f){var b=f.count;return L(b,function(a,c){return a.invoke(c,b)})}return g?sa(g)?g?h?new K(h.thisDep,h.contextDep,h.propDep,function(a,b){return b.def(a.ELEMENTS,".vertCount-",a.OFFSET)}):v(function(a,b){return b.def(a.ELEMENTS,".vertCount")}):v(function(){return-1}):
+new K(g.thisDep||h.thisDep,g.contextDep||h.contextDep,g.propDep||h.propDep,function(a,b){var c=a.ELEMENTS;return a.OFFSET?b.def(c,"?",c,".vertCount-",a.OFFSET,":-1"):b.def(c,"?",c,".vertCount:-1")}):null}(),instances:c("instances",!1),offset:h}}function O(a,b){var c=a["static"],d=a.dynamic,e={};La.forEach(function(a){function b(g,x){if(a in c){var h=g(c[a]);e[f]=v(function(){return h})}else if(a in d){var I=d[a];e[f]=L(I,function(a,b){return x(a,b,a.invoke(b,I))})}}var f=g(a);switch(a){case "cull.enable":case "blend.enable":case "dither":case "stencil.enable":case "depth.enable":case "scissor.enable":case "polygonOffset.enable":case "sample.alpha":case "sample.enable":case "depth.mask":return b(function(a){return a},
+function(a,b,c){return c});case "depth.func":return b(function(a){return ab[a]},function(a,b,c){return b.def(a.constants.compareFuncs,"[",c,"]")});case "depth.range":return b(function(a){return a},function(a,b,c){a=b.def("+",c,"[0]");b=b.def("+",c,"[1]");return[a,b]});case "blend.func":return b(function(a){return[Ea["srcRGB"in a?a.srcRGB:a.src],Ea["dstRGB"in a?a.dstRGB:a.dst],Ea["srcAlpha"in a?a.srcAlpha:a.src],Ea["dstAlpha"in a?a.dstAlpha:a.dst]]},function(a,b,c){function d(a,e){return b.def('"',
+a,e,'" in ',c,"?",c,".",a,e,":",c,".",a)}a=a.constants.blendFuncs;var e=d("src","RGB"),f=d("dst","RGB"),e=b.def(a,"[",e,"]"),g=b.def(a,"[",d("src","Alpha"),"]"),f=b.def(a,"[",f,"]");a=b.def(a,"[",d("dst","Alpha"),"]");return[e,f,g,a]});case "blend.equation":return b(function(a){if("string"===typeof a)return[W[a],W[a]];if("object"===typeof a)return[W[a.rgb],W[a.alpha]]},function(a,b,c){var d=a.constants.blendEquations,e=b.def(),f=b.def();a=a.cond("typeof ",c,'==="string"');a.then(e,"=",f,"=",d,"[",
+c,"];");a["else"](e,"=",d,"[",c,".rgb];",f,"=",d,"[",c,".alpha];");b(a);return[e,f]});case "blend.color":return b(function(a){return J(4,function(b){return+a[b]})},function(a,b,c){return J(4,function(a){return b.def("+",c,"[",a,"]")})});case "stencil.mask":return b(function(a){return a|0},function(a,b,c){return b.def(c,"|0")});case "stencil.func":return b(function(a){return[ab[a.cmp||"keep"],a.ref||0,"mask"in a?a.mask:-1]},function(a,b,c){a=b.def('"cmp" in ',c,"?",a.constants.compareFuncs,"[",c,".cmp]",
+":",7680);var d=b.def(c,".ref|0");b=b.def('"mask" in ',c,"?",c,".mask|0:-1");return[a,d,b]});case "stencil.opFront":case "stencil.opBack":return b(function(b){return["stencil.opBack"===a?1029:1028,Ra[b.fail||"keep"],Ra[b.zfail||"keep"],Ra[b.zpass||"keep"]]},function(b,c,d){function e(a){return c.def('"',a,'" in ',d,"?",f,"[",d,".",a,"]:",7680)}var f=b.constants.stencilOps;return["stencil.opBack"===a?1029:1028,e("fail"),e("zfail"),e("zpass")]});case "polygonOffset.offset":return b(function(a){return[a.factor|
+0,a.units|0]},function(a,b,c){a=b.def(c,".factor|0");b=b.def(c,".units|0");return[a,b]});case "cull.face":return b(function(a){var b=0;"front"===a?b=1028:"back"===a&&(b=1029);return b},function(a,b,c){return b.def(c,'==="front"?',1028,":",1029)});case "lineWidth":return b(function(a){return a},function(a,b,c){return c});case "frontFace":return b(function(a){return Ab[a]},function(a,b,c){return b.def(c+'==="cw"?2304:2305')});case "colorMask":return b(function(a){return a.map(function(a){return!!a})},
+function(a,b,c){return J(4,function(a){return"!!"+c+"["+a+"]"})});case "sample.coverage":return b(function(a){return["value"in a?a.value:1,!!a.invert]},function(a,b,c){a=b.def('"value" in ',c,"?+",c,".value:1");b=b.def("!!",c,".invert");return[a,b]})}});return e}function M(a,b){var c=a["static"],d=a.dynamic,e={};Object.keys(c).forEach(function(a){var b=c[a],d;if("number"===typeof b||"boolean"===typeof b)d=v(function(){return b});else if("function"===typeof b){var f=b._reglType;if("texture2d"===f||
+"textureCube"===f)d=v(function(a){return a.link(b)});else if("framebuffer"===f||"framebufferCube"===f)d=v(function(a){return a.link(b.color[0])})}else ma(b)&&(d=v(function(a){return a.global.def("[",J(b.length,function(a){return b[a]}),"]")}));d.value=b;e[a]=d});Object.keys(d).forEach(function(a){var b=d[a];e[a]=L(b,function(a,c){return a.invoke(c,b)})});return e}function S(a,c){var d=a["static"],e=a.dynamic,g={};Object.keys(d).forEach(function(a){var c=d[a],e=b.id(a),x=new ga;if(Qa(c))x.state=1,
+x.buffer=f.getBuffer(f.create(c,34962,!1,!0)),x.type=0;else{var h=f.getBuffer(c);if(h)x.state=1,x.buffer=h,x.type=0;else if("constant"in c){var I=c.constant;x.buffer="null";x.state=2;"number"===typeof I?x.x=I:Ba.forEach(function(a,b){b<I.length&&(x[a]=I[b])})}else{var h=Qa(c.buffer)?f.getBuffer(f.create(c.buffer,34962,!1,!0)):f.getBuffer(c.buffer),k=c.offset|0,l=c.stride|0,m=c.size|0,ka=!!c.normalized,n=0;"type"in c&&(n=Ia[c.type]);c=c.divisor|0;x.buffer=h;x.state=1;x.size=m;x.normalized=ka;x.type=
+n||h.dtype;x.offset=k;x.stride=l;x.divisor=c}}g[a]=v(function(a,b){var c=a.attribCache;if(e in c)return c[e];var d={isStream:!1};Object.keys(x).forEach(function(a){d[a]=x[a]});x.buffer&&(d.buffer=a.link(x.buffer),d.type=d.type||d.buffer+".dtype");return c[e]=d})});Object.keys(e).forEach(function(a){var b=e[a];g[a]=L(b,function(a,c){function d(a){c(h[a],"=",e,".",a,"|0;")}var e=a.invoke(c,b),f=a.shared,g=a.constants,x=f.isBufferArgs,f=f.buffer,h={isStream:c.def(!1)},I=new ga;I.state=1;Object.keys(I).forEach(function(a){h[a]=
+c.def(""+I[a])});var k=h.buffer,l=h.type;c("if(",x,"(",e,")){",h.isStream,"=true;",k,"=",f,".createStream(",34962,",",e,");",l,"=",k,".dtype;","}else{",k,"=",f,".getBuffer(",e,");","if(",k,"){",l,"=",k,".dtype;",'}else if("constant" in ',e,"){",h.state,"=",2,";","if(typeof "+e+'.constant === "number"){',h[Ba[0]],"=",e,".constant;",Ba.slice(1).map(function(a){return h[a]}).join("="),"=0;","}else{",Ba.map(function(a,b){return h[a]+"="+e+".constant.length>"+b+"?"+e+".constant["+b+"]:0;"}).join(""),"}}else{",
+"if(",x,"(",e,".buffer)){",k,"=",f,".createStream(",34962,",",e,".buffer);","}else{",k,"=",f,".getBuffer(",e,".buffer);","}",l,'="type" in ',e,"?",g.glTypes,"[",e,".type]:",k,".dtype;",h.normalized,"=!!",e,".normalized;");d("size");d("offset");d("stride");d("divisor");c("}}");c.exit("if(",h.isStream,"){",f,".destroyStream(",k,");","}");return h})});return g}function D(a,b){var c=a["static"],d=a.dynamic;if("vao"in c){var e=c.vao;null!==e&&null===t.getVAO(e)&&(e=t.createVAO(e));return v(function(a){return a.link(t.getVAO(e))})}if("vao"in
+d){var f=d.vao;return L(f,function(a,b){var c=a.invoke(b,f);return b.def(a.shared.vao+".getVAO("+c+")")})}return null}function y(a){var b=a["static"],c=a.dynamic,d={};Object.keys(b).forEach(function(a){var c=b[a];d[a]=v(function(a,b){return"number"===typeof c||"boolean"===typeof c?""+c:a.link(c)})});Object.keys(c).forEach(function(a){var b=c[a];d[a]=L(b,function(a,c){return a.invoke(c,b)})});return d}function la(a,b,d,e,f){function h(a){var b=m[a];b&&($a[a]=b)}var k=Z(a,b),l=E(a,f),m=F(a,l,f),n=H(a,
+f),$a=O(a,f),p=G(a,f,k);h("viewport");h(g("scissor.box"));var q=0<Object.keys($a).length,l={framebuffer:l,draw:n,shader:p,state:$a,dirty:q,scopeVAO:null,drawVAO:null,useVAO:!1,attributes:{}};l.profile=z(a,f);l.uniforms=M(d,f);l.drawVAO=l.scopeVAO=D(a,f);if(!l.drawVAO&&p.program&&!k&&c.angle_instanced_arrays){var r=!0;a=p.program.attributes.map(function(a){a=b["static"][a];r=r&&!!a;return a});if(r&&0<a.length){var w=t.getVAO(t.createVAO(a));l.drawVAO=new K(null,null,null,function(a,b){return a.link(w)});
+l.useVAO=!0}}k?l.useVAO=!0:l.attributes=S(b,f);l.context=y(e,f);return l}function V(a,b,c){var d=a.shared.context,e=a.scope();Object.keys(c).forEach(function(f){b.save(d,"."+f);var g=c[f].append(a,b);Array.isArray(g)?e(d,".",f,"=[",g.join(),"];"):e(d,".",f,"=",g,";")});b(e)}function R(a,b,c,d){var e=a.shared,f=e.gl,g=e.framebuffer,h;Ka&&(h=b.def(e.extensions,".webgl_draw_buffers"));var k=a.constants,e=k.drawBuffer,k=k.backBuffer;a=c?c.append(a,b):b.def(g,".next");d||b("if(",a,"!==",g,".cur){");b("if(",
+a,"){",f,".bindFramebuffer(",36160,",",a,".framebuffer);");Ka&&b(h,".drawBuffersWEBGL(",e,"[",a,".colorAttachments.length]);");b("}else{",f,".bindFramebuffer(",36160,",null);");Ka&&b(h,".drawBuffersWEBGL(",k,");");b("}",g,".cur=",a,";");d||b("}")}function T(a,b,c){var d=a.shared,e=d.gl,f=a.current,h=a.next,k=d.current,l=d.next,m=a.cond(k,".dirty");La.forEach(function(b){b=g(b);if(!(b in c.state)){var d,I;if(b in h){d=h[b];I=f[b];var n=J(pa[b].length,function(a){return m.def(d,"[",a,"]")});m(a.cond(n.map(function(a,
+b){return a+"!=="+I+"["+b+"]"}).join("||")).then(e,".",ra[b],"(",n,");",n.map(function(a,b){return I+"["+b+"]="+a}).join(";"),";"))}else d=m.def(l,".",b),n=a.cond(d,"!==",k,".",b),m(n),b in qa?n(a.cond(d).then(e,".enable(",qa[b],");")["else"](e,".disable(",qa[b],");"),k,".",b,"=",d,";"):n(e,".",ra[b],"(",d,");",k,".",b,"=",d,";")}});0===Object.keys(c.state).length&&m(k,".dirty=false;");b(m)}function N(a,b,c,d){var e=a.shared,f=a.current,g=e.current,h=e.gl;zb(Object.keys(c)).forEach(function(e){var k=
+c[e];if(!d||d(k)){var l=k.append(a,b);if(qa[e]){var m=qa[e];sa(k)?l?b(h,".enable(",m,");"):b(h,".disable(",m,");"):b(a.cond(l).then(h,".enable(",m,");")["else"](h,".disable(",m,");"));b(g,".",e,"=",l,";")}else if(ma(l)){var n=f[e];b(h,".",ra[e],"(",l,");",l.map(function(a,b){return n+"["+b+"]="+a}).join(";"),";")}else b(h,".",ra[e],"(",l,");",g,".",e,"=",l,";")}})}function C(a,b){oa&&(a.instancing=b.def(a.shared.extensions,".angle_instanced_arrays"))}function Q(a,b,c,d,e){function f(){return"undefined"===
+typeof performance?"Date.now()":"performance.now()"}function g(a){r=b.def();a(r,"=",f(),";");"string"===typeof e?a(n,".count+=",e,";"):a(n,".count++;");l&&(d?(t=b.def(),a(t,"=",q,".getNumPendingQueries();")):a(q,".beginQuery(",n,");"))}function h(a){a(n,".cpuTime+=",f(),"-",r,";");l&&(d?a(q,".pushScopeStats(",t,",",q,".getNumPendingQueries(),",n,");"):a(q,".endQuery();"))}function k(a){var c=b.def(p,".profile");b(p,".profile=",a,";");b.exit(p,".profile=",c,";")}var m=a.shared,n=a.stats,p=m.current,
+q=m.timer;c=c.profile;var r,t;if(c){if(sa(c)){c.enable?(g(b),h(b.exit),k("true")):k("false");return}c=c.append(a,b);k(c)}else c=b.def(p,".profile");m=a.block();g(m);b("if(",c,"){",m,"}");a=a.block();h(a);b.exit("if(",c,"){",a,"}")}function U(a,b,c,d,e){function f(a){switch(a){case 35664:case 35667:case 35671:return 2;case 35665:case 35668:case 35672:return 3;case 35666:case 35669:case 35673:return 4;default:return 1}}function g(c,d,e){function f(){b("if(!",n,".buffer){",l,".enableVertexAttribArray(",
+m,");}");var c=e.type,g;g=e.size?b.def(e.size,"||",d):d;b("if(",n,".type!==",c,"||",n,".size!==",g,"||",q.map(function(a){return n+"."+a+"!=="+e[a]}).join("||"),"){",l,".bindBuffer(",34962,",",ja,".buffer);",l,".vertexAttribPointer(",[m,g,c,e.normalized,e.stride,e.offset],");",n,".type=",c,";",n,".size=",g,";",q.map(function(a){return n+"."+a+"="+e[a]+";"}).join(""),"}");oa&&(c=e.divisor,b("if(",n,".divisor!==",c,"){",a.instancing,".vertexAttribDivisorANGLE(",[m,c],");",n,".divisor=",c,";}"))}function k(){b("if(",
+n,".buffer){",l,".disableVertexAttribArray(",m,");",n,".buffer=null;","}if(",Ba.map(function(a,b){return n+"."+a+"!=="+p[b]}).join("||"),"){",l,".vertexAttrib4f(",m,",",p,");",Ba.map(function(a,b){return n+"."+a+"="+p[b]+";"}).join(""),"}")}var l=h.gl,m=b.def(c,".location"),n=b.def(h.attributes,"[",m,"]");c=e.state;var ja=e.buffer,p=[e.x,e.y,e.z,e.w],q=["buffer","normalized","offset","stride"];1===c?f():2===c?k():(b("if(",c,"===",1,"){"),f(),b("}else{"),k(),b("}"))}var h=a.shared;d.forEach(function(d){var h=
+d.name,k=c.attributes[h],l;if(k){if(!e(k))return;l=k.append(a,b)}else{if(!e(Bb))return;var m=a.scopeAttrib(h);l={};Object.keys(new ga).forEach(function(a){l[a]=b.def(m,".",a)})}g(a.link(d),f(d.info.type),l)})}function ta(a,c,d,e,f){for(var g=a.shared,h=g.gl,k,l=0;l<e.length;++l){var m=e[l],n=m.name,p=m.info.type,q=d.uniforms[n],m=a.link(m)+".location",r;if(q){if(!f(q))continue;if(sa(q)){n=q.value;if(35678===p||35680===p)p=a.link(n._texture||n.color[0]._texture),c(h,".uniform1i(",m,",",p+".bind());"),
+c.exit(p,".unbind();");else if(35674===p||35675===p||35676===p)n=a.global.def("new Float32Array(["+Array.prototype.slice.call(n)+"])"),q=2,35675===p?q=3:35676===p&&(q=4),c(h,".uniformMatrix",q,"fv(",m,",false,",n,");");else{switch(p){case 5126:k="1f";break;case 35664:k="2f";break;case 35665:k="3f";break;case 35666:k="4f";break;case 35670:k="1i";break;case 5124:k="1i";break;case 35671:k="2i";break;case 35667:k="2i";break;case 35672:k="3i";break;case 35668:k="3i";break;case 35673:k="4i";break;case 35669:k=
+"4i"}c(h,".uniform",k,"(",m,",",ma(n)?Array.prototype.slice.call(n):n,");")}continue}else r=q.append(a,c)}else{if(!f(Bb))continue;r=c.def(g.uniforms,"[",b.id(n),"]")}35678===p?c("if(",r,"&&",r,'._reglType==="framebuffer"){',r,"=",r,".color[0];","}"):35680===p&&c("if(",r,"&&",r,'._reglType==="framebufferCube"){',r,"=",r,".color[0];","}");n=1;switch(p){case 35678:case 35680:p=c.def(r,"._texture");c(h,".uniform1i(",m,",",p,".bind());");c.exit(p,".unbind();");continue;case 5124:case 35670:k="1i";break;
+case 35667:case 35671:k="2i";n=2;break;case 35668:case 35672:k="3i";n=3;break;case 35669:case 35673:k="4i";n=4;break;case 5126:k="1f";break;case 35664:k="2f";n=2;break;case 35665:k="3f";n=3;break;case 35666:k="4f";n=4;break;case 35674:k="Matrix2fv";break;case 35675:k="Matrix3fv";break;case 35676:k="Matrix4fv"}c(h,".uniform",k,"(",m,",");if("M"===k.charAt(0)){var m=Math.pow(p-35674+2,2),t=a.global.def("new Float32Array(",m,")");Array.isArray(r)?c("false,(",J(m,function(a){return t+"["+a+"]="+r[a]}),
+",",t,")"):c("false,(Array.isArray(",r,")||",r," instanceof Float32Array)?",r,":(",J(m,function(a){return t+"["+a+"]="+r+"["+a+"]"}),",",t,")")}else 1<n?c(J(n,function(a){return Array.isArray(r)?r[a]:r+"["+a+"]"})):c(r);c(");")}}function aa(a,b,c,d){function e(f){var g=m[f];return g?g.contextDep&&d.contextDynamic||g.propDep?g.append(a,c):g.append(a,b):b.def(l,".",f)}function f(){function a(){c(w,".drawElementsInstancedANGLE(",[p,q,u,r+"<<(("+u+"-5121)>>1)",t],");")}function b(){c(w,".drawArraysInstancedANGLE(",
+[p,r,q,t],");")}n?B?a():(c("if(",n,"){"),a(),c("}else{"),b(),c("}")):b()}function g(){function a(){c(k+".drawElements("+[p,q,u,r+"<<(("+u+"-5121)>>1)"]+");")}function b(){c(k+".drawArrays("+[p,r,q]+");")}n?B?a():(c("if(",n,"){"),a(),c("}else{"),b(),c("}")):b()}var h=a.shared,k=h.gl,l=h.draw,m=d.draw,n=function(){var e=m.elements,f=b;if(e){if(e.contextDep&&d.contextDynamic||e.propDep)f=c;e=e.append(a,f)}else e=f.def(l,".","elements");e&&f("if("+e+")"+k+".bindBuffer(34963,"+e+".buffer.buffer);");return e}(),
+p=e("primitive"),r=e("offset"),q=function(){var e=m.count,f=b;if(e){if(e.contextDep&&d.contextDynamic||e.propDep)f=c;e=e.append(a,f)}else e=f.def(l,".","count");return e}();if("number"===typeof q){if(0===q)return}else c("if(",q,"){"),c.exit("}");var t,w;oa&&(t=e("instances"),w=a.instancing);var u=n+".type",B=m.elements&&sa(m.elements);oa&&("number"!==typeof t||0<=t)?"string"===typeof t?(c("if(",t,">0){"),f(),c("}else if(",t,"<0){"),g(),c("}")):f():g()}function X(a,b,c,d,e){b=m();e=b.proc("body",e);
+oa&&(b.instancing=e.def(b.shared.extensions,".angle_instanced_arrays"));a(b,e,c,d);return b.compile().body}function fa(a,b,c,d){C(a,b);c.useVAO?c.drawVAO?b(a.shared.vao,".setVAO(",c.drawVAO.append(a,b),");"):b(a.shared.vao,".setVAO(",a.shared.vao,".targetVAO);"):(b(a.shared.vao,".setVAO(null);"),U(a,b,c,d.attributes,function(){return!0}));ta(a,b,c,d.uniforms,function(){return!0});aa(a,b,b,c)}function Da(a,b){var c=a.proc("draw",1);C(a,c);V(a,c,b.context);R(a,c,b.framebuffer);T(a,c,b);N(a,c,b.state);
+Q(a,c,b,!1,!0);var d=b.shader.progVar.append(a,c);c(a.shared.gl,".useProgram(",d,".program);");if(b.shader.program)fa(a,c,b,b.shader.program);else{c(a.shared.vao,".setVAO(null);");var e=a.global.def("{}"),f=c.def(d,".id"),g=c.def(e,"[",f,"]");c(a.cond(g).then(g,".call(this,a0);")["else"](g,"=",e,"[",f,"]=",a.link(function(c){return X(fa,a,b,c,1)}),"(",d,");",g,".call(this,a0);"))}0<Object.keys(b.state).length&&c(a.shared.current,".dirty=true;")}function ua(a,b,c,d){function e(){return!0}a.batchId=
+"a1";C(a,b);U(a,b,c,d.attributes,e);ta(a,b,c,d.uniforms,e);aa(a,b,b,c)}function P(a,b,c,d){function e(a){return a.contextDep&&g||a.propDep}function f(a){return!e(a)}C(a,b);var g=c.contextDep,h=b.def(),k=b.def();a.shared.props=k;a.batchId=h;var l=a.scope(),m=a.scope();b(l.entry,"for(",h,"=0;",h,"<","a1",";++",h,"){",k,"=","a0","[",h,"];",m,"}",l.exit);c.needsContext&&V(a,m,c.context);c.needsFramebuffer&&R(a,m,c.framebuffer);N(a,m,c.state,e);c.profile&&e(c.profile)&&Q(a,m,c,!1,!0);d?(c.useVAO?c.drawVAO?
+e(c.drawVAO)?m(a.shared.vao,".setVAO(",c.drawVAO.append(a,m),");"):l(a.shared.vao,".setVAO(",c.drawVAO.append(a,l),");"):l(a.shared.vao,".setVAO(",a.shared.vao,".targetVAO);"):(l(a.shared.vao,".setVAO(null);"),U(a,l,c,d.attributes,f),U(a,m,c,d.attributes,e)),ta(a,l,c,d.uniforms,f),ta(a,m,c,d.uniforms,e),aa(a,l,m,c)):(b=a.global.def("{}"),d=c.shader.progVar.append(a,m),k=m.def(d,".id"),l=m.def(b,"[",k,"]"),m(a.shared.gl,".useProgram(",d,".program);","if(!",l,"){",l,"=",b,"[",k,"]=",a.link(function(b){return X(ua,
+a,c,b,2)}),"(",d,");}",l,".call(this,a0[",h,"],",h,");"))}function da(a,b){function c(a){return a.contextDep&&e||a.propDep}var d=a.proc("batch",2);a.batchId="0";C(a,d);var e=!1,f=!0;Object.keys(b.context).forEach(function(a){e=e||b.context[a].propDep});e||(V(a,d,b.context),f=!1);var g=b.framebuffer,h=!1;g?(g.propDep?e=h=!0:g.contextDep&&e&&(h=!0),h||R(a,d,g)):R(a,d,null);b.state.viewport&&b.state.viewport.propDep&&(e=!0);T(a,d,b);N(a,d,b.state,function(a){return!c(a)});b.profile&&c(b.profile)||Q(a,
+d,b,!1,"a1");b.contextDep=e;b.needsContext=f;b.needsFramebuffer=h;f=b.shader.progVar;if(f.contextDep&&e||f.propDep)P(a,d,b,null);else if(f=f.append(a,d),d(a.shared.gl,".useProgram(",f,".program);"),b.shader.program)P(a,d,b,b.shader.program);else{d(a.shared.vao,".setVAO(null);");var g=a.global.def("{}"),h=d.def(f,".id"),k=d.def(g,"[",h,"]");d(a.cond(k).then(k,".call(this,a0,a1);")["else"](k,"=",g,"[",h,"]=",a.link(function(c){return X(P,a,b,c,2)}),"(",f,");",k,".call(this,a0,a1);"))}0<Object.keys(b.state).length&&
+d(a.shared.current,".dirty=true;")}function ea(a,c){function d(b){var g=c.shader[b];g&&e.set(f.shader,"."+b,g.append(a,e))}var e=a.proc("scope",3);a.batchId="a2";var f=a.shared,g=f.current;V(a,e,c.context);c.framebuffer&&c.framebuffer.append(a,e);zb(Object.keys(c.state)).forEach(function(b){var d=c.state[b].append(a,e);ma(d)?d.forEach(function(c,d){e.set(a.next[b],"["+d+"]",c)}):e.set(f.next,"."+b,d)});Q(a,e,c,!0,!0);["elements","offset","count","instances","primitive"].forEach(function(b){var d=
+c.draw[b];d&&e.set(f.draw,"."+b,""+d.append(a,e))});Object.keys(c.uniforms).forEach(function(d){var g=c.uniforms[d].append(a,e);Array.isArray(g)&&(g="["+g.join()+"]");e.set(f.uniforms,"["+b.id(d)+"]",g)});Object.keys(c.attributes).forEach(function(b){var d=c.attributes[b].append(a,e),f=a.scopeAttrib(b);Object.keys(new ga).forEach(function(a){e.set(f,"."+a,d[a])})});c.scopeVAO&&e.set(f.vao,".targetVAO",c.scopeVAO.append(a,e));d("vert");d("frag");0<Object.keys(c.state).length&&(e(g,".dirty=true;"),
+e.exit(g,".dirty=true;"));e("a1(",a.shared.context,",a0,",a.batchId,");")}function ha(a){if("object"===typeof a&&!ma(a)){for(var b=Object.keys(a),c=0;c<b.length;++c)if(Y.isDynamic(a[b[c]]))return!0;return!1}}function ia(a,b,c){function d(a,b){g.forEach(function(c){var d=e[c];Y.isDynamic(d)&&(d=a.invoke(b,d),b(m,".",c,"=",d,";"))})}var e=b["static"][c];if(e&&ha(e)){var f=a.global,g=Object.keys(e),h=!1,k=!1,l=!1,m=a.global.def("{}");g.forEach(function(b){var c=e[b];if(Y.isDynamic(c))"function"===typeof c&&
+(c=e[b]=Y.unbox(c)),b=L(c,null),h=h||b.thisDep,l=l||b.propDep,k=k||b.contextDep;else{f(m,".",b,"=");switch(typeof c){case "number":f(c);break;case "string":f('"',c,'"');break;case "object":Array.isArray(c)&&f("[",c.join(),"]");break;default:f(a.link(c))}f(";")}});b.dynamic[c]=new Y.DynamicVariable(4,{thisDep:h,contextDep:k,propDep:l,ref:m,append:d});delete b["static"][c]}}var ga=t.Record,W={add:32774,subtract:32778,"reverse subtract":32779};c.ext_blend_minmax&&(W.min=32775,W.max=32776);var oa=c.angle_instanced_arrays,
+Ka=c.webgl_draw_buffers,pa={dirty:!0,profile:h.profile},Ca={},La=[],qa={},ra={};q("dither",3024);q("blend.enable",3042);r("blend.color","blendColor",[0,0,0,0]);r("blend.equation","blendEquationSeparate",[32774,32774]);r("blend.func","blendFuncSeparate",[1,0,1,0]);q("depth.enable",2929,!0);r("depth.func","depthFunc",513);r("depth.range","depthRange",[0,1]);r("depth.mask","depthMask",!0);r("colorMask","colorMask",[!0,!0,!0,!0]);q("cull.enable",2884);r("cull.face","cullFace",1029);r("frontFace","frontFace",
+2305);r("lineWidth","lineWidth",1);q("polygonOffset.enable",32823);r("polygonOffset.offset","polygonOffset",[0,0]);q("sample.alpha",32926);q("sample.enable",32928);r("sample.coverage","sampleCoverage",[1,!1]);q("stencil.enable",2960);r("stencil.mask","stencilMask",-1);r("stencil.func","stencilFunc",[519,0,-1]);r("stencil.opFront","stencilOpSeparate",[1028,7680,7680,7680]);r("stencil.opBack","stencilOpSeparate",[1029,7680,7680,7680]);q("scissor.enable",3089);r("scissor.box","scissor",[0,0,a.drawingBufferWidth,
+a.drawingBufferHeight]);r("viewport","viewport",[0,0,a.drawingBufferWidth,a.drawingBufferHeight]);var ub={gl:a,context:B,strings:b,next:Ca,current:pa,draw:k,elements:d,buffer:f,shader:w,attributes:t.state,vao:t,uniforms:u,framebuffer:n,extensions:c,timer:l,isBufferArgs:Qa},Na={primTypes:Ta,compareFuncs:ab,blendFuncs:Ea,blendEquations:W,stencilOps:Ra,glTypes:Ia,orientationType:Ab};Ka&&(Na.backBuffer=[1029],Na.drawBuffer=J(e.maxDrawbuffers,function(a){return 0===a?[0]:J(a,function(a){return 36064+a})}));
+var na=0;return{next:Ca,current:pa,procs:function(){var a=m(),b=a.proc("poll"),d=a.proc("refresh"),f=a.block();b(f);d(f);var g=a.shared,h=g.gl,k=g.next,l=g.current;f(l,".dirty=false;");R(a,b);R(a,d,null,!0);var n;oa&&(n=a.link(oa));c.oes_vertex_array_object&&d(a.link(c.oes_vertex_array_object),".bindVertexArrayOES(null);");for(var p=0;p<e.maxAttributes;++p){var q=d.def(g.attributes,"[",p,"]"),r=a.cond(q,".buffer");r.then(h,".enableVertexAttribArray(",p,");",h,".bindBuffer(",34962,",",q,".buffer.buffer);",
+h,".vertexAttribPointer(",p,",",q,".size,",q,".type,",q,".normalized,",q,".stride,",q,".offset);")["else"](h,".disableVertexAttribArray(",p,");",h,".vertexAttrib4f(",p,",",q,".x,",q,".y,",q,".z,",q,".w);",q,".buffer=null;");d(r);oa&&d(n,".vertexAttribDivisorANGLE(",p,",",q,".divisor);")}d(a.shared.vao,".currentVAO=null;",a.shared.vao,".setVAO(",a.shared.vao,".targetVAO);");Object.keys(qa).forEach(function(c){var e=qa[c],g=f.def(k,".",c),m=a.block();m("if(",g,"){",h,".enable(",e,")}else{",h,".disable(",
+e,")}",l,".",c,"=",g,";");d(m);b("if(",g,"!==",l,".",c,"){",m,"}")});Object.keys(ra).forEach(function(c){var e=ra[c],g=pa[c],m,n,p=a.block();p(h,".",e,"(");ma(g)?(e=g.length,m=a.global.def(k,".",c),n=a.global.def(l,".",c),p(J(e,function(a){return m+"["+a+"]"}),");",J(e,function(a){return n+"["+a+"]="+m+"["+a+"];"}).join("")),b("if(",J(e,function(a){return m+"["+a+"]!=="+n+"["+a+"]"}).join("||"),"){",p,"}")):(m=f.def(k,".",c),n=f.def(l,".",c),p(m,");",l,".",c,"=",m,";"),b("if(",m,"!==",n,"){",p,"}"));
+d(p)});return a.compile()}(),compile:function(a,b,c,d,e){var f=m();f.stats=f.link(e);Object.keys(b["static"]).forEach(function(a){ia(f,b,a)});Xb.forEach(function(b){ia(f,a,b)});var g=la(a,b,c,d,f);Da(f,g);ea(f,g);da(f,g);return A(f.compile(),{destroy:function(){g.shader.program.destroy()}})}}}function Cb(a,b){for(var c=0;c<a.length;++c)if(a[c]===b)return c;return-1}var A=function(a,b){for(var c=Object.keys(b),e=0;e<c.length;++e)a[c[e]]=b[c[e]];return a},Eb=0,Y={DynamicVariable:U,define:function(a,
+b){return new U(a,cb(b+""))},isDynamic:function(a){return"function"===typeof a&&!a._reglType||a instanceof U},unbox:db,accessor:cb},bb={next:"function"===typeof requestAnimationFrame?function(a){return requestAnimationFrame(a)}:function(a){return setTimeout(a,16)},cancel:"function"===typeof cancelAnimationFrame?function(a){return cancelAnimationFrame(a)}:clearTimeout},Db="undefined"!==typeof performance&&performance.now?function(){return performance.now()}:function(){return+new Date},E=hb();E.zero=
+hb();var Yb=function(a,b){var c=1;b.ext_texture_filter_anisotropic&&(c=a.getParameter(34047));var e=1,f=1;b.webgl_draw_buffers&&(e=a.getParameter(34852),f=a.getParameter(36063));var d=!!b.oes_texture_float;if(d){d=a.createTexture();a.bindTexture(3553,d);a.texImage2D(3553,0,6408,1,1,0,6408,5126,null);var p=a.createFramebuffer();a.bindFramebuffer(36160,p);a.framebufferTexture2D(36160,36064,3553,d,0);a.bindTexture(3553,null);if(36053!==a.checkFramebufferStatus(36160))d=!1;else{a.viewport(0,0,1,1);a.clearColor(1,
+0,0,1);a.clear(16384);var n=E.allocType(5126,4);a.readPixels(0,0,1,1,6408,5126,n);a.getError()?d=!1:(a.deleteFramebuffer(p),a.deleteTexture(d),d=1===n[0]);E.freeType(n)}}n=!0;"undefined"!==typeof navigator&&(/MSIE/.test(navigator.userAgent)||/Trident\//.test(navigator.appVersion)||/Edge/.test(navigator.userAgent))||(n=a.createTexture(),p=E.allocType(5121,36),a.activeTexture(33984),a.bindTexture(34067,n),a.texImage2D(34069,0,6408,3,3,0,6408,5121,p),E.freeType(p),a.bindTexture(34067,null),a.deleteTexture(n),
+n=!a.getError());return{colorBits:[a.getParameter(3410),a.getParameter(3411),a.getParameter(3412),a.getParameter(3413)],depthBits:a.getParameter(3414),stencilBits:a.getParameter(3415),subpixelBits:a.getParameter(3408),extensions:Object.keys(b).filter(function(a){return!!b[a]}),maxAnisotropic:c,maxDrawbuffers:e,maxColorAttachments:f,pointSizeDims:a.getParameter(33901),lineWidthDims:a.getParameter(33902),maxViewportDims:a.getParameter(3386),maxCombinedTextureUnits:a.getParameter(35661),maxCubeMapSize:a.getParameter(34076),
+maxRenderbufferSize:a.getParameter(34024),maxTextureUnits:a.getParameter(34930),maxTextureSize:a.getParameter(3379),maxAttributes:a.getParameter(34921),maxVertexUniforms:a.getParameter(36347),maxVertexTextureUnits:a.getParameter(35660),maxVaryingVectors:a.getParameter(36348),maxFragmentUniforms:a.getParameter(36349),glsl:a.getParameter(35724),renderer:a.getParameter(7937),vendor:a.getParameter(7936),version:a.getParameter(7938),readFloat:d,npotTextureCube:n}},M=function(a){return a instanceof Uint8Array||
+a instanceof Uint16Array||a instanceof Uint32Array||a instanceof Int8Array||a instanceof Int16Array||a instanceof Int32Array||a instanceof Float32Array||a instanceof Float64Array||a instanceof Uint8ClampedArray},S=function(a){return Object.keys(a).map(function(b){return a[b]})},Oa={shape:function(a){for(var b=[];a.length;a=a[0])b.push(a.length);return b},flatten:function(a,b,c,e){var f=1;if(b.length)for(var d=0;d<b.length;++d)f*=b[d];else f=0;c=e||E.allocType(c,f);switch(b.length){case 0:break;case 1:e=
+b[0];for(b=0;b<e;++b)c[b]=a[b];break;case 2:e=b[0];b=b[1];for(d=f=0;d<e;++d)for(var p=a[d],n=0;n<b;++n)c[f++]=p[n];break;case 3:ib(a,b[0],b[1],b[2],c,0);break;default:jb(a,b,0,c,0)}return c}},Ga={"[object Int8Array]":5120,"[object Int16Array]":5122,"[object Int32Array]":5124,"[object Uint8Array]":5121,"[object Uint8ClampedArray]":5121,"[object Uint16Array]":5123,"[object Uint32Array]":5125,"[object Float32Array]":5126,"[object Float64Array]":5121,"[object ArrayBuffer]":5121},Ia={int8:5120,int16:5122,
+int32:5124,uint8:5121,uint16:5123,uint32:5125,"float":5126,float32:5126},ob={dynamic:35048,stream:35040,"static":35044},Sa=Oa.flatten,mb=Oa.shape,ha=[];ha[5120]=1;ha[5122]=2;ha[5124]=4;ha[5121]=1;ha[5123]=2;ha[5125]=4;ha[5126]=4;var Ta={points:0,point:0,lines:1,line:1,triangles:4,triangle:4,"line loop":2,"line strip":3,"triangle strip":5,"triangle fan":6},qb=new Float32Array(1),Mb=new Uint32Array(qb.buffer),Qb=[9984,9986,9985,9987],Ma=[0,6409,6410,6407,6408],Q={};Q[6409]=Q[6406]=Q[6402]=1;Q[34041]=
+Q[6410]=2;Q[6407]=Q[35904]=3;Q[6408]=Q[35906]=4;var Wa=na("HTMLCanvasElement"),Xa=na("OffscreenCanvas"),vb=na("CanvasRenderingContext2D"),wb=na("ImageBitmap"),xb=na("HTMLImageElement"),yb=na("HTMLVideoElement"),Nb=Object.keys(Ga).concat([Wa,Xa,vb,wb,xb,yb]),wa=[];wa[5121]=1;wa[5126]=4;wa[36193]=2;wa[5123]=2;wa[5125]=4;var F=[];F[32854]=2;F[32855]=2;F[36194]=2;F[34041]=4;F[33776]=.5;F[33777]=.5;F[33778]=1;F[33779]=1;F[35986]=.5;F[35987]=1;F[34798]=1;F[35840]=.5;F[35841]=.25;F[35842]=.5;F[35843]=.25;
+F[36196]=.5;var T=[];T[32854]=2;T[32855]=2;T[36194]=2;T[33189]=2;T[36168]=1;T[34041]=4;T[35907]=4;T[34836]=16;T[34842]=8;T[34843]=6;var Zb=function(a,b,c,e,f){function d(a){this.id=t++;this.refCount=1;this.renderbuffer=a;this.format=32854;this.height=this.width=0;f.profile&&(this.stats={size:0})}function p(b){var c=b.renderbuffer;a.bindRenderbuffer(36161,null);a.deleteRenderbuffer(c);b.renderbuffer=null;b.refCount=0;delete w[b.id];e.renderbufferCount--}var n={rgba4:32854,rgb565:36194,"rgb5 a1":32855,
+depth:33189,stencil:36168,"depth stencil":34041};b.ext_srgb&&(n.srgba=35907);b.ext_color_buffer_half_float&&(n.rgba16f=34842,n.rgb16f=34843);b.webgl_color_buffer_float&&(n.rgba32f=34836);var u=[];Object.keys(n).forEach(function(a){u[n[a]]=a});var t=0,w={};d.prototype.decRef=function(){0>=--this.refCount&&p(this)};f.profile&&(e.getTotalRenderbufferSize=function(){var a=0;Object.keys(w).forEach(function(b){a+=w[b].stats.size});return a});return{create:function(b,c){function l(b,c){var d=0,e=0,k=32854;
+"object"===typeof b&&b?("shape"in b?(e=b.shape,d=e[0]|0,e=e[1]|0):("radius"in b&&(d=e=b.radius|0),"width"in b&&(d=b.width|0),"height"in b&&(e=b.height|0)),"format"in b&&(k=n[b.format])):"number"===typeof b?(d=b|0,e="number"===typeof c?c|0:d):b||(d=e=1);if(d!==h.width||e!==h.height||k!==h.format)return l.width=h.width=d,l.height=h.height=e,h.format=k,a.bindRenderbuffer(36161,h.renderbuffer),a.renderbufferStorage(36161,k,d,e),f.profile&&(h.stats.size=T[h.format]*h.width*h.height),l.format=u[h.format],
+l}var h=new d(a.createRenderbuffer());w[h.id]=h;e.renderbufferCount++;l(b,c);l.resize=function(b,c){var d=b|0,e=c|0||d;if(d===h.width&&e===h.height)return l;l.width=h.width=d;l.height=h.height=e;a.bindRenderbuffer(36161,h.renderbuffer);a.renderbufferStorage(36161,h.format,d,e);f.profile&&(h.stats.size=T[h.format]*h.width*h.height);return l};l._reglType="renderbuffer";l._renderbuffer=h;f.profile&&(l.stats=h.stats);l.destroy=function(){h.decRef()};return l},clear:function(){S(w).forEach(p)},restore:function(){S(w).forEach(function(b){b.renderbuffer=
+a.createRenderbuffer();a.bindRenderbuffer(36161,b.renderbuffer);a.renderbufferStorage(36161,b.format,b.width,b.height)});a.bindRenderbuffer(36161,null)}}},Ya=[];Ya[6408]=4;Ya[6407]=3;var Pa=[];Pa[5121]=1;Pa[5126]=4;Pa[36193]=2;var Ba=["x","y","z","w"],Xb="blend.func blend.equation stencil.func stencil.opFront stencil.opBack sample.coverage viewport scissor.box polygonOffset.offset".split(" "),Ea={0:0,1:1,zero:0,one:1,"src color":768,"one minus src color":769,"src alpha":770,"one minus src alpha":771,
+"dst color":774,"one minus dst color":775,"dst alpha":772,"one minus dst alpha":773,"constant color":32769,"one minus constant color":32770,"constant alpha":32771,"one minus constant alpha":32772,"src alpha saturate":776},ab={never:512,less:513,"<":513,equal:514,"=":514,"==":514,"===":514,lequal:515,"<=":515,greater:516,">":516,notequal:517,"!=":517,"!==":517,gequal:518,">=":518,always:519},Ra={0:0,zero:0,keep:7680,replace:7681,increment:7682,decrement:7683,"increment wrap":34055,"decrement wrap":34056,
+invert:5386},Ab={cw:2304,ccw:2305},Bb=new K(!1,!1,!1,function(){}),$b=function(a,b){function c(){this.endQueryIndex=this.startQueryIndex=-1;this.sum=0;this.stats=null}function e(a,b,d){var e=p.pop()||new c;e.startQueryIndex=a;e.endQueryIndex=b;e.sum=0;e.stats=d;n.push(e)}if(!b.ext_disjoint_timer_query)return null;var f=[],d=[],p=[],n=[],u=[],t=[];return{beginQuery:function(a){var c=f.pop()||b.ext_disjoint_timer_query.createQueryEXT();b.ext_disjoint_timer_query.beginQueryEXT(35007,c);d.push(c);e(d.length-
+1,d.length,a)},endQuery:function(){b.ext_disjoint_timer_query.endQueryEXT(35007)},pushScopeStats:e,update:function(){var a,c;a=d.length;if(0!==a){t.length=Math.max(t.length,a+1);u.length=Math.max(u.length,a+1);u[0]=0;var e=t[0]=0;for(c=a=0;c<d.length;++c){var l=d[c];b.ext_disjoint_timer_query.getQueryObjectEXT(l,34919)?(e+=b.ext_disjoint_timer_query.getQueryObjectEXT(l,34918),f.push(l)):d[a++]=l;u[c+1]=e;t[c+1]=a}d.length=a;for(c=a=0;c<n.length;++c){var e=n[c],h=e.startQueryIndex,l=e.endQueryIndex;
+e.sum+=u[l]-u[h];h=t[h];l=t[l];l===h?(e.stats.gpuTime+=e.sum/1E6,p.push(e)):(e.startQueryIndex=h,e.endQueryIndex=l,n[a++]=e)}n.length=a}},getNumPendingQueries:function(){return d.length},clear:function(){f.push.apply(f,d);for(var a=0;a<f.length;a++)b.ext_disjoint_timer_query.deleteQueryEXT(f[a]);d.length=0;f.length=0},restore:function(){d.length=0;f.length=0}}};return function(a){function b(){if(0===C.length)z&&z.update(),aa=null;else{aa=bb.next(b);w();for(var a=C.length-1;0<=a;--a){var c=C[a];c&&
+c(G,null,0)}l.flush();z&&z.update()}}function c(){!aa&&0<C.length&&(aa=bb.next(b))}function e(){aa&&(bb.cancel(b),aa=null)}function f(a){a.preventDefault();e();S.forEach(function(a){a()})}function d(a){l.getError();g.restore();D.restore();O.restore();y.restore();L.restore();V.restore();J.restore();z&&z.restore();R.procs.refresh();c();T.forEach(function(a){a()})}function p(a){function b(a,c){var d={},e={};Object.keys(a).forEach(function(b){var f=a[b];if(Y.isDynamic(f))e[b]=Y.unbox(f,b);else{if(c&&
+Array.isArray(f))for(var g=0;g<f.length;++g)if(Y.isDynamic(f[g])){e[b]=Y.unbox(f,b);return}d[b]=f}});return{dynamic:e,"static":d}}function c(a){for(;n.length<a;)n.push(null);return n}var d=b(a.context||{},!0),e=b(a.uniforms||{},!0),f=b(a.attributes||{},!1);a=b(function(a){function b(a){if(a in c){var d=c[a];delete c[a];Object.keys(d).forEach(function(b){c[a+"."+b]=d[b]})}}var c=A({},a);delete c.uniforms;delete c.attributes;delete c.context;delete c.vao;"stencil"in c&&c.stencil.op&&(c.stencil.opBack=
+c.stencil.opFront=c.stencil.op,delete c.stencil.op);b("blend");b("depth");b("cull");b("stencil");b("polygonOffset");b("scissor");b("sample");"vao"in a&&(c.vao=a.vao);return c}(a),!1);var g={gpuTime:0,cpuTime:0,count:0},h=R.compile(a,f,e,d,g),k=h.draw,l=h.batch,m=h.scope,n=[];return A(function(a,b){var d;if("function"===typeof a)return m.call(this,null,a,0);if("function"===typeof b)if("number"===typeof a)for(d=0;d<a;++d)m.call(this,null,b,d);else if(Array.isArray(a))for(d=0;d<a.length;++d)m.call(this,
+a[d],b,d);else return m.call(this,a,b,0);else if("number"===typeof a){if(0<a)return l.call(this,c(a|0),a|0)}else if(Array.isArray(a)){if(a.length)return l.call(this,a,a.length)}else return k.call(this,a)},{stats:g,destroy:function(){h.destroy()}})}function n(a,b){var c=0;R.procs.poll();var d=b.color;d&&(l.clearColor(+d[0]||0,+d[1]||0,+d[2]||0,+d[3]||0),c|=16384);"depth"in b&&(l.clearDepth(+b.depth),c|=256);"stencil"in b&&(l.clearStencil(b.stencil|0),c|=1024);l.clear(c)}function u(a){C.push(a);c();
+return{cancel:function(){function b(){var a=Cb(C,b);C[a]=C[C.length-1];--C.length;0>=C.length&&e()}var c=Cb(C,a);C[c]=b}}}function t(){var a=Q.viewport,b=Q.scissor_box;a[0]=a[1]=b[0]=b[1]=0;G.viewportWidth=G.framebufferWidth=G.drawingBufferWidth=a[2]=b[2]=l.drawingBufferWidth;G.viewportHeight=G.framebufferHeight=G.drawingBufferHeight=a[3]=b[3]=l.drawingBufferHeight}function w(){G.tick+=1;G.time=v();t();R.procs.poll()}function k(){y.refresh();t();R.procs.refresh();z&&z.update()}function v(){return(Db()-
+E)/1E3}a=Ib(a);if(!a)return null;var l=a.gl,h=l.getContextAttributes();l.isContextLost();var g=Jb(l,a);if(!g)return null;var q=Fb(),r={vaoCount:0,bufferCount:0,elementsCount:0,framebufferCount:0,shaderCount:0,textureCount:0,cubeCount:0,renderbufferCount:0,maxTextureUnits:0},m=g.extensions,z=$b(l,m),E=Db(),F=l.drawingBufferWidth,K=l.drawingBufferHeight,G={tick:0,time:0,viewportWidth:F,viewportHeight:K,framebufferWidth:F,framebufferHeight:K,drawingBufferWidth:F,drawingBufferHeight:K,pixelRatio:a.pixelRatio},
+H=Yb(l,m),O=Kb(l,r,a,function(a){return J.destroyBuffer(a)}),J=Sb(l,m,H,r,O),M=Lb(l,m,O,r),D=Tb(l,q,r,a),y=Ob(l,m,H,function(){R.procs.poll()},G,r,a),L=Zb(l,m,H,r,a),V=Rb(l,m,H,y,L,r),R=Wb(l,q,m,H,O,M,y,V,{},J,D,{elements:null,primitive:4,count:-1,offset:0,instances:-1},G,z,a),q=Ub(l,V,R.procs.poll,G,h,m,H),Q=R.next,N=l.canvas,C=[],S=[],T=[],U=[a.onDestroy],aa=null;N&&(N.addEventListener("webglcontextlost",f,!1),N.addEventListener("webglcontextrestored",d,!1));var X=V.setFBO=p({framebuffer:Y.define.call(null,
+1,"framebuffer")});k();h=A(p,{clear:function(a){if("framebuffer"in a)if(a.framebuffer&&"framebufferCube"===a.framebuffer_reglType)for(var b=0;6>b;++b)X(A({framebuffer:a.framebuffer.faces[b]},a),n);else X(a,n);else n(null,a)},prop:Y.define.bind(null,1),context:Y.define.bind(null,2),"this":Y.define.bind(null,3),draw:p({}),buffer:function(a){return O.create(a,34962,!1,!1)},elements:function(a){return M.create(a,!1)},texture:y.create2D,cube:y.createCube,renderbuffer:L.create,framebuffer:V.create,framebufferCube:V.createCube,
+vao:J.createVAO,attributes:h,frame:u,on:function(a,b){var c;switch(a){case "frame":return u(b);case "lost":c=S;break;case "restore":c=T;break;case "destroy":c=U}c.push(b);return{cancel:function(){for(var a=0;a<c.length;++a)if(c[a]===b){c[a]=c[c.length-1];c.pop();break}}}},limits:H,hasExtension:function(a){return 0<=H.extensions.indexOf(a.toLowerCase())},read:q,destroy:function(){C.length=0;e();N&&(N.removeEventListener("webglcontextlost",f),N.removeEventListener("webglcontextrestored",d));D.clear();
+V.clear();L.clear();y.clear();M.clear();O.clear();J.clear();z&&z.clear();U.forEach(function(a){a()})},_gl:l,_refresh:k,poll:function(){w();z&&z.update()},now:v,stats:r});a.onDone(null,h);return h}});
 
-},{}],261:[function(_dereq_,module,exports){
+},{}],279:[function(_dereq_,module,exports){
 /*!
  * repeat-string <https://github.com/jonschlinkert/repeat-string>
  *
@@ -43928,7 +44301,7 @@ function repeat(str, num) {
   return res;
 }
 
-},{}],262:[function(_dereq_,module,exports){
+},{}],280:[function(_dereq_,module,exports){
 "use strict"
 
 var twoProduct = _dereq_("two-product")
@@ -44096,7 +44469,7 @@ function generateInSphereTest() {
 }
 
 generateInSphereTest()
-},{"robust-scale":265,"robust-subtract":267,"robust-sum":268,"two-product":289}],263:[function(_dereq_,module,exports){
+},{"robust-scale":283,"robust-subtract":285,"robust-sum":286,"two-product":304}],281:[function(_dereq_,module,exports){
 "use strict"
 
 var twoProduct = _dereq_("two-product")
@@ -44287,7 +44660,7 @@ function generateOrientationProc() {
 }
 
 generateOrientationProc()
-},{"robust-scale":265,"robust-subtract":267,"robust-sum":268,"two-product":289}],264:[function(_dereq_,module,exports){
+},{"robust-scale":283,"robust-subtract":285,"robust-sum":286,"two-product":304}],282:[function(_dereq_,module,exports){
 "use strict"
 
 var robustSum = _dereq_("robust-sum")
@@ -44317,7 +44690,7 @@ function robustProduct(a, b) {
   }
   return r
 }
-},{"robust-scale":265,"robust-sum":268}],265:[function(_dereq_,module,exports){
+},{"robust-scale":283,"robust-sum":286}],283:[function(_dereq_,module,exports){
 "use strict"
 
 var twoProduct = _dereq_("two-product")
@@ -44368,7 +44741,7 @@ function scaleLinearExpansion(e, scale) {
   g.length = count
   return g
 }
-},{"two-product":289,"two-sum":290}],266:[function(_dereq_,module,exports){
+},{"two-product":304,"two-sum":305}],284:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = segmentsIntersect
@@ -44416,7 +44789,7 @@ function segmentsIntersect(a0, a1, b0, b1) {
 
   return true
 }
-},{"robust-orientation":263}],267:[function(_dereq_,module,exports){
+},{"robust-orientation":281}],285:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = robustSubtract
@@ -44573,7 +44946,7 @@ function robustSubtract(e, f) {
   g.length = count
   return g
 }
-},{}],268:[function(_dereq_,module,exports){
+},{}],286:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = linearExpansionSum
@@ -44730,17 +45103,9 @@ function linearExpansionSum(e, f) {
   g.length = count
   return g
 }
-},{}],269:[function(_dereq_,module,exports){
-"use strict"
-
-module.exports = function signum(x) {
-  if(x < 0) { return -1 }
-  if(x > 0) { return 1 }
-  return 0.0
-}
-},{}],270:[function(_dereq_,module,exports){
+},{}],287:[function(_dereq_,module,exports){
 arguments[4][40][0].apply(exports,arguments)
-},{"dup":40}],271:[function(_dereq_,module,exports){
+},{"dup":40}],288:[function(_dereq_,module,exports){
 "use strict"; "use restrict";
 
 var bits      = _dereq_("bit-twiddle")
@@ -45084,7 +45449,7 @@ function connectedComponents(cells, vertex_count) {
 }
 exports.connectedComponents = connectedComponents
 
-},{"bit-twiddle":270,"union-find":272}],272:[function(_dereq_,module,exports){
+},{"bit-twiddle":287,"union-find":289}],289:[function(_dereq_,module,exports){
 "use strict"; "use restrict";
 
 module.exports = UnionFind;
@@ -45141,7 +45506,7 @@ UnionFind.prototype.link = function(x, y) {
 }
 
 
-},{}],273:[function(_dereq_,module,exports){
+},{}],290:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = simplifyPolygon
@@ -45413,7 +45778,7 @@ function simplifyPolygon(cells, positions, minArea) {
     edges: ncells
   }
 }
-},{"robust-orientation":263,"simplicial-complex":271}],274:[function(_dereq_,module,exports){
+},{"robust-orientation":281,"simplicial-complex":288}],291:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = orderSegments
@@ -45509,9 +45874,9 @@ function orderSegments(b, a) {
   }
   return ar[0] - br[0]
 }
-},{"robust-orientation":263}],275:[function(_dereq_,module,exports){
-arguments[4][207][0].apply(exports,arguments)
-},{"dup":207}],276:[function(_dereq_,module,exports){
+},{"robust-orientation":281}],292:[function(_dereq_,module,exports){
+arguments[4][215][0].apply(exports,arguments)
+},{"dup":215}],293:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = createSlabDecomposition
@@ -45742,7 +46107,7 @@ function createSlabDecomposition(segments) {
   }
   return new SlabDecomposition(slabs, lines, horizontal)
 }
-},{"./lib/order-segments":274,"binary-search-bounds":275,"functional-red-black-tree":159,"robust-orientation":263}],277:[function(_dereq_,module,exports){
+},{"./lib/order-segments":291,"binary-search-bounds":292,"functional-red-black-tree":163,"robust-orientation":281}],294:[function(_dereq_,module,exports){
 /* global window, exports, define */
 
 !function() {
@@ -45975,7 +46340,7 @@ function createSlabDecomposition(segments) {
     /* eslint-enable quote-props */
 }(); // eslint-disable-line
 
-},{}],278:[function(_dereq_,module,exports){
+},{}],295:[function(_dereq_,module,exports){
 'use strict'
 
 var paren = _dereq_('parenthesis')
@@ -46033,7 +46398,7 @@ module.exports = function splitBy (string, separator, o) {
 	return parts
 }
 
-},{"parenthesis":229}],279:[function(_dereq_,module,exports){
+},{"parenthesis":238}],296:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = surfaceNets
@@ -46241,7 +46606,7 @@ function surfaceNets(array,level) {
   }
   return proc(array,level)
 }
-},{"ndarray-extract-contour":222,"triangulate-hypercube":288,"zero-crossings":314}],280:[function(_dereq_,module,exports){
+},{"ndarray-extract-contour":231,"triangulate-hypercube":303,"zero-crossings":329}],297:[function(_dereq_,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46432,7 +46797,7 @@ var arcToBezier = function arcToBezier(_ref2) {
 
 exports.default = arcToBezier;
 module.exports = exports.default;
-},{}],281:[function(_dereq_,module,exports){
+},{}],298:[function(_dereq_,module,exports){
 'use strict'
 
 var parse = _dereq_('parse-svg-path')
@@ -46477,131 +46842,7 @@ function pathBounds(path) {
   return bounds
 }
 
-},{"abs-svg-path":12,"assert":17,"is-svg-path":216,"normalize-svg-path":282,"parse-svg-path":231}],282:[function(_dereq_,module,exports){
-'use strict'
-
-module.exports = normalize
-
-var arcToCurve = _dereq_('svg-arc-to-cubic-bezier')
-
-function normalize(path){
-  // init state
-  var prev
-  var result = []
-  var bezierX = 0
-  var bezierY = 0
-  var startX = 0
-  var startY = 0
-  var quadX = null
-  var quadY = null
-  var x = 0
-  var y = 0
-
-  for (var i = 0, len = path.length; i < len; i++) {
-    var seg = path[i]
-    var command = seg[0]
-
-    switch (command) {
-      case 'M':
-        startX = seg[1]
-        startY = seg[2]
-        break
-      case 'A':
-        var curves = arcToCurve({
-          px: x,
-          py: y,
-          cx: seg[6],
-          cy:  seg[7],
-          rx: seg[1],
-          ry: seg[2],
-          xAxisRotation: seg[3],
-          largeArcFlag: seg[4],
-          sweepFlag: seg[5]
-        })
-
-        // null-curves
-        if (!curves.length) continue
-
-        for (var j = 0, c; j < curves.length; j++) {
-          c = curves[j]
-          seg = ['C', c.x1, c.y1, c.x2, c.y2, c.x, c.y]
-          if (j < curves.length - 1) result.push(seg)
-        }
-
-        break
-      case 'S':
-        // default control point
-        var cx = x
-        var cy = y
-        if (prev == 'C' || prev == 'S') {
-          cx += cx - bezierX // reflect the previous command's control
-          cy += cy - bezierY // point relative to the current point
-        }
-        seg = ['C', cx, cy, seg[1], seg[2], seg[3], seg[4]]
-        break
-      case 'T':
-        if (prev == 'Q' || prev == 'T') {
-          quadX = x * 2 - quadX // as with 'S' reflect previous control point
-          quadY = y * 2 - quadY
-        } else {
-          quadX = x
-          quadY = y
-        }
-        seg = quadratic(x, y, quadX, quadY, seg[1], seg[2])
-        break
-      case 'Q':
-        quadX = seg[1]
-        quadY = seg[2]
-        seg = quadratic(x, y, seg[1], seg[2], seg[3], seg[4])
-        break
-      case 'L':
-        seg = line(x, y, seg[1], seg[2])
-        break
-      case 'H':
-        seg = line(x, y, seg[1], y)
-        break
-      case 'V':
-        seg = line(x, y, x, seg[1])
-        break
-      case 'Z':
-        seg = line(x, y, startX, startY)
-        break
-    }
-
-    // update state
-    prev = command
-    x = seg[seg.length - 2]
-    y = seg[seg.length - 1]
-    if (seg.length > 4) {
-      bezierX = seg[seg.length - 4]
-      bezierY = seg[seg.length - 3]
-    } else {
-      bezierX = x
-      bezierY = y
-    }
-    result.push(seg)
-  }
-
-  return result
-}
-
-function line(x1, y1, x2, y2){
-  return ['C', x1, y1, x2, y2, x2, y2]
-}
-
-function quadratic(x1, y1, cx, cy, x2, y2){
-  return [
-    'C',
-    x1/3 + (2/3) * cx,
-    y1/3 + (2/3) * cy,
-    x2/3 + (2/3) * cx,
-    y2/3 + (2/3) * cy,
-    x2,
-    y2
-  ]
-}
-
-},{"svg-arc-to-cubic-bezier":280}],283:[function(_dereq_,module,exports){
+},{"abs-svg-path":12,"assert":17,"is-svg-path":224,"normalize-svg-path":235,"parse-svg-path":240}],299:[function(_dereq_,module,exports){
 'use strict'
 
 var pathBounds = _dereq_('svg-path-bounds')
@@ -46704,8 +46945,8 @@ function isPath2DSupported () {
 	return path2DSupported = idata && idata.data && idata.data[3] === 255
 }
 
-},{"bitmap-sdf":41,"draw-svg-path":90,"is-svg-path":216,"parse-svg-path":231,"svg-path-bounds":281}],284:[function(_dereq_,module,exports){
-(function (process){
+},{"bitmap-sdf":41,"draw-svg-path":92,"is-svg-path":224,"parse-svg-path":240,"svg-path-bounds":298}],300:[function(_dereq_,module,exports){
+(function (process){(function (){
 'use strict'
 
 module.exports = textGet
@@ -46800,8 +47041,8 @@ function textGet(font, text, opts) {
    return mesh
 }
 
-}).call(this,_dereq_('_process'))
-},{"_process":250,"vectorize-text":307}],285:[function(_dereq_,module,exports){
+}).call(this)}).call(this,_dereq_('_process'))
+},{"_process":259,"vectorize-text":322}],301:[function(_dereq_,module,exports){
 // TinyColor v1.4.2
 // https://github.com/bgrins/TinyColor
 // Brian Grinstead, MIT License
@@ -47998,7 +48239,7 @@ else {
 
 })(Math);
 
-},{}],286:[function(_dereq_,module,exports){
+},{}],302:[function(_dereq_,module,exports){
 /* @module to-float32 */
 
 'use strict'
@@ -48039,68 +48280,7 @@ function float32 (arr) {
 	return narr[0]
 }
 
-},{}],287:[function(_dereq_,module,exports){
-'use strict'
-
-var parseUnit = _dereq_('parse-unit')
-
-module.exports = toPX
-
-var PIXELS_PER_INCH = 96
-
-function getPropertyInPX(element, prop) {
-  var parts = parseUnit(getComputedStyle(element).getPropertyValue(prop))
-  return parts[0] * toPX(parts[1], element)
-}
-
-//This brutal hack is needed
-function getSizeBrutal(unit, element) {
-  var testDIV = document.createElement('div')
-  testDIV.style['font-size'] = '128' + unit
-  element.appendChild(testDIV)
-  var size = getPropertyInPX(testDIV, 'font-size') / 128
-  element.removeChild(testDIV)
-  return size
-}
-
-function toPX(str, element) {
-  element = element || document.body
-  str = (str || 'px').trim().toLowerCase()
-  if(element === window || element === document) {
-    element = document.body 
-  }
-  switch(str) {
-    case '%':  //Ambiguous, not sure if we should use width or height
-      return element.clientHeight / 100.0
-    case 'ch':
-    case 'ex':
-      return getSizeBrutal(str, element)
-    case 'em':
-      return getPropertyInPX(element, 'font-size')
-    case 'rem':
-      return getPropertyInPX(document.body, 'font-size')
-    case 'vw':
-      return window.innerWidth/100
-    case 'vh':
-      return window.innerHeight/100
-    case 'vmin':
-      return Math.min(window.innerWidth, window.innerHeight) / 100
-    case 'vmax':
-      return Math.max(window.innerWidth, window.innerHeight) / 100
-    case 'in':
-      return PIXELS_PER_INCH
-    case 'cm':
-      return PIXELS_PER_INCH / 2.54
-    case 'mm':
-      return PIXELS_PER_INCH / 25.4
-    case 'pt':
-      return PIXELS_PER_INCH / 72
-    case 'pc':
-      return PIXELS_PER_INCH / 6
-  }
-  return 1
-}
-},{"parse-unit":232}],288:[function(_dereq_,module,exports){
+},{}],303:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = triangulateCube
@@ -48134,7 +48314,7 @@ function triangulateCube(dimension) {
   }
   return result
 }
-},{"gamma":160,"permutation-parity":234,"permutation-rank":235}],289:[function(_dereq_,module,exports){
+},{"gamma":164,"permutation-parity":243,"permutation-rank":244}],304:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = twoProduct
@@ -48168,7 +48348,7 @@ function twoProduct(a, b, result) {
 
   return [ y, x ]
 }
-},{}],290:[function(_dereq_,module,exports){
+},{}],305:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = fastTwoSum
@@ -48186,7 +48366,7 @@ function fastTwoSum(a, b, result) {
 	}
 	return [ar+br, x]
 }
-},{}],291:[function(_dereq_,module,exports){
+},{}],306:[function(_dereq_,module,exports){
 "use strict";
 
 var isPrototype = _dereq_("../prototype/is");
@@ -48207,7 +48387,7 @@ module.exports = function (value) {
 	return !isPrototype(value);
 };
 
-},{"../prototype/is":298}],292:[function(_dereq_,module,exports){
+},{"../prototype/is":313}],307:[function(_dereq_,module,exports){
 "use strict";
 
 var isValue       = _dereq_("../value/is")
@@ -48230,7 +48410,7 @@ module.exports = function (value, defaultMessage, inputOptions) {
 	throw new TypeError(resolveMessage(errorMessage, value));
 };
 
-},{"../object/is":295,"../string/coerce":299,"../value/is":301,"./to-short-string":294}],293:[function(_dereq_,module,exports){
+},{"../object/is":310,"../string/coerce":314,"../value/is":316,"./to-short-string":309}],308:[function(_dereq_,module,exports){
 "use strict";
 
 module.exports = function (value) {
@@ -48242,7 +48422,7 @@ module.exports = function (value) {
 	}
 };
 
-},{}],294:[function(_dereq_,module,exports){
+},{}],309:[function(_dereq_,module,exports){
 "use strict";
 
 var safeToString = _dereq_("./safe-to-string");
@@ -48273,7 +48453,7 @@ module.exports = function (value) {
 	return string;
 };
 
-},{"./safe-to-string":293}],295:[function(_dereq_,module,exports){
+},{"./safe-to-string":308}],310:[function(_dereq_,module,exports){
 "use strict";
 
 var isValue = _dereq_("../value/is");
@@ -48286,7 +48466,7 @@ module.exports = function (value) {
 	return hasOwnProperty.call(possibleTypes, typeof value);
 };
 
-},{"../value/is":301}],296:[function(_dereq_,module,exports){
+},{"../value/is":316}],311:[function(_dereq_,module,exports){
 "use strict";
 
 var resolveException = _dereq_("../lib/resolve-exception")
@@ -48297,7 +48477,7 @@ module.exports = function (value/*, options*/) {
 	return resolveException(value, "%v is not a plain function", arguments[1]);
 };
 
-},{"../lib/resolve-exception":292,"./is":297}],297:[function(_dereq_,module,exports){
+},{"../lib/resolve-exception":307,"./is":312}],312:[function(_dereq_,module,exports){
 "use strict";
 
 var isFunction = _dereq_("../function/is");
@@ -48310,7 +48490,7 @@ module.exports = function (value) {
 	return true;
 };
 
-},{"../function/is":291}],298:[function(_dereq_,module,exports){
+},{"../function/is":306}],313:[function(_dereq_,module,exports){
 "use strict";
 
 var isObject = _dereq_("../object/is");
@@ -48325,7 +48505,7 @@ module.exports = function (value) {
 	}
 };
 
-},{"../object/is":295}],299:[function(_dereq_,module,exports){
+},{"../object/is":310}],314:[function(_dereq_,module,exports){
 "use strict";
 
 var isValue  = _dereq_("../value/is")
@@ -48350,7 +48530,7 @@ module.exports = function (value) {
 	}
 };
 
-},{"../object/is":295,"../value/is":301}],300:[function(_dereq_,module,exports){
+},{"../object/is":310,"../value/is":316}],315:[function(_dereq_,module,exports){
 "use strict";
 
 var resolveException = _dereq_("../lib/resolve-exception")
@@ -48361,7 +48541,7 @@ module.exports = function (value/*, options*/) {
 	return resolveException(value, "Cannot use %v", arguments[1]);
 };
 
-},{"../lib/resolve-exception":292,"./is":301}],301:[function(_dereq_,module,exports){
+},{"../lib/resolve-exception":307,"./is":316}],316:[function(_dereq_,module,exports){
 "use strict";
 
 // ES3 safe
@@ -48369,8 +48549,8 @@ var _undefined = void 0;
 
 module.exports = function (value) { return value !== _undefined && value !== null; };
 
-},{}],302:[function(_dereq_,module,exports){
-(function (global){
+},{}],317:[function(_dereq_,module,exports){
+(function (global){(function (){
 'use strict'
 
 var bits = _dereq_('bit-twiddle')
@@ -48623,8 +48803,8 @@ exports.clearCache = function clearCache() {
   }
 }
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"bit-twiddle":40,"buffer":52,"dup":92}],303:[function(_dereq_,module,exports){
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"bit-twiddle":40,"buffer":51,"dup":95}],318:[function(_dereq_,module,exports){
 "use strict"; "use restrict";
 
 module.exports = UnionFind;
@@ -48687,7 +48867,7 @@ proto.link = function(x, y) {
     ++ranks[xr];
   }
 }
-},{}],304:[function(_dereq_,module,exports){
+},{}],319:[function(_dereq_,module,exports){
 "use strict"
 
 function unique_pred(list, compare) {
@@ -48746,7 +48926,7 @@ function unique(list, compare, sorted) {
 
 module.exports = unique
 
-},{}],305:[function(_dereq_,module,exports){
+},{}],320:[function(_dereq_,module,exports){
 var reg = /[\'\"]/
 
 module.exports = function unquote(str) {
@@ -48762,7 +48942,7 @@ module.exports = function unquote(str) {
   return str
 }
 
-},{}],306:[function(_dereq_,module,exports){
+},{}],321:[function(_dereq_,module,exports){
 /**
  * @module update-diff
  */
@@ -48795,7 +48975,7 @@ module.exports = function updateDiff (obj, diff, mappers) {
 	return obj
 }
 
-},{}],307:[function(_dereq_,module,exports){
+},{}],322:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = createText
@@ -48822,7 +49002,7 @@ function createText(str, options) {
     options)
 }
 
-},{"./lib/vtext":308}],308:[function(_dereq_,module,exports){
+},{"./lib/vtext":323}],323:[function(_dereq_,module,exports){
 module.exports = vectorizeText
 module.exports.processPixels = processPixels
 
@@ -49277,7 +49457,7 @@ function vectorizeText(str, canvas, context, options) {
   return processPixels(pixels, options, size)
 }
 
-},{"cdt2d":53,"clean-pslg":59,"ndarray":224,"planar-graph-to-polyline":239,"simplify-planar-graph":273,"surface-nets":279}],309:[function(_dereq_,module,exports){
+},{"cdt2d":52,"clean-pslg":58,"ndarray":233,"planar-graph-to-polyline":248,"simplify-planar-graph":290,"surface-nets":296}],324:[function(_dereq_,module,exports){
 var hiddenStore = _dereq_('./hidden-store.js');
 
 module.exports = createStore;
@@ -49298,7 +49478,7 @@ function createStore() {
     };
 }
 
-},{"./hidden-store.js":310}],310:[function(_dereq_,module,exports){
+},{"./hidden-store.js":325}],325:[function(_dereq_,module,exports){
 module.exports = hiddenStore;
 
 function hiddenStore(obj, key) {
@@ -49316,7 +49496,7 @@ function hiddenStore(obj, key) {
     return store;
 }
 
-},{}],311:[function(_dereq_,module,exports){
+},{}],326:[function(_dereq_,module,exports){
 // Original - @Gozola.
 // https://gist.github.com/Gozala/1269991
 // This is a reimplemented version (with a few bug fixes).
@@ -49347,14 +49527,14 @@ function weakMap() {
     }
 }
 
-},{"./create-store.js":309}],312:[function(_dereq_,module,exports){
+},{"./create-store.js":324}],327:[function(_dereq_,module,exports){
 var getContext = _dereq_('get-canvas-context')
 
 module.exports = function getWebGLContext (opt) {
   return getContext('webgl', opt)
 }
 
-},{"get-canvas-context":161}],313:[function(_dereq_,module,exports){
+},{"get-canvas-context":165}],328:[function(_dereq_,module,exports){
 module.exports = _dereq_('cwise-compiler')({
     args: ['array', {
         offset: [1],
@@ -49406,7 +49586,7 @@ module.exports = _dereq_('cwise-compiler')({
     funcName: 'zeroCrossings'
 })
 
-},{"cwise-compiler":79}],314:[function(_dereq_,module,exports){
+},{"cwise-compiler":81}],329:[function(_dereq_,module,exports){
 "use strict"
 
 module.exports = findZeroCrossings
@@ -49419,7 +49599,7 @@ function findZeroCrossings(array, level) {
   core(array.hi(array.shape[0]-1), cross, level)
   return cross
 }
-},{"./lib/zc-core":313}],315:[function(_dereq_,module,exports){
+},{"./lib/zc-core":328}],330:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -49490,7 +49670,7 @@ module.exports = [
     }
 ];
 
-},{}],316:[function(_dereq_,module,exports){
+},{}],331:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -49872,7 +50052,7 @@ module.exports = templatedArray('annotation', {
     }
 });
 
-},{"../../constants/axis_placeable_objects":434,"../../plot_api/plot_template":498,"../../plots/cartesian/constants":515,"../../plots/font_attributes":537,"./arrow_paths":315}],317:[function(_dereq_,module,exports){
+},{"../../constants/axis_placeable_objects":449,"../../plot_api/plot_template":513,"../../plots/cartesian/constants":530,"../../plots/font_attributes":552,"./arrow_paths":330}],332:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -49963,7 +50143,7 @@ function calcAxisExpansion(ann, ax) {
     ann._extremes[axId] = extremes;
 }
 
-},{"../../lib":461,"../../plots/cartesian/axes":509,"./draw":322}],318:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/cartesian/axes":524,"./draw":337}],333:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -50101,7 +50281,7 @@ function clickData2r(d, ax) {
     return ax.type === 'log' ? ax.l2r(d) : ax.d2r(d);
 }
 
-},{"../../lib":461,"../../plot_api/plot_template":498,"../../registry":555}],319:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plot_api/plot_template":513,"../../registry":570}],334:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -50180,7 +50360,7 @@ module.exports = function handleAnnotationCommonDefaults(annIn, annOut, fullLayo
     coerce('captureevents', !!hoverText);
 };
 
-},{"../../lib":461,"../color":331}],320:[function(_dereq_,module,exports){
+},{"../../lib":476,"../color":346}],335:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -50243,7 +50423,7 @@ module.exports = function convertCoords(gd, ax, newType, doExtra) {
     }
 };
 
-},{"../../lib/to_log_range":487,"fast-isnumeric":155}],321:[function(_dereq_,module,exports){
+},{"../../lib/to_log_range":502,"fast-isnumeric":159}],336:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -50351,7 +50531,7 @@ function handleAnnotationDefaults(annIn, annOut, fullLayout) {
     }
 }
 
-},{"../../lib":461,"../../plots/array_container_defaults":504,"../../plots/cartesian/axes":509,"./attributes":316,"./common_defaults":319}],322:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/array_container_defaults":519,"../../plots/cartesian/axes":524,"./attributes":331,"./common_defaults":334}],337:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -51111,7 +51291,7 @@ function drawRaw(gd, options, index, subplotId, xa, ya) {
     } else annText.call(textLayout);
 }
 
-},{"../../lib":461,"../../lib/setcursor":481,"../../lib/svg_text_utils":485,"../../plot_api/plot_template":498,"../../plots/cartesian/axes":509,"../../plots/plots":547,"../../registry":555,"../color":331,"../dragelement":350,"../drawing":353,"../fx":371,"./draw_arrow_head":323,"d3":86}],323:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../lib/setcursor":496,"../../lib/svg_text_utils":500,"../../plot_api/plot_template":513,"../../plots/cartesian/axes":524,"../../plots/plots":562,"../../registry":570,"../color":346,"../dragelement":365,"../drawing":368,"../fx":386,"./draw_arrow_head":338,"d3":88}],338:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -51262,7 +51442,7 @@ module.exports = function drawArrowHead(el3, ends, options) {
     if(doEnd) drawhead(headStyle, end, endRot, scale);
 };
 
-},{"../color":331,"./arrow_paths":315,"d3":86}],324:[function(_dereq_,module,exports){
+},{"../color":346,"./arrow_paths":330,"d3":88}],339:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -51296,7 +51476,7 @@ module.exports = {
     convertCoords: _dereq_('./convert_coords')
 };
 
-},{"../../plots/cartesian/include_components":521,"./attributes":316,"./calc_autorange":317,"./click":318,"./convert_coords":320,"./defaults":321,"./draw":322}],325:[function(_dereq_,module,exports){
+},{"../../plots/cartesian/include_components":536,"./attributes":331,"./calc_autorange":332,"./click":333,"./convert_coords":335,"./defaults":336,"./draw":337}],340:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -51384,7 +51564,7 @@ module.exports = overrideAll(templatedArray('annotation', {
     // zref: 'z'
 }), 'calc', 'from-root');
 
-},{"../../plot_api/edit_types":491,"../../plot_api/plot_template":498,"../annotations/attributes":316}],326:[function(_dereq_,module,exports){
+},{"../../plot_api/edit_types":506,"../../plot_api/plot_template":513,"../annotations/attributes":331}],341:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -51449,7 +51629,7 @@ function mockAnnAxes(ann, scene) {
     };
 }
 
-},{"../../lib":461,"../../plots/cartesian/axes":509}],327:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/cartesian/axes":524}],342:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -51525,7 +51705,7 @@ function handleAnnotationDefaults(annIn, annOut, sceneLayout, opts) {
     }
 }
 
-},{"../../lib":461,"../../plots/array_container_defaults":504,"../../plots/cartesian/axes":509,"../annotations/common_defaults":319,"./attributes":325}],328:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/array_container_defaults":519,"../../plots/cartesian/axes":524,"../annotations/common_defaults":334,"./attributes":340}],343:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -51577,7 +51757,7 @@ module.exports = function draw(scene) {
     }
 };
 
-},{"../../plots/gl3d/project":544,"../annotations/draw":322}],329:[function(_dereq_,module,exports){
+},{"../../plots/gl3d/project":559,"../annotations/draw":337}],344:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -51625,7 +51805,7 @@ function includeGL3D(layoutIn, layoutOut) {
     }
 }
 
-},{"../../lib":461,"../../registry":555,"./attributes":325,"./convert":326,"./defaults":327,"./draw":328}],330:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570,"./attributes":340,"./convert":341,"./defaults":342,"./draw":343}],345:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -51665,7 +51845,7 @@ exports.borderLine = '#BEC8D9';
 // gives back exactly lightLine if the other colors are defaults.
 exports.lightFraction = 100 * (0xe - 0x4) / (0xf - 0x4);
 
-},{}],331:[function(_dereq_,module,exports){
+},{}],346:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -51839,7 +52019,7 @@ function cleanOne(val) {
     return 'rgb(' + rgbStr + ')';
 }
 
-},{"./attributes":330,"fast-isnumeric":155,"tinycolor2":285}],332:[function(_dereq_,module,exports){
+},{"./attributes":345,"fast-isnumeric":159,"tinycolor2":301}],347:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -52019,7 +52199,7 @@ module.exports = overrideAll({
     }
 }, 'colorbars', 'from-root');
 
-},{"../../lib/extend":453,"../../plot_api/edit_types":491,"../../plots/cartesian/layout_attributes":523,"../../plots/font_attributes":537}],333:[function(_dereq_,module,exports){
+},{"../../lib/extend":468,"../../plot_api/edit_types":506,"../../plots/cartesian/layout_attributes":538,"../../plots/font_attributes":552}],348:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -52047,7 +52227,7 @@ module.exports = {
     }
 };
 
-},{}],334:[function(_dereq_,module,exports){
+},{}],349:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -52113,7 +52293,7 @@ module.exports = function colorbarDefaults(containerIn, containerOut, layout) {
     coerce('title.side');
 };
 
-},{"../../lib":461,"../../plot_api/plot_template":498,"../../plots/cartesian/tick_label_defaults":530,"../../plots/cartesian/tick_mark_defaults":531,"../../plots/cartesian/tick_value_defaults":532,"./attributes":332}],335:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plot_api/plot_template":513,"../../plots/cartesian/tick_label_defaults":545,"../../plots/cartesian/tick_mark_defaults":546,"../../plots/cartesian/tick_value_defaults":547,"./attributes":347}],350:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -52842,7 +53022,7 @@ module.exports = {
     draw: draw
 };
 
-},{"../../constants/alignment":433,"../../lib":461,"../../lib/extend":453,"../../lib/setcursor":481,"../../lib/svg_text_utils":485,"../../plots/cartesian/axes":509,"../../plots/cartesian/axis_defaults":511,"../../plots/cartesian/layout_attributes":523,"../../plots/cartesian/position_defaults":526,"../../plots/plots":547,"../../registry":555,"../color":331,"../colorscale/helpers":342,"../dragelement":350,"../drawing":353,"../titles":426,"./constants":333,"d3":86,"tinycolor2":285}],336:[function(_dereq_,module,exports){
+},{"../../constants/alignment":448,"../../lib":476,"../../lib/extend":468,"../../lib/setcursor":496,"../../lib/svg_text_utils":500,"../../plots/cartesian/axes":524,"../../plots/cartesian/axis_defaults":526,"../../plots/cartesian/layout_attributes":538,"../../plots/cartesian/position_defaults":541,"../../plots/plots":562,"../../registry":570,"../color":346,"../colorscale/helpers":357,"../dragelement":365,"../drawing":368,"../titles":441,"./constants":348,"d3":88,"tinycolor2":301}],351:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -52861,7 +53041,7 @@ module.exports = function hasColorbar(container) {
     return Lib.isPlainObject(container.colorbar);
 };
 
-},{"../../lib":461}],337:[function(_dereq_,module,exports){
+},{"../../lib":476}],352:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -52883,7 +53063,7 @@ module.exports = {
     hasColorbar: _dereq_('./has_colorbar')
 };
 
-},{"./attributes":332,"./defaults":334,"./draw":335,"./has_colorbar":336}],338:[function(_dereq_,module,exports){
+},{"./attributes":347,"./defaults":349,"./draw":350,"./has_colorbar":351}],353:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -53091,7 +53271,7 @@ module.exports = function colorScaleAttrs(context, opts) {
     return attrs;
 };
 
-},{"../../lib/regex":477,"../colorbar/attributes":332,"./scales.js":346}],339:[function(_dereq_,module,exports){
+},{"../../lib/regex":492,"../colorbar/attributes":347,"./scales.js":361}],354:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -53170,7 +53350,7 @@ module.exports = function calc(gd, trace, opts) {
     }
 };
 
-},{"../../lib":461,"./helpers":342,"fast-isnumeric":155}],340:[function(_dereq_,module,exports){
+},{"../../lib":476,"./helpers":357,"fast-isnumeric":159}],355:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -53247,7 +53427,7 @@ module.exports = function crossTraceDefaults(fullData, fullLayout) {
     }
 };
 
-},{"../../lib":461,"./helpers":342}],341:[function(_dereq_,module,exports){
+},{"../../lib":476,"./helpers":357}],356:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -53372,7 +53552,7 @@ module.exports = function colorScaleDefaults(parentContIn, parentContOut, layout
     }
 };
 
-},{"../../lib":461,"../../registry":555,"../colorbar/defaults":334,"../colorbar/has_colorbar":336,"./scales":346,"fast-isnumeric":155}],342:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570,"../colorbar/defaults":349,"../colorbar/has_colorbar":351,"./scales":361,"fast-isnumeric":159}],357:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -53612,7 +53792,7 @@ module.exports = {
     makeColorScaleFuncFromTrace: makeColorScaleFuncFromTrace
 };
 
-},{"../../lib":461,"../color":331,"./scales":346,"d3":86,"fast-isnumeric":155,"tinycolor2":285}],343:[function(_dereq_,module,exports){
+},{"../../lib":476,"../color":346,"./scales":361,"d3":88,"fast-isnumeric":159,"tinycolor2":301}],358:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -53654,7 +53834,7 @@ module.exports = {
     makeColorScaleFuncFromTrace: helpers.makeColorScaleFuncFromTrace
 };
 
-},{"./attributes":338,"./calc":339,"./cross_trace_defaults":340,"./defaults":341,"./helpers":342,"./layout_attributes":344,"./layout_defaults":345,"./scales":346}],344:[function(_dereq_,module,exports){
+},{"./attributes":353,"./calc":354,"./cross_trace_defaults":355,"./defaults":356,"./helpers":357,"./layout_attributes":359,"./layout_defaults":360,"./scales":361}],359:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -53715,7 +53895,7 @@ module.exports = {
     }))
 };
 
-},{"../../lib/extend":453,"./attributes":338,"./scales":346}],345:[function(_dereq_,module,exports){
+},{"../../lib/extend":468,"./attributes":353,"./scales":361}],360:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -53766,7 +53946,7 @@ module.exports = function supplyLayoutDefaults(layoutIn, layoutOut) {
     }
 };
 
-},{"../../lib":461,"../../plot_api/plot_template":498,"./defaults":341,"./layout_attributes":344}],346:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plot_api/plot_template":513,"./defaults":356,"./layout_attributes":359}],361:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -53970,7 +54150,7 @@ module.exports = {
     isValid: isValidScale
 };
 
-},{"tinycolor2":285}],347:[function(_dereq_,module,exports){
+},{"tinycolor2":301}],362:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -54003,7 +54183,7 @@ module.exports = function align(v, dv, v0, v1, anchor) {
     return vc;
 };
 
-},{}],348:[function(_dereq_,module,exports){
+},{}],363:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -54041,7 +54221,7 @@ module.exports = function getCursor(x, y, xanchor, yanchor) {
     return cursorset[y][x];
 };
 
-},{"../../lib":461}],349:[function(_dereq_,module,exports){
+},{"../../lib":476}],364:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -54100,7 +54280,7 @@ exports.selectingOrDrawing = function(dragmode) {
     );
 };
 
-},{}],350:[function(_dereq_,module,exports){
+},{}],365:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -54392,7 +54572,7 @@ function pointerOffset(e) {
     );
 }
 
-},{"../../lib":461,"../../plots/cartesian/constants":515,"./align":347,"./cursor":348,"./unhover":351,"has-hover":203,"has-passive-events":204,"mouse-event-offset":219}],351:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/cartesian/constants":530,"./align":362,"./cursor":363,"./unhover":366,"has-hover":211,"has-passive-events":212,"mouse-event-offset":227}],366:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -54447,7 +54627,7 @@ unhover.raw = function raw(gd, evt) {
     }
 };
 
-},{"../../lib/dom":451,"../../lib/events":452,"../../lib/throttle":486,"../fx/constants":365}],352:[function(_dereq_,module,exports){
+},{"../../lib/dom":466,"../../lib/events":467,"../../lib/throttle":501,"../fx/constants":380}],367:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -54472,7 +54652,7 @@ exports.dash = {
     
 };
 
-},{}],353:[function(_dereq_,module,exports){
+},{}],368:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -55668,7 +55848,7 @@ drawing.setTextPointsScale = function(selection, xScale, yScale) {
     });
 };
 
-},{"../../components/fx/helpers":367,"../../constants/alignment":433,"../../constants/interactions":437,"../../constants/xmlns_namespaces":439,"../../lib":461,"../../lib/svg_text_utils":485,"../../registry":555,"../../traces/scatter/make_bubble_size_func":633,"../../traces/scatter/subtypes":641,"../color":331,"../colorscale":343,"./symbol_defs":354,"d3":86,"fast-isnumeric":155,"tinycolor2":285}],354:[function(_dereq_,module,exports){
+},{"../../components/fx/helpers":382,"../../constants/alignment":448,"../../constants/interactions":452,"../../constants/xmlns_namespaces":454,"../../lib":476,"../../lib/svg_text_utils":500,"../../registry":570,"../../traces/scatter/make_bubble_size_func":648,"../../traces/scatter/subtypes":656,"../color":346,"../colorscale":358,"./symbol_defs":369,"d3":88,"fast-isnumeric":159,"tinycolor2":301}],369:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -56232,7 +56412,7 @@ module.exports = {
     }
 };
 
-},{"d3":86}],355:[function(_dereq_,module,exports){
+},{"d3":88}],370:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -56347,7 +56527,7 @@ module.exports = {
     }
 };
 
-},{}],356:[function(_dereq_,module,exports){
+},{}],371:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -56433,7 +56613,7 @@ function calcOneAxis(calcTrace, trace, axis, coord) {
     baseExtremes.max = baseExtremes.max.concat(extremes.max);
 }
 
-},{"../../lib":461,"../../plots/cartesian/axes":509,"../../registry":555,"./compute_error":357,"fast-isnumeric":155}],357:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/cartesian/axes":524,"../../registry":570,"./compute_error":372,"fast-isnumeric":159}],372:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -56534,7 +56714,7 @@ function makeComputeErrorValue(type, value) {
     }
 }
 
-},{}],358:[function(_dereq_,module,exports){
+},{}],373:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -56609,7 +56789,7 @@ module.exports = function(traceIn, traceOut, defaultColor, opts) {
     }
 };
 
-},{"../../lib":461,"../../plot_api/plot_template":498,"../../registry":555,"./attributes":355,"fast-isnumeric":155}],359:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plot_api/plot_template":513,"../../registry":570,"./attributes":370,"fast-isnumeric":159}],374:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -56678,7 +56858,7 @@ function hoverInfo(calcPoint, trace, hoverPoint) {
     }
 }
 
-},{"../../lib":461,"../../plot_api/edit_types":491,"./attributes":355,"./calc":356,"./compute_error":357,"./defaults":358,"./plot":360,"./style":361}],360:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plot_api/edit_types":506,"./attributes":370,"./calc":371,"./compute_error":372,"./defaults":373,"./plot":375,"./style":376}],375:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -56850,7 +57030,7 @@ function errorCoords(d, xa, ya) {
     return out;
 }
 
-},{"../../traces/scatter/subtypes":641,"../drawing":353,"d3":86,"fast-isnumeric":155}],361:[function(_dereq_,module,exports){
+},{"../../traces/scatter/subtypes":656,"../drawing":368,"d3":88,"fast-isnumeric":159}],376:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -56887,7 +57067,7 @@ module.exports = function style(traces) {
     });
 };
 
-},{"../color":331,"d3":86}],362:[function(_dereq_,module,exports){
+},{"../color":346,"d3":88}],377:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -56923,7 +57103,7 @@ module.exports = {
     }
 };
 
-},{"../../lib/extend":453,"../../plots/font_attributes":537,"./layout_attributes":372}],363:[function(_dereq_,module,exports){
+},{"../../lib/extend":468,"../../plots/font_attributes":552,"./layout_attributes":387}],378:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -56982,7 +57162,7 @@ function paste(traceAttr, cd, cdAttr, fn) {
     }
 }
 
-},{"../../lib":461,"../../registry":555}],364:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570}],379:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -57019,7 +57199,7 @@ module.exports = function click(gd, evt, subplot) {
     }
 };
 
-},{"../../registry":555,"./hover":368}],365:[function(_dereq_,module,exports){
+},{"../../registry":570,"./hover":383}],380:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -57051,7 +57231,7 @@ module.exports = {
     HOVERID: '-hover'
 };
 
-},{}],366:[function(_dereq_,module,exports){
+},{}],381:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -57077,7 +57257,7 @@ module.exports = function supplyDefaults(traceIn, traceOut, defaultColor, layout
     handleHoverLabelDefaults(traceIn, traceOut, coerce, opts);
 };
 
-},{"../../lib":461,"./attributes":362,"./hoverlabel_defaults":369}],367:[function(_dereq_,module,exports){
+},{"../../lib":476,"./attributes":377,"./hoverlabel_defaults":384}],382:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -57339,7 +57519,7 @@ exports.isXYhover = function(hovermode) {
     return !!xyHoverMode[hovermode];
 };
 
-},{"../../lib":461}],368:[function(_dereq_,module,exports){
+},{"../../lib":476}],383:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -59198,7 +59378,7 @@ function plainText(s, len) {
     });
 }
 
-},{"../../lib":461,"../../lib/events":452,"../../lib/override_cursor":472,"../../lib/svg_text_utils":485,"../../plots/cartesian/axes":509,"../../registry":555,"../color":331,"../dragelement":350,"../drawing":353,"../legend/defaults":383,"../legend/draw":384,"./constants":365,"./helpers":367,"d3":86,"fast-isnumeric":155,"tinycolor2":285}],369:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../lib/events":467,"../../lib/override_cursor":487,"../../lib/svg_text_utils":500,"../../plots/cartesian/axes":524,"../../registry":570,"../color":346,"../dragelement":365,"../drawing":368,"../legend/defaults":398,"../legend/draw":399,"./constants":380,"./helpers":382,"d3":88,"fast-isnumeric":159,"tinycolor2":301}],384:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -59244,7 +59424,7 @@ module.exports = function handleHoverLabelDefaults(contIn, contOut, coerce, opts
     coerce('hoverlabel.align', opts.align);
 };
 
-},{"../../lib":461,"../color":331,"./helpers":367}],370:[function(_dereq_,module,exports){
+},{"../../lib":476,"../color":346,"./helpers":382}],385:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -59300,7 +59480,7 @@ function isHoriz(fullData, fullLayout) {
     return true;
 }
 
-},{"../../lib":461,"./layout_attributes":372}],371:[function(_dereq_,module,exports){
+},{"../../lib":476,"./layout_attributes":387}],386:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -59379,7 +59559,7 @@ function castHoverinfo(trace, fullLayout, ptNumber) {
     return Lib.castOption(trace, ptNumber, 'hoverinfo', _coerce);
 }
 
-},{"../../lib":461,"../dragelement":350,"./attributes":362,"./calc":363,"./click":364,"./constants":365,"./defaults":366,"./helpers":367,"./hover":368,"./layout_attributes":372,"./layout_defaults":373,"./layout_global_defaults":374,"d3":86}],372:[function(_dereq_,module,exports){
+},{"../../lib":476,"../dragelement":365,"./attributes":377,"./calc":378,"./click":379,"./constants":380,"./defaults":381,"./helpers":382,"./hover":383,"./layout_attributes":387,"./layout_defaults":388,"./layout_global_defaults":389,"d3":88}],387:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -59495,7 +59675,7 @@ module.exports = {
     }
 };
 
-},{"../../plots/font_attributes":537,"./constants":365}],373:[function(_dereq_,module,exports){
+},{"../../plots/font_attributes":552,"./constants":380}],388:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -59543,7 +59723,7 @@ module.exports = function supplyLayoutDefaults(layoutIn, layoutOut, fullData) {
     handleHoverLabelDefaults(layoutIn, layoutOut, coerce);
 };
 
-},{"../../lib":461,"./helpers":367,"./hoverlabel_defaults":369,"./hovermode_defaults":370,"./layout_attributes":372}],374:[function(_dereq_,module,exports){
+},{"../../lib":476,"./helpers":382,"./hoverlabel_defaults":384,"./hovermode_defaults":385,"./layout_attributes":387}],389:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -59566,7 +59746,7 @@ module.exports = function supplyLayoutGlobalDefaults(layoutIn, layoutOut) {
     handleHoverLabelDefaults(layoutIn, layoutOut, coerce);
 };
 
-},{"../../lib":461,"./hoverlabel_defaults":369,"./layout_attributes":372}],375:[function(_dereq_,module,exports){
+},{"../../lib":476,"./hoverlabel_defaults":384,"./layout_attributes":387}],390:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -59940,7 +60120,7 @@ module.exports = {
     contentDefaults: contentDefaults
 };
 
-},{"../../lib":461,"../../lib/regex":477,"../../plot_api/plot_template":498,"../../plots/cartesian/constants":515,"../../plots/domain":536}],376:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../lib/regex":492,"../../plot_api/plot_template":513,"../../plots/cartesian/constants":530,"../../plots/domain":551}],391:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -60076,7 +60256,7 @@ module.exports = templatedArray('image', {
     editType: 'arraydraw'
 });
 
-},{"../../constants/axis_placeable_objects":434,"../../plot_api/plot_template":498,"../../plots/cartesian/constants":515}],377:[function(_dereq_,module,exports){
+},{"../../constants/axis_placeable_objects":449,"../../plot_api/plot_template":513,"../../plots/cartesian/constants":530}],392:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -60157,7 +60337,7 @@ module.exports = function convertCoords(gd, ax, newType, doExtra) {
     }
 };
 
-},{"../../lib/to_log_range":487,"fast-isnumeric":155}],378:[function(_dereq_,module,exports){
+},{"../../lib/to_log_range":502,"fast-isnumeric":159}],393:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -60222,7 +60402,7 @@ function imageDefaults(imageIn, imageOut, fullLayout) {
     return imageOut;
 }
 
-},{"../../lib":461,"../../plots/array_container_defaults":504,"../../plots/cartesian/axes":509,"./attributes":376}],379:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/array_container_defaults":519,"../../plots/cartesian/axes":524,"./attributes":391}],394:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -60480,7 +60660,7 @@ module.exports = function draw(gd) {
     }
 };
 
-},{"../../constants/xmlns_namespaces":439,"../../plots/cartesian/axes":509,"../../plots/cartesian/axis_ids":512,"../drawing":353,"d3":86}],380:[function(_dereq_,module,exports){
+},{"../../constants/xmlns_namespaces":454,"../../plots/cartesian/axes":524,"../../plots/cartesian/axis_ids":527,"../drawing":368,"d3":88}],395:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -60504,7 +60684,7 @@ module.exports = {
     convertCoords: _dereq_('./convert_coords')
 };
 
-},{"../../plots/cartesian/include_components":521,"./attributes":376,"./convert_coords":377,"./defaults":378,"./draw":379}],381:[function(_dereq_,module,exports){
+},{"../../plots/cartesian/include_components":536,"./attributes":391,"./convert_coords":392,"./defaults":393,"./draw":394}],396:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -60665,7 +60845,7 @@ module.exports = {
     editType: 'legend'
 };
 
-},{"../../plots/font_attributes":537,"../color/attributes":330}],382:[function(_dereq_,module,exports){
+},{"../../plots/font_attributes":552,"../color/attributes":345}],397:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -60691,7 +60871,7 @@ module.exports = {
     itemGap: 5
 };
 
-},{}],383:[function(_dereq_,module,exports){
+},{}],398:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -60825,7 +61005,7 @@ module.exports = function legendDefaults(layoutIn, layoutOut, fullData) {
     }
 };
 
-},{"../../lib":461,"../../plot_api/plot_template":498,"../../plots/layout_attributes":545,"../../registry":555,"./attributes":381,"./helpers":387}],384:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plot_api/plot_template":513,"../../plots/layout_attributes":560,"../../registry":570,"./attributes":396,"./helpers":402}],399:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -61620,7 +61800,7 @@ function getYanchor(opts) {
         'top';
 }
 
-},{"../../constants/alignment":433,"../../lib":461,"../../lib/events":452,"../../lib/svg_text_utils":485,"../../plots/plots":547,"../../registry":555,"../color":331,"../dragelement":350,"../drawing":353,"./constants":382,"./get_legend_data":385,"./handle_click":386,"./helpers":387,"./style":389,"d3":86}],385:[function(_dereq_,module,exports){
+},{"../../constants/alignment":448,"../../lib":476,"../../lib/events":467,"../../lib/svg_text_utils":500,"../../plots/plots":562,"../../registry":570,"../color":346,"../dragelement":365,"../drawing":368,"./constants":397,"./get_legend_data":400,"./handle_click":401,"./helpers":402,"./style":404,"d3":88}],400:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -61729,7 +61909,7 @@ module.exports = function getLegendData(calcdata, opts) {
     return legendData;
 };
 
-},{"../../registry":555,"./helpers":387}],386:[function(_dereq_,module,exports){
+},{"../../registry":570,"./helpers":402}],401:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -61968,7 +62148,7 @@ module.exports = function handleClick(g, gd, numClicks) {
     }
 };
 
-},{"../../lib":461,"../../registry":555}],387:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570}],402:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -61992,7 +62172,7 @@ exports.isReversed = function isReversed(legendLayout) {
     return (legendLayout.traceorder || '').indexOf('reversed') !== -1;
 };
 
-},{}],388:[function(_dereq_,module,exports){
+},{}],403:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -62016,7 +62196,7 @@ module.exports = {
     style: _dereq_('./style')
 };
 
-},{"./attributes":381,"./defaults":383,"./draw":384,"./style":389}],389:[function(_dereq_,module,exports){
+},{"./attributes":396,"./defaults":398,"./draw":399,"./style":404}],404:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -62643,7 +62823,7 @@ function getGradientDirection(reversescale, isRadial) {
     return str + (reversescale ? '' : 'reversed');
 }
 
-},{"../../lib":461,"../../registry":555,"../../traces/pie/helpers":609,"../../traces/pie/style_one":610,"../../traces/scatter/subtypes":641,"../color":331,"../colorscale/helpers":342,"../drawing":353,"d3":86}],390:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570,"../../traces/pie/helpers":624,"../../traces/pie/style_one":625,"../../traces/scatter/subtypes":656,"../color":346,"../colorscale/helpers":357,"../drawing":368,"d3":88}],405:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -63379,7 +63559,7 @@ function resetView(gd, subplotType) {
     Registry.call('_guiRelayout', gd, aObj);
 }
 
-},{"../../fonts/ploticon":442,"../../lib":461,"../../plots/cartesian/axis_ids":512,"../../plots/plots":547,"../../registry":555,"../shapes/draw":412}],391:[function(_dereq_,module,exports){
+},{"../../fonts/ploticon":457,"../../lib":476,"../../plots/cartesian/axis_ids":527,"../../plots/plots":562,"../../registry":570,"../shapes/draw":427}],406:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -63393,7 +63573,7 @@ function resetView(gd, subplotType) {
 
 exports.manage = _dereq_('./manage');
 
-},{"./manage":392}],392:[function(_dereq_,module,exports){
+},{"./manage":407}],407:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -63689,7 +63869,7 @@ function fillCustomButton(customButtons) {
     return customButtons;
 }
 
-},{"../../plots/cartesian/axis_ids":512,"../../registry":555,"../../traces/scatter/subtypes":641,"../fx/helpers":367,"./buttons":390,"./modebar":393}],393:[function(_dereq_,module,exports){
+},{"../../plots/cartesian/axis_ids":527,"../../registry":570,"../../traces/scatter/subtypes":656,"../fx/helpers":382,"./buttons":405,"./modebar":408}],408:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -64035,7 +64215,7 @@ function createModeBar(gd, buttons) {
 
 module.exports = createModeBar;
 
-},{"../../fonts/ploticon":442,"../../lib":461,"d3":86,"fast-isnumeric":155}],394:[function(_dereq_,module,exports){
+},{"../../fonts/ploticon":457,"../../lib":476,"d3":88,"fast-isnumeric":159}],409:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -64171,7 +64351,7 @@ module.exports = {
     editType: 'plot'
 };
 
-},{"../../plot_api/plot_template":498,"../../plots/font_attributes":537,"../color/attributes":330}],395:[function(_dereq_,module,exports){
+},{"../../plot_api/plot_template":513,"../../plots/font_attributes":552,"../color/attributes":345}],410:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -64200,7 +64380,7 @@ module.exports = {
     darkAmount: 10
 };
 
-},{}],396:[function(_dereq_,module,exports){
+},{}],411:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -64292,7 +64472,7 @@ function getPosDflt(containerOut, layout, counterAxes) {
     return [containerOut.domain[0], posY + constants.yPad];
 }
 
-},{"../../lib":461,"../../plot_api/plot_template":498,"../../plots/array_container_defaults":504,"../color":331,"./attributes":394,"./constants":395}],397:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plot_api/plot_template":513,"../../plots/array_container_defaults":519,"../color":346,"./attributes":409,"./constants":410}],412:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -64548,7 +64728,7 @@ function reposition(gd, buttons, opts, axName, selector) {
     selector.attr('transform', 'translate(' + lx + ',' + ly + ')');
 }
 
-},{"../../constants/alignment":433,"../../lib":461,"../../lib/svg_text_utils":485,"../../plots/cartesian/axis_ids":512,"../../plots/plots":547,"../../registry":555,"../color":331,"../drawing":353,"./constants":395,"./get_update_object":398,"d3":86}],398:[function(_dereq_,module,exports){
+},{"../../constants/alignment":448,"../../lib":476,"../../lib/svg_text_utils":500,"../../plots/cartesian/axis_ids":527,"../../plots/plots":562,"../../registry":570,"../color":346,"../drawing":368,"./constants":410,"./get_update_object":413,"d3":88}],413:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -64602,7 +64782,7 @@ function getXRange(axisLayout, buttonLayout) {
     return [range0, range1];
 }
 
-},{"d3":86}],399:[function(_dereq_,module,exports){
+},{"d3":88}],414:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -64629,7 +64809,7 @@ module.exports = {
     draw: _dereq_('./draw')
 };
 
-},{"./attributes":394,"./defaults":396,"./draw":397}],400:[function(_dereq_,module,exports){
+},{"./attributes":409,"./defaults":411,"./draw":412}],415:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -64703,7 +64883,7 @@ module.exports = {
     editType: 'calc'
 };
 
-},{"../color/attributes":330}],401:[function(_dereq_,module,exports){
+},{"../color/attributes":345}],416:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -64737,7 +64917,7 @@ module.exports = function calcAutorange(gd) {
     }
 };
 
-},{"../../plots/cartesian/autorange":508,"../../plots/cartesian/axis_ids":512,"./constants":402}],402:[function(_dereq_,module,exports){
+},{"../../plots/cartesian/autorange":523,"../../plots/cartesian/axis_ids":527,"./constants":417}],417:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -64793,7 +64973,7 @@ module.exports = {
     extraPad: 15
 };
 
-},{}],403:[function(_dereq_,module,exports){
+},{}],418:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -64879,7 +65059,7 @@ module.exports = function handleDefaults(layoutIn, layoutOut, axName) {
     containerOut._input = containerIn;
 };
 
-},{"../../lib":461,"../../plot_api/plot_template":498,"../../plots/cartesian/axis_ids":512,"./attributes":400,"./oppaxis_attributes":407}],404:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plot_api/plot_template":513,"../../plots/cartesian/axis_ids":527,"./attributes":415,"./oppaxis_attributes":422}],419:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -65522,7 +65702,7 @@ function drawGrabbers(rangeSlider, gd, axisOpts, opts) {
     grabAreaMax.attr('height', opts._height);
 }
 
-},{"../../lib":461,"../../lib/setcursor":481,"../../plots/cartesian":522,"../../plots/cartesian/axis_ids":512,"../../plots/plots":547,"../../registry":555,"../color":331,"../dragelement":350,"../drawing":353,"../titles":426,"./constants":402,"d3":86}],405:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../lib/setcursor":496,"../../plots/cartesian":537,"../../plots/cartesian/axis_ids":527,"../../plots/plots":562,"../../registry":570,"../color":346,"../dragelement":365,"../drawing":368,"../titles":441,"./constants":417,"d3":88}],420:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -65597,7 +65777,7 @@ exports.autoMarginOpts = function(gd, ax) {
     };
 };
 
-},{"../../constants/alignment":433,"../../lib/svg_text_utils":485,"../../plots/cartesian/axis_ids":512,"./constants":402}],406:[function(_dereq_,module,exports){
+},{"../../constants/alignment":448,"../../lib/svg_text_utils":500,"../../plots/cartesian/axis_ids":527,"./constants":417}],421:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -65636,7 +65816,7 @@ module.exports = {
     autoMarginOpts: helpers.autoMarginOpts
 };
 
-},{"../../lib":461,"./attributes":400,"./calc_autorange":401,"./defaults":403,"./draw":404,"./helpers":405,"./oppaxis_attributes":407}],407:[function(_dereq_,module,exports){
+},{"../../lib":476,"./attributes":415,"./calc_autorange":416,"./defaults":418,"./draw":419,"./helpers":420,"./oppaxis_attributes":422}],422:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -65674,7 +65854,7 @@ module.exports = {
     editType: 'calc'
 };
 
-},{}],408:[function(_dereq_,module,exports){
+},{}],423:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -65827,7 +66007,7 @@ module.exports = templatedArray('shape', {
     editType: 'arraydraw'
 });
 
-},{"../../constants/axis_placeable_objects":434,"../../lib/extend":453,"../../plot_api/plot_template":498,"../../traces/scatter/attributes":616,"../annotations/attributes":316,"../drawing/attributes":352}],409:[function(_dereq_,module,exports){
+},{"../../constants/axis_placeable_objects":449,"../../lib/extend":468,"../../plot_api/plot_template":513,"../../traces/scatter/attributes":631,"../annotations/attributes":331,"../drawing/attributes":367}],424:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -65947,7 +66127,7 @@ function shapeBounds(ax, v0, v1, path, paramsToUse) {
     if(max >= min) return [min, max];
 }
 
-},{"../../lib":461,"../../plots/cartesian/axes":509,"./constants":410,"./helpers":419}],410:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/cartesian/axes":524,"./constants":425,"./helpers":434}],425:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -66011,7 +66191,7 @@ module.exports = {
     }
 };
 
-},{}],411:[function(_dereq_,module,exports){
+},{}],426:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -66142,7 +66322,7 @@ function handleShapeDefaults(shapeIn, shapeOut, fullLayout) {
     }
 }
 
-},{"../../lib":461,"../../plots/array_container_defaults":504,"../../plots/cartesian/axes":509,"./attributes":408,"./helpers":419}],412:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/array_container_defaults":519,"../../plots/cartesian/axes":524,"./attributes":423,"./helpers":434}],427:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -66916,7 +67096,7 @@ function eraseActiveShape(gd) {
     }
 }
 
-},{"../../lib":461,"../../lib/setcursor":481,"../../plot_api/plot_template":498,"../../plots/cartesian/axes":509,"../../plots/cartesian/handle_outline":519,"../../registry":555,"../color":331,"../dragelement":350,"../drawing":353,"./constants":410,"./draw_newshape/display_outlines":416,"./draw_newshape/helpers":417,"./helpers":419}],413:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../lib/setcursor":496,"../../plot_api/plot_template":513,"../../plots/cartesian/axes":524,"../../plots/cartesian/handle_outline":534,"../../registry":570,"../color":346,"../dragelement":365,"../drawing":368,"./constants":425,"./draw_newshape/display_outlines":431,"./draw_newshape/helpers":432,"./helpers":434}],428:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -67019,7 +67199,7 @@ module.exports = {
     }
 };
 
-},{"../../../lib/extend":453,"../../drawing/attributes":352}],414:[function(_dereq_,module,exports){
+},{"../../../lib/extend":468,"../../drawing/attributes":367}],429:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -67043,7 +67223,7 @@ module.exports = {
     SQRT2: Math.sqrt(2)
 };
 
-},{}],415:[function(_dereq_,module,exports){
+},{}],430:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -67075,7 +67255,7 @@ module.exports = function supplyDrawNewShapeDefaults(layoutIn, layoutOut, coerce
     coerce('activeshape.opacity');
 };
 
-},{"../../color":331}],416:[function(_dereq_,module,exports){
+},{"../../color":346}],431:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -67370,7 +67550,7 @@ function recordPositions(polygonsOut, polygonsIn) {
     return polygonsOut;
 }
 
-},{"../../../plots/cartesian/handle_outline":519,"../../../registry":555,"../../dragelement":350,"../../dragelement/helpers":349,"./constants":414,"./helpers":417,"./newshapes":418}],417:[function(_dereq_,module,exports){
+},{"../../../plots/cartesian/handle_outline":534,"../../../registry":570,"../../dragelement":365,"../../dragelement/helpers":364,"./constants":429,"./helpers":432,"./newshapes":433}],432:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -67708,7 +67888,7 @@ exports.ellipseOver = function(pos) {
     };
 };
 
-},{"../../../plots/cartesian/helpers":520,"./constants":414,"parse-svg-path":231}],418:[function(_dereq_,module,exports){
+},{"../../../plots/cartesian/helpers":535,"./constants":429,"parse-svg-path":240}],433:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -67967,7 +68147,7 @@ function fixDatesForPaths(polygons, xaxis, yaxis) {
     return polygons;
 }
 
-},{"../../../plots/cartesian/handle_outline":519,"../../../plots/cartesian/helpers":520,"../../dragelement/helpers":349,"./constants":414,"./helpers":417}],419:[function(_dereq_,module,exports){
+},{"../../../plots/cartesian/handle_outline":534,"../../../plots/cartesian/helpers":535,"../../dragelement/helpers":364,"./constants":429,"./helpers":432}],434:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -68125,7 +68305,7 @@ exports.makeOptionsAndPlotinfo = function(gd, index) {
     };
 };
 
-},{"../../lib":461,"./constants":410}],420:[function(_dereq_,module,exports){
+},{"../../lib":476,"./constants":425}],435:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -68153,7 +68333,7 @@ module.exports = {
     drawOne: drawModule.drawOne
 };
 
-},{"../../plots/cartesian/include_components":521,"./attributes":408,"./calc_autorange":409,"./defaults":411,"./draw":412,"./draw_newshape/defaults":415}],421:[function(_dereq_,module,exports){
+},{"../../plots/cartesian/include_components":536,"./attributes":423,"./calc_autorange":424,"./defaults":426,"./draw":427,"./draw_newshape/defaults":430}],436:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -68396,7 +68576,7 @@ module.exports = overrideAll(templatedArray('slider', {
     }
 }), 'arraydraw', 'from-root');
 
-},{"../../lib/extend":453,"../../plot_api/edit_types":491,"../../plot_api/plot_template":498,"../../plots/animation_attributes":503,"../../plots/font_attributes":537,"../../plots/pad_attributes":546,"./constants":422}],422:[function(_dereq_,module,exports){
+},{"../../lib/extend":468,"../../plot_api/edit_types":506,"../../plot_api/plot_template":513,"../../plots/animation_attributes":518,"../../plots/font_attributes":552,"../../plots/pad_attributes":561,"./constants":437}],437:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -68490,7 +68670,7 @@ module.exports = {
     currentValueInset: 0,
 };
 
-},{}],423:[function(_dereq_,module,exports){
+},{}],438:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -68605,7 +68785,7 @@ function stepDefaults(valueIn, valueOut) {
     }
 }
 
-},{"../../lib":461,"../../plots/array_container_defaults":504,"./attributes":421,"./constants":422}],424:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/array_container_defaults":519,"./attributes":436,"./constants":437}],439:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -69235,7 +69415,7 @@ function drawRail(sliderGroup, sliderOpts) {
     );
 }
 
-},{"../../constants/alignment":433,"../../lib":461,"../../lib/svg_text_utils":485,"../../plot_api/plot_template":498,"../../plots/plots":547,"../color":331,"../drawing":353,"./constants":422,"d3":86}],425:[function(_dereq_,module,exports){
+},{"../../constants/alignment":448,"../../lib":476,"../../lib/svg_text_utils":500,"../../plot_api/plot_template":513,"../../plots/plots":562,"../color":346,"../drawing":368,"./constants":437,"d3":88}],440:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -69258,7 +69438,7 @@ module.exports = {
     draw: _dereq_('./draw')
 };
 
-},{"./attributes":421,"./constants":422,"./defaults":423,"./draw":424}],426:[function(_dereq_,module,exports){
+},{"./attributes":436,"./constants":437,"./defaults":438,"./draw":439}],441:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -69525,7 +69705,7 @@ module.exports = {
     draw: draw
 };
 
-},{"../../constants/alignment":433,"../../constants/interactions":437,"../../lib":461,"../../lib/svg_text_utils":485,"../../plots/plots":547,"../../registry":555,"../color":331,"../drawing":353,"d3":86,"fast-isnumeric":155}],427:[function(_dereq_,module,exports){
+},{"../../constants/alignment":448,"../../constants/interactions":452,"../../lib":476,"../../lib/svg_text_utils":500,"../../plots/plots":562,"../../registry":570,"../color":346,"../drawing":368,"d3":88,"fast-isnumeric":159}],442:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -69694,7 +69874,7 @@ module.exports = overrideAll(templatedArray('updatemenu', {
     }
 }), 'arraydraw', 'from-root');
 
-},{"../../lib/extend":453,"../../plot_api/edit_types":491,"../../plot_api/plot_template":498,"../../plots/font_attributes":537,"../../plots/pad_attributes":546,"../color/attributes":330}],428:[function(_dereq_,module,exports){
+},{"../../lib/extend":468,"../../plot_api/edit_types":506,"../../plot_api/plot_template":513,"../../plots/font_attributes":552,"../../plots/pad_attributes":561,"../color/attributes":345}],443:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -69775,7 +69955,7 @@ module.exports = {
     }
 };
 
-},{}],429:[function(_dereq_,module,exports){
+},{}],444:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -69858,7 +70038,7 @@ function buttonDefaults(buttonIn, buttonOut) {
     }
 }
 
-},{"../../lib":461,"../../plots/array_container_defaults":504,"./attributes":427,"./constants":428}],430:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/array_container_defaults":519,"./attributes":442,"./constants":443}],445:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -70509,9 +70689,9 @@ function removeAllButtons(gButton, newMenuIndexAttr) {
         .selectAll('g.' + constants.dropdownButtonClassName).remove();
 }
 
-},{"../../constants/alignment":433,"../../lib":461,"../../lib/svg_text_utils":485,"../../plot_api/plot_template":498,"../../plots/plots":547,"../color":331,"../drawing":353,"./constants":428,"./scrollbox":432,"d3":86}],431:[function(_dereq_,module,exports){
-arguments[4][425][0].apply(exports,arguments)
-},{"./attributes":427,"./constants":428,"./defaults":429,"./draw":430,"dup":425}],432:[function(_dereq_,module,exports){
+},{"../../constants/alignment":448,"../../lib":476,"../../lib/svg_text_utils":500,"../../plot_api/plot_template":513,"../../plots/plots":562,"../color":346,"../drawing":368,"./constants":443,"./scrollbox":447,"d3":88}],446:[function(_dereq_,module,exports){
+arguments[4][440][0].apply(exports,arguments)
+},{"./attributes":442,"./constants":443,"./defaults":444,"./draw":445,"dup":440}],447:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -70976,7 +71156,7 @@ ScrollBox.prototype.setTranslate = function setTranslate(translateX, translateY)
     }
 };
 
-},{"../../lib":461,"../color":331,"../drawing":353,"d3":86}],433:[function(_dereq_,module,exports){
+},{"../../lib":476,"../color":346,"../drawing":368,"d3":88}],448:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71041,7 +71221,7 @@ module.exports = {
     }
 };
 
-},{}],434:[function(_dereq_,module,exports){
+},{}],449:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71073,7 +71253,7 @@ module.exports = {
     }
 };
 
-},{}],435:[function(_dereq_,module,exports){
+},{}],450:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71089,7 +71269,7 @@ module.exports = {
     DATE_FORMAT_LINK: 'https://github.com/d3/d3-time-format#locale_format'
 };
 
-},{}],436:[function(_dereq_,module,exports){
+},{}],451:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71127,7 +71307,7 @@ module.exports = {
     }
 };
 
-},{}],437:[function(_dereq_,module,exports){
+},{}],452:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71150,7 +71330,7 @@ module.exports = {
     DESELECTDIM: 0.2
 };
 
-},{}],438:[function(_dereq_,module,exports){
+},{}],453:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71223,7 +71403,7 @@ module.exports = {
     MINUS_SIGN: '\u2212'
 };
 
-},{}],439:[function(_dereq_,module,exports){
+},{}],454:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71247,7 +71427,7 @@ exports.svgAttrs = {
     'xmlns:xlink': exports.xlink
 };
 
-},{}],440:[function(_dereq_,module,exports){
+},{}],455:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71333,7 +71513,7 @@ exports.Queue = _dereq_('./lib/queue');
 // export d3 used in the bundle
 exports.d3 = _dereq_('d3');
 
-},{"../build/plotcss":1,"./components/annotations":324,"./components/annotations3d":329,"./components/colorbar":337,"./components/colorscale":343,"./components/errorbars":359,"./components/fx":371,"./components/grid":375,"./components/images":380,"./components/legend":388,"./components/rangeselector":399,"./components/rangeslider":406,"./components/shapes":420,"./components/sliders":425,"./components/updatemenus":431,"./fonts/mathjax_config":441,"./fonts/ploticon":442,"./lib/queue":476,"./locale-en":489,"./locale-en-us":488,"./plot_api":493,"./plot_api/plot_schema":497,"./plots/plots":547,"./registry":555,"./snapshot":560,"./traces/scatter":628,"./version":669,"d3":86,"es6-promise":139}],441:[function(_dereq_,module,exports){
+},{"../build/plotcss":1,"./components/annotations":339,"./components/annotations3d":344,"./components/colorbar":352,"./components/colorscale":358,"./components/errorbars":374,"./components/fx":386,"./components/grid":390,"./components/images":395,"./components/legend":403,"./components/rangeselector":414,"./components/rangeslider":421,"./components/shapes":435,"./components/sliders":440,"./components/updatemenus":446,"./fonts/mathjax_config":456,"./fonts/ploticon":457,"./lib/queue":491,"./locale-en":504,"./locale-en-us":503,"./plot_api":508,"./plot_api/plot_schema":512,"./plots/plots":562,"./registry":570,"./snapshot":575,"./traces/scatter":643,"./version":684,"d3":88,"es6-promise":142}],456:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71364,7 +71544,7 @@ module.exports = function() {
     }
 };
 
-},{}],442:[function(_dereq_,module,exports){
+},{}],457:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71544,7 +71724,7 @@ module.exports = {
     }
 };
 
-},{}],443:[function(_dereq_,module,exports){
+},{}],458:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71608,7 +71788,7 @@ exports.isBottomAnchor = function isBottomAnchor(opts) {
     );
 };
 
-},{}],444:[function(_dereq_,module,exports){
+},{}],459:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -71849,7 +72029,7 @@ module.exports = {
     pathAnnulus: pathAnnulus
 };
 
-},{"./mod":468}],445:[function(_dereq_,module,exports){
+},{"./mod":483}],460:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -72006,7 +72186,7 @@ function _rowLength(z, fn, len0) {
     return 0;
 }
 
-},{}],446:[function(_dereq_,module,exports){
+},{}],461:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -72039,7 +72219,7 @@ module.exports = function cleanNumber(v) {
     return BADNUM;
 };
 
-},{"../constants/numerical":438,"fast-isnumeric":155}],447:[function(_dereq_,module,exports){
+},{"../constants/numerical":453,"fast-isnumeric":159}],462:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -72067,7 +72247,7 @@ module.exports = function clearGlCanvases(gd) {
     }
 };
 
-},{}],448:[function(_dereq_,module,exports){
+},{}],463:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -72090,7 +72270,7 @@ module.exports = function clearResponsive(gd) {
     }
 };
 
-},{}],449:[function(_dereq_,module,exports){
+},{}],464:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -72554,7 +72734,7 @@ function validate(value, opts) {
 }
 exports.validate = validate;
 
-},{"../components/colorscale/scales":346,"../constants/interactions":437,"../plots/attributes":505,"./array":445,"./mod":468,"./nested_property":469,"./regex":477,"fast-isnumeric":155,"tinycolor2":285}],450:[function(_dereq_,module,exports){
+},{"../components/colorscale/scales":361,"../constants/interactions":452,"../plots/attributes":520,"./array":460,"./mod":483,"./nested_property":484,"./regex":492,"fast-isnumeric":159,"tinycolor2":301}],465:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -73035,7 +73215,7 @@ exports.formatDate = function(x, fmt, tr, formatter, calendar, extraFormat) {
         }
     }
 
-    return modDateFormat(fmt, x, formatter, calendar);
+    return typeof fmt === 'function' ? fmt(x) : modDateFormat(fmt, x, formatter, calendar);
 };
 
 /*
@@ -73155,7 +73335,7 @@ exports.findExactDates = function(data, calendar) {
     };
 };
 
-},{"../constants/numerical":438,"../registry":555,"./loggers":465,"./mod":468,"d3-time-format":84,"fast-isnumeric":155}],451:[function(_dereq_,module,exports){
+},{"../constants/numerical":453,"../registry":570,"./loggers":480,"./mod":483,"d3-time-format":86,"fast-isnumeric":159}],466:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -73258,7 +73438,7 @@ module.exports = {
     deleteRelatedStyleRule: deleteRelatedStyleRule
 };
 
-},{"./loggers":465,"d3":86}],452:[function(_dereq_,module,exports){
+},{"./loggers":480,"d3":88}],467:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -73431,7 +73611,7 @@ var Events = {
 
 module.exports = Events;
 
-},{"events":51}],453:[function(_dereq_,module,exports){
+},{"events":155}],468:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -73545,7 +73725,7 @@ function _extend(inputs, isDeep, keepAllKeys, noArrayCopies) {
     return target;
 }
 
-},{"./is_plain_object.js":462}],454:[function(_dereq_,module,exports){
+},{"./is_plain_object.js":477}],469:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -73596,7 +73776,7 @@ module.exports = function filterUnique(array) {
     return out;
 };
 
-},{}],455:[function(_dereq_,module,exports){
+},{}],470:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -73644,7 +73824,7 @@ function isCalcData(cont) {
     );
 }
 
-},{}],456:[function(_dereq_,module,exports){
+},{}],471:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -73888,7 +74068,7 @@ exports.findPointOnPath = function findPointOnPath(path, val, coord, opts) {
     return pt;
 };
 
-},{"./mod":468}],457:[function(_dereq_,module,exports){
+},{"./mod":483}],472:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -73989,7 +74169,7 @@ module.exports = {
     parseColorScale: parseColorScale
 };
 
-},{"../components/color/attributes":330,"../components/colorscale":343,"./array":445,"color-normalize":63,"fast-isnumeric":155,"tinycolor2":285}],458:[function(_dereq_,module,exports){
+},{"../components/color/attributes":345,"../components/colorscale":358,"./array":460,"color-normalize":62,"fast-isnumeric":159,"tinycolor2":301}],473:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -74025,7 +74205,7 @@ module.exports = {
     unwrap: function(d) {return d[0];}
 };
 
-},{"./identity":459}],459:[function(_dereq_,module,exports){
+},{"./identity":474}],474:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -74041,7 +74221,7 @@ module.exports = {
 
 module.exports = function identity(d) { return d; };
 
-},{}],460:[function(_dereq_,module,exports){
+},{}],475:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -74083,7 +74263,7 @@ module.exports = function incrementNumeric(x, delta) {
     return newX;
 };
 
-},{}],461:[function(_dereq_,module,exports){
+},{}],476:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -75348,7 +75528,7 @@ lib.join2 = function(arr, mainSeparator, lastSeparator) {
     return arr.join(mainSeparator);
 };
 
-},{"../constants/numerical":438,"./anchor_utils":443,"./angles":444,"./array":445,"./clean_number":446,"./clear_responsive":448,"./coerce":449,"./dates":450,"./dom":451,"./extend":453,"./filter_unique":454,"./filter_visible":455,"./geometry2d":456,"./identity":459,"./increment":460,"./is_plain_object":462,"./keyed_container":463,"./localize":464,"./loggers":465,"./make_trace_groups":466,"./matrix":467,"./mod":468,"./nested_property":469,"./noop":470,"./notifier":471,"./push_unique":475,"./regex":477,"./relative_attr":478,"./relink_private":479,"./search":480,"./stats":483,"./throttle":486,"./to_log_range":487,"d3":86,"d3-time-format":84,"fast-isnumeric":155}],462:[function(_dereq_,module,exports){
+},{"../constants/numerical":453,"./anchor_utils":458,"./angles":459,"./array":460,"./clean_number":461,"./clear_responsive":463,"./coerce":464,"./dates":465,"./dom":466,"./extend":468,"./filter_unique":469,"./filter_visible":470,"./geometry2d":471,"./identity":474,"./increment":475,"./is_plain_object":477,"./keyed_container":478,"./localize":479,"./loggers":480,"./make_trace_groups":481,"./matrix":482,"./mod":483,"./nested_property":484,"./noop":485,"./notifier":486,"./push_unique":490,"./regex":492,"./relative_attr":493,"./relink_private":494,"./search":495,"./stats":498,"./throttle":501,"./to_log_range":502,"d3":88,"d3-time-format":86,"fast-isnumeric":159}],477:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -75376,7 +75556,7 @@ module.exports = function isPlainObject(obj) {
     );
 };
 
-},{}],463:[function(_dereq_,module,exports){
+},{}],478:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -75569,7 +75749,7 @@ module.exports = function keyedContainer(baseObj, path, keyName, valueName) {
     return obj;
 };
 
-},{"./nested_property":469}],464:[function(_dereq_,module,exports){
+},{"./nested_property":484}],479:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -75625,7 +75805,7 @@ module.exports = function localize(gd, s) {
     return s;
 };
 
-},{"../registry":555}],465:[function(_dereq_,module,exports){
+},{"../registry":570}],480:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -75735,7 +75915,7 @@ function apply(f, args) {
     }
 }
 
-},{"../plot_api/plot_config":496,"./notifier":471}],466:[function(_dereq_,module,exports){
+},{"../plot_api/plot_config":511,"./notifier":486}],481:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -75778,7 +75958,7 @@ module.exports = function makeTraceGroups(traceLayer, cdModule, cls) {
     return traces;
 };
 
-},{"d3":86}],467:[function(_dereq_,module,exports){
+},{"d3":88}],482:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -75885,7 +76065,7 @@ exports.apply2DTransform2 = function(transform) {
     };
 };
 
-},{}],468:[function(_dereq_,module,exports){
+},{}],483:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -75920,7 +76100,7 @@ module.exports = {
     modHalf: modHalf
 };
 
-},{}],469:[function(_dereq_,module,exports){
+},{}],484:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -76166,7 +76346,7 @@ function badContainer(container, propStr, propParts) {
     };
 }
 
-},{"./array":445,"fast-isnumeric":155}],470:[function(_dereq_,module,exports){
+},{"./array":460,"fast-isnumeric":159}],485:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -76182,7 +76362,7 @@ function badContainer(container, propStr, propParts) {
 
 module.exports = function noop() {};
 
-},{}],471:[function(_dereq_,module,exports){
+},{}],486:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -76270,7 +76450,7 @@ module.exports = function(text, displayLength) {
         });
 };
 
-},{"d3":86,"fast-isnumeric":155}],472:[function(_dereq_,module,exports){
+},{"d3":88,"fast-isnumeric":159}],487:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -76318,7 +76498,7 @@ module.exports = function overrideCursor(el3, csr) {
     }
 };
 
-},{"./setcursor":481}],473:[function(_dereq_,module,exports){
+},{"./setcursor":496}],488:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -76570,8 +76750,8 @@ polygon.filter = function filter(pts, tolerance) {
     };
 };
 
-},{"../constants/numerical":438,"./matrix":467}],474:[function(_dereq_,module,exports){
-(function (global){
+},{"../constants/numerical":453,"./matrix":482}],489:[function(_dereq_,module,exports){
+(function (global){(function (){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -76643,8 +76823,8 @@ module.exports = function prepareRegl(gd, extensions) {
     return success;
 };
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./show_no_webgl_msg":482,"regl":260}],475:[function(_dereq_,module,exports){
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./show_no_webgl_msg":497,"regl":278}],490:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -76682,7 +76862,7 @@ module.exports = function pushUnique(array, item) {
     return array;
 };
 
-},{}],476:[function(_dereq_,module,exports){
+},{}],491:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -76890,7 +77070,7 @@ queue.plotDo = function(gd, func, args) {
 
 module.exports = queue;
 
-},{"../lib":461,"../plot_api/plot_config":496}],477:[function(_dereq_,module,exports){
+},{"../lib":476,"../plot_api/plot_config":511}],492:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -76920,7 +77100,7 @@ exports.counter = function(head, tail, openEnded, matchBeginning) {
     return new RegExp(startWithPrefix + head + '([2-9]|[1-9][0-9]+)?' + fullTail);
 };
 
-},{}],478:[function(_dereq_,module,exports){
+},{}],493:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -76973,7 +77153,7 @@ module.exports = function(baseAttr, relativeAttr) {
     return baseAttr + relativeAttr;
 };
 
-},{}],479:[function(_dereq_,module,exports){
+},{}],494:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -77030,7 +77210,7 @@ module.exports = function relinkPrivateKeys(toContainer, fromContainer) {
     }
 };
 
-},{"./array":445,"./is_plain_object":462}],480:[function(_dereq_,module,exports){
+},{"./array":460,"./is_plain_object":477}],495:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -77235,7 +77415,7 @@ exports.findIndexOfMin = function(arr, fn) {
     return ind;
 };
 
-},{"../constants/numerical":438,"./identity":459,"./loggers":465,"fast-isnumeric":155}],481:[function(_dereq_,module,exports){
+},{"../constants/numerical":453,"./identity":474,"./loggers":480,"fast-isnumeric":159}],496:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -77258,7 +77438,7 @@ module.exports = function setCursor(el3, csr) {
     if(csr) el3.classed('cursor-' + csr, true);
 };
 
-},{}],482:[function(_dereq_,module,exports){
+},{}],497:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -77322,7 +77502,7 @@ module.exports = function showNoWebGlMsg(scene) {
     return false;
 };
 
-},{"../components/color":331}],483:[function(_dereq_,module,exports){
+},{"../components/color":346}],498:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -77432,7 +77612,7 @@ exports.interp = function(arr, n) {
     return frac * arr[Math.ceil(n)] + (1 - frac) * arr[Math.floor(n)];
 };
 
-},{"./array":445,"fast-isnumeric":155}],484:[function(_dereq_,module,exports){
+},{"./array":460,"fast-isnumeric":159}],499:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -77453,7 +77633,7 @@ function str2RgbaArray(color) {
 
 module.exports = str2RgbaArray;
 
-},{"color-normalize":63}],485:[function(_dereq_,module,exports){
+},{"color-normalize":62}],500:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -78332,7 +78512,7 @@ exports.makeEditable = function(context, options) {
     return d3.rebind(context, dispatch, 'on');
 };
 
-},{"../constants/alignment":433,"../constants/xmlns_namespaces":439,"../lib":461,"d3":86}],486:[function(_dereq_,module,exports){
+},{"../constants/alignment":448,"../constants/xmlns_namespaces":454,"../lib":476,"d3":88}],501:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -78435,7 +78615,7 @@ function _clearTimeout(cache) {
     }
 }
 
-},{}],487:[function(_dereq_,module,exports){
+},{}],502:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -78463,7 +78643,7 @@ module.exports = function toLogRange(val, range) {
     return newVal;
 };
 
-},{"fast-isnumeric":155}],488:[function(_dereq_,module,exports){
+},{"fast-isnumeric":159}],503:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -78485,7 +78665,7 @@ module.exports = {
     }
 };
 
-},{}],489:[function(_dereq_,module,exports){
+},{}],504:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -78528,7 +78708,7 @@ module.exports = {
     }
 };
 
-},{}],490:[function(_dereq_,module,exports){
+},{}],505:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -78586,7 +78766,7 @@ module.exports = function containerArrayMatch(astr) {
     return {array: arrayStr, index: Number(match[1]), property: match[3] || ''};
 };
 
-},{"../registry":555}],491:[function(_dereq_,module,exports){
+},{"../registry":570}],506:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -78711,7 +78891,7 @@ function overrideOne(attr, editTypeOverride, overrideContainers, key) {
     }
 }
 
-},{"../lib":461}],492:[function(_dereq_,module,exports){
+},{"../lib":476}],507:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -79413,7 +79593,7 @@ exports.clearAxisTypes = function(gd, traces, layoutUpdate) {
     }
 };
 
-},{"../components/color":331,"../lib":461,"../plots/cartesian/axis_ids":512,"../plots/plots":547,"../registry":555,"fast-isnumeric":155,"gl-mat4/fromQuat":171}],493:[function(_dereq_,module,exports){
+},{"../components/color":346,"../lib":476,"../plots/cartesian/axis_ids":527,"../plots/plots":562,"../registry":570,"fast-isnumeric":159,"gl-mat4/fromQuat":175}],508:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -79456,7 +79636,7 @@ var templateApi = _dereq_('./template_api');
 exports.makeTemplate = templateApi.makeTemplate;
 exports.validateTemplate = templateApi.validateTemplate;
 
-},{"../snapshot/download":557,"./plot_api":495,"./template_api":500,"./to_image":501,"./validate":502}],494:[function(_dereq_,module,exports){
+},{"../snapshot/download":572,"./plot_api":510,"./template_api":515,"./to_image":516,"./validate":517}],509:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -79669,7 +79849,7 @@ exports.applyContainerArrayChanges = function applyContainerArrayChanges(gd, np,
     return true;
 };
 
-},{"../lib/is_plain_object":462,"../lib/loggers":465,"../lib/noop":470,"../lib/search":480,"../registry":555,"./container_array_match":490}],495:[function(_dereq_,module,exports){
+},{"../lib/is_plain_object":477,"../lib/loggers":480,"../lib/noop":485,"../lib/search":495,"../registry":570,"./container_array_match":505}],510:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -83557,7 +83737,7 @@ exports._guiUpdate = guiEdit(update);
 
 exports._storeDirectGUIEdit = _storeDirectGUIEdit;
 
-},{"../components/color":331,"../components/drawing":353,"../constants/xmlns_namespaces":439,"../lib":461,"../lib/events":452,"../lib/queue":476,"../lib/svg_text_utils":485,"../plots/cartesian/axes":509,"../plots/cartesian/constants":515,"../plots/cartesian/graph_interact":518,"../plots/cartesian/select":528,"../plots/plots":547,"../plots/polar/legacy":550,"../registry":555,"./edit_types":491,"./helpers":492,"./manage_arrays":494,"./plot_config":496,"./plot_schema":497,"./subroutines":499,"d3":86,"fast-isnumeric":155,"has-hover":203}],496:[function(_dereq_,module,exports){
+},{"../components/color":346,"../components/drawing":368,"../constants/xmlns_namespaces":454,"../lib":476,"../lib/events":467,"../lib/queue":491,"../lib/svg_text_utils":500,"../plots/cartesian/axes":524,"../plots/cartesian/constants":530,"../plots/cartesian/graph_interact":533,"../plots/cartesian/select":543,"../plots/plots":562,"../plots/polar/legacy":565,"../registry":570,"./edit_types":506,"./helpers":507,"./manage_arrays":509,"./plot_config":511,"./plot_schema":512,"./subroutines":514,"d3":88,"fast-isnumeric":159,"has-hover":211}],511:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -83872,7 +84052,7 @@ module.exports = {
     dfltConfig: dfltConfig
 };
 
-},{}],497:[function(_dereq_,module,exports){
+},{}],512:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -84583,7 +84763,7 @@ function insertAttrs(baseAttrs, newAttrs, astr) {
     np.set(extendDeepAll(np.get() || {}, newAttrs));
 }
 
-},{"../lib":461,"../plots/animation_attributes":503,"../plots/attributes":505,"../plots/frame_attributes":538,"../plots/layout_attributes":545,"../plots/polar/legacy/area_attributes":548,"../plots/polar/legacy/axis_attributes":549,"../registry":555,"./edit_types":491,"./plot_config":496}],498:[function(_dereq_,module,exports){
+},{"../lib":476,"../plots/animation_attributes":518,"../plots/attributes":520,"../plots/frame_attributes":553,"../plots/layout_attributes":560,"../plots/polar/legacy/area_attributes":563,"../plots/polar/legacy/axis_attributes":564,"../registry":570,"./edit_types":506,"./plot_config":511}],513:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -84895,7 +85075,7 @@ exports.arrayEditor = function(parentIn, containerStr, itemOut) {
     };
 };
 
-},{"../lib":461,"../plots/attributes":505}],499:[function(_dereq_,module,exports){
+},{"../lib":476,"../plots/attributes":520}],514:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -85641,7 +85821,7 @@ exports.drawMarginPushers = function(gd) {
     Registry.getComponentMethod('colorbar', 'draw')(gd);
 };
 
-},{"../components/color":331,"../components/drawing":353,"../components/modebar":391,"../components/titles":426,"../constants/alignment":433,"../lib":461,"../lib/clear_gl_canvases":447,"../plots/cartesian/autorange":508,"../plots/cartesian/axes":509,"../plots/cartesian/constraints":516,"../plots/plots":547,"../registry":555,"d3":86}],500:[function(_dereq_,module,exports){
+},{"../components/color":346,"../components/drawing":368,"../components/modebar":406,"../components/titles":441,"../constants/alignment":448,"../lib":476,"../lib/clear_gl_canvases":462,"../plots/cartesian/autorange":523,"../plots/cartesian/axes":524,"../plots/cartesian/constraints":531,"../plots/plots":562,"../registry":570,"d3":88}],515:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -86103,7 +86283,7 @@ function format(opts) {
     return opts;
 }
 
-},{"../lib":461,"../plots/attributes":505,"../plots/plots":547,"./plot_config":496,"./plot_schema":497,"./plot_template":498}],501:[function(_dereq_,module,exports){
+},{"../lib":476,"../plots/attributes":520,"../plots/plots":562,"./plot_config":511,"./plot_schema":512,"./plot_template":513}],516:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -86324,7 +86504,7 @@ function toImage(gd, opts) {
 
 module.exports = toImage;
 
-},{"../lib":461,"../plots/plots":547,"../snapshot/helpers":559,"../snapshot/svgtoimg":561,"../snapshot/tosvg":563,"../version":669,"./plot_api":495,"fast-isnumeric":155}],502:[function(_dereq_,module,exports){
+},{"../lib":476,"../plots/plots":562,"../snapshot/helpers":574,"../snapshot/svgtoimg":576,"../snapshot/tosvg":578,"../version":684,"./plot_api":510,"fast-isnumeric":159}],517:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -86755,7 +86935,7 @@ function convertPathToAttributeString(path) {
     return astr;
 }
 
-},{"../lib":461,"../plots/plots":547,"./plot_config":496,"./plot_schema":497}],503:[function(_dereq_,module,exports){
+},{"../lib":476,"../plots/plots":562,"./plot_config":511,"./plot_schema":512}],518:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -86867,7 +87047,7 @@ module.exports = {
     }
 };
 
-},{}],504:[function(_dereq_,module,exports){
+},{}],519:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -86962,7 +87142,7 @@ module.exports = function handleArrayContainerDefaults(parentObjIn, parentObjOut
     return contOut;
 };
 
-},{"../lib":461,"../plot_api/plot_template":498}],505:[function(_dereq_,module,exports){
+},{"../lib":476,"../plot_api/plot_template":513}],520:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -87103,7 +87283,7 @@ module.exports = {
     }
 };
 
-},{"../components/fx/attributes":362}],506:[function(_dereq_,module,exports){
+},{"../components/fx/attributes":377}],521:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -87195,7 +87375,7 @@ module.exports = function alignPeriod(trace, ax, axLetter, vals) {
     return newVals;
 };
 
-},{"../../constants/numerical":438,"../../lib":461,"fast-isnumeric":155}],507:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476,"fast-isnumeric":159}],522:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -87224,7 +87404,7 @@ module.exports = {
     }
 };
 
-},{}],508:[function(_dereq_,module,exports){
+},{}],523:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -87736,7 +87916,7 @@ function goodNumber(v) {
 function lessOrEqual(v0, v1) { return v0 <= v1; }
 function greaterOrEqual(v0, v1) { return v0 >= v1; }
 
-},{"../../constants/numerical":438,"../../lib":461,"../../registry":555,"fast-isnumeric":155}],509:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476,"../../registry":570,"fast-isnumeric":159}],524:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -89403,7 +89583,13 @@ function numFormat(v, ax, fmtoverride, hover) {
         if(ax.hoverformat) tickformat = ax.hoverformat;
     }
 
-    if(tickformat) return ax._numFormat(tickformat)(v).replace(/-/g, MINUS_SIGN);
+    if (tickformat) {
+        if (typeof tickformat === 'function') {
+            return tickformat(v)
+        } else {
+            return ax._numFormat(tickformat)(v).replace(/-/g, MINUS_SIGN);
+        }
+    }
 
     // 'epsilon' - rounding increment
     var e = Math.pow(10, -tickRound) / 2;
@@ -91201,7 +91387,7 @@ function moveOutsideBreak(v, ax) {
     return v;
 }
 
-},{"../../components/color":331,"../../components/drawing":353,"../../components/titles":426,"../../constants/alignment":433,"../../constants/numerical":438,"../../lib":461,"../../lib/svg_text_utils":485,"../../plots/plots":547,"../../registry":555,"./autorange":508,"./axis_autotype":510,"./axis_ids":512,"./clean_ticks":514,"./layout_attributes":523,"./set_convert":529,"d3":86,"fast-isnumeric":155}],510:[function(_dereq_,module,exports){
+},{"../../components/color":346,"../../components/drawing":368,"../../components/titles":441,"../../constants/alignment":448,"../../constants/numerical":453,"../../lib":476,"../../lib/svg_text_utils":500,"../../plots/plots":562,"../../registry":570,"./autorange":523,"./axis_autotype":525,"./axis_ids":527,"./clean_ticks":529,"./layout_attributes":538,"./set_convert":544,"d3":88,"fast-isnumeric":159}],525:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -91296,7 +91482,7 @@ function multiCategory(a) {
     return Lib.isArrayOrTypedArray(a[0]) && Lib.isArrayOrTypedArray(a[1]);
 }
 
-},{"../../constants/numerical":438,"../../lib":461,"fast-isnumeric":155}],511:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476,"fast-isnumeric":159}],526:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -91579,7 +91765,7 @@ function indexOfDay(v) {
     ];
 }
 
-},{"../../lib":461,"../../registry":555,"../array_container_defaults":504,"./category_order_defaults":513,"./constants":515,"./layout_attributes":523,"./line_grid_defaults":525,"./set_convert":529,"./tick_label_defaults":530,"./tick_mark_defaults":531,"./tick_value_defaults":532,"fast-isnumeric":155}],512:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570,"../array_container_defaults":519,"./category_order_defaults":528,"./constants":530,"./layout_attributes":538,"./line_grid_defaults":540,"./set_convert":544,"./tick_label_defaults":545,"./tick_mark_defaults":546,"./tick_value_defaults":547,"fast-isnumeric":159}],527:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -91729,7 +91915,7 @@ exports.ref2id = function(ar) {
     return (/^[xyz]/.test(ar)) ? ar.split(' ')[0] : false;
 };
 
-},{"../../registry":555,"./constants":515}],513:[function(_dereq_,module,exports){
+},{"../../registry":570,"./constants":530}],528:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -91823,7 +92009,7 @@ module.exports = function handleCategoryOrderDefaults(containerIn, containerOut,
     }
 };
 
-},{}],514:[function(_dereq_,module,exports){
+},{}],529:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -91915,7 +92101,7 @@ exports.tick0 = function(tick0, axType, calendar, dtick) {
     return isNumeric(tick0) ? Number(tick0) : 0;
 };
 
-},{"../../constants/numerical":438,"../../lib":461,"fast-isnumeric":155}],515:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476,"fast-isnumeric":159}],530:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -92007,7 +92193,7 @@ module.exports = {
     }
 };
 
-},{"../../lib/regex":477}],516:[function(_dereq_,module,exports){
+},{"../../lib/regex":492}],531:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -92393,7 +92579,7 @@ function updateDomain(ax, factor) {
     ax.setScale();
 }
 
-},{"../../constants/alignment":433,"../../constants/numerical":438,"../../lib":461,"./autorange":508,"./axis_ids":512,"./scale_zoom":527}],517:[function(_dereq_,module,exports){
+},{"../../constants/alignment":448,"../../constants/numerical":453,"../../lib":476,"./autorange":523,"./axis_ids":527,"./scale_zoom":542}],532:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -93665,7 +93851,7 @@ module.exports = {
     attachWheelEventHandler: attachWheelEventHandler
 };
 
-},{"../../components/color":331,"../../components/dragelement":350,"../../components/dragelement/helpers":349,"../../components/drawing":353,"../../components/fx":371,"../../constants/alignment":433,"../../lib":461,"../../lib/clear_gl_canvases":447,"../../lib/setcursor":481,"../../lib/svg_text_utils":485,"../../plot_api/subroutines":499,"../../registry":555,"../plots":547,"./axes":509,"./axis_ids":512,"./constants":515,"./scale_zoom":527,"./select":528,"d3":86,"has-passive-events":204,"tinycolor2":285}],518:[function(_dereq_,module,exports){
+},{"../../components/color":346,"../../components/dragelement":365,"../../components/dragelement/helpers":364,"../../components/drawing":368,"../../components/fx":386,"../../constants/alignment":448,"../../lib":476,"../../lib/clear_gl_canvases":462,"../../lib/setcursor":496,"../../lib/svg_text_utils":500,"../../plot_api/subroutines":514,"../../registry":570,"../plots":562,"./axes":524,"./axis_ids":527,"./constants":530,"./scale_zoom":542,"./select":543,"d3":88,"has-passive-events":212,"tinycolor2":301}],533:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -93833,7 +94019,7 @@ exports.updateFx = function(gd) {
     setCursor(fullLayout._draggers, cursor);
 };
 
-},{"../../components/dragelement":350,"../../components/fx":371,"../../lib/setcursor":481,"./constants":515,"./dragbox":517,"d3":86}],519:[function(_dereq_,module,exports){
+},{"../../components/dragelement":365,"../../components/fx":386,"../../lib/setcursor":496,"./constants":530,"./dragbox":532,"d3":88}],534:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -93869,7 +94055,7 @@ module.exports = {
     clearSelect: clearSelect
 };
 
-},{}],520:[function(_dereq_,module,exports){
+},{}],535:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -93923,7 +94109,7 @@ module.exports = {
     getTransform: getTransform
 };
 
-},{}],521:[function(_dereq_,module,exports){
+},{}],536:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -94001,7 +94187,7 @@ module.exports = function makeIncludeComponents(containerArrayName) {
     };
 };
 
-},{"../../lib":461,"../../registry":555,"./axis_ids":512}],522:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570,"./axis_ids":527}],537:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -94618,7 +94804,7 @@ exports.toSVG = function(gd) {
 
 exports.updateFx = _dereq_('./graph_interact').updateFx;
 
-},{"../../components/drawing":353,"../../constants/xmlns_namespaces":439,"../../lib":461,"../../registry":555,"../get_data":539,"../plots":547,"./attributes":507,"./axis_ids":512,"./constants":515,"./graph_interact":518,"./layout_attributes":523,"./layout_defaults":524,"./transition_axes":533,"d3":86}],523:[function(_dereq_,module,exports){
+},{"../../components/drawing":368,"../../constants/xmlns_namespaces":454,"../../lib":476,"../../registry":570,"../get_data":554,"../plots":562,"./attributes":522,"./axis_ids":527,"./constants":530,"./graph_interact":533,"./layout_attributes":538,"./layout_defaults":539,"./transition_axes":548,"d3":88}],538:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -95072,7 +95258,7 @@ module.exports = {
         
     },
     tickformat: {
-        valType: 'string',
+        valType: 'any',
         dflt: '',
         
         editType: 'ticks',
@@ -95106,7 +95292,7 @@ module.exports = {
         editType: 'ticks'
     }),
     hoverformat: {
-        valType: 'string',
+        valType: 'any',
         dflt: '',
         
         editType: 'none',
@@ -95315,7 +95501,7 @@ module.exports = {
     }
 };
 
-},{"../../components/color/attributes":330,"../../components/drawing/attributes":352,"../../constants/docs":435,"../../constants/numerical":438,"../../lib/extend":453,"../../plot_api/plot_template":498,"../font_attributes":537,"./constants":515}],524:[function(_dereq_,module,exports){
+},{"../../components/color/attributes":345,"../../components/drawing/attributes":367,"../../constants/docs":450,"../../constants/numerical":453,"../../lib/extend":468,"../../plot_api/plot_template":513,"../font_attributes":552,"./constants":530}],539:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -95786,7 +95972,7 @@ module.exports = function supplyLayoutDefaults(layoutIn, layoutOut, fullData) {
     }
 };
 
-},{"../../components/color":331,"../../components/fx/helpers":367,"../../components/fx/hovermode_defaults":370,"../../lib":461,"../../plot_api/plot_template":498,"../../registry":555,"../layout_attributes":545,"./axis_defaults":511,"./axis_ids":512,"./constants":515,"./constraints":516,"./layout_attributes":523,"./position_defaults":526,"./type_defaults":534}],525:[function(_dereq_,module,exports){
+},{"../../components/color":346,"../../components/fx/helpers":382,"../../components/fx/hovermode_defaults":385,"../../lib":476,"../../plot_api/plot_template":513,"../../registry":570,"../layout_attributes":560,"./axis_defaults":526,"./axis_ids":527,"./constants":530,"./constraints":531,"./layout_attributes":538,"./position_defaults":541,"./type_defaults":549}],540:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -95851,7 +96037,7 @@ module.exports = function handleLineGridDefaults(containerIn, containerOut, coer
     }
 };
 
-},{"../../components/color/attributes":330,"../../lib":461,"tinycolor2":285}],526:[function(_dereq_,module,exports){
+},{"../../components/color/attributes":345,"../../lib":476,"tinycolor2":301}],541:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -95939,7 +96125,7 @@ module.exports = function handlePositionDefaults(containerIn, containerOut, coer
     return containerOut;
 };
 
-},{"../../lib":461,"fast-isnumeric":155}],527:[function(_dereq_,module,exports){
+},{"../../lib":476,"fast-isnumeric":159}],542:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -95967,7 +96153,7 @@ module.exports = function scaleZoom(ax, factor, centerFraction) {
     ];
 };
 
-},{"../../constants/alignment":433}],528:[function(_dereq_,module,exports){
+},{"../../constants/alignment":448}],543:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -96902,7 +97088,7 @@ module.exports = {
     selectOnClick: selectOnClick
 };
 
-},{"../../components/color":331,"../../components/dragelement/helpers":349,"../../components/drawing":353,"../../components/fx":371,"../../components/fx/helpers":367,"../../components/shapes/draw_newshape/display_outlines":416,"../../components/shapes/draw_newshape/helpers":417,"../../components/shapes/draw_newshape/newshapes":418,"../../lib":461,"../../lib/clear_gl_canvases":447,"../../lib/polygon":473,"../../lib/throttle":486,"../../plot_api/subroutines":499,"../../registry":555,"./axis_ids":512,"./constants":515,"./handle_outline":519,"./helpers":520,"polybooljs":242}],529:[function(_dereq_,module,exports){
+},{"../../components/color":346,"../../components/dragelement/helpers":364,"../../components/drawing":368,"../../components/fx":386,"../../components/fx/helpers":382,"../../components/shapes/draw_newshape/display_outlines":431,"../../components/shapes/draw_newshape/helpers":432,"../../components/shapes/draw_newshape/newshapes":433,"../../lib":476,"../../lib/clear_gl_canvases":462,"../../lib/polygon":488,"../../lib/throttle":501,"../../plot_api/subroutines":514,"../../registry":570,"./axis_ids":527,"./constants":530,"./handle_outline":534,"./helpers":535,"polybooljs":251}],544:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -97877,7 +98063,7 @@ module.exports = function setConvert(ax, fullLayout) {
     delete ax._forceTick0;
 };
 
-},{"../../constants/numerical":438,"../../lib":461,"./axis_ids":512,"./constants":515,"d3":86,"d3-time-format":84,"fast-isnumeric":155}],530:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476,"./axis_ids":527,"./constants":530,"d3":88,"d3-time-format":86,"fast-isnumeric":159}],545:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -97999,7 +98185,7 @@ function tickformatstopDefaults(valueIn, valueOut) {
     }
 }
 
-},{"../../lib":461,"../array_container_defaults":504,"./layout_attributes":523}],531:[function(_dereq_,module,exports){
+},{"../../lib":476,"../array_container_defaults":519,"./layout_attributes":538}],546:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -98032,7 +98218,7 @@ module.exports = function handleTickDefaults(containerIn, containerOut, coerce, 
     }
 };
 
-},{"../../lib":461,"./layout_attributes":523}],532:[function(_dereq_,module,exports){
+},{"../../lib":476,"./layout_attributes":538}],547:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -98079,7 +98265,7 @@ module.exports = function handleTickValueDefaults(containerIn, containerOut, coe
     }
 };
 
-},{"../../lib":461,"./clean_ticks":514}],533:[function(_dereq_,module,exports){
+},{"../../lib":476,"./clean_ticks":529}],548:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -98292,7 +98478,7 @@ module.exports = function transitionAxes(gd, edits, transitionOpts, makeOnComple
     return Promise.resolve();
 };
 
-},{"../../components/drawing":353,"../../lib":461,"../../registry":555,"./axes":509,"d3":86}],534:[function(_dereq_,module,exports){
+},{"../../components/drawing":368,"../../lib":476,"../../registry":570,"./axes":524,"d3":88}],549:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -98429,7 +98615,7 @@ function isBoxWithoutPositionCoords(trace, axLetter) {
     );
 }
 
-},{"../../registry":555,"./axis_autotype":510}],535:[function(_dereq_,module,exports){
+},{"../../registry":570,"./axis_autotype":525}],550:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -98856,7 +99042,7 @@ function crawl(attrs, callback, path, depth) {
     });
 }
 
-},{"../lib":461,"../registry":555}],536:[function(_dereq_,module,exports){
+},{"../lib":476,"../registry":570}],551:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -98968,7 +99154,7 @@ exports.defaults = function(containerOut, layout, coerce, dfltDomains) {
     if(!(y[0] < y[1])) containerOut.domain.y = dfltY.slice();
 };
 
-},{"../lib/extend":453}],537:[function(_dereq_,module,exports){
+},{"../lib/extend":468}],552:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -99033,7 +99219,7 @@ module.exports = function(opts) {
     return attrs;
 };
 
-},{}],538:[function(_dereq_,module,exports){
+},{}],553:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -99079,7 +99265,7 @@ module.exports = {
     }
 };
 
-},{}],539:[function(_dereq_,module,exports){
+},{}],554:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -99208,7 +99394,7 @@ exports.getSubplotData = function getSubplotData(data, type, subplotId) {
     return subplotData;
 };
 
-},{"../registry":555,"./cartesian/constants":515}],540:[function(_dereq_,module,exports){
+},{"../registry":570,"./cartesian/constants":530}],555:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -99503,7 +99689,7 @@ function createCamera(scene) {
     return result;
 }
 
-},{"../cartesian/constants":515,"has-passive-events":204,"mouse-change":218,"mouse-event-offset":219,"mouse-wheel":221}],541:[function(_dereq_,module,exports){
+},{"../cartesian/constants":530,"has-passive-events":212,"mouse-change":226,"mouse-event-offset":227,"mouse-wheel":230}],556:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -99746,7 +99932,7 @@ function createAxes2D(scene) {
 
 module.exports = createAxes2D;
 
-},{"../../lib/str2rgbarray":484,"../cartesian/axes":509}],542:[function(_dereq_,module,exports){
+},{"../../lib/str2rgbarray":499,"../cartesian/axes":524}],557:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -99897,7 +100083,7 @@ exports.updateFx = function(gd) {
     }
 };
 
-},{"../../components/fx/layout_attributes":372,"../../constants/xmlns_namespaces":439,"../../plot_api/edit_types":491,"../cartesian":522,"../cartesian/attributes":507,"../cartesian/constants":515,"../get_data":539,"../layout_attributes":545,"./scene2d":543}],543:[function(_dereq_,module,exports){
+},{"../../components/fx/layout_attributes":387,"../../constants/xmlns_namespaces":454,"../../plot_api/edit_types":506,"../cartesian":537,"../cartesian/attributes":522,"../cartesian/constants":530,"../get_data":554,"../layout_attributes":560,"./scene2d":558}],558:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -100617,7 +100803,7 @@ proto.hoverFormatter = function(axisName, val) {
     return Axes.tickText(axis, axis.c2l(val), 'hover').text;
 };
 
-},{"../../components/dragelement/helpers":349,"../../components/fx":371,"../../lib/show_no_webgl_msg":482,"../../plots/cartesian/axes":509,"../../registry":555,"../cartesian/autorange":508,"../cartesian/constants":515,"../cartesian/constraints":516,"./camera":540,"./convert":541,"gl-plot2d":177,"gl-select-box":181,"gl-spikes2d":190,"webgl-context":312}],544:[function(_dereq_,module,exports){
+},{"../../components/dragelement/helpers":364,"../../components/fx":386,"../../lib/show_no_webgl_msg":497,"../../plots/cartesian/axes":524,"../../registry":570,"../cartesian/autorange":523,"../cartesian/constants":530,"../cartesian/constraints":531,"./camera":555,"./convert":556,"gl-plot2d":181,"gl-select-box":185,"gl-spikes2d":194,"webgl-context":327}],559:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -100651,7 +100837,7 @@ function project(camera, v) {
 
 module.exports = project;
 
-},{}],545:[function(_dereq_,module,exports){
+},{}],560:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -100984,7 +101170,7 @@ module.exports = {
     }
 };
 
-},{"../components/color/attributes":330,"../components/shapes/draw_newshape/attributes":413,"../lib/extend":453,"./animation_attributes":503,"./font_attributes":537,"./pad_attributes":546}],546:[function(_dereq_,module,exports){
+},{"../components/color/attributes":345,"../components/shapes/draw_newshape/attributes":428,"../lib/extend":468,"./animation_attributes":518,"./font_attributes":552,"./pad_attributes":561}],561:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -101039,7 +101225,7 @@ module.exports = function(opts) {
     };
 };
 
-},{}],547:[function(_dereq_,module,exports){
+},{}],562:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -104392,7 +104578,7 @@ plots.cleanBasePlot = function(desiredType, newFullData, newFullLayout, oldFullD
     }
 };
 
-},{"../components/color":331,"../constants/numerical":438,"../lib":461,"../plot_api/plot_schema":497,"../plot_api/plot_template":498,"../plots/get_data":539,"../registry":555,"./animation_attributes":503,"./attributes":505,"./cartesian/axis_ids":512,"./cartesian/handle_outline":519,"./command":535,"./font_attributes":537,"./frame_attributes":538,"./layout_attributes":545,"d3":86,"d3-time-format":84,"fast-isnumeric":155}],548:[function(_dereq_,module,exports){
+},{"../components/color":346,"../constants/numerical":453,"../lib":476,"../plot_api/plot_schema":512,"../plot_api/plot_template":513,"../plots/get_data":554,"../registry":570,"./animation_attributes":518,"./attributes":520,"./cartesian/axis_ids":527,"./cartesian/handle_outline":534,"./command":550,"./font_attributes":552,"./frame_attributes":553,"./layout_attributes":560,"d3":88,"d3-time-format":86,"fast-isnumeric":159}],563:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -104436,7 +104622,7 @@ module.exports = {
     }
 };
 
-},{"../../../lib/extend":453,"../../../traces/scatter/attributes":616}],549:[function(_dereq_,module,exports){
+},{"../../../lib/extend":468,"../../../traces/scatter/attributes":631}],564:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -104558,7 +104744,7 @@ module.exports = overrideAll({
     }
 }, 'plot', 'nested');
 
-},{"../../../lib/extend":453,"../../../plot_api/edit_types":491,"../../cartesian/layout_attributes":523}],550:[function(_dereq_,module,exports){
+},{"../../../lib/extend":468,"../../../plot_api/edit_types":506,"../../cartesian/layout_attributes":538}],565:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -104573,7 +104759,7 @@ var Polar = module.exports = _dereq_('./micropolar');
 
 Polar.manager = _dereq_('./micropolar_manager');
 
-},{"./micropolar":551,"./micropolar_manager":552}],551:[function(_dereq_,module,exports){
+},{"./micropolar":566,"./micropolar_manager":567}],566:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -105993,7 +106179,7 @@ var µ = module.exports = { version: '0.2.2' };
     return exports;
 };
 
-},{"../../../constants/alignment":433,"../../../lib":461,"d3":86}],552:[function(_dereq_,module,exports){
+},{"../../../constants/alignment":448,"../../../lib":476,"d3":88}],567:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -106079,7 +106265,7 @@ manager.fillLayout = function(_gd) {
     _gd._fullLayout = extendDeepAll(dflts, _gd.layout);
 };
 
-},{"../../../components/color":331,"../../../lib":461,"./micropolar":551,"./undo_manager":553,"d3":86}],553:[function(_dereq_,module,exports){
+},{"../../../components/color":346,"../../../lib":476,"./micropolar":566,"./undo_manager":568,"d3":88}],568:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -106145,7 +106331,7 @@ module.exports = function UndoManager() {
     };
 };
 
-},{}],554:[function(_dereq_,module,exports){
+},{}],569:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -106228,7 +106414,7 @@ exports.texttemplateAttrs = function(opts, extra) {
     return texttemplate;
 };
 
-},{"../constants/docs":435}],555:[function(_dereq_,module,exports){
+},{"../constants/docs":450}],570:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -106694,7 +106880,7 @@ function getTraceType(traceType) {
     return traceType;
 }
 
-},{"./lib/dom":451,"./lib/extend":453,"./lib/is_plain_object":462,"./lib/loggers":465,"./lib/noop":470,"./lib/push_unique":475,"./plots/attributes":505,"./plots/layout_attributes":545}],556:[function(_dereq_,module,exports){
+},{"./lib/dom":466,"./lib/extend":468,"./lib/is_plain_object":477,"./lib/loggers":480,"./lib/noop":485,"./lib/push_unique":490,"./plots/attributes":520,"./plots/layout_attributes":560}],571:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -106867,7 +107053,7 @@ module.exports = function clonePlot(graphObj, options) {
     return plotTile;
 };
 
-},{"../lib":461,"../registry":555}],557:[function(_dereq_,module,exports){
+},{"../lib":476,"../registry":570}],572:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -106939,7 +107125,7 @@ function downloadImage(gd, opts) {
 
 module.exports = downloadImage;
 
-},{"../lib":461,"../plot_api/to_image":501,"./filesaver":558,"./helpers":559}],558:[function(_dereq_,module,exports){
+},{"../lib":476,"../plot_api/to_image":516,"./filesaver":573,"./helpers":574}],573:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107019,7 +107205,7 @@ function fileSaver(url, name, format) {
 
 module.exports = fileSaver;
 
-},{"../lib":461,"./helpers":559}],559:[function(_dereq_,module,exports){
+},{"../lib":476,"./helpers":574}],574:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107102,7 +107288,7 @@ exports.IMAGE_URL_PREFIX = /^data:image\/\w+;base64,/;
 
 exports.MSG_IE_BAD_FORMAT = 'Sorry IE does not support downloading from canvas. Try {format:\'svg\'} instead.';
 
-},{"../registry":555}],560:[function(_dereq_,module,exports){
+},{"../registry":570}],575:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107128,7 +107314,7 @@ var Snapshot = {
 
 module.exports = Snapshot;
 
-},{"./cloneplot":556,"./download":557,"./helpers":559,"./svgtoimg":561,"./toimage":562,"./tosvg":563}],561:[function(_dereq_,module,exports){
+},{"./cloneplot":571,"./download":572,"./helpers":574,"./svgtoimg":576,"./toimage":577,"./tosvg":578}],576:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107255,7 +107441,7 @@ function svgToImg(opts) {
 
 module.exports = svgToImg;
 
-},{"../lib":461,"./helpers":559,"events":51}],562:[function(_dereq_,module,exports){
+},{"../lib":476,"./helpers":574,"events":155}],577:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107332,7 +107518,7 @@ function toImage(gd, opts) {
 
 module.exports = toImage;
 
-},{"../lib":461,"../registry":555,"./cloneplot":556,"./helpers":559,"./svgtoimg":561,"./tosvg":563,"events":51}],563:[function(_dereq_,module,exports){
+},{"../lib":476,"../registry":570,"./cloneplot":571,"./helpers":574,"./svgtoimg":576,"./tosvg":578,"events":155}],578:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107521,7 +107707,7 @@ module.exports = function toSVG(gd, format, scale) {
     return s;
 };
 
-},{"../components/color":331,"../components/drawing":353,"../constants/xmlns_namespaces":439,"../lib":461,"d3":86}],564:[function(_dereq_,module,exports){
+},{"../components/color":346,"../components/drawing":368,"../constants/xmlns_namespaces":454,"../lib":476,"d3":88}],579:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107554,7 +107740,7 @@ module.exports = function arraysToCalcdata(cd, trace) {
     }
 };
 
-},{"../../lib":461}],565:[function(_dereq_,module,exports){
+},{"../../lib":476}],580:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107749,7 +107935,7 @@ module.exports = extendFlat({
     })
 );
 
-},{"../../components/colorscale/attributes":338,"../../components/drawing/attributes":352,"../../constants/docs":435,"../../constants/filter_ops":436,"../../lib/extend":453,"../../plots/font_attributes":537,"../heatmap/attributes":578,"../scatter/attributes":616}],566:[function(_dereq_,module,exports){
+},{"../../components/colorscale/attributes":353,"../../components/drawing/attributes":367,"../../constants/docs":450,"../../constants/filter_ops":451,"../../lib/extend":468,"../../plots/font_attributes":552,"../heatmap/attributes":593,"../scatter/attributes":631}],581:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107802,7 +107988,7 @@ module.exports = function calc(gd, trace) {
     return cd;
 };
 
-},{"../../components/colorscale":343,"../heatmap/calc":579,"./end_plus":571,"./set_contours":574}],567:[function(_dereq_,module,exports){
+},{"../../components/colorscale":358,"../heatmap/calc":594,"./end_plus":586,"./set_contours":589}],582:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107853,7 +108039,7 @@ module.exports = {
     calc: calc
 };
 
-},{"../../components/colorscale":343,"./end_plus":571,"./make_color_map":573}],568:[function(_dereq_,module,exports){
+},{"../../components/colorscale":358,"./end_plus":586,"./make_color_map":588}],583:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107947,7 +108133,7 @@ function handleConstraintValueDefaults(coerce, contours) {
     }
 }
 
-},{"../../components/color":331,"../../constants/filter_ops":436,"./label_defaults":572,"fast-isnumeric":155}],569:[function(_dereq_,module,exports){
+},{"../../components/color":346,"../../constants/filter_ops":451,"./label_defaults":587,"fast-isnumeric":159}],584:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -107976,7 +108162,7 @@ module.exports = function handleContourDefaults(traceIn, traceOut, coerce, coerc
     if(autoContour || !contourSize) coerce('ncontours');
 };
 
-},{}],570:[function(_dereq_,module,exports){
+},{}],585:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108030,7 +108216,7 @@ module.exports = function supplyDefaults(traceIn, traceOut, defaultColor, layout
     }
 };
 
-},{"../../lib":461,"../heatmap/xyz_defaults":586,"../scatter/period_defaults":636,"./attributes":565,"./constraint_defaults":568,"./contours_defaults":569,"./style_defaults":575}],571:[function(_dereq_,module,exports){
+},{"../../lib":476,"../heatmap/xyz_defaults":601,"../scatter/period_defaults":651,"./attributes":580,"./constraint_defaults":583,"./contours_defaults":584,"./style_defaults":590}],586:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108050,7 +108236,7 @@ module.exports = function endPlus(contours) {
     return contours.end + contours.size / 1e6;
 };
 
-},{}],572:[function(_dereq_,module,exports){
+},{}],587:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108080,7 +108266,7 @@ module.exports = function handleLabelDefaults(coerce, layout, lineColor, opts) {
     if(opts.hasHover !== false) coerce('zhoverformat');
 };
 
-},{"../../lib":461}],573:[function(_dereq_,module,exports){
+},{"../../lib":476}],588:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108164,7 +108350,7 @@ module.exports = function makeColorMap(trace) {
     );
 };
 
-},{"../../components/colorscale":343,"./end_plus":571,"d3":86}],574:[function(_dereq_,module,exports){
+},{"../../components/colorscale":358,"./end_plus":586,"d3":88}],589:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108268,7 +108454,7 @@ function autoContours(start, end, ncontours) {
     return dummyAx;
 }
 
-},{"../../lib":461,"../../plots/cartesian/axes":509}],575:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/cartesian/axes":524}],590:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108313,7 +108499,7 @@ module.exports = function handleStyleDefaults(traceIn, traceOut, coerce, layout,
     handleLabelDefaults(coerce, layout, lineColor, opts);
 };
 
-},{"../../components/colorscale/defaults":341,"./label_defaults":572}],576:[function(_dereq_,module,exports){
+},{"../../components/colorscale/defaults":356,"./label_defaults":587}],591:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108502,7 +108688,7 @@ function createContour(scene, fullTrace, calcTrace) {
 
 module.exports = createContour;
 
-},{"../../lib/str2rgbarray":484,"../../plots/cartesian/axes":509,"../contour/make_color_map":573,"gl-contour2d":165,"gl-heatmap2d":169}],577:[function(_dereq_,module,exports){
+},{"../../lib/str2rgbarray":499,"../../plots/cartesian/axes":524,"../contour/make_color_map":588,"gl-contour2d":169,"gl-heatmap2d":173}],592:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108532,7 +108718,7 @@ module.exports = {
     }
 };
 
-},{"../../plot_api/edit_types":491,"../../plots/gl2d":542,"../contour/attributes":565,"../contour/calc":566,"../contour/colorbar":567,"../contour/defaults":570,"./convert":576}],578:[function(_dereq_,module,exports){
+},{"../../plot_api/edit_types":506,"../../plots/gl2d":557,"../contour/attributes":580,"../contour/calc":581,"../contour/colorbar":582,"../contour/defaults":585,"./convert":591}],593:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108654,7 +108840,7 @@ module.exports = extendFlat({
     colorScaleAttrs('', {cLetter: 'z', autoColorDflt: false})
 );
 
-},{"../../components/colorscale/attributes":338,"../../constants/docs":435,"../../lib/extend":453,"../../plots/attributes":505,"../../plots/template_attributes":554,"../scatter/attributes":616}],579:[function(_dereq_,module,exports){
+},{"../../components/colorscale/attributes":353,"../../constants/docs":450,"../../lib/extend":468,"../../plots/attributes":520,"../../plots/template_attributes":569,"../scatter/attributes":631}],594:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108863,7 +109049,7 @@ function dropZonBreaks(x, y, z) {
     return newZ;
 }
 
-},{"../../components/colorscale/calc":339,"../../constants/numerical":438,"../../lib":461,"../../plots/cartesian/align_period":506,"../../plots/cartesian/axes":509,"../../registry":555,"../histogram2d/calc":596,"./clean_2d_array":580,"./convert_column_xyz":582,"./find_empties":583,"./interp2d":584,"./make_bound_array":585}],580:[function(_dereq_,module,exports){
+},{"../../components/colorscale/calc":354,"../../constants/numerical":453,"../../lib":476,"../../plots/cartesian/align_period":521,"../../plots/cartesian/axes":524,"../../registry":570,"../histogram2d/calc":611,"./clean_2d_array":595,"./convert_column_xyz":597,"./find_empties":598,"./interp2d":599,"./make_bound_array":600}],595:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108940,7 +109126,7 @@ module.exports = function clean2dArray(zOld, trace, xa, ya) {
     return zNew;
 };
 
-},{"../../constants/numerical":438,"../../lib":461,"fast-isnumeric":155}],581:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476,"fast-isnumeric":159}],596:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -108956,7 +109142,7 @@ module.exports = {
     max: 'zmax'
 };
 
-},{}],582:[function(_dereq_,module,exports){
+},{}],597:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -109046,7 +109232,7 @@ module.exports = function convertColumnData(trace, ax1, ax2, var1Name, var2Name,
     trace._after2before = after2before;
 };
 
-},{"../../constants/numerical":438,"../../lib":461,"../../plots/cartesian/align_period":506}],583:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476,"../../plots/cartesian/align_period":521}],598:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -109151,7 +109337,7 @@ module.exports = function findEmpties(z) {
     return empties.sort(function(a, b) { return b[2] - a[2]; });
 };
 
-},{"../../lib":461}],584:[function(_dereq_,module,exports){
+},{"../../lib":476}],599:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -109284,7 +109470,7 @@ function iterateInterp2d(z, emptyPoints, overshoot) {
     return maxFractionalChange;
 }
 
-},{"../../lib":461}],585:[function(_dereq_,module,exports){
+},{"../../lib":476}],600:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -109372,7 +109558,7 @@ module.exports = function makeBoundArray(trace, arrayIn, v0In, dvIn, numbricks, 
     return arrayOut;
 };
 
-},{"../../lib":461,"../../registry":555}],586:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570}],601:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -109474,7 +109660,7 @@ function isValidZ(z) {
     return (allRowsAreArrays && oneRowIsFilled && hasOneNumber);
 }
 
-},{"../../lib":461,"../../registry":555,"fast-isnumeric":155}],587:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570,"fast-isnumeric":159}],602:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -109522,7 +109708,7 @@ extendFlat(
 
 module.exports = overrideAll(attrs, 'calc', 'nested');
 
-},{"../../components/colorscale/attributes":338,"../../lib/extend":453,"../../plot_api/edit_types":491,"../heatmap/attributes":578}],588:[function(_dereq_,module,exports){
+},{"../../components/colorscale/attributes":353,"../../lib/extend":468,"../../plot_api/edit_types":506,"../heatmap/attributes":593}],603:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -109674,7 +109860,7 @@ function createHeatmap(scene, fullTrace, calcTrace) {
 
 module.exports = createHeatmap;
 
-},{"../../lib/str2rgbarray":484,"../../plots/cartesian/axes":509,"gl-heatmap2d":169}],589:[function(_dereq_,module,exports){
+},{"../../lib/str2rgbarray":499,"../../plots/cartesian/axes":524,"gl-heatmap2d":173}],604:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -109710,7 +109896,7 @@ module.exports = function supplyDefaults(traceIn, traceOut, defaultColor, layout
     colorscaleDefaults(traceIn, traceOut, layout, coerce, {prefix: '', cLetter: 'z'});
 };
 
-},{"../../components/colorscale/defaults":341,"../../lib":461,"../heatmap/xyz_defaults":586,"./attributes":587}],590:[function(_dereq_,module,exports){
+},{"../../components/colorscale/defaults":356,"../../lib":476,"../heatmap/xyz_defaults":601,"./attributes":602}],605:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -109738,7 +109924,7 @@ module.exports = {
     }
 };
 
-},{"../../plots/gl2d":542,"../heatmap/calc":579,"../heatmap/colorbar":581,"./attributes":587,"./convert":588,"./defaults":589}],591:[function(_dereq_,module,exports){
+},{"../../plots/gl2d":557,"../heatmap/calc":594,"../heatmap/colorbar":596,"./attributes":602,"./convert":603,"./defaults":604}],606:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -109763,7 +109949,7 @@ module.exports = function doAvg(size, counts) {
     return total;
 };
 
-},{}],592:[function(_dereq_,module,exports){
+},{}],607:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -109837,7 +110023,7 @@ module.exports = {
     }
 };
 
-},{"fast-isnumeric":155}],593:[function(_dereq_,module,exports){
+},{"fast-isnumeric":159}],608:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -110013,7 +110199,7 @@ function dateParts(v, pa, calendar) {
     return parts;
 }
 
-},{"../../constants/numerical":438,"../../plots/cartesian/axes":509}],594:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../plots/cartesian/axes":524}],609:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -110592,7 +110778,7 @@ module.exports = {
     calcAllAutoBins: calcAllAutoBins
 };
 
-},{"../../lib":461,"../../plots/cartesian/axes":509,"../../registry":555,"../bar/arrays_to_calcdata":564,"./average":591,"./bin_functions":592,"./bin_label_vals":593,"./norm_functions":595,"fast-isnumeric":155}],595:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/cartesian/axes":524,"../../registry":570,"../bar/arrays_to_calcdata":579,"./average":606,"./bin_functions":607,"./bin_label_vals":608,"./norm_functions":610,"fast-isnumeric":159}],610:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -110627,7 +110813,7 @@ module.exports = {
     }
 };
 
-},{}],596:[function(_dereq_,module,exports){
+},{}],611:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -110846,7 +111032,7 @@ function getRanges(edges, uniqueVals, gapLow, gapHigh, ax, calendar) {
     return out;
 }
 
-},{"../../lib":461,"../../plots/cartesian/axes":509,"../histogram/average":591,"../histogram/bin_functions":592,"../histogram/bin_label_vals":593,"../histogram/calc":594,"../histogram/norm_functions":595}],597:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/cartesian/axes":524,"../histogram/average":606,"../histogram/bin_functions":607,"../histogram/bin_label_vals":608,"../histogram/calc":609,"../histogram/norm_functions":610}],612:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -110975,7 +111161,7 @@ module.exports = {
     )
 };
 
-},{"../../components/colorscale/attributes":338,"../../lib/extend":453,"../../plot_api/plot_template":498,"../../plots/cartesian/layout_attributes":523,"../../plots/domain":536,"../../plots/font_attributes":537}],598:[function(_dereq_,module,exports){
+},{"../../components/colorscale/attributes":353,"../../lib/extend":468,"../../plot_api/plot_template":513,"../../plots/cartesian/layout_attributes":538,"../../plots/domain":551,"../../plots/font_attributes":552}],613:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -111519,7 +111705,7 @@ module.exports = {
     cleanRanges: cleanRanges
 };
 
-},{"../../lib":461,"../../lib/gup":458,"./constants":601,"d3":86}],599:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../lib/gup":473,"./constants":616,"d3":88}],614:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -111586,7 +111772,7 @@ exports.toSVG = function(gd) {
     }, 60);
 };
 
-},{"../../constants/xmlns_namespaces":439,"../../plots/get_data":539,"./plot":608,"d3":86}],600:[function(_dereq_,module,exports){
+},{"../../constants/xmlns_namespaces":454,"../../plots/get_data":554,"./plot":623,"d3":88}],615:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -111630,7 +111816,7 @@ function constHalf(len) {
     return out;
 }
 
-},{"../../components/colorscale":343,"../../lib":461,"../../lib/gup":458}],601:[function(_dereq_,module,exports){
+},{"../../components/colorscale":358,"../../lib":476,"../../lib/gup":473}],616:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -111692,7 +111878,7 @@ module.exports = {
     }
 };
 
-},{}],602:[function(_dereq_,module,exports){
+},{}],617:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -111812,7 +111998,7 @@ module.exports = function supplyDefaults(traceIn, traceOut, defaultColor, layout
     coerce('labelside');
 };
 
-},{"../../components/colorscale/defaults":341,"../../components/colorscale/helpers":342,"../../lib":461,"../../plots/array_container_defaults":504,"../../plots/cartesian/axes":509,"../../plots/domain":536,"./attributes":597,"./axisbrush":598,"./constants":601,"./merge_length":606}],603:[function(_dereq_,module,exports){
+},{"../../components/colorscale/defaults":356,"../../components/colorscale/helpers":357,"../../lib":476,"../../plots/array_container_defaults":519,"../../plots/cartesian/axes":524,"../../plots/domain":551,"./attributes":612,"./axisbrush":613,"./constants":616,"./merge_length":621}],618:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -111837,7 +112023,7 @@ exports.isVisible = function(dimension) {
     return dimension.visible || !('visible' in dimension);
 };
 
-},{"../../lib":461}],604:[function(_dereq_,module,exports){
+},{"../../lib":476}],619:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -111868,7 +112054,7 @@ module.exports = {
     }
 };
 
-},{"./attributes":597,"./base_plot":599,"./calc":600,"./defaults":602,"./plot":608}],605:[function(_dereq_,module,exports){
+},{"./attributes":612,"./base_plot":614,"./calc":615,"./defaults":617,"./plot":623}],620:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -112398,7 +112584,7 @@ module.exports = function(canvasGL, d) {
     };
 };
 
-},{"../../lib":461,"./constants":601,"glslify":202}],606:[function(_dereq_,module,exports){
+},{"../../lib":476,"./constants":616,"glslify":210}],621:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -112436,7 +112622,7 @@ module.exports = function(traceOut, dimensions, dataAttr, len) {
     return len;
 };
 
-},{}],607:[function(_dereq_,module,exports){
+},{}],622:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -113197,7 +113383,7 @@ module.exports = function parcoords(gd, cdModule, layout, callbacks) {
     brush.ensureAxisBrush(axisOverlays);
 };
 
-},{"../../components/colorscale":343,"../../components/drawing":353,"../../lib":461,"../../lib/gup":458,"../../lib/svg_text_utils":485,"../../plots/cartesian/axes":509,"./axisbrush":598,"./constants":601,"./helpers":603,"./lines":605,"color-rgba":65,"d3":86}],608:[function(_dereq_,module,exports){
+},{"../../components/colorscale":358,"../../components/drawing":368,"../../lib":476,"../../lib/gup":473,"../../lib/svg_text_utils":500,"../../plots/cartesian/axes":524,"./axisbrush":613,"./constants":616,"./helpers":618,"./lines":620,"color-rgba":65,"d3":88}],623:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -113352,7 +113538,7 @@ module.exports = function plot(gd, cdModule) {
     );
 };
 
-},{"../../lib/prepare_regl":474,"./helpers":603,"./parcoords":607}],609:[function(_dereq_,module,exports){
+},{"../../lib/prepare_regl":489,"./helpers":618,"./parcoords":622}],624:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -113400,7 +113586,7 @@ exports.getRotationAngle = function(rotation) {
     return (rotation === 'auto' ? 0 : rotation) * Math.PI / 180;
 };
 
-},{"../../lib":461}],610:[function(_dereq_,module,exports){
+},{"../../lib":476}],625:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -113424,7 +113610,7 @@ module.exports = function styleOne(s, pt, trace) {
         .call(Color.stroke, lineColor);
 };
 
-},{"../../components/color":331,"./helpers":609}],611:[function(_dereq_,module,exports){
+},{"../../components/color":346,"./helpers":624}],626:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -113527,7 +113713,7 @@ module.exports = {
     transforms: undefined
 };
 
-},{"../scatter/attributes":616}],612:[function(_dereq_,module,exports){
+},{"../scatter/attributes":631}],627:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -113729,7 +113915,7 @@ function createPointcloud(scene, data) {
 
 module.exports = createPointcloud;
 
-},{"../../lib/str2rgbarray":484,"../../plots/cartesian/autorange":508,"../scatter/get_trace_color":626,"gl-pointcloud2d":179}],613:[function(_dereq_,module,exports){
+},{"../../lib/str2rgbarray":499,"../../plots/cartesian/autorange":523,"../scatter/get_trace_color":641,"gl-pointcloud2d":183}],628:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -113777,7 +113963,7 @@ module.exports = function supplyDefaults(traceIn, traceOut, defaultColor) {
     traceOut._length = null;
 };
 
-},{"../../lib":461,"./attributes":611}],614:[function(_dereq_,module,exports){
+},{"../../lib":476,"./attributes":626}],629:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -113805,7 +113991,7 @@ module.exports = {
     }
 };
 
-},{"../../plots/gl2d":542,"../scatter3d/calc":644,"./attributes":611,"./convert":612,"./defaults":613}],615:[function(_dereq_,module,exports){
+},{"../../plots/gl2d":557,"../scatter3d/calc":659,"./attributes":626,"./convert":627,"./defaults":628}],630:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -113857,7 +114043,7 @@ module.exports = function arraysToCalcdata(cd, trace) {
     }
 };
 
-},{"../../lib":461}],616:[function(_dereq_,module,exports){
+},{"../../lib":476}],631:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -114311,7 +114497,7 @@ module.exports = {
     }
 };
 
-},{"../../components/colorscale/attributes":338,"../../components/drawing":353,"../../components/drawing/attributes":352,"../../lib/extend":453,"../../plots/font_attributes":537,"../../plots/template_attributes":554,"./constants":620}],617:[function(_dereq_,module,exports){
+},{"../../components/colorscale/attributes":353,"../../components/drawing":368,"../../components/drawing/attributes":367,"../../lib/extend":468,"../../plots/font_attributes":552,"../../plots/template_attributes":569,"./constants":635}],632:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -114610,7 +114796,7 @@ module.exports = {
     getStackOpts: getStackOpts
 };
 
-},{"../../constants/numerical":438,"../../lib":461,"../../plots/cartesian/align_period":506,"../../plots/cartesian/axes":509,"./arrays_to_calcdata":615,"./calc_selection":618,"./colorscale_calc":619,"./subtypes":641,"fast-isnumeric":155}],618:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476,"../../plots/cartesian/align_period":521,"../../plots/cartesian/axes":524,"./arrays_to_calcdata":630,"./calc_selection":633,"./colorscale_calc":634,"./subtypes":656,"fast-isnumeric":159}],633:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -114629,7 +114815,7 @@ module.exports = function calcSelection(cd, trace) {
     }
 };
 
-},{"../../lib":461}],619:[function(_dereq_,module,exports){
+},{"../../lib":476}],634:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -114672,7 +114858,7 @@ module.exports = function calcMarkerColorscale(gd, trace) {
     }
 };
 
-},{"../../components/colorscale/calc":339,"../../components/colorscale/helpers":342,"./subtypes":641}],620:[function(_dereq_,module,exports){
+},{"../../components/colorscale/calc":354,"../../components/colorscale/helpers":357,"./subtypes":656}],635:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -114701,7 +114887,7 @@ module.exports = {
     eventDataKeys: []
 };
 
-},{}],621:[function(_dereq_,module,exports){
+},{}],636:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -114882,7 +115068,7 @@ function getInterp(calcTrace, index, position, posAttr) {
     return pt0.s + (pt1.s - pt0.s) * (position - pt0[posAttr]) / (pt1[posAttr] - pt0[posAttr]);
 }
 
-},{"./calc":617}],622:[function(_dereq_,module,exports){
+},{"./calc":632}],637:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -114921,7 +115107,7 @@ module.exports = function crossTraceDefaults(fullData) {
     }
 };
 
-},{}],623:[function(_dereq_,module,exports){
+},{}],638:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -115014,7 +115200,7 @@ module.exports = function supplyDefaults(traceIn, traceOut, defaultColor, layout
     Lib.coerceSelectionMarkerOpacity(traceOut, coerce);
 };
 
-},{"../../lib":461,"../../registry":555,"./attributes":616,"./constants":620,"./fillcolor_defaults":624,"./line_defaults":629,"./line_shape_defaults":631,"./marker_defaults":635,"./period_defaults":636,"./stack_defaults":639,"./subtypes":641,"./text_defaults":642,"./xy_defaults":643}],624:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570,"./attributes":631,"./constants":635,"./fillcolor_defaults":639,"./line_defaults":644,"./line_shape_defaults":646,"./marker_defaults":650,"./period_defaults":651,"./stack_defaults":654,"./subtypes":656,"./text_defaults":657,"./xy_defaults":658}],639:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -115051,7 +115237,7 @@ module.exports = function fillColorDefaults(traceIn, traceOut, defaultColor, coe
     ));
 };
 
-},{"../../components/color":331,"../../lib":461}],625:[function(_dereq_,module,exports){
+},{"../../components/color":346,"../../lib":476}],640:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -115077,7 +115263,7 @@ module.exports = function formatLabels(cdi, trace, fullLayout) {
     return labels;
 };
 
-},{"../../plots/cartesian/axes":509}],626:[function(_dereq_,module,exports){
+},{"../../plots/cartesian/axes":524}],641:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -115126,7 +115312,7 @@ module.exports = function getTraceColor(trace, di) {
     }
 };
 
-},{"../../components/color":331,"./subtypes":641}],627:[function(_dereq_,module,exports){
+},{"../../components/color":346,"./subtypes":656}],642:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -115321,7 +115507,7 @@ module.exports = function hoverPoints(pointData, xval, yval, hovermode) {
     }
 };
 
-},{"../../components/color":331,"../../components/fx":371,"../../lib":461,"../../registry":555,"./get_trace_color":626}],628:[function(_dereq_,module,exports){
+},{"../../components/color":346,"../../components/fx":386,"../../lib":476,"../../registry":570,"./get_trace_color":641}],643:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -115367,7 +115553,7 @@ module.exports = {
     }
 };
 
-},{"../../plots/cartesian":522,"./arrays_to_calcdata":615,"./attributes":616,"./calc":617,"./cross_trace_calc":621,"./cross_trace_defaults":622,"./defaults":623,"./format_labels":625,"./hover":627,"./marker_colorbar":634,"./plot":637,"./select":638,"./style":640,"./subtypes":641}],629:[function(_dereq_,module,exports){
+},{"../../plots/cartesian":537,"./arrays_to_calcdata":630,"./attributes":631,"./calc":632,"./cross_trace_calc":636,"./cross_trace_defaults":637,"./defaults":638,"./format_labels":640,"./hover":642,"./marker_colorbar":649,"./plot":652,"./select":653,"./style":655,"./subtypes":656}],644:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -115398,7 +115584,7 @@ module.exports = function lineDefaults(traceIn, traceOut, defaultColor, layout, 
     if(!(opts || {}).noDash) coerce('line.dash');
 };
 
-},{"../../components/colorscale/defaults":341,"../../components/colorscale/helpers":342,"../../lib":461}],630:[function(_dereq_,module,exports){
+},{"../../components/colorscale/defaults":356,"../../components/colorscale/helpers":357,"../../lib":476}],645:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -115859,7 +116045,7 @@ module.exports = function linePoints(d, opts) {
     return segments;
 };
 
-},{"../../constants/numerical":438,"../../lib":461,"./constants":620}],631:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476,"./constants":635}],646:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -115878,7 +116064,7 @@ module.exports = function handleLineShapeDefaults(traceIn, traceOut, coerce) {
     if(shape === 'spline') coerce('line.smoothing');
 };
 
-},{}],632:[function(_dereq_,module,exports){
+},{}],647:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -115968,7 +116154,7 @@ module.exports = function linkTraces(gd, plotinfo, cdscatter) {
     return cdscatterSorted;
 };
 
-},{}],633:[function(_dereq_,module,exports){
+},{}],648:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -116010,7 +116196,7 @@ module.exports = function makeBubbleSizeFn(trace) {
     };
 };
 
-},{"fast-isnumeric":155}],634:[function(_dereq_,module,exports){
+},{"fast-isnumeric":159}],649:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -116028,7 +116214,7 @@ module.exports = {
     max: 'cmax'
 };
 
-},{}],635:[function(_dereq_,module,exports){
+},{}],650:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -116109,7 +116295,7 @@ module.exports = function markerDefaults(traceIn, traceOut, defaultColor, layout
     }
 };
 
-},{"../../components/color":331,"../../components/colorscale/defaults":341,"../../components/colorscale/helpers":342,"./subtypes":641}],636:[function(_dereq_,module,exports){
+},{"../../components/color":346,"../../components/colorscale/defaults":356,"../../components/colorscale/helpers":357,"./subtypes":656}],651:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -116156,7 +116342,7 @@ module.exports = function handlePeriodDefaults(traceIn, traceOut, layout, coerce
     }
 };
 
-},{"../../constants/numerical":438,"../../lib":461}],637:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476}],652:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -116717,7 +116903,7 @@ function selectMarkers(gd, idx, plotinfo, cdscatter, cdscatterAll) {
     });
 }
 
-},{"../../components/drawing":353,"../../lib":461,"../../lib/polygon":473,"../../registry":555,"./line_points":630,"./link_traces":632,"./subtypes":641,"d3":86}],638:[function(_dereq_,module,exports){
+},{"../../components/drawing":368,"../../lib":476,"../../lib/polygon":488,"../../registry":570,"./line_points":645,"./link_traces":647,"./subtypes":656,"d3":88}],653:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -116771,7 +116957,7 @@ module.exports = function selectPoints(searchInfo, selectionTester) {
     return selection;
 };
 
-},{"./subtypes":641}],639:[function(_dereq_,module,exports){
+},{"./subtypes":656}],654:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -116876,7 +117062,7 @@ module.exports = function handleStackDefaults(traceIn, traceOut, layout, coerce)
     }
 };
 
-},{}],640:[function(_dereq_,module,exports){
+},{}],655:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -116947,7 +117133,7 @@ module.exports = {
     styleOnSelect: styleOnSelect
 };
 
-},{"../../components/drawing":353,"../../registry":555,"d3":86}],641:[function(_dereq_,module,exports){
+},{"../../components/drawing":368,"../../registry":570,"d3":88}],656:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -116986,7 +117172,7 @@ module.exports = {
     }
 };
 
-},{"../../lib":461}],642:[function(_dereq_,module,exports){
+},{"../../lib":476}],657:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -117016,7 +117202,7 @@ module.exports = function(traceIn, traceOut, layout, coerce, opts) {
     }
 };
 
-},{"../../lib":461}],643:[function(_dereq_,module,exports){
+},{"../../lib":476}],658:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -117060,7 +117246,7 @@ module.exports = function handleXYDefaults(traceIn, traceOut, layout, coerce) {
     return len;
 };
 
-},{"../../lib":461,"../../registry":555}],644:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570}],659:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -117088,7 +117274,7 @@ module.exports = function calc(gd, trace) {
     return cd;
 };
 
-},{"../scatter/arrays_to_calcdata":615,"../scatter/colorscale_calc":619}],645:[function(_dereq_,module,exports){
+},{"../scatter/arrays_to_calcdata":630,"../scatter/colorscale_calc":634}],660:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -117193,7 +117379,7 @@ attrs.x.editType = attrs.y.editType = attrs.x0.editType = attrs.y0.editType = 'c
 attrs.hovertemplate = scatterAttrs.hovertemplate;
 attrs.texttemplate = scatterAttrs.texttemplate;
 
-},{"../../components/colorscale/attributes":338,"../../lib/extend":453,"../../plot_api/edit_types":491,"../../plots/attributes":505,"../scatter/attributes":616,"./constants":647}],646:[function(_dereq_,module,exports){
+},{"../../components/colorscale/attributes":353,"../../lib/extend":468,"../../plot_api/edit_types":506,"../../plots/attributes":520,"../scatter/attributes":631,"./constants":662}],661:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -117379,7 +117565,7 @@ function sceneOptions(gd, subplot, trace, positions, x, y) {
     return opts;
 }
 
-},{"../../constants/numerical":438,"../../lib":461,"../../plots/cartesian/align_period":506,"../../plots/cartesian/autorange":508,"../../plots/cartesian/axis_ids":512,"../scatter/calc":617,"../scatter/colorscale_calc":619,"./constants":647,"./convert":648,"./scene_update":656,"@plotly/point-cluster":10}],647:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476,"../../plots/cartesian/align_period":521,"../../plots/cartesian/autorange":523,"../../plots/cartesian/axis_ids":527,"../scatter/calc":632,"../scatter/colorscale_calc":634,"./constants":662,"./convert":663,"./scene_update":671,"@plotly/point-cluster":10}],662:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -117412,7 +117598,7 @@ module.exports = {
     }
 };
 
-},{}],648:[function(_dereq_,module,exports){
+},{}],663:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -118063,7 +118249,7 @@ module.exports = {
     textPosition: convertTextPosition
 };
 
-},{"../../components/drawing":353,"../../components/fx/helpers":367,"../../constants/interactions":437,"../../lib":461,"../../lib/gl_format_color":457,"../../plots/cartesian/axis_ids":512,"../../registry":555,"../scatter/make_bubble_size_func":633,"../scatter/subtypes":641,"./constants":647,"./helpers":652,"color-normalize":63,"fast-isnumeric":155,"svg-path-sdf":283}],649:[function(_dereq_,module,exports){
+},{"../../components/drawing":368,"../../components/fx/helpers":382,"../../constants/interactions":452,"../../lib":476,"../../lib/gl_format_color":472,"../../plots/cartesian/axis_ids":527,"../../registry":570,"../scatter/make_bubble_size_func":648,"../scatter/subtypes":656,"./constants":662,"./helpers":667,"color-normalize":62,"fast-isnumeric":159,"svg-path-sdf":299}],664:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -118142,7 +118328,7 @@ module.exports = function supplyDefaults(traceIn, traceOut, defaultColor, layout
     Lib.coerceSelectionMarkerOpacity(traceOut, coerce);
 };
 
-},{"../../lib":461,"../../registry":555,"../scatter/constants":620,"../scatter/fillcolor_defaults":624,"../scatter/line_defaults":629,"../scatter/marker_defaults":635,"../scatter/period_defaults":636,"../scatter/subtypes":641,"../scatter/text_defaults":642,"../scatter/xy_defaults":643,"./attributes":645,"./helpers":652}],650:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570,"../scatter/constants":635,"../scatter/fillcolor_defaults":639,"../scatter/line_defaults":644,"../scatter/marker_defaults":650,"../scatter/period_defaults":651,"../scatter/subtypes":656,"../scatter/text_defaults":657,"../scatter/xy_defaults":658,"./attributes":660,"./helpers":667}],665:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -118198,7 +118384,7 @@ module.exports = {
     styleTextSelection: styleTextSelection
 };
 
-},{"../../components/color":331,"../../constants/interactions":437,"../../lib":461}],651:[function(_dereq_,module,exports){
+},{"../../components/color":346,"../../constants/interactions":452,"../../lib":476}],666:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -118218,7 +118404,7 @@ module.exports = function formatLabels(cdi, trace, fullLayout) {
     return scatterFormatLabels(cdi, trace, fullLayout);
 };
 
-},{"../scatter/format_labels":625}],652:[function(_dereq_,module,exports){
+},{"../scatter/format_labels":640}],667:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -118243,7 +118429,7 @@ exports.isDotSymbol = function(symbol) {
         symbol > 200;
 };
 
-},{"./constants":647}],653:[function(_dereq_,module,exports){
+},{"./constants":662}],668:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -118443,7 +118629,7 @@ module.exports = {
     calcHover: calcHover
 };
 
-},{"../../lib":461,"../../registry":555,"../scatter/get_trace_color":626}],654:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../registry":570,"../scatter/get_trace_color":641}],669:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -118478,7 +118664,7 @@ module.exports = {
     }
 };
 
-},{"../../plots/cartesian":522,"../scatter/cross_trace_defaults":622,"../scatter/marker_colorbar":634,"./attributes":645,"./calc":646,"./defaults":649,"./format_labels":651,"./hover":653,"./plot":655,"./select":657}],655:[function(_dereq_,module,exports){
+},{"../../plots/cartesian":537,"../scatter/cross_trace_defaults":637,"../scatter/marker_colorbar":649,"./attributes":660,"./calc":661,"./defaults":664,"./format_labels":666,"./hover":668,"./plot":670,"./select":672}],670:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -118847,7 +119033,7 @@ module.exports = function plot(gd, subplot, cdata) {
     }
 };
 
-},{"../../components/dragelement/helpers":349,"../../lib":461,"../../lib/prepare_regl":474,"../scatter/link_traces":632,"../scatter/subtypes":641,"./edit_style":650,"gl-text":191,"regl-error2d":256,"regl-line2d":257,"regl-scatter2d":258}],656:[function(_dereq_,module,exports){
+},{"../../components/dragelement/helpers":364,"../../lib":476,"../../lib/prepare_regl":489,"../scatter/link_traces":647,"../scatter/subtypes":656,"./edit_style":665,"gl-text":195,"regl-error2d":265,"regl-line2d":269,"regl-scatter2d":273}],671:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -119005,7 +119191,7 @@ module.exports = function sceneUpdate(gd, subplot) {
     return scene;
 };
 
-},{"../../lib":461}],657:[function(_dereq_,module,exports){
+},{"../../lib":476}],672:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -119084,7 +119270,7 @@ module.exports = function select(searchInfo, selectionTester) {
     return selection;
 };
 
-},{"../scatter/subtypes":641,"./edit_style":650}],658:[function(_dereq_,module,exports){
+},{"../scatter/subtypes":656,"./edit_style":665}],673:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -119251,7 +119437,7 @@ module.exports = {
     opacity: scatterGlAttrs.opacity
 };
 
-},{"../../components/colorscale/attributes":338,"../../lib/extend":453,"../../plot_api/plot_template":498,"../../plots/cartesian/constants":515,"../../plots/template_attributes":554,"../scatter/attributes":616,"../scattergl/attributes":645}],659:[function(_dereq_,module,exports){
+},{"../../components/colorscale/attributes":353,"../../lib/extend":468,"../../plot_api/plot_template":513,"../../plots/cartesian/constants":530,"../../plots/template_attributes":569,"../scatter/attributes":631,"../scattergl/attributes":660}],674:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -119470,7 +119656,7 @@ module.exports = {
     toSVG: Cartesian.toSVG
 };
 
-},{"../../lib/prepare_regl":474,"../../plots/cartesian":522,"../../plots/cartesian/axes":509,"../../plots/cartesian/axis_ids":512,"../../plots/get_data":539,"../../registry":555,"regl-line2d":257}],660:[function(_dereq_,module,exports){
+},{"../../lib/prepare_regl":489,"../../plots/cartesian":537,"../../plots/cartesian/axes":524,"../../plots/cartesian/axis_ids":527,"../../plots/get_data":554,"../../registry":570,"regl-line2d":269}],675:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -119581,7 +119767,7 @@ module.exports = function calc(gd, trace) {
     return [{x: false, y: false, t: {}, trace: trace}];
 };
 
-},{"../../constants/numerical":438,"../../lib":461,"../../plots/cartesian/axis_ids":512,"../scatter/calc":617,"../scatter/colorscale_calc":619,"../scattergl/constants":647,"../scattergl/convert":648,"./scene_update":667}],661:[function(_dereq_,module,exports){
+},{"../../constants/numerical":453,"../../lib":476,"../../plots/cartesian/axis_ids":527,"../scatter/calc":632,"../scatter/colorscale_calc":634,"../scattergl/constants":662,"../scattergl/convert":663,"./scene_update":682}],676:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -119758,7 +119944,7 @@ function handleAxisDefaults(traceIn, traceOut, layout, coerce) {
     }
 }
 
-},{"../../lib":461,"../../plots/array_container_defaults":504,"../parcoords/merge_length":606,"../scatter/marker_defaults":635,"../scatter/subtypes":641,"../scattergl/helpers":652,"./attributes":658}],662:[function(_dereq_,module,exports){
+},{"../../lib":476,"../../plots/array_container_defaults":519,"../parcoords/merge_length":621,"../scatter/marker_defaults":650,"../scatter/subtypes":656,"../scattergl/helpers":667,"./attributes":673}],677:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -119790,7 +119976,7 @@ module.exports = function editStyle(gd, cd0) {
     }
 };
 
-},{"../../lib":461,"../scatter/colorscale_calc":619,"../scattergl/convert":648}],663:[function(_dereq_,module,exports){
+},{"../../lib":476,"../scatter/colorscale_calc":634,"../scattergl/convert":663}],678:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -119814,7 +120000,7 @@ exports.getDimIndex = function getDimIndex(trace, ax) {
     return false;
 };
 
-},{}],664:[function(_dereq_,module,exports){
+},{}],679:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -119875,7 +120061,7 @@ module.exports = {
     hoverPoints: hoverPoints
 };
 
-},{"../scattergl/hover":653,"./helpers":663}],665:[function(_dereq_,module,exports){
+},{"../scattergl/hover":668,"./helpers":678}],680:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -119915,7 +120101,7 @@ module.exports = {
 // register it here
 Registry.register(Grid);
 
-},{"../../components/grid":375,"../../registry":555,"../scatter/marker_colorbar":634,"./attributes":658,"./base_plot":659,"./calc":660,"./defaults":661,"./edit_style":662,"./hover":664,"./plot":666,"./select":668}],666:[function(_dereq_,module,exports){
+},{"../../components/grid":390,"../../registry":570,"../scatter/marker_colorbar":649,"./attributes":673,"./base_plot":674,"./calc":675,"./defaults":676,"./edit_style":677,"./hover":679,"./plot":681,"./select":683}],681:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -120060,7 +120246,7 @@ function plotOne(gd, cd0) {
     }
 }
 
-},{"../../components/dragelement/helpers":349,"../../lib":461,"../../plots/cartesian/axis_ids":512,"regl-splom":259}],667:[function(_dereq_,module,exports){
+},{"../../components/dragelement/helpers":364,"../../lib":476,"../../plots/cartesian/axis_ids":527,"regl-splom":277}],682:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -120132,7 +120318,7 @@ module.exports = function sceneUpdate(gd, trace) {
     return scene;
 };
 
-},{"../../lib":461}],668:[function(_dereq_,module,exports){
+},{"../../lib":476}],683:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -120207,7 +120393,7 @@ module.exports = function select(searchInfo, selectionTester) {
     return selection;
 };
 
-},{"../../lib":461,"../scatter/subtypes":641,"./helpers":663}],669:[function(_dereq_,module,exports){
+},{"../../lib":476,"../scatter/subtypes":656,"./helpers":678}],684:[function(_dereq_,module,exports){
 /**
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
@@ -120219,7 +120405,7 @@ module.exports = function select(searchInfo, selectionTester) {
 'use strict';
 
 // package version injected by `npm run preprocess`
-exports.version = '1.57.1';
+exports.version = '1.57.1-j5int';
 
 },{}]},{},[5])(5)
 });
