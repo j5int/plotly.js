@@ -208,11 +208,11 @@ describe('image smart layout defaults', function() {
         expect(gd._fullLayout.yaxis.scaleanchor).toBe('x');
     });
 
-    it('should NOT set scaleanchor if it\'s already defined', function() {
-        gd.data = [{type: 'image', z: [[[255, 0, 0]]]}];
+    it('should NOT reset scaleanchor if it\'s already defined', function() {
+        gd.data = [{type: 'image', z: [[[255, 0, 0]]]}, {y: [5, 3, 2], xaxis: 'x3'}];
         gd.layout = {yaxis: {scaleanchor: 'x3'}};
         supplyAllDefaults(gd);
-        expect(gd._fullLayout.yaxis.scaleanchor).toBe(undefined);
+        expect(gd._fullLayout.yaxis.scaleanchor).toBe('x3');
     });
 
     it('should constrain axes to domain if images are present', function() {
@@ -233,7 +233,7 @@ describe('image smart layout defaults', function() {
 
     it('should NOT constrain axes to domain if it\'s already defined', function() {
         gd.data = [{type: 'image', z: [[[255, 0, 0]]]}];
-        gd.layout = {yaxis: {constrain: false}, xaxis: {constrain: false}};
+        gd.layout = {yaxis: {constrain: 'range'}, xaxis: {constrain: 'range'}};
         supplyAllDefaults(gd);
         expect(gd._fullLayout.xaxis.constrain).toBe('range');
         expect(gd._fullLayout.yaxis.constrain).toBe('range');
@@ -423,9 +423,7 @@ describe('image plot', function() {
 
     [
       ['yaxis.type', 'log'],
-      ['xaxis.type', 'log'],
-      ['xaxis.range', [50, 0]],
-      ['yaxis.range', [0, 50]]
+      ['xaxis.type', 'log']
     ].forEach(function(attr) {
         it('does not renders pixelated image when the axes are not compatible', function(done) {
             var mock = require('@mocks/image_astronaut_source.json');
@@ -664,6 +662,39 @@ describe('image hover:', function() {
                         nums: test[1],
                         name: ''
                     }, 'variable `' + test[0] + '` should be available!');
+                })
+                .catch(failTest)
+                .then(done);
+            });
+        });
+
+        [
+            [true, true],
+            [true, 'reversed'],  // the default image layout
+            ['reversed', true],
+            ['reversed', 'reversed']
+        ].forEach(function(test) {
+            it('should show correct hover info regardless of axis directions ' + test, function(done) {
+                var mockCopy = Lib.extendDeep({}, mock);
+                mockCopy.layout.xaxis.autorange = test[0];
+                mockCopy.layout.yaxis.autorange = test[1];
+                mockCopy.data[0].colormodel = 'rgba';
+                mockCopy.data[0].hovertemplate = 'x:%{x}, y:%{y}, z:%{z}<extra></extra>';
+                Plotly.newPlot(gd, mockCopy)
+                .then(function() {
+                    var x = 205;
+                    var y = 125;
+
+                    // adjust considering css
+                    if(test[0] === 'reversed') x = 512 - x;
+                    if(test[1] !== 'reversed') y = 512 - y;
+                    _hover(x, y);
+                })
+                .then(function() {
+                    assertHoverLabelContent({
+                        nums: 'x:205, y:125, z:[202, 148, 125, 255]',
+                        name: ''
+                    }, 'positions should be correct!');
                 })
                 .catch(failTest)
                 .then(done);

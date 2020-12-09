@@ -1,5 +1,5 @@
 /**
-* plotly.js v1.57.1-j5int
+* plotly.js v1.58.1-j5int
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 * Licensed under the MIT license
@@ -84,7 +84,7 @@ exports.topojson = saneTopojson;
 'use strict';
 
 // package version injected by `npm run preprocess`
-exports.version = '1.57.1-j5int';
+exports.version = '1.58.1-j5int';
 
 },{}]},{},[16])(16)
 });
