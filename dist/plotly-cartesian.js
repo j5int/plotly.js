@@ -1,5 +1,5 @@
 /**
-* plotly.js (cartesian) v1.58.1-j5int
+* plotly.js (cartesian) v1.58.1-j5int.2
 * Copyright 2012-2020, Plotly, Inc.
 * All rights reserved.
 * Licensed under the MIT license
@@ -34701,7 +34701,7 @@ var isNumeric = _dereq_('fast-isnumeric');
 
 var Lib = _dereq_('../../lib');
 var Icons = _dereq_('../../fonts/ploticon');
-var Parser = new DOMParser();
+var Parser = new window.DOMParser();
 
 /**
  * UI controller for interactive plots
@@ -74942,7 +74942,7 @@ var µ = module.exports = { version: '0.2.2' };
             svg = d3.select(this).select('svg.chart-root');
             if (typeof svg === 'undefined' || svg.empty()) {
                 var skeleton = "<svg xmlns='http://www.w3.org/2000/svg' class='chart-root'>' + '<g class='outer-group'>' + '<g class='chart-group'>' + '<circle class='background-circle'></circle>' + '<g class='geometry-group'></g>' + '<g class='radial axis-group'>' + '<circle class='outside-circle'></circle>' + '</g>' + '<g class='angular axis-group'></g>' + '<g class='guides-group'><line></line><circle r='0'></circle></g>' + '</g>' + '<g class='legend-group'></g>' + '<g class='tooltips-group'></g>' + '<g class='title-group'><text></text></g>' + '</g>' + '</svg>";
-                var doc = new DOMParser().parseFromString(skeleton, 'application/xml');
+                var doc = new window.DOMParser().parseFromString(skeleton, 'application/xml');
                 var newSvg = this.appendChild(this.ownerDocument.importNode(doc.documentElement, true));
                 svg = d3.select(newSvg);
             }
@@ -97845,7 +97845,7 @@ module.exports = function style(gd) {
 'use strict';
 
 // package version injected by `npm run preprocess`
-exports.version = '1.58.1-j5int';
+exports.version = '1.58.1-j5int.2';
 
 },{}]},{},[11])(11)
 });
