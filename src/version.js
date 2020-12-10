@@ -9,4 +9,4 @@
 'use strict';
 
 // package version injected by `npm run preprocess`
-exports.version = '1.57.1-j5int';
+exports.version = '1.58.1-j5int';
