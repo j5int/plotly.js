@@ -14,7 +14,7 @@ var isNumeric = require('fast-isnumeric');
 
 var Lib = require('../../lib');
 var Icons = require('../../fonts/ploticon');
-var Parser = new window.DOMParser();
+var Parser = new DOMParser();
 
 /**
  * UI controller for interactive plots
